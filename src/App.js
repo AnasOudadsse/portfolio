@@ -1,5 +1,5 @@
 import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, useColorModeValue } from '@chakra-ui/react';
-import Header from './Header/Header';
+import Header from './Components/Header/Header';
 
 function App() {
 
