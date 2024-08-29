@@ -1,10 +1,26 @@
-import { ChakraBaseProvider } from '@chakra-ui/react';
+import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, useColorModeValue } from '@chakra-ui/react';
 import Header from './Header/Header';
 
 function App() {
+
+  const config = {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  };
+
+  const theme = extendTheme({ config });
+
   return (
-    <ChakraBaseProvider>
-        <Header/>
+    <ChakraBaseProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Box fontFamily={'inter'}>
+
+          <Header/>
+          <Box>
+           
+          </Box>
+
+      </Box>
     </ChakraBaseProvider>
   );
 }
