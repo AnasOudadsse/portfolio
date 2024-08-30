@@ -52,8 +52,8 @@ const Header = () => {
             height="70px" 
             mx={150}>
         
-            <Heading justifySelf={'start'} >
-                Anas Oudadsse
+            <Heading fontFamily={'sans-serif'}  justifySelf={'start'} fontSize={35}>
+                {`<AO />`}
             </Heading>
 
             <Flex 

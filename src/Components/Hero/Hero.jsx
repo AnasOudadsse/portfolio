@@ -1,7 +1,9 @@
 import React from 'react';
-import { Flex, Text, Image, Box, keyframes,useColorMode , useColorModeValue,  Heading } from '@chakra-ui/react';
+import { Flex, Text, Image, Box, keyframes,useColorMode , useColorModeValue,  Heading, Link } from '@chakra-ui/react';
 import { color } from 'framer-motion';
 import { GrLocation } from "react-icons/gr";
+import { FaLinkedin } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 
 
 
@@ -15,9 +17,7 @@ export const Hero = () => {
     const buttonHoverBg = useColorModeValue('gray.700', 'gray.300')
 
     return (
-    <Box pt={200}
-        bg={bg}
-    >
+    <Box pt={150} bg={bg}>
         <Flex 
             mx={177}
             my={21}
@@ -37,8 +37,6 @@ export const Hero = () => {
             <Text w={'50%'}>
             A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
             </Text>
-
-
  
             <Box
                 w="20%"
@@ -58,19 +56,49 @@ export const Hero = () => {
             </Box>
 
 
-      </Flex>
+        </Flex>
 
-            <Flex
-                mx={182}
-                mt={-150}
+        <Box mx={182} mt={-150}>
 
-            >
+            <Flex>
                 <GrLocation color='' transform='scale(1.5)'/>
-                <Text
-                    ml={5}
-                    fontSize={17}
-                >Casablanca Morocco</Text>
+
+                <Text mt={-1} ml={3} fontSize={17}
+                >Casablanca Morocco
+                </Text>
+        
             </Flex>
+
+            <Flex ml={-1} mt={2}>
+
+                <div className="flex h-6 w-6 items-center justify-center">
+                    <span className="relative flex h-3 w-3">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+                    </span>
+                </div>
+
+                <Text ml={2} fontSize={17}>
+                     Available for new projects
+                </Text>
+            </Flex>
+
+            <Flex mt={10}>
+
+                <Link  ml={1} mr={8} as={'a'} target='_blank' href='https://github.com/AnasOudadsse'>
+                    <FiGithub transform='scale(1.6)' />
+                </Link>
+
+                <Link as={'a'} target='_blank' href='https://www.linkedin.com/in/anas-oudadsse/'>
+                    <FaLinkedin transform='scale(1.6)' />
+                </Link>
+                
+
+
+
+            </Flex>
+      </Box>
+
   </Box>
 
 );
