@@ -1,5 +1,6 @@
-import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, useColorModeValue } from '@chakra-ui/react';
+import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, Text, useColorModeValue } from '@chakra-ui/react';
 import Header from './Components/Header/Header';
+import { Hero } from './Components/Hero/Hero.jsx';
 
 function App() {
 
@@ -13,14 +14,13 @@ function App() {
   return (
     <ChakraBaseProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <Box fontFamily={'inter'}>
+        <Box fontFamily={'inter'}>
 
           <Header/>
-          <Box>
-           
-          </Box>
+          
+          <Hero/>
 
-      </Box>
+        </Box>
     </ChakraBaseProvider>
   );
 }

@@ -44,6 +44,7 @@ const Header = () => {
       transition="background-color 0.3s ease"
       zIndex="1000"
       h={70}
+      mb={20}
 
         >
       <Flex justify={'space-between'} 
