@@ -1,50 +1,71 @@
 import React from 'react';
-import { Flex, Text, Image, Box, keyframes } from '@chakra-ui/react';
+import { Flex, Text, Image, Box, keyframes,useColorMode , useColorModeValue,  Heading } from '@chakra-ui/react';
+import { color } from 'framer-motion';
+import { CiLocationOn } from "react-icons/ci";
 
-// Define the keyframes for the border animation
-const borderAnimation = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-`;
+
+
 export const Hero = () => {
 
+
+    const bg = useColorModeValue('white', 'black');
+    const color = useColorModeValue('black', 'white');
+    const buttonColor = useColorModeValue('white', 'black')
+    const buttonbg = useColorModeValue('black', 'white')
+    const buttonHoverBg = useColorModeValue('gray.700', 'gray.300')
+
     return (
-
-    <Flex align="center">
-    <Text w={'65%'}>
-      A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
-    </Text>
-
-    {/* Frame around the image with animated border */}
-    <Box
-      w="20%"
-      h="20%"
-      position="relative"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      borderRadius="full"
-      p={2}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        borderRadius: 'full',
-        border: '4px solid teal',
-        animation: `${borderAnimation} 5s infinite linear`,
-      }}
+    <Box pt={200}
+        bg={bg}
     >
-      <Image
-        w="full"
-        h="full"
-        src='AnasProfessionalPicWhiteBg-cp.png'
-        borderRadius="full"
-        zIndex={1} // Ensures the image stays above the animated border
-      />
-    </Box>
-  </Flex>
+        <Flex 
+            display={'block'}
+            mx={177}
+            my={30}
+            w={'fit-content'}
+            >
+            <Heading color={color} fontSize={65} as="h1" >
+                Hi, I'm Anas
+            </Heading>
+
+        </Flex>
+
+        <Flex
+            pos={'relative'}
+            justify={'space-around'}
+            mx={20}
+        >
+            <Text w={'50%'}>
+            A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
+            </Text>
+
+
+ 
+            <Box
+                w="20%"
+                h="20%"
+                position="relative"
+                top={-130}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+            >
+                <Image
+                w="90%"
+                h="90%"
+                src='Professional-pic-no-bg-cp.png'
+                borderRadius="full"
+                />
+            </Box>
+
+            <Flex>
+            <CiLocationOn />
+            <Text>Casablanca Morocco</Text>
+            </Flex>
+
+      </Flex>
+
+  </Box>
+
 );
 }
