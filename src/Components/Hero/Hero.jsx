@@ -19,7 +19,6 @@ export const Hero = () => {
     return (
     <Box pt={150} bg={bg}>
         <Flex 
-            mx={177}
             my={21}
             w={'fit-content'}
             >
@@ -38,23 +37,15 @@ export const Hero = () => {
             A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
             </Text>
  
-            <Box
-                w="20%"
-                h="20%"
-                position="relative"
-                top={-130}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Image
-                w="90%"
-                h="90%"
-                src='Professional-pic-no-bg-cp.png'
-                borderRadius="full"
-                />
-            </Box>
-
+            <div className="relative w-1/3 h-1/5 -top-32 flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-[50px] shadow-lg transition-transform duration-500 hover:shadow-2xl transform hover:rotate-3">
+                    <img
+                    src="myPic-croped.jpg"
+                    className="w-full h-4/5 rounded-[50px] transition-transform duration-500 ease-in-out hover:scale-110"
+                    alt="My Portfolio Picture"
+                    />
+                </div>
+            </div>
 
         </Flex>
 
