@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text,useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { PiDownloadLight } from "react-icons/pi";
@@ -7,12 +7,21 @@ import { PiDownloadLight } from "react-icons/pi";
 export const About = () => {
 
 
+    const bg = useColorModeValue('white', 'black');
+    const color = useColorModeValue('black', 'white');
+    const buttonColor = useColorModeValue('white', 'black')
+    const buttonbg = useColorModeValue('black', 'white')
+    const buttonHoverBg = useColorModeValue('gray.700', 'gray.300')
+
+
     return(
         <Flex
+            pos={'relative'}
+            bottom={130}
             justify={'center'}
             w={'75%'}
             m={'auto'}
-            bg={'gray.100'}
+            bg={bg}
             h={'250px'}
             >
 
@@ -51,7 +60,7 @@ export const About = () => {
                     <Text
                         fontSize={'15px'}
                     >
-A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.                    </Text>
+                    A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.                    </Text>
                 </Box>
 
                 <Flex
@@ -67,8 +76,9 @@ A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Larave
                             <Button
                                 fontSize={'14px'}
                                 w={'175px'}
-                                bg={'black'}
-                                color={'white'}
+                                bg={buttonbg}
+                                color={buttonColor}
+                                _hover={{bg :buttonHoverBg}}
                             >
                                 Request Quotation
                             <IoIosArrowRoundForward style={{marginLeft: '5px'}} />
@@ -79,11 +89,12 @@ A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Larave
                             <Button 
                                 fontSize={'14px'}
                                 w={'175px'}
-                                bg={'black'}
-                                color={'white'}
+                                bg={buttonbg}
+                                color={buttonColor}
+                                _hover={{bg : buttonHoverBg}}
                                 mt={2}
                                 >
-                            <PiDownloadLight style={{marginRight: '10px', color : 'white'}} />
+                            <PiDownloadLight style={{marginRight: '10px'}} />
                                 Download CV
                             </Button>
                         </Flex>

@@ -24,6 +24,7 @@ export const Hero = () => {
         p={10}
         bg={bg}
         pt={150}
+        pb={250}
     >
         {/* Text Section */}
         <Box mr={{ base: 0, lg: 30 }} w={'50%'}>
