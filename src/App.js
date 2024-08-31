@@ -1,6 +1,7 @@
 import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, Text, useColorModeValue } from '@chakra-ui/react';
 import Header from './Components/Header/Header';
 import { Hero } from './Components/Hero/Hero.jsx';
+import { About } from './Components/About/About.jsx';
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
           <Header/>
           
           <Hero/>
+
+          <About/> 
 
         </Box>
     </ChakraBaseProvider>
