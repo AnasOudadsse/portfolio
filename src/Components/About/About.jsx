@@ -7,7 +7,7 @@ import { PiDownloadLight } from "react-icons/pi";
 export const About = () => {
 
 
-    const bg = useColorModeValue('white', 'black');
+    const bg = useColorModeValue('#F5F6F7', 'black');
     const color = useColorModeValue('black', 'white');
     const buttonColor = useColorModeValue('white', 'black')
     const buttonbg = useColorModeValue('black', 'white')
@@ -21,26 +21,22 @@ export const About = () => {
             justify={'center'}
             w={'75%'}
             m={'auto'}
-            bg={bg}
             h={'250px'}
             >
 
             <Flex 
                 alignItems={'center'}
-                mr={10}
+                px={10}
+                borderRadius={10}
+                boxShadow={'lg'}
+                bg={bg}
             >
 
                 <Flex
-                    boxSize={230}
-                    align={'center'}
-                    mx={5}
->
+                    boxSize={220}
+                    align={'center'}>
                     <Box
-                        // transform={'scale(0.5)'}
-                        // boxSize={500}
                         m={5}
-
-                        // justify={}
 
                     >
                         <Image 

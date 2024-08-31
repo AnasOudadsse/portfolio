@@ -64,10 +64,10 @@ const Header = () => {
                 >
                 
 
-                <Link _hover={{color : 'black'}} href='#'> About </Link>
-                <Link _hover={{color : 'black'}} href='#'> Skills </Link>
-                <Link _hover={{color : 'black'}} href='#'> Projects </Link>
-                <Link _hover={{color : 'black'}} href='#'> Recomendation </Link>
+                <Link _hover={{color : color}} href='#'> About </Link>
+                <Link _hover={{color : color}} href='#'> Skills </Link>
+                <Link _hover={{color : color}} href='#'> Projects </Link>
+                <Link _hover={{color : color}} href='#'> Recomendation </Link>
 
                 <IconButton
                     onClick={toggleColorMode}
