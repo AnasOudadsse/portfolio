@@ -16,6 +16,8 @@ export const Hero = () => {
     const buttonbg = useColorModeValue('black', 'white')
     const buttonHoverBg = useColorModeValue('gray.700', 'gray.300')
 
+    
+
     return (
         <Flex
         direction={{ base: 'column', lg: 'row' }}
@@ -35,13 +37,13 @@ export const Hero = () => {
                 A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
             </Text>
             <Box mb={10}>
-                <Flex align="center" mb={4}>
+                <Flex align="center" ml={0.5} mb={4}>
                     <GrLocation color={color} transform='scale(1.5)' />
                     <Text mt={-1} ml={3} fontSize={{ base: 'sm', lg: 'md' }}>
                         Casablanca Morocco
                     </Text>
                 </Flex>
-                <Flex align="center" mb={4}>
+                <Flex align="center" ml={-1} mb={5}>
                     <div className="flex h-6 w-6 items-center justify-center">
                         <span className="relative flex h-3 w-3">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -53,7 +55,7 @@ export const Hero = () => {
                     </Text>
                 </Flex>
                 <Flex>
-                    <Link ml={1} mr={4} as={'a'} target='_blank' href='https://github.com/AnasOudadsse'>
+                    <Link ml={1} mr={6} as={'a'} target='_blank' href='https://github.com/AnasOudadsse'>
                         <FiGithub transform='scale(1.6)' color={color} />
                     </Link>
                     <Link as={'a'} target='_blank' href='https://www.linkedin.com/in/anas-oudadsse/'>

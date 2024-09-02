@@ -1,10 +1,16 @@
-import { Box, Button, Flex, Heading, Image, Text,useColorModeValue } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Flex, Heading,keyframes , Image, Text,useColorModeValue } from "@chakra-ui/react";
+import React , {useEffect, useRef, useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { PiDownloadLight } from "react-icons/pi";
 
 
 export const About = () => {
+
+    // Define the fade-in keyframes for the animation
+    const fadeIn = keyframes`
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    `;
 
 
     const bg = useColorModeValue('#F5F6F7', 'black');
@@ -13,6 +19,32 @@ export const About = () => {
     const buttonbg = useColorModeValue('black', 'white')
     const buttonHoverBg = useColorModeValue('gray.700', 'gray.300')
 
+    const [isInView, setIsInView] = useState(false);
+    const ref = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            setIsInView(true);
+            observer.unobserve(ref.current); // Stop observing once it's in view
+          }
+        },
+        {
+          threshold: 0.5, // Trigger when 10% of the component is visible
+        }
+      );
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, []);
 
     return(
         <Flex
@@ -22,6 +54,13 @@ export const About = () => {
             w={'75%'}
             m={'auto'}
             h={'250px'}
+            ref={ref}
+            visibility={isInView ? 'visible' : 'hidden'} // Hidden before it comes into view
+            opacity={isInView ? 1 : 0} // Start hidden
+            animation={isInView ? `${fadeIn} 1s ease-out forwards` : 'none'}
+
+
+
             >
 
             <Flex 
@@ -30,6 +69,7 @@ export const About = () => {
                 borderRadius={10}
                 boxShadow={'lg'}
                 bg={bg}
+
             >
 
                 <Flex
