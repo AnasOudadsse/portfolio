@@ -1,0 +1,35 @@
+[
+    {
+      "logo": "fm6ss-no-bg.png",
+      "company": "Fm6ss",
+      "role": "Independent Freelancer",
+      "description": [
+        "Worked for various clients like Fiskil, Shosho, Crowe MacKay LLP.",
+        "Worked with a variety of technologies, including React, Next.js, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, Firebase, Storybook, Cypress, and others."
+      ],
+      "dateRange": "Nov 2021 - Present"
+    },
+    {
+      "logo": "/path/to/greenapex-logo.png",
+      "company": "GreenApex",
+      "role": "Team Lead",
+      "description": [
+        "Acted as team lead in different projects.",
+        "Brainstormed new ideas & gathered requirements for internal projects.",
+        "Designed architecture of different projects (frontend + backend).",
+        "Worked on enterprise-level projects for a variety of clients.",
+        "Handled sprint planning & task distribution."
+      ],
+      "dateRange": "Jul 2017 - Oct 2021"
+    },
+    {
+      "logo": "/path/to/dotnpixel-logo.png",
+      "company": "dotnpixel",
+      "role": "Full Stack Developer",
+      "description": [
+        "Worked as a full stack developer (React / Laravel)."
+      ],
+      "dateRange": "Dec 2015 - May 2017"
+    }
+  ]
+  
