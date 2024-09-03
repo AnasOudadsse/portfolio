@@ -2,6 +2,8 @@ import { Box, ChakraBaseProvider,extendTheme, ColorModeScript, Text, useColorMod
 import Header from './Components/Header/Header';
 import { Hero } from './Components/Hero/Hero.jsx';
 import { About } from './Components/About/About.jsx';
+import Skills from './Components/Skills/Skills.jsx';
+import Experiences from './Components/Experiences/Experiences.jsx';
 
 function App() {
 
@@ -22,6 +24,10 @@ function App() {
           <Hero/>
 
           <About/> 
+
+          <Skills/>
+
+          <Experiences/>
 
         </Box>
     </ChakraBaseProvider>
