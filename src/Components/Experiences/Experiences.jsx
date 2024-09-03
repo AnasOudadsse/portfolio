@@ -15,13 +15,13 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
       mb={8}
     >
 
-      <Flex p={2} align="center" mb={{ base: 4, md: 0 }}>
-        <Image src={logo} alt={company} w={width} mr={4} />
+      <Flex p={2} align="start" mb={{ base: 4, md: 0 }}>    
+          <Image src={logo} alt={company} w={width} flexShrink={0} alignSelf="flex-start" mr={4} />          
         <Box>
             <Heading size="md" fontWeight="bold" my={5}>
                 {role}
             </Heading>
-            <VStack align="start">
+            <VStack align="start">  
             {description.map((item, index) => (
                 <Text key={index} fontSize="sm" color="gray.700">
                 • {item}
@@ -52,9 +52,9 @@ const Experience = () => {
         <Heading size="lg" textAlign="center">
           Experience
         </Heading>
-        <Text fontSize="md" color="gray.500" textAlign="center">
-          Here is a quick summary of my most recent experiences:
-        </Text>
+          <Text fontSize="md" color="gray.500">
+            Here is a quick summary of my most recent experiences:
+          </Text>
       </VStack>
       {experienceData.map((experience, index) => (
         <ExperienceItem

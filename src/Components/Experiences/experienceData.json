@@ -1,6 +1,6 @@
 [
     {
-      "logo": "FM6SS.webp",
+      "logo": "FM6SS-crop.png",
       "company": "Fm6ss",
       "role": "Independent Freelancer",
       "description": [
@@ -8,7 +8,7 @@
         "Worked with a variety of technologies, including React, Next.js, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, Firebase, Storybook, Cypress, and others."
       ],
       "dateRange": "Nov 2021 - Present",
-      "width" : "250px"
+      "width" : "200px"
     
       
     },
@@ -24,7 +24,7 @@
         "Handled sprint planning & task distribution."
       ],
       "dateRange": "Jul 2017 - Oct 2021",
-      "width" : "150px"
+      "width" : "100px"
 
     },
     {
