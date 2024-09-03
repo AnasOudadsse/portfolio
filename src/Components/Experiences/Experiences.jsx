@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text, VStack, Image } from "@chakra-ui/react";
 import experienceData from './experienceData.json'; // Adjust the path based on your project structure
 
-const ExperienceItem = ({ logo, company, role, description, dateRange }) => {
+const ExperienceItem = ({ logo, company, role, description, dateRange, width }) => {
   return (
     <Flex
       direction={{ base: "column", md: "row" }}
@@ -16,7 +16,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange }) => {
     >
 
       <Flex p={2} align="center" mb={{ base: 4, md: 0 }}>
-        <Image src={logo} alt={company} w={"150px"} mr={4} />
+        <Image src={logo} alt={company} w={width} mr={4} />
         <Box>
             <Heading size="md" fontWeight="bold" my={5}>
                 {role}
@@ -58,6 +58,7 @@ const Experience = () => {
       </VStack>
       {experienceData.map((experience, index) => (
         <ExperienceItem
+          width={experience.width}
           key={index}
           logo={experience.logo}
           company={experience.company}

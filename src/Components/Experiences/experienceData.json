@@ -7,7 +7,10 @@
         "Worked for various clients like Fiskil, Shosho, Crowe MacKay LLP.",
         "Worked with a variety of technologies, including React, Next.js, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, Firebase, Storybook, Cypress, and others."
       ],
-      "dateRange": "Nov 2021 - Present"
+      "dateRange": "Nov 2021 - Present",
+      "width" : "250px"
+    
+      
     },
     {
       "logo": "X-capital-logo.png",
@@ -20,7 +23,9 @@
         "Worked on enterprise-level projects for a variety of clients.",
         "Handled sprint planning & task distribution."
       ],
-      "dateRange": "Jul 2017 - Oct 2021"
+      "dateRange": "Jul 2017 - Oct 2021",
+      "width" : "150px"
+
     },
     {
       "logo": "My-Coach-Logo.svg",
@@ -29,7 +34,8 @@
       "description": [
         "Worked as a full stack developer (React / Laravel)."
       ],
-      "dateRange": "Dec 2015 - May 2017"
+      "dateRange": "Dec 2015 - May 2017",
+      "width" : "150px"
     }
   ]
   
