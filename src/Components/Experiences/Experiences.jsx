@@ -16,7 +16,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange }) => {
     >
 
       <Flex p={2} align="center" mb={{ base: 4, md: 0 }}>
-        <Image src={logo} alt={company} w={"250px"} mr={4} />
+        <Image src={logo} alt={company} w={"150px"} mr={4} />
         <Box>
             <Heading size="md" fontWeight="bold" my={5}>
                 {role}

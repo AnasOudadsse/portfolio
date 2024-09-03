@@ -1,6 +1,6 @@
 [
     {
-      "logo": "fm6ss-no-bg.png",
+      "logo": "FM6SS.webp",
       "company": "Fm6ss",
       "role": "Independent Freelancer",
       "description": [
@@ -10,7 +10,7 @@
       "dateRange": "Nov 2021 - Present"
     },
     {
-      "logo": "/path/to/greenapex-logo.png",
+      "logo": "X-capital-logo.png",
       "company": "GreenApex",
       "role": "Team Lead",
       "description": [
@@ -23,7 +23,7 @@
       "dateRange": "Jul 2017 - Oct 2021"
     },
     {
-      "logo": "/path/to/dotnpixel-logo.png",
+      "logo": "My-Coach-Logo.svg",
       "company": "dotnpixel",
       "role": "Full Stack Developer",
       "description": [
