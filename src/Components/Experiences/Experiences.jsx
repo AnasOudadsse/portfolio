@@ -3,37 +3,44 @@ import experienceData from './experienceData.json'; // Adjust the path based on 
 
 const ExperienceItem = ({ logo, company, role, description, dateRange, width }) => {
   return (
-    <Flex
-      direction={{ base: "column", md: "row" }}
-      bg="white"
-      boxShadow="md"
-      rounded="lg"
-      p={6}
-      align="center"
-      justify="space-between"
-      w="60%"
-      mb={8}
-    >
+<Flex
+  bg="white"
+  boxShadow="md"
+  rounded="lg"
+  p={8}
+  align="center"
+  justify="space-between"
+  mb={8}
+  w="900px"
+>
+  <Flex align="start">
+    <Box mr={4} flexShrink={0} flexBasis="200px">
+      <Image
+        src={logo}
+        alt={company}
+        width={width}
+        objectFit="contain"
+      />
+    </Box>
+    <Box w="500px">
+      <Heading fontSize={'22px'} fontWeight={600} my={3}>
+        {role}
+      </Heading>
+      <VStack align="start">
+        {description.map((item, index) => (
+          <Text key={index} fontSize="md" color="gray.700">
+            • {item}
+          </Text>
+        ))}
+      </VStack>
+    </Box>
+  </Flex>
 
-      <Flex p={2} align="start" mb={{ base: 4, md: 0 }}>    
-          <Image src={logo} alt={company} w={width} flexShrink={0} alignSelf="flex-start" mr={4} />          
-        <Box>
-            <Heading size="md" fontWeight="bold" my={5}>
-                {role}
-            </Heading>
-            <VStack align="start">  
-            {description.map((item, index) => (
-                <Text key={index} fontSize="sm" color="gray.700">
-                • {item}
-            </Text>
-            ))}
-            </VStack>
-        </Box>
-      <Text fontSize="sm" color="gray.500" mb={4} textAlign={{ base: "center", md: "right" }}>
-        {dateRange}
-      </Text>
-        </Flex>
-    </Flex>
+  <Text fontSize="sm" color="gray.500" textAlign='right' alignSelf={'start'}  mt={4}>
+    {dateRange}
+  </Text>
+</Flex>
+
   );
 };
 
