@@ -63,11 +63,14 @@ const Skills = () => {
         hidden: { scale: 0.8, opacity: 0 },
         visible: { scale: 1, opacity: 1, transition: { delay: 0.5 } },
       }} w="full" py="12" px="6">
-  <Flex justify="center" mb="8">
-    <Badge textAlign="center" colorScheme="gray">
-      Skills
-    </Badge>
-  </Flex>
+      <VStack spacing={4} align="center" mb={8}>
+        <Heading size="lg" textAlign="center">
+          Skills
+        </Heading>
+          <Text fontSize="md" color="gray.500">
+            Here is a quick summary of skills:
+          </Text>
+      </VStack>
 
 
         {skillsData.map((section, index) => (

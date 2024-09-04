@@ -6,7 +6,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
 <Flex
   bg="white"
   boxShadow="md"
-  rounded="lg"
+  rounded="xl"
   p={8}
   align="center"
   justify="space-between"
@@ -23,14 +23,20 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
       />
     </Box>
     <Box w="500px">
-      <Heading fontSize={'22px'} fontWeight={600} my={3}>
-        {role}
+      <Heading fontSize="22px" fontWeight={600} my={3} ml={7}>
+          {role}
       </Heading>
       <VStack align="start">
         {description.map((item, index) => (
-          <Text key={index} fontSize="md" color="gray.700">
-            • {item}
-          </Text>
+          <Flex>
+            <Box mr={5} as={'span'}  >
+              •
+            </Box>
+
+            <Text key={index} fontSize="md" color="gray.700">
+              {item}
+            </Text>
+          </Flex>
         ))}
       </VStack>
     </Box>
