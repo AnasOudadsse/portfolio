@@ -12,32 +12,47 @@ const skillsData = [
       { name: "React.js", imgSrc: "react.png" },
       { name: "Bootstrap", imgSrc: "bootstrap.png" },
       { name: "Tailwind Css", imgSrc: "tailwind-css.svg" },
-    ],
-  },
-  {
-    category: "Backend",
-    skills: [
       { name: "PHP", imgSrc: "php.png" },
       { name: "Laravel", imgSrc: "laravel.svg" },
       { name: "Express.js", imgSrc: "express-js.svg" },
       { name: "Nodejs", imgSrc: "node.svg" },
-    ],
-  },
-  {
-    category: "Base de données", 
-    skills: [
       { name: "MySQL", imgSrc: "mysql.svg" },
       { name: "MongoDB", imgSrc: "mongodb.svg" },
-    ],
-  },
-  {
-    category: "Programmation",
-    skills: [
       { name: "C", imgSrc: "c.svg" },
       { name: "Python", imgSrc: "python.svg" },
-      // { name: "Pandas", imgSrc: SiPandas },
+      { name: "Git", imgSrc: "git.png" },
+      { name: "Github", imgSrc: "github.png" },
+      { name: "Linux", imgSrc: "Linux.svg" },
+      { name: "UML", imgSrc: "UML.svg" },
+      { name: "Figma", imgSrc: "icon-figma.svg" },
+
+
     ],
   },
+  // {
+  //   category: "Backend",
+  //   skills: [
+  //     { name: "PHP", imgSrc: "php.png" },
+  //     { name: "Laravel", imgSrc: "laravel.svg" },
+  //     { name: "Express.js", imgSrc: "express-js.svg" },
+  //     { name: "Nodejs", imgSrc: "node.svg" },
+  //   ],
+  // },
+  // {
+  //   category: "Base de données", 
+  //   skills: [
+  //     { name: "MySQL", imgSrc: "mysql.svg" },
+  //     { name: "MongoDB", imgSrc: "mongodb.svg" },
+  //   ],
+  // },
+  // {
+  //   category: "Programmation",
+  //   skills: [
+  //     { name: "C", imgSrc: "c.svg" },
+  //     { name: "Python", imgSrc: "python.svg" },
+  //     // { name: "Pandas", imgSrc: SiPandas },
+  //   ],
+  // },
 
 ];
 
@@ -48,30 +63,33 @@ const Skills = () => {
         hidden: { scale: 0.8, opacity: 0 },
         visible: { scale: 1, opacity: 1, transition: { delay: 0.5 } },
       }} w="full" py="12" px="6">
-        <Heading as="h2" textAlign="center" fontWeight="bold" color="blue.900" mb="8">
-          Skills
-        </Heading>
+  <Flex justify="center" mb="8">
+    <Badge textAlign="center" colorScheme="gray">
+      Skills
+    </Badge>
+  </Flex>
+
 
         {skillsData.map((section, index) => (
-          <VStack key={index} spacing="4" mb="10">
-            <Flex p="8" rounded="2xl" bg="#F5F6F7" justify={'start'} align={'center'}>
-              <Badge               
+          <VStack key={index} spacing="4" mb="10"  transform={'scale(1)'} > 
+              {/* <Badge               
                 colorScheme="blue"
                 fontSize="0.8em"
                 p={2}
-                mr={10}
+                // mr={10}
                 borderRadius="md"
                 zIndex={2}
               >
 
                 {section.category}
-              </Badge>
+              </Badge> */}
+            <Flex p="8" rounded="2xl"  align={'center'}>
 
-              <SimpleGrid display={'flex'} spacing="8"  >
+              <SimpleGrid display={'flex'} spacing="58" flexWrap={'wrap'} justifyContent={'space-around'} mx={20}  >
                 {section.skills.map((skill, i) => (
                   <Flex key={i} direction="column" align="center" fontWeight="bold">
-                      <Image src={skill.imgSrc} w={10} h={10} mb="2" />
-                    <Text fontSize="xl">{skill.name}</Text>
+                      <Image src={skill.imgSrc} w={10} h={10} mb="5" />
+                    <Text color={'gray.600'} fontSize="lg" fontWeight={400}>{skill.name}</Text>
                   </Flex>
                 ))}
               </SimpleGrid>

@@ -69,6 +69,8 @@ export const About = () => {
                 borderRadius={10}
                 boxShadow={'lg'}
                 bg={bg}
+                pos={'relative'}
+                top={50}
 
             >
 

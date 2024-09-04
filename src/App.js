@@ -4,6 +4,7 @@ import { Hero } from './Components/Hero/Hero.jsx';
 import { About } from './Components/About/About.jsx';
 import Skills from './Components/Skills/Skills.jsx';
 import Experiences from './Components/Experiences/Experiences.jsx';
+import Expertise from './Components/Expertise/Expertise.jsx';
 
 function App() {
 
@@ -24,10 +25,13 @@ function App() {
           <Hero/>
 
           <About/> 
+          
+          <Expertise/>
 
           <Skills/>
 
           <Experiences/>
+
 
         </Box>
     </ChakraBaseProvider>

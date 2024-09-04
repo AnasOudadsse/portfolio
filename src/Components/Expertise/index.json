@@ -1,0 +1,25 @@
+{
+    "skills": [
+      {
+        "src": "strategy.svg",
+        "title": "Strategy & Direction",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+      },
+      {
+        "src": "branding.svg",
+        "title": "Branding & Logo",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+      },
+      {
+        "src": "feather-pen 1.svg",
+        "title": "UI & UX Design",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+      },
+      {
+        "src": "web-dev.svg",
+        "title": "Webflow Development",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+      }
+    ]
+  }
+  
