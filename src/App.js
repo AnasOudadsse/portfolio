@@ -5,6 +5,7 @@ import { About } from './Components/About/About.jsx';
 import Skills from './Components/Skills/Skills.jsx';
 import Experiences from './Components/Experiences/Experiences.jsx';
 import Expertise from './Components/Expertise/Expertise.jsx';
+import Projects from './Components/Projects/Project.jsx';
 
 function App() {
 
@@ -25,12 +26,14 @@ function App() {
           <Hero/>
 
           <About/> 
-          
+
           <Expertise/>
 
           <Skills/>
 
           <Experiences/>
+
+          <Projects/>
 
 
         </Box>

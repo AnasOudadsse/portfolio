@@ -6,7 +6,6 @@ import { PiDownloadLight } from "react-icons/pi";
 
 export const About = () => {
 
-    // Define the fade-in keyframes for the animation
     const fadeIn = keyframes`
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -138,8 +137,6 @@ export const About = () => {
                         </Flex>
                     </Box>
                 </Flex>
-
-
 
             </Flex>
 
