@@ -63,15 +63,24 @@ const Skills = () => {
               w="full"
             >
               {section.skills.map((skill, i) => (
-                <VStack key={i} align="center" spacing={4}>
-                  <Image 
-                    src={skill.imgSrc} 
-                    w={10} 
-                    h={10} 
-                    mb={2}
+                <VStack 
+                  key={i} 
+                  align="center" 
+                  spacing={4}
+                  
+                  >
+                  <Box
                     transition="transform 0.3s ease-in-out" 
                     _hover={{ transform: "scale(1.2)" }} 
-                    />
+                  >
+                    <Image 
+                      src={skill.imgSrc} 
+                      w={10} 
+                      h={10} 
+                      mb={2}
+
+                      />
+                  </Box>
                   <Text color="gray.600" fontSize="lg" fontWeight={400}>
                     {skill.name}
                   </Text>
