@@ -41,7 +41,7 @@ const Skills = () => {
         }}
         w="full"
         py={81}
-        px={{ base: "4", md: "6" }}
+        px={8}
       >
         <VStack spacing={4} align="center" mb={8}>
           <Heading size="lg" textAlign="center">
