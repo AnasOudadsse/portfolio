@@ -31,7 +31,7 @@ export const Hero = () => {
             A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
             </Text>
             <Box mb={10}>
-            <Flex align="center" justify={{ base: 'center', lg: 'flex-start' }} mb={4}>
+            <Flex ml={1} align="center" justify={{ base: 'center', lg: 'flex-start' }} mb={4}>
                     <GrLocation color={color} transform='scale(1.5)' />
                     <Text ml={3} fontSize={{ base: 'sm', lg: 'md' }}>
                         Casablanca Morocco
@@ -48,7 +48,7 @@ export const Hero = () => {
                         Available for new projects
                     </Text>
                 </Flex>
-                <Flex mt={4} justify={{ base: 'center', lg: 'flex-start' }}>
+                <Flex mt={4}  justify={{ base: 'center', lg: 'flex-start' }}>
                     <Link href='https://github.com/AnasOudadsse' isExternal mr={4}>
                         <FiGithub size={30} color={color} />
                     </Link>
