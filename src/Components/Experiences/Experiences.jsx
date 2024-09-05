@@ -12,13 +12,18 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
       direction={{ base: "column", lg: "row" }} // Stack vertically on small screens
       justify="space-between"
       mb={8}
-      w="full"
+      w={["full","80%","80%", "full"]}
       maxW="900px" // Ensure max width but allow flexibility on smaller screens
     >
       {/* Logo and Role Section */}
-      <Flex align="start" mb={{ base: 4, lg: 0 }} w="full" flexDirection={{ base: "column", lg: "row" }}>
+      <Flex align="start"  w="full" flexDirection={{ base: "column", lg: "row" }}>
         {/* Company Logo */}
-        <Box mr={4} flexShrink={0} flexBasis={{ base: "100px", lg: "200px" }} mb={{ base: 4, lg: 0 }}>
+        <Box mr={4}
+            flexShrink={0} 
+            flexBasis={{lg: "200px", md : "30px" }} 
+            order={{ base: 1, lg: 1 }} 
+            mb={[5,5,5,0]}
+            >
           <Image
             src={logo}
             alt={company}
@@ -27,15 +32,32 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
           />
         </Box>
 
+        {/* Date Range */}
+        <Text
+          order={{ base: 2, xl:3, lg: 3 , md : 2, }} // The order should change based on the screen size 
+          w={"250px"} 
+          fontSize="sm" 
+          color="gray.500" 
+          alignSelf={'start'} 
+          // textAlign="right" 
+          mt={{ base: 2, lg: 0 }} >
+          {dateRange}
+        </Text>
+        
         {/* Role and Description */}
-        <Box w="full">
-          <Heading fontSize={{ base: "18px", md: "22px" }} fontWeight={600} mb={4}>
+        <Box 
+          order={{ base: 3, xl:2, lg: 2, md: 3 }} 
+          w={["full"]}
+          
+          >
+
+          <Heading fontSize={{ base: "18px", md: "22px" }} fontWeight={600} my={3} ml={7}>
             {role}
           </Heading>
           <VStack align="start">
             {description.map((item, index) => (
               <Flex key={index} align="start" mb={2}>
-                <Box mr={2} as="span">
+                <Box color="gray.700"  transform={'scale(1.2)'} mr={5} as="span">
                   •
                 </Box>
                 <Text fontSize={{ base: "sm", md: "md" }} color="gray.700">
@@ -47,10 +69,6 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
         </Box>
       </Flex>
 
-      {/* Date Range */}
-      <Text fontSize="sm" color="gray.500" textAlign="right" mt={{ base: 2, lg: 0 }}>
-        {dateRange}
-      </Text>
     </Flex>
   );
 };
