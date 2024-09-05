@@ -40,7 +40,7 @@ const Skills = () => {
           visible: { scale: 1, opacity: 1, transition: { delay: 0.5 } },
         }}
         w="full"
-        py="12"
+        py={81}
         px={{ base: "4", md: "6" }}
       >
         <VStack spacing={4} align="center" mb={8}>
@@ -54,9 +54,7 @@ const Skills = () => {
 
         {skillsData.map((section, index) => (
           <VStack key={index} spacing={6} mb={10} w="full">
-            <Heading size="md" textAlign="center">
-              {section.category}
-            </Heading>
+
 
             <SimpleGrid
               columns={{ base: 3, sm: 5, md: 7, lg: 9 }} // Define columns per breakpoint
