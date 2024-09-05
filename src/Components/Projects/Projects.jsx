@@ -31,8 +31,7 @@ const projectsData = [
     repoLink: "https://github.com/AnasOudadsse/myCoach"
   },
 ];
-
-const Projects = () => {
+export const Projects = () => {
 
 
   return (
@@ -127,4 +126,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+// export default Projects;
