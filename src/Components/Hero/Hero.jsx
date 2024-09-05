@@ -3,6 +3,7 @@ import { Flex, Text, Image, Box, keyframes,useColorMode , useColorModeValue,  He
 import { GrLocation } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
+import { SiGmail } from "react-icons/si";
 
 
 
@@ -48,12 +49,15 @@ export const Hero = () => {
                         Available for new projects
                     </Text>
                 </Flex>
-                <Flex mt={4}  justify={{ base: 'center', lg: 'flex-start' }}>
+                <Flex mt={6}  justify={{ base: 'center', lg: 'flex-start' }}>
                     <Link href='https://github.com/AnasOudadsse' isExternal mr={4}>
                         <FiGithub size={30} color={color} />
                     </Link>
-                    <Link href='https://www.linkedin.com/in/anas-oudadsse/' isExternal>
+                    <Link href='https://www.linkedin.com/in/anas-oudadsse/' isExternal mr={4}>
                         <FaLinkedin size={30} color={color} />
+                    </Link>
+                    <Link href='mailto:anas.oudadsse1@gmail.com' isExternal>
+                        <SiGmail  size={30} color={color} />
                     </Link>
                 </Flex>
             </Box>

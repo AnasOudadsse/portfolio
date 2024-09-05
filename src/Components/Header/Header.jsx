@@ -88,16 +88,20 @@ const Header = () => {
               fontWeight={400}         
               display={["none", "none", "none", "flex"]}  // Hidden on small screens
             >
-                <Link _hover={{ color }} href="#">
+                <Link 
+                    _hover={{ color : 'gray.700', fontWeight : 'bold' }} 
+                    href="#"
+                    transition="transform 3s ease-in-out" 
+                    >
                   About
                 </Link>
-                <Link _hover={{ color }} href="#">
+                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
                   Skills
                 </Link>
-                <Link _hover={{ color }} href="#">
+                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
                   Projects
                 </Link>
-                <Link _hover={{ color }} href="#">
+                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
                   Recommendations
                 </Link>
             </Flex>
@@ -139,7 +143,7 @@ const Header = () => {
             borderRadius={13}
             bg={buttonBg}
             h={9}
-            width={{ base: '100px', md: '135px' }}
+            width={{ base: '135px' }}
             _hover={{ bg: buttonHoverBg }}
             fontWeight={500}
           >

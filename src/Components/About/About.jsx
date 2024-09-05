@@ -47,7 +47,7 @@ export const About = () => {
       pos={'relative'}
       bottom={{ base: 0, lg: 130 }}
       justify={'center'}
-      w={{ base: '90%', lg: '75%' }}
+      w={['75%', '80%', "60%"]}
       m={'auto'}
       h={'auto'} // Adjust height to auto for better responsiveness
       ref={ref}
@@ -64,6 +64,7 @@ export const About = () => {
         direction={{ base: 'column', lg: 'row' }} // Stacks vertically on small screens
         pos={'relative'}
         top={{ base: 0, lg: 50 }}
+        w={['75%', '100%', "100%"]}
         p={5}
       >
         {/* Image Section */}
