@@ -11,7 +11,7 @@ const projectsData = [
     tags: ["React", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://example.com", 
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
-    flexDirection: ['column', 'column','row']
+    flexDirection: ['column', 'column', 'column','row']
   },
   {
     title: "My-coach",
@@ -21,7 +21,7 @@ const projectsData = [
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/", 
     repoLink: "https://github.com/AnasOudadsse/myCoach",
-    flexDirection: ['column', 'column','row-reverse', ]
+    flexDirection: ['column', 'column', 'column','row-reverse', ]
   },
   {
     title: "X Capital UI/UX",
@@ -30,7 +30,7 @@ const projectsData = [
     imageSrc: "HomePage.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
-    flexDirection: ['column', 'column','row'],
+    flexDirection: ['column', 'column', 'column','row'],
     repoLink: null // No GitHub link, so GitHub icon should not display
   },
   {
@@ -40,7 +40,7 @@ const projectsData = [
     imageSrc: "Coach details reviews.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
-    flexDirection: ['column', 'column','row-reverse'],
+    flexDirection: ['column', 'column', 'column','row-reverse'],
     repoLink: null // No GitHub link
   },
 ];
@@ -61,7 +61,7 @@ export const Projects = () => {
       {/* Projects Grid */}
       <Grid
         gap={10}
-        w={{ base: "100%", md: "80%" }} 
+        w={["80%","80%","80%","75%"]} 
         mx="auto"
         justifyContent="center" 
       >
@@ -70,7 +70,6 @@ export const Projects = () => {
             key={index}
             display="flex"
             justifySelf="center"
-            
             flexDirection={project.flexDirection}
             bg="white"
             borderRadius="lg"
@@ -78,38 +77,38 @@ export const Projects = () => {
             overflow="hidden"
             w="100%" 
             maxW="1300px" 
-            maxH={["800px","700px","800px","400px"]}
+            maxH={["900px","720px","600px","430px"]}
           >
             {/* Project Image */}
-            <Box  bg="#F5F6F7" w={{ base: "100%", lg: "50%" }} h={["50%","50%","100%",'100%']}>
+            <Box  bg="gray.50" w={{ base: "100%", lg: "50%" }} h={["50%","50%","50%%",'100%']}>
               <Image 
                 transform={'scale(0.8)'}
                 transition="transform 0.5s ease-in-out" 
                 _hover={{ transform: "scale(0.85)" }} 
                 borderRadius="xl" 
-                objectFit="cover" 
+                objectFit="cover"   
                 objectPosition={'top'}
                 src={project.imageSrc} 
                 alt={project.title} 
                 w="full"
                 h="full" 
-                // maxW={"1000px"}
-                // maxH={"00px"}
+                maxW={"800px"}
+                maxH={"500px"}
               />
             </Box>
 
             {/* Project Details */}
-            <Box p={10} w={{ base: "100%", lg: "50%" }}>
+            <Box p={10} w={{ base: "100%", lg: "50%" }} h={["500px","300px","100%",'100%']}>
               <VStack align="start" spacing={4}>
-                <Heading fontWeight={600} size="md">{project.title}</Heading>
-                <Text fontSize="md" color="gray.600">
+                <Heading fontWeight={600} size={["sm","sm","sm","md"]} >{project.title}</Heading>
+                <Text fontSize={["sm","sm","sm","md"]} color="gray.600">
                   {project.description}
                 </Text>
 
                 {/* Tags */}
                 <HStack my={2} wrap="wrap" spacing={2}>
                   {project.tags.map((tag, i) => (
-                    <Tag key={i} size="lg" color="gray.600" bg="#F5F6F7">
+                    <Tag key={i} size={["md","md","md","lg"]} color="gray.600" bg="#F5F6F7">
                       {tag}
                     </Tag>
                   ))}
