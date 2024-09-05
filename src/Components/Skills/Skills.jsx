@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, Text, VStack, SimpleGrid, imgSrc, ChakraProvider, Image, Badge } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, VStack, SimpleGrid, Image, ChakraProvider } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
 
 const skillsData = [
   {
@@ -25,79 +24,55 @@ const skillsData = [
       { name: "Linux", imgSrc: "Linux.svg" },
       { name: "UML", imgSrc: "UML.svg" },
       { name: "Figma", imgSrc: "icon-figma.svg" },
-
-
     ],
   },
-  // {
-  //   category: "Backend",
-  //   skills: [
-  //     { name: "PHP", imgSrc: "php.png" },
-  //     { name: "Laravel", imgSrc: "laravel.svg" },
-  //     { name: "Express.js", imgSrc: "express-js.svg" },
-  //     { name: "Nodejs", imgSrc: "node.svg" },
-  //   ],
-  // },
-  // {
-  //   category: "Base de données", 
-  //   skills: [
-  //     { name: "MySQL", imgSrc: "mysql.svg" },
-  //     { name: "MongoDB", imgSrc: "mongodb.svg" },
-  //   ],
-  // },
-  // {
-  //   category: "Programmation",
-  //   skills: [
-  //     { name: "C", imgSrc: "c.svg" },
-  //     { name: "Python", imgSrc: "python.svg" },
-  //     // { name: "Pandas", imgSrc: SiPandas },
-  //   ],
-  // },
-
 ];
 
 const Skills = () => {
   return (
     <ChakraProvider>
-      <Box as={motion.div} initial="hidden" animate="visible" variants={{
-        hidden: { scale: 0.8, opacity: 0 },
-        visible: { scale: 1, opacity: 1, transition: { delay: 0.5 } },
-      }} w="full" py="12" px="6">
-      <VStack spacing={4} align="center" mb={8}>
-        <Heading size="lg" textAlign="center">
-          Skills
-        </Heading>
+      <Box
+        as={motion.div}
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { scale: 0.8, opacity: 0 },
+          visible: { scale: 1, opacity: 1, transition: { delay: 0.5 } },
+        }}
+        w="full"
+        py="12"
+        px={{ base: "4", md: "6" }}
+      >
+        <VStack spacing={4} align="center" mb={8}>
+          <Heading size="lg" textAlign="center">
+            Skills
+          </Heading>
           <Text fontSize="md" color="gray.500">
             Here is a quick summary of skills:
           </Text>
-      </VStack>
-
+        </VStack>
 
         {skillsData.map((section, index) => (
-          <VStack key={index} spacing="4" mb="10"  transform={'scale(1)'} > 
-              {/* <Badge               
-                colorScheme="blue"
-                fontSize="0.8em"
-                p={2}
-                // mr={10}
-                borderRadius="md"
-                zIndex={2}
-              >
+          <VStack key={index} spacing={6} mb={10} w="full">
+            <Heading size="md" textAlign="center">
+              {section.category}
+            </Heading>
 
-                {section.category}
-              </Badge> */}
-            <Flex p="8" rounded="2xl"  align={'center'}>
-
-              <SimpleGrid display={'flex'} spacing="58" flexWrap={'wrap'} justifyContent={'space-around'} mx={20}  >
-                {section.skills.map((skill, i) => (
-                  <Flex key={i} direction="column" align="center" fontWeight="bold">
-                      <Image src={skill.imgSrc} w={10} h={10} mb="5" />
-                    <Text color={'gray.600'} fontSize="lg" fontWeight={400}>{skill.name}</Text>
-                  </Flex>
-                ))}
-              </SimpleGrid>
-
-            </Flex>
+            <SimpleGrid
+              columns={{ base: 3, sm: 5, md: 7, lg: 9 }} // Define columns per breakpoint
+              spacing={10} // Space between items
+              justifyItems="center" // Center the items horizontally
+              w="full"
+            >
+              {section.skills.map((skill, i) => (
+                <VStack key={i} align="center" spacing={4}>
+                  <Image src={skill.imgSrc} w={10} h={10} mb={2} />
+                  <Text color="gray.600" fontSize="lg" fontWeight={400}>
+                    {skill.name}
+                  </Text>
+                </VStack>
+              ))}
+            </SimpleGrid>
           </VStack>
         ))}
       </Box>

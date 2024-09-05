@@ -5,7 +5,7 @@ import React from "react";
 function Expertise() {
   return (
     <Flex align={'center'}>
-      <Box  py={{ base: 20, md: 28 }} px={{ base: 4, md: 8 }} bg="gray.50" h={"1200px"} minHeight="800px">
+      <Box  py={{ base: 20, md: 28 }} px={{ base: 4, md: 8 }} bg="gray.50" minHeight="800px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">
