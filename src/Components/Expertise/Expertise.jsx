@@ -1,17 +1,29 @@
-import { Box, Heading, Text, Grid, Image, VStack, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Grid, Image, VStack, Flex, useColorModeValue } from "@chakra-ui/react";
 import data from "./index.json";
 import React from "react";
 
 function Expertise() {
+
+  // const { colorMode, toggleColorMode } = useColorMode();
+
+  const bg = useColorModeValue('gray.50', '');
+  const cardbg = useColorModeValue('white', '#2C3E5D')
+  const color = useColorModeValue('#696969', 'gray.300');
+  const scrolledBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgba(0, 0, 0, 0.85)');
+  const buttonColor = useColorModeValue('white', 'black');
+  const buttonBg = useColorModeValue('black', 'white');
+  const buttonHoverBg = useColorModeValue('gray.700', 'gray.300');
+
+
   return (
     <Flex align={'center'}>
-      <Box  py={{ base: 20, md: 28 }} px={10} bg="gray.50" minHeight="550px">
+      <Box  py={{ base: 20, md: 28 }} px={10} bg={bg} minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">
             Expertise
           </Heading>
-          <Text fontSize="lg" color="gray.500" textAlign="center" maxW="600px">
+          <Text fontSize="lg" color={color} textAlign="center" maxW="600px">
             Here is a quick overview of my core skills and expertise:
           </Text>
         </VStack>
@@ -26,7 +38,7 @@ function Expertise() {
           {data?.skills?.map((item, index) => (
             <Box
               key={index}
-              bg="white"
+              bg={cardbg}
               borderRadius="md"
               p={10}
               boxShadow="md"
@@ -34,7 +46,7 @@ function Expertise() {
               _hover={{
                 transform: "translateY(-10px)", // Add a subtle lift on hover
                 borderBottom: "4px solid",
-                borderBottomColor: "black",
+                borderBottomColor: "gray.300",
               }}
             >
               <VStack align="flex-start" spacing={4}>
@@ -55,10 +67,10 @@ function Expertise() {
 
                 {/* Card Content */}
                 <VStack align="flex-start" spacing={2}>
-                  <Heading size="md" fontWeight="bold">
+                  <Heading  size="md" fontWeight="bold">
                     {item.title}
                   </Heading>
-                  <Text fontSize="sm" color="gray.600" _hover={{ color: "blue.600" }}>
+                  <Text fontSize="sm" color={color} _hover={{ color: "white" }}>
                     {item.description}
                   </Text>
                 </VStack>
