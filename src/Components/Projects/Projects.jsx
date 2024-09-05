@@ -28,6 +28,8 @@ const projectsData = [
     imageSrc: "HomePage.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
+    display : 'none'
+
   },
   {
     title: "X Capital UI/UX",
@@ -36,6 +38,7 @@ const projectsData = [
     imageSrc: "Coach details reviews.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
+    display : 'none'
   },
 ];
 export const Projects = () => {
@@ -119,7 +122,7 @@ export const Projects = () => {
               </Link>
               <Link href={project.repoLink} isExternal>
                 <HStack align="center" spacing={1}>
-                <Icon boxSize={'30px'} borderRadius={'md'} p={1}  as={FiGithub} color="gray.700" />
+                <Icon boxSize={'30px'} display={project.display} borderRadius={'md'} p={1}  as={FiGithub} color="gray.700" />
                 </HStack>
               </Link>
             </Flex>
@@ -133,4 +136,3 @@ export const Projects = () => {
   );
 };
 
-// export default Projects;
