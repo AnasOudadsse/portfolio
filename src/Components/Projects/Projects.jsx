@@ -10,7 +10,9 @@ const projectsData = [
     imageSrc: "BloodNationHP.png", 
     tags: ["React", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://example.com", 
-    repoLink: "https://github.com/AnasOudadsse/BloodBankManagement"
+    repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
+    flexDirection : 'row'
+
   },
   {
     title: "My-coach",
@@ -19,7 +21,9 @@ const projectsData = [
     imageSrc: "My-coach-Lp.png", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/", 
-    repoLink: "https://github.com/AnasOudadsse/myCoach"
+    repoLink: "https://github.com/AnasOudadsse/myCoach",
+    flexDirection : 'row-reverse'
+
   },
   {
     title: "X Capital UI/UX",
@@ -28,7 +32,9 @@ const projectsData = [
     imageSrc: "HomePage.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
-    display : 'none'
+    display : 'none',
+    flexDirection : 'row'
+
 
   },
   {
@@ -38,18 +44,19 @@ const projectsData = [
     imageSrc: "Coach details reviews.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
     externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
-    display : 'none'
+    display : 'none',
+    flexDirection : 'row-reverse'
   },
 ];
 export const Projects = () => {
 
 
   return (
-<Box py={16} px={{ base: 4, md: 8 }} bg="gray.50">
+<Box py={16} px={{ base: 4, md: 8 }} bg="white">
   {/* Heading and Subtitle */}
   <VStack align="center" mb={12}>
-    <Heading size="lg" textAlign="center" color="gray.600" mb={4}>
-      Work
+    <Heading size="lg" mb={4}>
+      Projects
     </Heading>
     <Text fontSize="lg" color="gray.500" textAlign="center">
       Some of the noteworthy projects I have built:
@@ -68,7 +75,7 @@ export const Projects = () => {
         key={index}
         display="flex"
         justifySelf="center"
-        flexDirection={{ base: "column", lg: "row" }}
+        flexDirection={project.flexDirection}
         bg="white"
         borderRadius="lg"
         boxShadow="md"
@@ -76,6 +83,8 @@ export const Projects = () => {
         w="100%" 
         maxW="1300px" 
         maxH={"400px"}
+        // mb={8}
+
       >
         {/* Project Image */}
         <Box  bg={'#F5F6F7'} w={{ base: "100%", lg: "50%" }} h={"100%"}>
