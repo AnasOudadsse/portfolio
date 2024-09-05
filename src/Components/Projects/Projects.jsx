@@ -22,13 +22,20 @@ const projectsData = [
     repoLink: "https://github.com/AnasOudadsse/myCoach"
   },
   {
-    title: "My-coach",
+    title: "X Capital UI/UX",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-    imageSrc: "My-coach-Lp.png", 
+    imageSrc: "HomePage.jpg", 
     tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
-    externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/", 
-    repoLink: "https://github.com/AnasOudadsse/myCoach"
+    externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
+  },
+  {
+    title: "X Capital UI/UX",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+    imageSrc: "Coach details reviews.jpg", 
+    tags: ["React","Styled Components", "Tailwindcss", "Figma", "Laravel", "MySQL", "Git"],
+    externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
   },
 ];
 export const Projects = () => {
