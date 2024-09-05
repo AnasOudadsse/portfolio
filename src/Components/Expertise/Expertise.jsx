@@ -5,7 +5,7 @@ import React from "react";
 function Expertise() {
   return (
     <Flex align={'center'}>
-      <Box  py={{ base: 20, md: 28 }} px={{ base: 4, md: 8 }} bg="gray.50" minHeight="550px">
+      <Box  py={{ base: 20, md: 28 }} px={10} bg="gray.50" minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">
@@ -18,7 +18,7 @@ function Expertise() {
 
         {/* Skills Cards Grid */}
         <Grid
-          templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }}
+          templateColumns={{ base: "1fr", md : "repeat(2, 1fr)",  sm: "repeat(1, 1fr)", lg: "repeat(4, 1fr)" }}
           gap={8}
           justifyContent="center"
           
