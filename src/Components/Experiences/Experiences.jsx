@@ -35,7 +35,14 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
             width={width}
             objectFit="contain"
           />
+
+          {/* <Box mt={5}>
+            <Text  fontFamily={'overpass'} fontSize={'lg'} fontWeight={800} color={color}>
+                {company}
+            </Text> 
+          </Box> */}
         </Box>
+
 
         {/* Date Range */}
         <Text
@@ -114,6 +121,7 @@ const Experience = () => {
           role={experience.role}
           dateRange={experience.dateRange}
           description={experience.description}
+          // company={experience.company}
         />
       ))}
     </Flex>

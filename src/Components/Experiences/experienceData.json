@@ -1,7 +1,7 @@
 [
     {
-      "logo": "FM6SS-logo.png",
-      "company": "Fm6ss",
+      "logo": "FM6SS-crop.png",
+      "company": "Fondation Mohammed VI des Sciences et de la Santé",
       "role": "Independent Freelancer",
       "description": [
         "Worked for various clients like Fiskil, Shosho, Crowe MacKay LLP.",
@@ -14,7 +14,7 @@
     },
     {
       "logo": "X-capital-logo.png",
-      "company": "GreenApex",
+      "company": "X Capital",
       "role": "Team Lead",
       "description": [
         "Acted as team lead in different projects.",
@@ -29,7 +29,7 @@
     },
     {
       "logo": "My-Coach-Logo.svg",
-      "company": "dotnpixel",
+      "company": "My Coach",
       "role": "Full Stack Developer",
       "description": [
         "Worked as a full stack developer (React / Laravel)."
