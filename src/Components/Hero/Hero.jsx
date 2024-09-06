@@ -10,7 +10,7 @@ import { SiGmail } from "react-icons/si";
 export const Hero = () => {
 
 
-    const bg = useColorModeValue('white', 'black');
+    const bg = useColorModeValue('white', '#161A1D');
     const color = useColorModeValue('black', 'white');
 
     return (
