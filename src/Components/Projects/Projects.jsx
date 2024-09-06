@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Text, Tag, VStack, Image, Link, HStack, Icon, Flex } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text,useColorModeValue, Tag, VStack, Image, Link, HStack, Icon, Flex } from "@chakra-ui/react";
 import { FiExternalLink } from "react-icons/fi";
 import { FiGithub } from "react-icons/fi";
 
@@ -46,14 +46,22 @@ const projectsData = [
 ];
 
 export const Projects = () => {
+
+  const bg = useColorModeValue('white', '#161A1D');
+  const imgBg = useColorModeValue('gray.50', '#38414A');
+  const color = useColorModeValue('black', 'white');
+  const cardbg = useColorModeValue('white', '#2C333A')
+
+
+
   return (
-    <Box py={16} px={{ base: 4, md: 8 }} bg="white">
+    <Box py={16} px={{ base: 4, md: 8 }} bg={bg}>
       {/* Heading and Subtitle */}
       <VStack align="center" mb={12}>
         <Heading size="lg" mb={4}>
           Projects
         </Heading>
-        <Text fontSize="lg" color="gray.500" textAlign="center">
+        <Text fontSize="lg" color={color} textAlign="center">
           Some of the noteworthy projects I have built:
         </Text>
       </VStack>
@@ -71,7 +79,7 @@ export const Projects = () => {
             display="flex"
             justifySelf="center"
             flexDirection={project.flexDirection}
-            bg="white"
+            bg={cardbg}
             borderRadius="lg"
             boxShadow="md"
             overflow="hidden"
@@ -80,7 +88,7 @@ export const Projects = () => {
             maxH={["900px","720px","600px","430px"]}
           >
             {/* Project Image */}
-            <Box  bg="gray.50" w={{ base: "100%", lg: "50%" }} h={["50%","50%","50%%",'100%']}>
+            <Box  bg={imgBg} w={{ base: "100%", lg: "50%" }} h={["50%","50%","50%%",'100%']}>
               <Image 
                 transform={'scale(0.8)'}
                 transition="transform 0.5s ease-in-out" 
@@ -101,14 +109,14 @@ export const Projects = () => {
             <Box p={10} w={{ base: "100%", lg: "50%" }} h={["500px","300px","100%",'100%']}>
               <VStack align="start" spacing={4}>
                 <Heading fontWeight={600} size={["sm","sm","sm","md"]} >{project.title}</Heading>
-                <Text fontSize={["sm","sm","sm","md"]} color="gray.600">
+                <Text fontSize={["sm","sm","sm","md"]} color={color}>
                   {project.description}
                 </Text>
 
                 {/* Tags */}
                 <HStack my={2} wrap="wrap" spacing={2}>
                   {project.tags.map((tag, i) => (
-                    <Tag key={i} size={["md","md","md","lg"]} color="gray.600" bg="#F5F6F7">
+                    <Tag key={i} size={["md","md","md","lg"]} color={color} bg={imgBg}>
                       {tag}
                     </Tag>
                   ))}
@@ -118,13 +126,13 @@ export const Projects = () => {
                 <Flex>
                   <Link mr={2} href={project.externalLink} isExternal>
                     <HStack align="center" spacing={1}>
-                      <Icon boxSize="30px" borderRadius="md" p={1} as={FiExternalLink} color="gray.700" />
+                      <Icon boxSize="30px" borderRadius="md" p={1} as={FiExternalLink} color={color} />
                     </HStack>
                   </Link>
                   {project.repoLink && (
                     <Link href={project.repoLink} isExternal>
                       <HStack align="center" spacing={1}>
-                        <Icon boxSize="30px" borderRadius="md" p={1} as={FiGithub} color="gray.700" />
+                        <Icon boxSize="30px" borderRadius="md" p={1} as={FiGithub} color={color} />
                       </HStack>
                     </Link>
                   )}
