@@ -14,7 +14,7 @@ function Expertise() {
 
   return (
     <Flex align={'center'} >
-      <Box  px={10} pb={200} pt={[500,350,500,250,250]} bg={bg} minHeight="550px">
+      <Box  px={10} pb={[100, 150, 200]} pt={[500,350,500,250,250]} bg={bg} minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">

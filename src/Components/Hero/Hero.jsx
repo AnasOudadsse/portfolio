@@ -63,7 +63,7 @@ export const Hero = () => {
         </Box>
 
         {/* Image Section */}
-        <Box boxSize={[100,300,400]}  display="flex" alignItems="flex-end" justifyContent="center">
+        <Box boxSize={[200,250,300,400]}  display="flex" alignItems="flex-end" justifyContent="center">
             <div className="relative w-full max-w-md">
                 <div className="relative overflow-hidden rounded-[50px] shadow-lg transition-transform duration-500 hover:shadow-2xl transform hover:rotate-3">
                     <img
