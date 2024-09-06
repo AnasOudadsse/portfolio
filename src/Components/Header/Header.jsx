@@ -15,9 +15,9 @@ import { FaBars } from "react-icons/fa6";
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const bg = useColorModeValue('white', ' ');
+  const bg = useColorModeValue('white', '#161A1D');
   const color = useColorModeValue('#696969', 'white');
-  const scrolledBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgba(0, 0, 0, 0.85)');
+  const scrolledBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgb(22, 26, 29, 0.95)' );
   const buttonColor = useColorModeValue('white', 'black');
   const buttonBg = useColorModeValue('black', 'white');
   const buttonHoverBg = useColorModeValue('gray.700', 'gray.300');
