@@ -7,7 +7,7 @@ function Expertise() {
   // const { colorMode, toggleColorMode } = useColorMode();
 
   const bg = useColorModeValue('gray.50', '#22272B');
-  const cardbg = useColorModeValue('white', '#2C3E5D')
+  const cardbg = useColorModeValue('white', '#2C333A')
   const color = useColorModeValue('#696969', 'gray.300');
   const scrolledBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgba(0, 0, 0, 0.85)');
   const buttonColor = useColorModeValue('white', 'black');

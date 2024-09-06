@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, VStack, SimpleGrid, Image, ChakraProvider } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, VStack,useColorModeValue, SimpleGrid, Image, ChakraProvider } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const skillsData = [
@@ -29,9 +29,15 @@ const skillsData = [
 ];
 
 const Skills = () => {
+
+  const bg = useColorModeValue('white', '#161A1D');
+  const color = useColorModeValue('black', 'white');
+
+
   return (
     <ChakraProvider>
       <Box
+        bg={bg}
         as={motion.div}
         initial="hidden"
         animate="visible"
@@ -47,7 +53,7 @@ const Skills = () => {
           <Heading size="lg" textAlign="center">
             Skills
           </Heading>
-          <Text fontSize="md" color="gray.500">
+          <Text fontSize="md" color={color}>
             Here is a quick summary of skills:
           </Text>
         </VStack>
@@ -81,7 +87,7 @@ const Skills = () => {
 
                       />
                   </Box>
-                  <Text color="gray.600" fontSize="lg" fontWeight={400}>
+                  <Text color={color} fontSize="lg" fontWeight={400}>
                     {skill.name}
                   </Text>
                 </VStack>
