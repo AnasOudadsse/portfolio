@@ -1,10 +1,15 @@
-import { Box, Flex, Heading, Text, VStack, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading,useColorModeValue, Text, VStack, Image } from "@chakra-ui/react";
 import experienceData from './experienceData.json'; // Adjust the path based on your project structure
 
 const ExperienceItem = ({ logo, company, role, description, dateRange, width }) => {
+
+
+  const cardbg = useColorModeValue('white', '#2C333A')
+  const color = useColorModeValue('#696969', 'gray.300');
+
   return (
     <Flex
-      bg="white"
+      bg={cardbg}
       boxShadow="md"
       rounded="xl"
       p={6}
@@ -37,7 +42,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
           order={{ base: 2, xl:3, lg: 3 , md : 2, }} // The order should change based on the screen size 
           w={"250px"} 
           fontSize="sm" 
-          color="gray.500" 
+          color={color} 
           alignSelf={'start'} 
           // textAlign="right" 
           mt={{ base: 2, lg: 0 }} >
@@ -57,10 +62,11 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
           <VStack align="start">
             {description.map((item, index) => (
               <Flex key={index} align="start" mb={2}>
-                <Box color="gray.700"  transform={'scale(1.2)'} mr={5} as="span">
+                <Box color={color}  transform={'scale(1.2)'} mr={5} as="span">
                   •
                 </Box>
-                <Text fontSize={{ base: "sm", md: "md" }} color="gray.700">
+                <Text fontSize={{ base: "sm", md: "md" }}  color={color} 
+                >
                   {item}
                 </Text>
               </Flex>
@@ -74,12 +80,17 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
 };
 
 const Experience = () => {
+
+  const bg = useColorModeValue('gray.50', '#22272B');
+  const color = useColorModeValue('#696969', 'gray.300');
+
+
   return (
     <Flex
       justify="center"
       align="center"
       direction="column"
-      bg="gray.50"
+      bg={bg}
       py={12}
       px={{ base: 4, md: 8 }}
       minHeight="100vh"
@@ -88,7 +99,7 @@ const Experience = () => {
         <Heading size="lg" textAlign="center">
           Experience
         </Heading>
-        <Text fontSize="md" color="gray.500">
+        <Text fontSize="md" color={color}>
           Here is a quick summary of my most recent experiences:
         </Text>
       </VStack>
