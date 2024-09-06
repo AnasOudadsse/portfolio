@@ -12,7 +12,6 @@ export const About = () => {
   const bg = useColorModeValue('#F5F6F7', '#282E33');
   const bgtop = useColorModeValue('white', '#161A1D');
   const bgbottom = useColorModeValue('gray.50', '#22272B');
-  const color = useColorModeValue('black', 'white');
   const buttonColor = useColorModeValue('white', 'black');
   const buttonbg = useColorModeValue('black', 'white');
   const buttonHoverBg = useColorModeValue('gray.700', 'gray.300');
@@ -45,14 +44,18 @@ export const About = () => {
   }, []);
 
   return (
-    <Box >
+    <Box
+
+    >
+
       <Box
         bg={bgtop}
-        h={"18vh"}
+        h={["50vh","50vh","50vh","20vh","20vh"]}
         zIndex={1}
       >
 
         <Flex 
+          alignContent={'center'}
           zIndex={2}
           pos={'relative'}
           // bottom={{ base: 0, lg: 130 }}
@@ -128,10 +131,11 @@ export const About = () => {
             </Flex>
           </Flex>
         </Flex>
-      </Box>
-      <Box zIndex={1} bg={bgbottom}  h={"18vh"}>
+      <Box zIndex={1} bg={bgbottom}  h={["20vh"]} >
 
       </Box>
+      </Box>
+
     </Box> 
   );
 };

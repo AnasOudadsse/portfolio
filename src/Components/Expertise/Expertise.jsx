@@ -9,15 +9,12 @@ function Expertise() {
   const bg = useColorModeValue('gray.50', '#22272B');
   const cardbg = useColorModeValue('white', '#2C333A')
   const color = useColorModeValue('#696969', 'gray.300');
-  const scrolledBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgba(0, 0, 0, 0.85)');
-  const buttonColor = useColorModeValue('white', 'black');
-  const buttonBg = useColorModeValue('black', 'white');
-  const buttonHoverBg = useColorModeValue('gray.700', 'gray.300');
+
 
 
   return (
-    <Flex align={'center'}>
-      <Box  py={{ base: 20, md: 28 }} px={10} bg={bg} minHeight="550px">
+    <Flex align={'center'} >
+      <Box  px={10} pb={200} pt={[500,350,500,250,250]} bg={bg} minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">

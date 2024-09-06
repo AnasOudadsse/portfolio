@@ -21,8 +21,7 @@ export const Hero = () => {
         p={10}
         bg={bg}
         pt={{ base: '100px', lg: '150px' }}
-        pb={{ base: '100px', lg: '250px' }}
-    >
+        pb={[200,225,300,150,175]}    >
         {/* Text Section */}
         <Box mr={{ base: 0, lg: 10 }} w={{ base: '100%', lg: '50%' }} textAlign={{ base: 'center', lg: 'left' }} mb={{ base: 10, lg: 0 }}>
             <Heading color={color} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} mb={4}>
