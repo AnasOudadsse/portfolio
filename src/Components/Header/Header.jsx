@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Button, Flex, Heading,DrawerBody, Text, DrawerCloseButton,scrollToSection,DrawerContent,DrawerOverlay,Stack,Drawer, IconButton, Link, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { FaBars } from "react-icons/fa6";
+import { space } from 'postcss/lib/list';
 
 
 // const scrollToSection = (sectionId) => {
@@ -81,30 +82,44 @@ const Header = () => {
           color={color} 
           fontWeight={400}
           >
-            <Flex  
-              align="center" 
-              gap={{ base: '15px', md: '30px' }} 
-              color={color} 
-              fontWeight={400}         
-              display={["none", "none", "none", "flex"]}  // Hidden on small screens
+          <Flex  
+            align="center" 
+            gap={{ base: '15px', md: '30px' }} 
+            color={color} 
+            fontWeight={400}         
+            display={["none", "none", "none", "flex"]}
+            justify={'space-around'}
+          >
+            <Link 
+                _hover={{ color: 'gray.700', fontWeight: 'bold' }} 
+                href="#"
+                minWidth="80px"  // Set a fixed min-width
             >
-                <Link 
-                    _hover={{ color : 'gray.700', fontWeight : 'bold' }} 
-                    href="#"
-                    transition="transform 3s ease-in-out" 
-                    >
-                  About
-                </Link>
-                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
-                  Skills
-                </Link>
-                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
-                  Projects
-                </Link>
-                <Link _hover={{ color : color, fontWeight : 'bold' }} href="#">
-                  Recommendations
-                </Link>
-            </Flex>
+              About
+            </Link>
+            <Link 
+                _hover={{ color: color, fontWeight: 'bold' }} 
+                href="#"
+                minWidth="80px"
+            >
+              Skills
+            </Link>
+            <Link 
+                _hover={{ color: color, fontWeight: 'bold' }} 
+                href="#"
+                minWidth="80px"
+            >
+              Projects
+            </Link>
+            <Link 
+                _hover={{ color: color, fontWeight: 'bold' }} 
+                href="#"
+                minWidth="150px"
+            >
+              Recommendations
+            </Link>
+          </Flex>
+
 
 
           <IconButton

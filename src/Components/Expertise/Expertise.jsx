@@ -9,6 +9,8 @@ function Expertise() {
   const bg = useColorModeValue('gray.50', '#22272B');
   const cardbg = useColorModeValue('white', '#2C333A')
   const color = useColorModeValue('#696969', 'gray.300');
+  const text = useColorModeValue('#696969', 'blue.300');
+
 
 
 
@@ -67,7 +69,7 @@ function Expertise() {
                   <Heading  size="md" fontWeight="bold">
                     {item.title}
                   </Heading>
-                  <Text fontSize="sm" color={color} _hover={{ color: "white" }}>
+                  <Text fontSize="sm" color={color} _hover={{ color: text }}>
                     {item.description}
                   </Text>
                 </VStack>
