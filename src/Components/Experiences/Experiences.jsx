@@ -6,85 +6,88 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
 
   const cardbg = useColorModeValue('white', '#2C333A')
   const color = useColorModeValue('#696969', 'gray.300');
+  const Datecolor = useColorModeValue('gray.700', 'gray.300');
 
   return (
     <Flex
-      bg={cardbg}
-      boxShadow="md"
-      rounded="xl"
-      py={6}
-      px={5}
-      align={{ base: "flex-start", lg: "center" }}
-      direction={{ base: "column", lg: "row" }} // Stack vertically on small screens
-      justify="space-between"
-      mb={8}
-      w={["full","80%","80%", "60%"]}
-      maxW="900px" // Ensure max width but allow flexibility on smaller screens
+    bg={cardbg}
+    boxShadow="md"
+    rounded="xl"
+    py={10}
+    px={'50px'}
+    direction={{ base: "column", lg: "row" }} // Stack vertically on small screens
+    justify="space-between"
+    align="start"
+    mb={8}
+    w={["full", "80%", "80%", "60%"]}
+    maxW="900px" // Ensure max width but allow flexibility on smaller screens
+  >
+    {/* Logo and Role Section */}
+    <Box flex="1" w="full">
+      <Box 
+          ml={[0,0,0,5]}
+          textAlign={{ base: "center", lg: "left" }}
+        order={{ base: 1, lg: 1 }}
+      >
+        {/* Company Logo */}
+        <Image
+          src={logo}
+          alt={company}
+          width={width}
+          objectFit="contain"
+          mx={{ base: "auto", lg: "0" }} // Center the logo on small screens
+          mb={10}
+        />
+  
+        {/* Role Heading */}
+        <Heading
+          fontSize={{ base: "18px", md: "22px" }}
+          fontWeight={600}
+          mt={4} // Spacing between logo and heading
+          mb={4}
+          ml={[0,0,0,10]}
+          textAlign={{ base: "center", lg: "left" }}
+        >
+          {role}
+        </Heading>
+      </Box>
+  
+      {/* Description with Bullet Points */}
+      <VStack
+        align={{ base: "center", lg: "flex-start" }}
+        spacing={3}
+        order={{ base: 3, lg: 3 }}
+        w="full"
+        ml={[0,0,0,25]}
+        >
+        {description.map((item, index) => (
+          <Flex key={index} align="start" w="full">
+            <Box color={color} transform="scale(1.2)" mr={2} as="span">
+              •
+            </Box>
+            <Text fontSize={{ base: "sm", md: "md" }} color={color}>
+              {item}
+            </Text>
+          </Flex>
+        ))}
+      </VStack>
+    </Box>
+  
+    {/* Date Range */}
+    <Text
+      w="250px"
+      fontSize="sm"
+      fontWeight={500}
+      color={Datecolor}
+      textAlign={{ base: "center", lg: "right" }} // Aligns center on small, right on large screens
+      mt={{ base: 7, lg: 0 }}
+      alignSelf={{ base: "center", lg: "flex-start" }} // Aligns at the top right on large screens
+      order={{ base: 2, lg: 2 }}
     >
-
-      <Flex p={5} align="start"  w="full" flexDirection={{ base: "column", lg: "row" }}>
-
-      
-
-        {/* Date Range */}
-
-        <Text
-          order={{ base: 2, xl:2, lg: 2 , md : 2, }} // The order should change based on the screen size 
-          w={"250px"} 
-          fontSize="sm" 
-          color={color} 
-          alignSelf={'start'} 
-          // textAlign="right" 
-          mt={{ base: 2, lg: 0 }} >
-          {dateRange}
-        </Text>
-
-        <Box>
-          {/* Logo and Role Section */}
-          <Box mr={4}
-              flexShrink={0} 
-              flexBasis={{lg: "200px", md : "30px" }} 
-              order={{ base: 1, lg: 1 }} 
-              mb={[5,5,5,5]}
-
-              >
-            <Image
-              src={logo}
-              alt={company}
-              width={width}
-              objectFit="contain"
-            />
-          </Box>
-          
-          {/* Role and Description */}
-          <Box 
-            order={{ base: 3, xl:3, lg: 3, md: 3 }} 
-            w={["full"]}
-            
-            >
-
-            <Heading fontSize={{ base: "18px", md: "22px" }} fontWeight={600} my={3} ml={7}>
-              {role}
-            </Heading>
-            <VStack align="start">
-              {description.map((item, index) => (
-                <Flex key={index} align="start" mb={2}>
-                  <Box color={color}  transform={'scale(1.2)'} mr={5} as="span">
-                    •
-                  </Box>
-                  <Text fontSize={{ base: "sm", md: "md" }}  color={color} 
-                  >
-                    {item}
-                  </Text>
-                </Flex>
-              ))}
-            </VStack>
-          </Box>
-
-        </Box>
-      </Flex>
-
-    </Flex>
+      {dateRange}
+    </Text>
+  </Flex>
+  
   );
 };
 
