@@ -10,6 +10,8 @@ function Expertise() {
   const cardbg = useColorModeValue('white', '#2C333A')
   const color = useColorModeValue('#696969', 'gray.300');
   const text = useColorModeValue('#696969', 'blue.300');
+  const borderBottomColor = useColorModeValue('gray.700', 'gray.300');
+
 
 
 
@@ -45,7 +47,7 @@ function Expertise() {
               _hover={{
                 transform: "translateY(-10px)", // Add a subtle lift on hover
                 borderBottom: "4px solid",
-                borderBottomColor: "gray.300",
+                borderBottomColor: borderBottomColor,
               }}
             >
               <VStack align="flex-start" spacing={4}>

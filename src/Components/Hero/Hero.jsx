@@ -25,14 +25,16 @@ export const Hero = () => {
         {/* Text Section */}
         <Box mr={{ base: 0, lg: 10 }} w={{ base: '100%', lg: '50%' }} textAlign={{ base: 'center', lg: 'left' }} mb={{ base: 10, lg: 0 }}>
             <Heading color={color} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} mb={4}>
-                Hi, I'm Anas, Full-Stack Developer & UI/UX Designer            </Heading>
+                    Salut, je suis Anas, Développeur Full-Stack & Designer UI/UX          
+            </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} mb={6}>
-                A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma. With a passion for creating user-friendly and functional designs, I aim to deliver solutions that meet business objectives and provide seamless user experiences            </Text>
+                Développeur Full-Stack et Designer UI/UX expérimenté, compétent en React.js, Laravel, Tailwind CSS et Figma. Passionné par la création de designs fonctionnels et faciles à utiliser, je m'efforce de proposer des solutions qui répondent aux objectifs commerciaux tout en offrant une expérience utilisateur fluide.                
+            </Text>
             <Box mb={10}>
             <Flex ml={1} align="center" justify={{ base: 'center', lg: 'flex-start' }} mb={4}>
                     <GrLocation color={color} transform='scale(1.5)' />
                     <Text ml={3} fontSize={{ base: 'sm', lg: 'md' }}>
-                        Casablanca Morocco
+                            Casablanca, Maroc
                     </Text>
                 </Flex>
                 <Flex align="center" justify={{ base: 'center', lg: 'flex-start' }}>
@@ -43,7 +45,7 @@ export const Hero = () => {
                         </span>
                     </div>
                     <Text ml={2} fontSize={{ base: 'sm', lg: 'md' }}>
-                        Available for new projects
+                        Disponible pour de nouveaux projets
                     </Text>
                 </Flex>
                 <Flex mt={6}  justify={{ base: 'center', lg: 'flex-start' }}>
