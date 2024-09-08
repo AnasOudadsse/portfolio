@@ -25,11 +25,9 @@ export const Hero = () => {
         {/* Text Section */}
         <Box mr={{ base: 0, lg: 10 }} w={{ base: '100%', lg: '50%' }} textAlign={{ base: 'center', lg: 'left' }} mb={{ base: 10, lg: 0 }}>
             <Heading color={color} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} mb={4}>
-                Hi, I'm Anas
-            </Heading>
+                Hi, I'm Anas, Full-Stack Developer & UI/UX Designer            </Heading>
             <Text fontSize={{ base: 'md', lg: 'lg' }} mb={6}>
-            A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma, delivering responsive web solutions with a focus on agile development and continuous improvement.
-            </Text>
+                A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma. With a passion for creating user-friendly and functional designs, I aim to deliver solutions that meet business objectives and provide seamless user experiences            </Text>
             <Box mb={10}>
             <Flex ml={1} align="center" justify={{ base: 'center', lg: 'flex-start' }} mb={4}>
                     <GrLocation color={color} transform='scale(1.5)' />

@@ -60,7 +60,7 @@ export const About = () => {
           pos={'relative'}
           // bottom={{ base: 0, lg: 130 }}
           justify={'center'}
-          w={['75%', '80%', "60%"]}
+          w={['75%', '80%', "70%"]}
           m={'auto'}
           h={'auto'} // Adjust height to auto for better responsiveness
           ref={ref}
@@ -88,13 +88,12 @@ export const About = () => {
             </Flex>
 
             {/* Text Section */}
-            <Box w={{ base: '100%', lg: '550px' }} textAlign={{ base: 'center', lg: 'left' }} mt={{ base: 4, lg: 0 }}>
+            <Box w={{ base: '100%', lg: '650px' }} textAlign={{ base: 'center', lg: 'left' }} mt={{ base: 4, lg: 0 }}>
               <Heading fontSize={{ base: '22px', md: '27px' }} mb={4}>
                 Full-Stack Developer & UI/UX Designer.
               </Heading>
               <Text fontSize={{ base: '14px', md: '15px' }} mb={4}>
-                A skilled Full-Stack Developer and UI/UX Designer proficient in React.js, Laravel, Tailwind CSS, and Figma,
-                delivering responsive web solutions with a focus on agile development and continuous improvement.
+              With a strong foundation in both frontend and backend technologies, I specialize in building comprehensive web applications. My toolkit includes React.js, Laravel, Tailwind CSS, and Figma, ensuring the design and functionality of your web solutions are aligned with modern trends and business needs. From concept to deployment, I focus on delivering high-quality products with a user-centered approach.
               </Text>
             </Box>
 
@@ -103,19 +102,25 @@ export const About = () => {
               <Box my={10} ml={{ base: 0, lg: 5 }}>
                 <Flex align={'center'} mb={2}>
                   <Button
-                    fontSize={{ base: '12px', md: '14px' }}
+                    as={'a'}
+                    target="_blank"
+                    href='mailto:anas.oudadsse1@gmail.com'
+                    fontSize={{ base: '10px', md: '14px' }}
                     w={{ base: '150px', md: '175px' }}
                     bg={buttonbg}
                     color={buttonColor}
                     _hover={{ bg: buttonHoverBg }}
                   >
-                    Request Quotation
-                    <IoIosArrowRoundForward style={{ marginLeft: '5px' }} />
+                      Let's Work Together
+                    {/* <IoIosArrowRoundForward style={{ marginLeft: '5px' }} /> */}
                   </Button>
                 </Flex>
 
                 <Flex align={'center'}>
                   <Button
+                    as={'a'}
+                    target="_blank"
+                    href="https://drive.google.com/file/d/1eV6ii-y3SeLuUfvE87Sw-XMGyoGvl1sx/view?usp=sharing"
                     fontSize={{ base: '12px', md: '14px' }}
                     w={{ base: '150px', md: '175px' }}
                     bg={buttonbg}

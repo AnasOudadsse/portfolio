@@ -154,6 +154,9 @@ const Header = () => {
         </Drawer>
 
           <Button
+            as={'a'}
+            target="_blank"
+            href="https://drive.google.com/file/d/1eV6ii-y3SeLuUfvE87Sw-XMGyoGvl1sx/view?usp=sharing"
             color={buttonColor}
             borderRadius={13}
             bg={buttonBg}
