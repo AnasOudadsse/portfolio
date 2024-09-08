@@ -18,7 +18,7 @@ function Expertise() {
 
   return (
     <Flex align={'center'} id="Expertise" >
-      <Box  px={10} pb={[100, 150, 200]} pt={[500,350,500,250,250]} bg={bg} minHeight="550px">
+      <Box  px={10} pt={20} pb={20}   bg={bg} minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">
@@ -31,7 +31,7 @@ function Expertise() {
 
         {/* Skills Cards Grid */}
         <Grid
-          templateColumns={{ base: "1fr", md : "repeat(2, 1fr)",  sm: "repeat(1, 1fr)", lg: "repeat(4, 1fr)" }}
+          templateColumns={{ base: "1fr", md : "repeat(2, 1fr)",  sm: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" ,xl: "repeat(4, 1fr)" }}
           gap={8}
           justifyContent="center"
           

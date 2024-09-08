@@ -62,7 +62,7 @@ export const About = () => {
           pos={'relative'}
           // bottom={{ base: 0, lg: 130 }}
           justify={'center'}
-          w={['75%', '80%', "70%"]}
+          w={['95%', '80%', "70%"]}
           m={'auto'}
           h={'auto'} // Adjust height to auto for better responsiveness
           ref={ref}

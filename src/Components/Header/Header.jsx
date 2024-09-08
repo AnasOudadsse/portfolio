@@ -89,18 +89,18 @@ const Header = () => {
             display={["none", "none", "none", "flex"]}
             // justify={'start'}
           >
-            <Flex justify={'center'} w={'90px'}>
+            <Flex justify={'center'} w={'100px'}>
               <Link 
                   _hover={{ color: 'gray.700', fontWeight : 500 }} 
                   href="#About"
                   w={'fit-content'}
                   maxWidth={'-moz-max-content'}
               >
-                About
+                À propos
               </Link>
             </Flex>
 
-            <Flex justify={'center'} w={'90px'}>
+            <Flex justify={'center'} w={'100px'}>
                 <Link 
                     _hover={{ color: 'gray.700', fontWeight : 500 }} 
                     href="#Expertise"
@@ -111,30 +111,17 @@ const Header = () => {
                 </Link>
             </Flex>
 
-            <Flex justify={'center'} w={'90px'}>
+            <Flex justify={'center'} w={'100px'}>
               <Link 
                   _hover={{ color: 'gray.700', fontWeight : 500 }} 
                   href="#Skills"
                   w={'fit-content'}
-                  // minWidth="90px"
               >
-                Skills
+                Compétences
               </Link>
             </Flex>
 
-            <Flex justify={'center'} w={'90px'}>
-              <Link 
-                  p={1}
-                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
-                  href="#Projects"
-                  w={'fit-content'}
-              >
-                Projects
-              </Link>
-
-            </Flex>
-
-            <Flex justify={'center'} w={'90px'}>
+            <Flex justify={'center'} w={'100px'}>
 
             <Link 
                   p={1}
@@ -142,10 +129,23 @@ const Header = () => {
                   href="#Experiences"
                   w={'fit-content'}
               >
-                Experiences
+                Expériences
               </Link>
 
             </Flex>
+
+            <Flex justify={'center'} w={'100px'}>
+              <Link 
+                  p={1}
+                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                  href="#Projects"
+                  w={'fit-content'}
+              >
+                Projets
+              </Link>
+
+            </Flex>
+
 
             {/* <Flex w={'100px'}>
 
@@ -193,9 +193,9 @@ const Header = () => {
                 <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Home')}>Accueil</Text>
                 <Text cursor="pointer" onClick={() => handleDrawerLinkClick('About')}>À Propos</Text>
                 <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Expertise')}>Expertise</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('HowItWorks')}>Skills</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Experiences')}>Experiences</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Projects')}>Projects</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Skills')}>Compétences</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Experiences')}>Expériences</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Projects')}>Projets</Text>
               </Stack>
             </DrawerBody>
           </DrawerContent>

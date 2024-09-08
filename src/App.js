@@ -6,8 +6,11 @@ import Skills from './Components/Skills/Skills.jsx';
 import Experiences from './Components/Experiences/Experiences.jsx';
 import Expertise from './Components/Expertise/Expertise.jsx';
 import { Projects } from './Components/Projects/Projects.jsx';
+import { Gap } from './Components/Expertise/Gap.jsx';
 
 function App() {
+
+
 
   const config = {
     initialColorMode: 'light',
@@ -24,8 +27,10 @@ function App() {
           <Header/>
           
           <Hero/>
-
+          
           <About/> 
+          
+          <Gap/>
 
           <Expertise/>
 
