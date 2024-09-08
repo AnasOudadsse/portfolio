@@ -90,10 +90,10 @@ export const About = () => {
             {/* Text Section */}
             <Box w={{ base: '100%', lg: '650px' }} textAlign={{ base: 'center', lg: 'left' }} mt={{ base: 4, lg: 0 }}>
               <Heading fontSize={{ base: '22px', md: '27px' }} mb={4}>
-                Full-Stack Developer & UI/UX Designer.
+                Développeur Full-Stack & Designer UI/UX
               </Heading>
               <Text fontSize={{ base: '14px', md: '15px' }} mb={4}>
-              With a strong foundation in both frontend and backend technologies, I specialize in building comprehensive web applications. My toolkit includes React.js, Laravel, Tailwind CSS, and Figma, ensuring the design and functionality of your web solutions are aligned with modern trends and business needs. From concept to deployment, I focus on delivering high-quality products with a user-centered approach.
+                Avec une solide maîtrise des technologies front-end et back-end, je me spécialise dans la création d'applications web complètes. Mon expertise inclut React.js, Laravel, Tailwind CSS, et Figma, garantissant que le design et la fonctionnalité de vos solutions web sont alignés avec les tendances modernes et les besoins des entreprises. De la conception au déploiement, je me concentre sur la livraison de produits de haute qualité avec une approche centrée sur l'utilisateur.              
               </Text>
             </Box>
 
@@ -111,7 +111,7 @@ export const About = () => {
                     color={buttonColor}
                     _hover={{ bg: buttonHoverBg }}
                   >
-                      Let's Work Together
+                      Travaillons ensemble
                     {/* <IoIosArrowRoundForward style={{ marginLeft: '5px' }} /> */}
                   </Button>
                 </Flex>
@@ -129,7 +129,7 @@ export const About = () => {
                     mt={2}
                   >
                     <PiDownloadLight style={{ marginRight: '10px' }} />
-                    Download CV
+                      Télécharger le CV
                   </Button>
                 </Flex>
               </Box>
