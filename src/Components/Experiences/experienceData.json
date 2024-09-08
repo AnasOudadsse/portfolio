@@ -4,8 +4,10 @@
       "company": "Fondation Mohammed VI des Sciences et de la Santé",
       "role": "Technicien en Systèmes d'Information (SI)",
       "description": [
-        "Maintenance et gestion des systèmes informatiques.",
-        "Développement d'outils logiciels pour automatiser les processus internes."
+        "Maintenance et gestion des systèmes informatiques pour assurer une continuité des services.",
+        "Développement d'outils logiciels pour automatiser les processus internes.",
+        "Support technique quotidien pour résoudre les problèmes informatiques complexes."
+
       ],
       "dateRange": "Juillet 2024 - Présent",
       "width" : "230px"
@@ -36,6 +38,20 @@
       ],
       "dateRange": "Avril 2024 – Présent",
       "width" : "120px"
+    },
+    {
+      "logo": "cad_ista_hayhassani1_logo.png",
+      "company": "Ofppt",
+      "role": "Président",
+      "description": [
+        "Organisation d'événements communautaires pour améliorer la participation des membres.",
+        "Renforcement des compétences en leadership et gestion d'équipe pour les membres du comité.",
+        "Gestion des ressources et du budget pour garantir le bon déroulement des événements.",
+        "Amélioration de l'engagement des membres à travers des initiatives innovantes et participatives."
+
+      ],
+      "dateRange": "Septembre 2022 – Juin 2024",
+      "width" : "80px"
     }
   ]
   

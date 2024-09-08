@@ -15,18 +15,18 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
     rounded="xl"
     py={10}
     px={'50px'}
-    direction={{ base: "column", lg: "row" }} // Stack vertically on small screens
+    direction={["column","column","column","row"]} // Stack vertically on small screens
     justify="space-between"
     align="start"
     mb={8}
-    w={["full", "80%", "80%", "60%"]}
+    w={["full", "80%", "80%", "80%", "60%"]}
     maxW="900px" // Ensure max width but allow flexibility on smaller screens
   >
     {/* Logo and Role Section */}
     <Box flex="1" w="full">
       <Box 
           ml={[0,0,0,5]}
-          textAlign={{ base: "center", lg: "left" }}
+          textAlign={["center","center","center", "left"]}
         order={{ base: 1, lg: 1 }}
       >
         {/* Company Logo */}
@@ -45,8 +45,8 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
           fontWeight={600}
           mt={4} // Spacing between logo and heading
           mb={4}
-          ml={[0,0,0,10]}
-          textAlign={{ base: "center", lg: "left" }}
+          ml={[0,0,0,0]}
+          textAlign={["center","center","center", "left"] }
         >
           {role}
         </Heading>
@@ -54,7 +54,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
   
       {/* Description with Bullet Points */}
       <VStack
-        align={{ base: "center", lg: "flex-start" }}
+        align={["center","center","center", "start"] }
         spacing={3}
         order={{ base: 3, lg: 3 }}
         w="full"
