@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Flex, Heading,DrawerBody, Text, DrawerCloseButton,scrollToSection,DrawerContent,DrawerOverlay,Stack,Drawer, IconButton, Link, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading,DrawerBody, Text, DrawerCloseButton,DrawerContent,DrawerOverlay,Stack,Drawer, IconButton, Link, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { FaBars } from "react-icons/fa6";
-import { space } from 'postcss/lib/list';
-
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
@@ -70,7 +68,7 @@ const Header = () => {
         justify="space-between"
         alignItems="center"
         height="70px"
-        mx={{ base: '20px', md: '50px', lg: '100px', xl: '150px' }}
+        mx={{ base: '20px', md: '50px', lg: '100px', xl: '120px' }}
       >
         <Heading fontFamily="sans-serif" justifySelf="start" fontSize={{ base: '24px', lg: '35px' }}>
           {`<AO />`}
@@ -78,55 +76,104 @@ const Header = () => {
 
         <Flex 
           align="center" 
-          gap={{ base: '15px', md: '30px' }} 
+          gap={{ base: '15px', md: '30px', xl: '80px' }} 
           color={color} 
           fontWeight={400}
           >
           <Flex  
+            justifyContent={'flex-start'}
             align="center" 
-            gap={{ base: '15px', md: '30px' }} 
+            gap={{ base: '10px', md: '30px' }} 
             color={color} 
             fontWeight={400}         
             display={["none", "none", "none", "flex"]}
-            justify={'space-around'}
+            // justify={'start'}
           >
+            <Flex justify={'center'} w={'90px'}>
+              <Link 
+                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                  href="#About"
+                  w={'fit-content'}
+                  maxWidth={'-moz-max-content'}
+              >
+                About
+              </Link>
+            </Flex>
+
+            <Flex justify={'center'} w={'90px'}>
+                <Link 
+                    _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                    href="#Expertise"
+                    w={'fit-content'}
+                    
+                >
+                  Expertise
+                </Link>
+            </Flex>
+
+            <Flex justify={'center'} w={'90px'}>
+              <Link 
+                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                  href="#Skills"
+                  w={'fit-content'}
+                  // minWidth="90px"
+              >
+                Skills
+              </Link>
+            </Flex>
+
+            <Flex justify={'center'} w={'90px'}>
+              <Link 
+                  p={1}
+                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                  href="#Projects"
+                  w={'fit-content'}
+              >
+                Projects
+              </Link>
+
+            </Flex>
+
+            <Flex justify={'center'} w={'90px'}>
+
             <Link 
-                _hover={{ color: 'gray.700', fontWeight: 'bold' }} 
-                href="#"
-                minWidth="80px"  // Set a fixed min-width
-            >
-              About
-            </Link>
-            <Link 
-                _hover={{ color: color, fontWeight: 'bold' }} 
-                href="#"
-                minWidth="80px"
-            >
-              Skills
-            </Link>
-            <Link 
-                _hover={{ color: color, fontWeight: 'bold' }} 
-                href="#"
-                minWidth="80px"
-            >
-              Projects
-            </Link>
-            <Link 
-                _hover={{ color: color, fontWeight: 'bold' }} 
-                href="#"
-                minWidth="150px"
-            >
-              Recommendations
-            </Link>
+                  p={1}
+                  _hover={{ color: 'gray.700', fontWeight : 500 }} 
+                  href="#Experiences"
+                  w={'fit-content'}
+              >
+                Experiences
+              </Link>
+
+            </Flex>
+
+            {/* <Flex w={'100px'}>
+
+            </Flex> */}
           </Flex>
 
 
-
-          <IconButton
-            aria-label="Toggle color mode"
-            onClick={toggleColorMode}
-            icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-          />
+          <Flex justify={'end'} gap={'15px'}>
+            <IconButton
+              aria-label="Toggle color mode"
+              onClick={toggleColorMode}
+              icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+            />
+            <Button
+              as={'a'}
+              target="_blank"
+              href="https://drive.google.com/file/d/1eV6ii-y3SeLuUfvE87Sw-XMGyoGvl1sx/view?usp=sharing"
+              color={buttonColor}
+              borderRadius={13}
+              bg={buttonBg}
+              h={9}
+              width={{ base: '135px' }}
+              _hover={{ bg: buttonHoverBg }}
+              fontWeight={500}
+            >
+              Download CV
+            </Button>
+          </Flex>
 
         {/* Hamburger Menu Button - Visible on small screens */}
         <IconButton
@@ -134,7 +181,7 @@ const Header = () => {
           icon={<FaBars />}
           display={["flex", "flex", "flex", "none"]}  // Visible on small screens
           onClick={toggleDrawer}
-        />
+          />
 
         {/* Drawer for Mobile Navigation */}
         <Drawer placement="right" onClose={toggleDrawer} isOpen={isOpen}>
@@ -145,29 +192,16 @@ const Header = () => {
               <Stack spacing={4} mt={10}>
                 <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Home')}>Accueil</Text>
                 <Text cursor="pointer" onClick={() => handleDrawerLinkClick('About')}>À Propos</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('WhyChooseUs')}>Pourquoi Nous Choisir</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('HowItWorks')}>Comment Ça Marche</Text>
-                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Contact')}>Contact</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Expertise')}>Expertise</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('HowItWorks')}>Skills</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Experiences')}>Experiences</Text>
+                <Text cursor="pointer" onClick={() => handleDrawerLinkClick('Projects')}>Projects</Text>
               </Stack>
             </DrawerBody>
           </DrawerContent>
         </Drawer>
 
-          <Button
-            as={'a'}
-            target="_blank"
-            href="https://drive.google.com/file/d/1eV6ii-y3SeLuUfvE87Sw-XMGyoGvl1sx/view?usp=sharing"
-            color={buttonColor}
-            borderRadius={13}
-            bg={buttonBg}
-            h={9}
-            width={{ base: '135px' }}
-            _hover={{ bg: buttonHoverBg }}
-            fontWeight={500}
-          >
-            Download CV
-          </Button>
-        </Flex>
+          </Flex>
         
       </Flex>
 

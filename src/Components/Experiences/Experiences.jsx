@@ -99,7 +99,7 @@ const Experience = () => {
 
   return (
     <Flex
-      id="Experience"
+      id="Experiences"
       justify="center"
       align="center"
       direction="column"
