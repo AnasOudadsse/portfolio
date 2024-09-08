@@ -110,10 +110,10 @@ const Experience = () => {
     >
       <VStack spacing={4} align="center" mb={8}>
         <Heading size="lg" textAlign="center">
-          Experience
+          Expériences
         </Heading>
         <Text fontSize="md" color={color}>
-          Here is a quick summary of my most recent experiences:
+          Voici un résumé rapide de mes expériences les plus récentes :
         </Text>
       </VStack>
       
