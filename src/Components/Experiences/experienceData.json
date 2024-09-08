@@ -2,12 +2,12 @@
     {
       "logo": "FM6SS-crop.png",
       "company": "Fondation Mohammed VI des Sciences et de la Santé",
-      "role": "Independent Freelancer",
+      "role": "Technicien en Systèmes d'Information (SI)",
       "description": [
-        "Worked for various clients like Fiskil, Shosho, Crowe MacKay LLP.",
-        "Worked with a variety of technologies, including React, Next.js, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, Firebase, Storybook, Cypress, and others."
+        "Maintenance et gestion des systèmes informatiques.",
+        "Développement d'outils logiciels pour automatiser les processus internes."
       ],
-      "dateRange": "Nov 2021 - Present",
+      "dateRange": "Juillet 2024 - Présent",
       "width" : "230px"
     
       
@@ -15,26 +15,26 @@
     {
       "logo": "X-capital-logo.png",
       "company": "X Capital",
-      "role": "Team Lead",
+      "role": "Développeur Full-Stack & Designer UI/UX",
       "description": [
-        "Acted as team lead in different projects.",
-        "Brainstormed new ideas & gathered requirements for internal projects.",
-        "Designed architecture of different projects (frontend + backend).",
-        "Worked on enterprise-level projects for a variety of clients.",
-        "Handled sprint planning & task distribution."
+        "Développement de pages web réactives avec React.js et Tailwind CSS.",
+        "Utilisation des méthodes Agile pour améliorer la productivité de l'équipe.",
+        "Conception UI/UX avec Figma pour améliorer l'expérience utilisateur."
       ],
-      "dateRange": "Jul 2017 - Oct 2021",
+      "dateRange": "Mars 2024 – Juin 2024",
       "width" : "80px"
 
     },
     {
       "logo": "My-Coach-Logo.svg",
       "company": "My Coach",
-      "role": "Full Stack Developer",
+      "role": "Cofondateur & Directeur Technique",
       "description": [
-        "Worked as a full stack developer (React / Laravel)."
+        "Supervision des décisions techniques et développement de l'infrastructure IT.",
+        "Collaboration avec l'équipe pour la stratégie de lancement et de croissance du projet."
+
       ],
-      "dateRange": "Dec 2015 - May 2017",
+      "dateRange": "Avril 2024 – Présent",
       "width" : "120px"
     }
   ]
