@@ -7,6 +7,7 @@ import Experiences from './Components/Experiences/Experiences.jsx';
 import Expertise from './Components/Expertise/Expertise.jsx';
 import { Projects } from './Components/Projects/Projects.jsx';
 import { Gap } from './Components/Expertise/Gap.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
           <Experiences/>
 
           <Projects/>
+
+          <Footer/>
 
 
 

@@ -68,7 +68,7 @@ export const Hero = () => {
             <div className="relative w-full max-w-md">
                 <div className="relative overflow-hidden rounded-[50px] shadow-lg transition-transform duration-500 hover:shadow-2xl transform hover:rotate-3">
                     <img
-                        src="myPic-croped.jpg"
+                        src="MyPicNature-crop.jpg"
                         className="w-full h-auto rounded-[50px] transition-transform duration-500 ease-in-out hover:scale-110"
                         alt="My Portfolio Picture"
                     />
