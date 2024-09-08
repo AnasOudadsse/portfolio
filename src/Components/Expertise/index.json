@@ -1,24 +1,24 @@
 {
     "skills": [
       {
-        "src": "strategy.svg",
-        "title": "Strategy & Direction",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-      },
-      {
-        "src": "branding.svg",
-        "title": "Branding & Logo",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        "src": "web-dev.svg",
+        "title": "Développement    Full-Stack",
+        "description": "Expérience complète en développement Frontend et Backend, avec maîtrise de React.js, HTML5, CSS3, JavaScript, Node.js, Express.js, et Laravel. Capable de créer des applications web complètes et évolutives, tout en utilisant des bases de données telles que MySQL et MongoDB."
       },
       {
         "src": "feather-pen 1.svg",
         "title": "UI & UX Design",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        "description": "Conception d'interfaces utilisateurs avec Figma en mettant l'accent sur l'expérience utilisateur, l'esthétique et la fonctionnalité. Capacité à créer des prototypes interactifs et des maquettes pour améliorer l'expérience utilisateur."
       },
       {
-        "src": "web-dev.svg",
-        "title": "Webflow Development",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+        "src": "strategy.svg",
+        "title": "Méthodologies Agile",
+        "description": "Familiarité avec les méthodes de gestion de projet Agile, notamment la collaboration avec des équipes pour accélérer les livraisons tout en assurant la qualité et la satisfaction client."
+      },
+      {
+        "src": "branding.svg",
+        "title": "Compétences Relationnelles et Résolution de Problèmes",
+        "description": "Excellent communicant et esprit d'équipe, je travaille efficacement avec des équipes interdisciplinaires. Grande capacité à résoudre des problèmes complexes, en assurant la cohésion du projet et l'engagement communautaire."
       }
     ]
   }

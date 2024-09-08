@@ -50,7 +50,7 @@ function Expertise() {
                 borderBottomColor: borderBottomColor,
               }}
             >
-              <VStack align="flex-start" spacing={4}>
+              <VStack align="center" spacing={4}>
                 {/* Icon/Image */}
                 <Box
                   p={3}
@@ -62,13 +62,14 @@ function Expertise() {
                   alignItems="center"
                   w="60px"
                   h="60px"
+                  mb={3}
                 >
-                  <Image src={item.src} alt={item.title} boxSize="40px" />
+                  <Image textAlign={'center'} src={item.src} alt={item.title} boxSize="40px" />
                 </Box>
 
                 {/* Card Content */}
-                <VStack align="flex-start" spacing={2}>
-                  <Heading  size="md" fontWeight="bold">
+                <VStack align="center" textAlign={'center'} spacing={2}>
+                  <Heading mb={5}  size="md" fontWeight="bold">
                     {item.title}
                   </Heading>
                   <Text fontSize="sm" color={color} _hover={{ color: text }}>
