@@ -170,8 +170,9 @@ const Header = () => {
               width={{ base: '135px' }}
               _hover={{ bg: buttonHoverBg }}
               fontWeight={500}
+              fontSize={'small'}
             >
-              Download CV
+              Télecharger le CV
             </Button>
           </Flex>
 
