@@ -55,7 +55,7 @@ export const Projects = () => {
 
 
   return (
-    <Box py={16} px={{ base: 4, md: 8 }} bg={bg}>
+    <Box id="Projects" py={16} px={{ base: 4, md: 8 }} bg={bg}>
       {/* Heading and Subtitle */}
       <VStack align="center" mb={12}>
         <Heading size="lg" mb={4}>

@@ -15,6 +15,7 @@ export const Hero = () => {
 
     return (
         <Flex
+        id='Home'
         direction={{ base: 'column', lg: 'row' }}
         align="center"
         justify="space-around"

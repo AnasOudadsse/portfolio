@@ -5,13 +5,13 @@ import { FaBars } from "react-icons/fa6";
 import { space } from 'postcss/lib/list';
 
 
-// const scrollToSection = (sectionId) => {
-//   const element = document.getElementById(sectionId);
-//   if (element) {
-//     const top = element.getBoundingClientRect().top + window.scrollY - 50; // Adjusting offset if needed
-//     window.scrollTo({ top, behavior: 'smooth' });
-//   }
-// };
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const top = element.getBoundingClientRect().top + window.scrollY - 50; // Adjusting offset if needed
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+};
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -34,7 +34,7 @@ const Header = () => {
   const handleDrawerLinkClick = (sectionId) => {
     toggleDrawer(); // Close the drawer first
     setTimeout(() => {
-      // scrollToSection(sectionId); // Then scroll to the section after the drawer closes
+      scrollToSection(sectionId); // Then scroll to the section after the drawer closes
     }, 300); // 300ms delay (Adjust if necessary based on drawer animation speed)
   };
 

@@ -46,6 +46,8 @@ export const About = () => {
   return (
     <Box
 
+      id="About"
+
     >
 
       <Box

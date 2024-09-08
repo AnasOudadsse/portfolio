@@ -37,6 +37,7 @@ const Skills = () => {
   return (
     <ChakraProvider>
       <Box
+        id="Skills"
         bg={bg}
         as={motion.div}
         initial="hidden"
