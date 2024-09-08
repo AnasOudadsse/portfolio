@@ -59,10 +59,10 @@ export const Projects = () => {
       {/* Heading and Subtitle */}
       <VStack align="center" mb={12}>
         <Heading size="lg" mb={4}>
-          Projects
+          Projets
         </Heading>
         <Text fontSize="lg" color={color} textAlign="center">
-          Some of the noteworthy projects I have built:
+            Quelques projets remarquables que j'ai réalisés :
         </Text>
       </VStack>
 

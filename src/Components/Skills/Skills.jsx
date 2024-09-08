@@ -52,10 +52,10 @@ const Skills = () => {
       >
         <VStack spacing={4} align="center" mb={8}>
           <Heading size="lg" textAlign="center">
-            Skills
+            Compétences
           </Heading>
           <Text fontSize="md" color={color}>
-            Here is a quick summary of skills:
+          Voici un résumé rapide de mes compétences :
           </Text>
         </VStack>
 

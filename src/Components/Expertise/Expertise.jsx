@@ -25,7 +25,7 @@ function Expertise() {
             Expertise
           </Heading>
           <Text fontSize="lg" color={color} textAlign="center" maxW="600px">
-            Here is a quick overview of my core skills and expertise:
+            Voici un aperçu rapide de mes compétences principales et de mon expertise :
           </Text>
         </VStack>
 

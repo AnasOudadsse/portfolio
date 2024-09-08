@@ -70,7 +70,7 @@ const Header = () => {
         height="70px"
         mx={{ base: '20px', md: '50px', lg: '100px', xl: '120px' }}
       >
-        <Heading fontFamily="sans-serif" justifySelf="start" fontSize={{ base: '24px', lg: '35px' }}>
+        <Heading fontFamily="sans-serif" as={'a'} href='#Home' justifySelf="start" fontSize={{ base: '24px', lg: '35px' }}>
           {`<AO />`}
         </Heading>
 
