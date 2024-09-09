@@ -11,7 +11,7 @@ const projectsData = [
     tags: ["React", "Tailwindcss", "Laravel", "MySQL","Github", "Git", 'Chakra UI', "Composer", "Sanctum"],
     externalLink: "https://example.com", 
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
-    flexDirection: ['column', 'column', 'column','row']
+    flexDirection: ['column', 'column', 'column','column','row']
   },
   {
     title: "My-Coach Landing Page",
@@ -21,7 +21,7 @@ const projectsData = [
     tags: ["React","Tailwindcss", "Chakra UI", "Node.js",  "Express.js", "MongoDB", "Github", "Git"],
     externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/", 
     repoLink: "https://github.com/AnasOudadsse/myCoach",
-    flexDirection: ['column', 'column', 'column','row-reverse', ]
+    flexDirection: ['column', 'column', 'column','column','row-reverse', ]
   },
   {
     title: "X Capital (UI/UX)",
@@ -30,7 +30,7 @@ const projectsData = [
     imageSrc: "HomePage.jpg", 
     tags: ["Figma", "UI/UX Design"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
-    flexDirection: ['column', 'column', 'column','row'],
+    flexDirection: ['column', 'column', 'column','column','row'],
     repoLink: null 
   },
   {
@@ -40,7 +40,7 @@ const projectsData = [
     imageSrc: "Coach details reviews.jpg", 
     tags: ["Figma", "UI/UX Design"],
     externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
-    flexDirection: ['column', 'column', 'column','row-reverse'],
+    flexDirection: ['column', 'column', 'column','column','row-reverse'],
     repoLink: null 
   },
 ];
@@ -69,7 +69,7 @@ export const Projects = () => {
       {/* Projects Grid */}
       <Grid
         gap={10}
-        w={["80%","80%","80%","75%"]} 
+        w={["80%","80%","90%","75%"]} 
         mx="auto"
         justifyContent="center" 
       >
@@ -88,7 +88,7 @@ export const Projects = () => {
             // maxH={["900px","720px","600px","430px"]}
           >
             {/* Project Image */}
-            <Box  bg={imgBg} w={{ base: "100%", lg: "50%" }} h={["50%","50%","50%%",'100%']}>
+            <Box bg={imgBg} w={{ base: "100%", xl: "50%" }} h={["50%","50%","50%%",'100%','100%']}>
               <Image 
                 transform={'scale(0.8)'}
                 transition="transform 0.5s ease-in-out" 
@@ -101,12 +101,12 @@ export const Projects = () => {
                 w="full"
                 h="full" 
                 maxW={"800px"}
-                maxH={"500px"}
+                maxH={"480px"}
               />
             </Box>
 
             {/* Project Details */}
-            <Box p={10} w={{ base: "100%", lg: "50%" }} h={["500px","300px","100%",'100%']}>
+            <Box p={10} w={{ base: "100%", xl: "50%" }} h={"100%"}>
               <VStack align="start" spacing={4}>
                 <Heading fontWeight={600} size={["sm","sm","sm","md"]} >{project.title}</Heading>
                 <Text fontSize={["sm","sm","sm","md"]} color={color}>
