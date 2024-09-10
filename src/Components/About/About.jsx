@@ -122,7 +122,7 @@ export const About = () => {
                   <Button
                     as={'a'}
                     target="_blank"
-                    href="https://drive.google.com/file/d/1eV6ii-y3SeLuUfvE87Sw-XMGyoGvl1sx/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1vbgTh48n0lGiBbf457wlG_Sf_piyDXQL/view?usp=sharing"
                     fontSize={{ base: '12px', md: '14px' }}
                     w={{ base: '150px', md: '175px' }}
                     bg={buttonbg}
