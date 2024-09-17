@@ -168,6 +168,9 @@ export const Certif = () => {
 
                             <Flex justify="center" align="center">
                                 <Button
+                                as={'a'}
+                                href={certif.credetials}
+                                target="_blank"
                                 mt={[10]}
                                 px={4}
                                 py={2}
