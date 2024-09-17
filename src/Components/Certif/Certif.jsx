@@ -90,7 +90,6 @@ export const Certif = () => {
             <Flex
             justify="center"
             align="center"
-            p={4}
             flexDirection={['column', 'column','column', 'row']}
             >   
 
@@ -100,14 +99,14 @@ export const Certif = () => {
                         <Box
                             key={index}
                             maxW={["100%","100%","100%", "lg"]}
-                            w={["100%","100%","100%", "full"]}
+                            w='full'
                             bg={cardbg}
                             rounded="xl"
                             shadow="2xl"
                             overflow="hidden"
                             transform="scale(0.7)"
                             transition="transform 0.5s"
-                            // _hover={{ transform: "scale(0.73)" }}
+                            _hover={{ transform: "scale(0.72)" }}
                         >
                             <Flex 
                                 justify={'center'}                        

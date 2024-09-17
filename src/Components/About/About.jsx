@@ -122,7 +122,8 @@ export const About = () => {
                   <Button
                     as={'a'}
                     target="_blank"
-                    href="https://drive.google.com/file/d/1vbgTh48n0lGiBbf457wlG_Sf_piyDXQL/view?usp=sharing"
+                    href="Anas-Canadian-Resume-up.pdf"
+                    download="Anas-Canadian-Resume.pdf"
                     fontSize={{ base: '12px', md: '14px' }}
                     w={{ base: '150px', md: '175px' }}
                     bg={buttonbg}
