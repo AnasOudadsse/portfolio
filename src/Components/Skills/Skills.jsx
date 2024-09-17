@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 const skillsData = [
   {
-    category: "Frontend",
     skills: [
       { name: "HTML5", imgSrc: "html-5.png" },
       { name: "CSS3", imgSrc: "css-3.png" },
