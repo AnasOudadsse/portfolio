@@ -58,7 +58,7 @@ const CertifData = [
 export const Certif = () => {
 
     const bg = useColorModeValue('gray.50', '#22272B');
-    const imgBg = useColorModeValue('gray.50', '#38414A');
+    const imgBg = useColorModeValue('#F5F6F7', '#282E33');
     const color = useColorModeValue('black', 'white');
     const cardbg = useColorModeValue('white', '#2C333A')  
     const buttonColor = useColorModeValue('white', 'black');
@@ -76,7 +76,7 @@ export const Certif = () => {
         <Box
             minH="100vh"
             bg={bg}
-            pt={15}
+            py={21}
         >
 
             <VStack align="center" mt={14}>
@@ -91,6 +91,7 @@ export const Certif = () => {
             justify="center"
             align="center"
             p={4}
+            flexDirection={['column', 'column','column', 'row']}
             >   
 
                 {
@@ -98,8 +99,8 @@ export const Certif = () => {
                         
                         <Box
                             key={index}
-                            maxW="lg"
-                            w="full"
+                            maxW={["100%","100%","100%", "lg"]}
+                            w={["100%","100%","100%", "full"]}
                             bg={cardbg}
                             rounded="xl"
                             shadow="2xl"

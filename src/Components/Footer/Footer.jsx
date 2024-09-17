@@ -2,8 +2,8 @@ import { Box, Text, Link, VStack , useColorModeValue} from "@chakra-ui/react";
 
 const Footer = () => {
 
-    const bg = useColorModeValue('gray.50', '#22272B');
-    const color = useColorModeValue('gray.600', 'gray.300');
+  const bg = useColorModeValue('white', '#161A1D');
+  const color = useColorModeValue('#696969', 'white');
 
   return (
     <Box bg={bg} color={color} py={8} px={4}>
