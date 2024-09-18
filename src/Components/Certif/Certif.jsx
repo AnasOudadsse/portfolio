@@ -102,6 +102,7 @@ export const Certif = () => {
                             w='full'
                             bg={cardbg}
                             rounded="xl"
+                            borderRadius={35}
                             shadow="2xl"
                             overflow="hidden"
                             transform="scale(0.7)"
