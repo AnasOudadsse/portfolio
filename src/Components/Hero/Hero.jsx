@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Image, Box, keyframes,useColorMode , useColorModeValue,  Heading, Link } from '@chakra-ui/react';
+import { Flex, Text, Box , useColorModeValue,  Heading, Link } from '@chakra-ui/react';
 import { GrLocation } from "react-icons/gr";
 import { FaLinkedin } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
@@ -22,7 +22,7 @@ export const Hero = () => {
         p={10}
         bg={bg}
         pt={{ base: '100px', lg: '150px' }}
-        pb={[200,225,300,150,175]}    >
+        pb={[50,50,70,150,175]}    >
         {/* Text Section */}
         <Box mr={{ base: 0, lg: 10 }} w={{ base: '100%', lg: '50%' }} textAlign={{ base: 'center', lg: 'left' }} mb={{ base: 10, lg: 0 }}>
             <Heading color={color} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} mb={4}>
@@ -64,11 +64,11 @@ export const Hero = () => {
         </Box>
 
         {/* Image Section */}
-        <Box boxSize={[200,250,300,400]}  display="flex" alignItems="flex-end" justifyContent="center">
+        <Box  mt={{ base: '0px', lg: '80px' }} boxSize={[0,0,200,300]}  display={["none","none","none","flex"]} alignItems="flex-end" justifyContent="center">
             <div className="relative w-full max-w-md">
                 <div className="relative overflow-hidden rounded-[50px] shadow-lg transition-transform duration-500 hover:shadow-2xl transform hover:rotate-3">
                     <img
-                        src="MyPicNature-crop.jpg"
+                        src="Mypic2024-cropped.jpg"
                         className="w-full h-auto rounded-[50px] transition-transform duration-500 ease-in-out hover:scale-110"
                         alt="My Portfolio Picture"
                     />
