@@ -8,7 +8,7 @@ export const Gap = () => {
 
 
     return(
-        <Box bg={bg} h={[500, 310, 200]}>
+        <Box bg={bg} h={{xl :200, lg:250,md:500, base: 600   }}>
             
         </Box>
     )

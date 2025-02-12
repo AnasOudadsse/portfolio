@@ -68,9 +68,9 @@ const Header = () => {
         justify="space-between"
         alignItems="center"
         height="70px"
-        mx={{ base: '20px', md: '50px', lg: '100px', xl: '120px' }}
+        mx={{ base: '20px', md: '50px', lg: '60px', xl: '120px' }}
       >
-        <Heading fontFamily="sans-serif" as={'a'} href='#Home' justifySelf="start" fontSize={{ base: '24px', lg: '35px' }}>
+        <Heading fontFamily="sans-serif" w={'full'} as={'a'} href='#Home' justifySelf="start" fontSize={{ base: '24px', lg: '25px' }}>
           {`<AO />`}
         </Heading>
 
