@@ -162,8 +162,8 @@ const Header = () => {
             <Button
               as={'a'}
               target="_blank"
-              href="Anas-Canadian-Resume-up.pdf"
-              download="Anas-Canadian-Resume.pdf"
+              href="AnasOudadsseCV.pdf"
+              download="AnasOudadsseCV.pdf"
               color={buttonColor}
               borderRadius={13}
               bg={buttonBg}
