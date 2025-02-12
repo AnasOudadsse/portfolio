@@ -17,6 +17,7 @@ const skillsData = [
       { name: "MySQL", imgSrc: "mysql.svg" },
       { name: "MongoDB", imgSrc: "mongodb.svg" },
       { name: "C", imgSrc: "c.svg" },
+      { name: "Java", imgSrc: "java-icon.svg" },
       { name: "Python", imgSrc: "python.svg" },
       { name: "Git", imgSrc: "git.png" },
       { name: "Github", imgSrc: "github.png" },
