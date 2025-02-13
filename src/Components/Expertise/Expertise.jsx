@@ -17,8 +17,8 @@ function Expertise() {
 
 
   return (
-    <Flex align={'center'} id="Expertise" >
-      <Box  px={10} pt={20} pb={20}   bg={bg} minHeight="550px">
+    <Flex  align={'center'} id="Expertise" >
+      <Box  px={10}  pt={20} pb={20}   bg={bg} minHeight="550px">
         {/* Title and Heading */}
         <VStack align="center" spacing={4} mb={12}>
           <Heading size="lg" textAlign="center">

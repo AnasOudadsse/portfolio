@@ -4,9 +4,9 @@
       "company": "Fondation Mohammed VI des Sciences et de la Santé",
       "role": "Technicien en Systèmes d'Information (SI)",
       "description": [
-        "Maintenance et gestion des systèmes informatiques pour assurer une continuité des services.",
-        "Développement d'outils logiciels pour automatiser les processus internes.",
-        "Support technique quotidien pour résoudre les problèmes informatiques complexes."
+        "Développement d’outils internes pour automatiser la gestion des services.",
+        "Implémentation d’une application pour la gestion des tickets (React.js & Laravel).",
+        "Automatisation de l’ajout des étudiants sur Canvas & envoi d’emails en Python."
 
       ],
       "dateRange": "Juillet 2024 - Présent",
@@ -19,9 +19,9 @@
       "company": "X Capital",
       "role": "Développeur Full-Stack & Designer UI/UX",
       "description": [
-        "Développement de pages web réactives avec React.js et Tailwind CSS.",
+        "Conception et développement d’interfaces réactives avec React.js.",
         "Utilisation des méthodes Agile pour améliorer la productivité de l'équipe.",
-        "Conception UI/UX avec Figma pour améliorer l'expérience utilisateur."
+        "Création de prototypes UI/UX avec Figma."
       ],
       "dateRange": "Mars 2024 – Juin 2024",
       "width" : "80px"
@@ -32,8 +32,8 @@
       "company": "My Coach",
       "role": "Cofondateur & Directeur Technique",
       "description": [
-        "Supervision des décisions techniques et développement de l'infrastructure IT.",
-        "Collaboration avec l'équipe pour la stratégie de lancement et de croissance du projet."
+        "Recrutement & encadrement des équipes techniques.",
+        "Supervision des décisions techniques et architecture logicielle."
 
       ],
       "dateRange": "Avril 2024 – Présent",

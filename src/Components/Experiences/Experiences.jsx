@@ -104,7 +104,7 @@ const Experience = () => {
       align="center"
       direction="column"
       bg={bg}
-      py={12}
+      py={81}
       px={{ base: 4, md: 8 }}
       minHeight="100vh"
     >

@@ -52,6 +52,18 @@ const CertifData = [
             "Branches Git",
         ]
     },
+    {
+        title: "Génie Logiciel",
+        date: "Novembre 2024",
+        issuer: "Alx Africa & Holberton School",
+        description: "Programme intensif axé sur le développement web et l’architecture logicielle, incluant front-end, back-end et gestion de projet. Acquisition de compétences en conception, déploiement et optimisation d’applications avec des technologies modernes.",
+        credetials : "https://coursera.org/verify/P58AGWZ4DRZ6",
+        skills : [
+            "Git",
+            "GitHub",
+            "Branches Git",
+        ]
+    },
 ]
 
 export const Certif = () => {
