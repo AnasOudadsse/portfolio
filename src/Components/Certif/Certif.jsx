@@ -19,6 +19,15 @@ import {
   const MotionBox = motion(Box);
   
   const CertifData = [
+      {
+        title: "Programming with JavaScript",
+        date: "22 December 2023",
+        issuer: "Meta & Coursera",
+        description: "An online non-credit course authorized by Meta and offered through Coursera.",
+        credentials: "https://coursera.org/verify/RB3VERHZ5NUN",
+        skills: ["JavaScript", "ES6+", "Functions"],
+        image: "js-certif.png",
+      },
     {
       title: "ALX Ventures Founder Academy",
       date: "24th July 2024",
@@ -30,15 +39,6 @@ import {
       image: "alx-certif.png",
     },
     {
-      title: "Programming with JavaScript",
-      date: "22 December 2023",
-      issuer: "Meta & Coursera",
-      description: "An online non-credit course authorized by Meta and offered through Coursera.",
-      credentials: "https://coursera.org/verify/RB3VERHZ5NUN",
-      skills: ["JavaScript", "ES6+", "Functions"],
-      image: "js-certif.png",
-    },
-    {
       title: "React Basics",
       date: "24 December 2023",
       issuer: "Meta & Coursera",
@@ -47,6 +47,24 @@ import {
       skills: ["React", "JSX", "State Management"],
       image: "React-certif.png",
     },
+    {
+      title: "Software Engineering",
+      date: "15 November 2024",
+      issuer: "ALX & Holberton School",
+      description: "This certificate is awarded for successfully completing the 12-month ALX Software Engineering Programme with a specialization in Back-end development.",
+      credentials: "https://intranet.alxswe.com/certificates/T2CRES7nmF",
+      skills: [    "Back-end Development",
+        "Software Engineering",
+        "Programming",
+        "Data Structures & Algorithms",
+        "Database Management",
+        "API Development",
+        "System Design",
+        "Debugging & Problem-Solving",
+        "Version Control (Git & GitHub)",],
+      image: "Se-alx.png",
+    },
+    
     {
       title: "Version Control",
       date: "25 December 2023",
@@ -81,8 +99,8 @@ import {
     };
   
     // Responsive values
-    const cardWidth = useBreakpointValue({ base: "300px", sm: "350px", md: "400px", lg: "450px" });
-    const cardHeight = useBreakpointValue({ base: "200px", sm: "250px", md: "280px", lg: "300px" });
+    const cardWidth = useBreakpointValue({ base: "300px", sm: "300px", md: "300px", lg: "320px" });
+    const cardHeight = useBreakpointValue({ base: "200px", sm: "200px", md: "200px", lg: "220px" });
     const headingSize = useBreakpointValue({ base: "md", md: "lg" });
   
     return (
@@ -93,8 +111,8 @@ import {
           </Heading>
         </VStack>
   
-        <Flex wrap="wrap" justify="center" align="center" gap={6} mt={10} px={4}>
-          {CertifData.map((certif, index) => (
+        <Flex wrap="wrap" justify="space-around" align="center" gap={8} mt={10} px={4}>
+            {CertifData.map((certif, index) => (
             <Box
               key={index}
               width={cardWidth}
@@ -222,7 +240,7 @@ import {
               </MotionBox>
             </Box>
           ))}
-        </Flex>
-      </Box>
+    </Flex>
+</Box>
     );
   };
