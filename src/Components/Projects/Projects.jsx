@@ -1,5 +1,20 @@
-import { Box, Grid, Heading, Text,useColorModeValue, Tag, VStack, Image, Link, HStack, Icon, Flex } from "@chakra-ui/react";
-import { FiExternalLink } from "react-icons/fi";
+import {
+  Box,
+  Grid,
+  Heading,
+  Text,
+  useColorModeValue,
+  Tag,
+  VStack,
+  Image,
+  Link,
+  HStack,
+  Icon,
+  Flex,
+  keyframes,
+  background,
+} from "@chakra-ui/react";
+import { FiExternalLink } from "react-icons/fi";  
 import { FiGithub } from "react-icons/fi";
 
 const projectsData = [
@@ -7,21 +22,19 @@ const projectsData = [
     title: "Blood-Nation",
     description:
       "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",
-    imageSrc: "BloodNationHP.png", 
-    tags: ["React", "Tailwindcss", "Laravel", "MySQL","Github", "Git", 'Chakra UI', "Composer", "Sanctum"],
-    externalLink: "https://example.com", 
+    videoSrc: "blood-nation-demo.mp4",
+    tags: ["React", "Tailwindcss", "Laravel", "MySQL", "Github", "Git", "Chakra UI", "Composer", "Sanctum"],
+    externalLink: "https://example.com",
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
-    flexDirection: ['column', 'column', 'column','column','row']
   },
   {
-    title: "My-Coach Landing Page",
+    title: "Ticketing app",
     description:
       "My-Coach est une plateforme conçue pour connecter les utilisateurs avec des coachs personnels. J'ai développé la page d'accueil en me concentrant sur un design épuré et une fonctionnalité optimale. Construite avec React et Chakra UI, la page est entièrement responsive et présente une mise en page intuitive. De plus, j'ai mis en place un système de soumission de formulaire avec Express.js en backend pour gérer les demandes et les requêtes des utilisateurs. Ce projet met en valeur ma capacité à intégrer des technologies front-end et back-end pour des interactions utilisateur fluides.",
-    imageSrc: "My-coach-Lp.png", 
-    tags: ["React","Tailwindcss", "Chakra UI", "Node.js",  "Express.js", "MongoDB", "Github", "Git"],
-    externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/", 
+    videoSrc: "ticketing-app-demo.mp4",
+    tags: ["React", "Tailwindcss", "Chakra UI", "Node.js", "Express.js", "MongoDB", "Github", "Git"],
+    externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/",
     repoLink: "https://github.com/AnasOudadsse/myCoach",
-    flexDirection: ['column', 'column', 'column','column','row-reverse', ]
   },
   {
     title: "X Capital (UI/UX)",
@@ -46,13 +59,18 @@ const projectsData = [
 ];
 
 export const Projects = () => {
+  const bg = useColorModeValue("white", "#161A1D");
+  const imgBg = useColorModeValue("gray.50", "#38414A");
+  const color = useColorModeValue("black", "white");
+  const cardbg = useColorModeValue("white", "#2C333A");
+  const tagBg = useColorModeValue("gray.100", "#38414A");
+  const tagColor = useColorModeValue("gray.800", "white");
 
-  const bg = useColorModeValue('white', '#161A1D');
-  const imgBg = useColorModeValue('gray.50', '#38414A');
-  const color = useColorModeValue('black', 'white');
-  const cardbg = useColorModeValue('white', '#2C333A')
-
-
+  // Animation for image hover
+  const scaleUp = keyframes`
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  `;
 
   return (
     <Box id="Projects" py={16} px={{ base: 4, md: 8 }} bg={bg}>
@@ -62,16 +80,16 @@ export const Projects = () => {
           Projets
         </Heading>
         <Text fontSize="lg" color={color} textAlign="center">
-            Quelques projets remarquables que j'ai réalisés :
+          Quelques projets remarquables que j'ai réalisés :
         </Text>
       </VStack>
 
       {/* Projects Grid */}
       <Grid
         gap={10}
-        w={["80%","80%","90%","75%"]} 
+        w={["80%", "80%", "90%", "75%"]}
         mx="auto"
-        justifyContent="center" 
+        justifyContent="center"
       >
         {projectsData.map((project, index) => (
           <Box
@@ -81,42 +99,73 @@ export const Projects = () => {
             flexDirection={project.flexDirection}
             bg={cardbg}
             borderRadius="lg"
-            boxShadow="md"
+            boxShadow="lg"
             overflow="hidden"
-            w="100%" 
-            maxW="1300px" 
-            // maxH={["900px","720px","600px","430px"]}
+            w="100%"
+            maxW="1300px"
+            transition="transform 0.3s ease-in-out"
+            _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
           >
-            {/* Project Image */}
-            <Box bg={imgBg} w={{ base: "100%", xl: "50%" }} h={["50%","50%","50%%",'100%','100%']}>
-              <Image 
-                transform={'scale(0.8)'}
-                transition="transform 0.5s ease-in-out" 
-                _hover={{ transform: "scale(0.85)" }} 
-                borderRadius="xl" 
-                objectFit="cover"   
-                objectPosition={'top'}
-                src={project.imageSrc} 
-                alt={project.title} 
-                w="full"
-                h="full" 
-                maxW={"800px"}
-                maxH={"480px"}
-              />
-            </Box>
+        <Box
+          px={5}
+          w={{ base: "100%", xl: "50%" }}
+          h={{ base: "250px", md: "100%" }}
+          overflow="hidden"
+          position="relative"
+          borderRadius="xl" // Rounded corners for the frame
+          border="2px solid" // Add a border
+          borderColor={"gray.600"} // Border color based on theme
+          boxShadow="lg" // Add a shadow for depth
+          _hover={{ boxShadow: "xl" }} // Enhance shadow on hover
+        >
+ 
+          <video
+            src={project.videoSrc}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain", // Ensure the video covers the container
+              borderRadius: "inherit", // Inherit rounded corners from the parent
+            }}
+            muted
+            loop
+            playsInline
+            onMouseEnter={(e) => {
+              if (e.target.readyState >= 2) {
+                // Check if the video is ready to play
+                e.target.play();
+              }
+            }}
+            onMouseLeave={(e) => {
+              setTimeout(() => {
+                e.target.pause();
+              }, 200); // 200ms delay before pausing
+            }}
+          />
+        </Box>
 
             {/* Project Details */}
-            <Box p={10} w={{ base: "100%", xl: "50%" }} h={"100%"}>
+            <Box p={8} w={{ base: "100%", xl: "50%" }} h="100%">
               <VStack align="start" spacing={4}>
-                <Heading fontWeight={600} size={["sm","sm","sm","md"]} >{project.title}</Heading>
-                <Text fontSize={["sm","sm","sm","md"]} color={color}>
+                <Heading fontWeight={600} size={["sm", "sm", "sm", "md"]}>
+                  {project.title}
+                </Heading>
+                <Text fontSize={["sm", "sm", "sm", "md"]} color={color}>
                   {project.description}
                 </Text>
 
                 {/* Tags */}
                 <HStack my={2} wrap="wrap" spacing={2}>
                   {project.tags.map((tag, i) => (
-                    <Tag key={i} size={["md","md","md","lg"]} color={color} bg={imgBg}>
+                    <Tag
+                      key={i}
+                      size={["md", "md", "md", "lg"]}
+                      color={tagColor}
+                      bg={tagBg}
+                      borderRadius="full"
+                      px={3}
+                      py={1}
+                    >
                       {tag}
                     </Tag>
                   ))}
@@ -124,15 +173,37 @@ export const Projects = () => {
 
                 {/* External Links */}
                 <Flex>
-                  <Link mr={2} href={project.externalLink} isExternal>
-                    <HStack align="center" spacing={1}>
-                      <Icon boxSize="30px" borderRadius="md" p={1} as={FiExternalLink} color={color} />
+                  <Link mr={4} href={project.externalLink} isExternal>
+                    <HStack
+                      align="center"
+                      spacing={1}
+                      _hover={{ color: "teal.500" }}
+                    >
+                      <Icon
+                        boxSize="30px"
+                        borderRadius="md"
+                        p={1}
+                        as={FiExternalLink}
+                        color={color}
+                      />
+                      <Text fontSize="sm">Live Demo</Text>
                     </HStack>
                   </Link>
                   {project.repoLink && (
                     <Link href={project.repoLink} isExternal>
-                      <HStack align="center" spacing={1}>
-                        <Icon boxSize="30px" borderRadius="md" p={1} as={FiGithub} color={color} />
+                      <HStack
+                        align="center"
+                        spacing={1}
+                        _hover={{ color: "teal.500" }}
+                      >
+                        <Icon
+                          boxSize="30px"
+                          borderRadius="md"
+                          p={1}
+                          as={FiGithub}
+                          color={color}
+                        />
+                        <Text fontSize="sm">GitHub</Text>
                       </HStack>
                     </Link>
                   )}

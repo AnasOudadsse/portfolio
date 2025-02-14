@@ -97,6 +97,11 @@ import {
       newFlippedState[index] = false;
       setFlippedCards(newFlippedState);
     };
+
+    const detailsText = useBreakpointValue({
+        base: "Click for details",  // Mobile & tablets
+        md: "Hover for details"      // Medium screens and larger
+      });
   
     // Responsive values
     const cardWidth = useBreakpointValue({ base: "300px", sm: "300px", md: "300px", lg: "320px" });
@@ -116,7 +121,7 @@ import {
             <Box
               key={index}
               width={cardWidth}
-              height={cardHeight}
+              height={cardHeight}   
               style={{
                 perspective: "1200px",
               }}
@@ -158,6 +163,19 @@ import {
                     height="100%"
                     fallbackSrc="https://via.placeholder.com/400x250"
                   />
+                </Box>
+                <Box
+                    position="absolute"
+                    bottom={2}
+                    right={2}
+                    bg="rgba(0, 0, 0, 0.7)"
+                    color="white"
+                    px={2}
+                    py={1}
+                    borderRadius="md"
+                    fontSize="xs"
+                >
+                    {detailsText}
                 </Box>
   
                 {/* Back Side - Certification Details */}
