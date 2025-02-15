@@ -14,12 +14,12 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
     boxShadow="md"
     rounded="xl"
     py={10}
-    px={'50px'}
+    px={'30px'}
     direction={["column","column","column","row"]} // Stack vertically on small screens
     justify="space-between"
     align="start"
     mb={8}
-    w={["full", "80%", "80%", "80%", "60%"]}
+    w={["full", "80%", "80%", "80%", "70%"]}
     maxW="900px" // Ensure max width but allow flexibility on smaller screens
   >
     {/* Logo and Role Section */}
@@ -76,6 +76,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
     {/* Date Range */}
     <Text
       w="250px"
+      h={"20px"}
       fontSize="sm"
       fontWeight={500}
       color={Datecolor}

@@ -1,16 +1,16 @@
 [
     {
-      "logo": "FM6SS-crop.png",
-      "company": "Fondation Mohammed VI des Sciences et de la Santé",
+      "logo": "UM6SS-logo.png",
+      "company": "Université Mohammed VI des Sciences et de la Santé",
       "role": "Technicien en Systèmes d'Information (SI)",
       "description": [
-        "Développement d’outils internes pour automatiser la gestion des services.",
-        "Implémentation d’une application pour la gestion des tickets (React.js & Laravel).",
-        "Automatisation de l’ajout des étudiants sur Canvas & envoi d’emails en Python."
+        "Développé une application pour automatiser l’ajout des étudiants sur Canvas et l'envoi des emails en Python",
+        "Réalisé une application de gestion des tickets pour l'équipe SI enReact.js & Laravel & MYSQL.",
+        "Implémenté et déployé une application permettant aux étudiants d'accéder à leurs examens Evalbox en cas de panned'Outlook. En React, Laravel, MySQL"
 
       ],
       "dateRange": "Juillet 2024 - Présent",
-      "width" : "230px"
+      "width" : "250px"
     
       
     },
