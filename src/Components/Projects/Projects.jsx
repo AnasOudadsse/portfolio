@@ -11,155 +11,188 @@ import {
   HStack,
   Icon,
   Flex,
-  keyframes,
-  background,
+  useBreakpointValue,
+
 } from "@chakra-ui/react";
-import { FiExternalLink } from "react-icons/fi";  
-import { FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projectsData = [
   {
     title: "Blood-Nation",
     description:
-      "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",
-    videoSrc: "blood-nation-demo.mp4",
-    tags: ["React", "Tailwindcss", "Laravel", "MySQL", "Github", "Git", "Chakra UI", "Composer", "Sanctum"],
+    "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",    
+    tags: ["React", "Tailwindcss", "Laravel", "MySQL", "Github", "Chakra UI"],
     externalLink: "https://example.com",
+    videoSrc: "blood-nation-demo.mp4",
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
+    flexDirection: ['column', 'column', 'column', 'row']
   },
   {
-    title: "Ticketing app",
+    title: "Ticketing App",
     description:
-      "My-Coach est une plateforme conçue pour connecter les utilisateurs avec des coachs personnels. J'ai développé la page d'accueil en me concentrant sur un design épuré et une fonctionnalité optimale. Construite avec React et Chakra UI, la page est entièrement responsive et présente une mise en page intuitive. De plus, j'ai mis en place un système de soumission de formulaire avec Express.js en backend pour gérer les demandes et les requêtes des utilisateurs. Ce projet met en valeur ma capacité à intégrer des technologies front-end et back-end pour des interactions utilisateur fluides.",
+    "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",    
     videoSrc: "ticketing-app-demo.mp4",
-    tags: ["React", "Tailwindcss", "Chakra UI", "Node.js", "Express.js", "MongoDB", "Github", "Git"],
+    tags: ["React", "Chakra UI", "Node.js", "MongoDB", "Git"],
     externalLink: "https://my-coach-online.github.io/My-Coach-Landing-Page/",
     repoLink: "https://github.com/AnasOudadsse/myCoach",
+    flexDirection: ['column', 'column', 'column','row-reverse', ]
   },
   {
     title: "X Capital (UI/UX)",
     description:
-      "Un exemple de travail en UI/UX réalisé pour X Capital, axé sur la création de pages d'accueil réactives et visuellement attrayantes. Utilisant Figma, le projet met en évidence une attention particulière aux détails et un accent sur l'optimisation de l'expérience utilisateur tout en respectant les directives de la marque et les objectifs commerciaux.",
-    imageSrc: "HomePage.jpg", 
+"Un exemple de travail en UI/UX réalisé pour X Capital, axé sur la création de pages d'accueil réactives et visuellement attrayantes. Utilisant Figma, le projet met en évidence une attention particulière aux détails et un accent sur l'optimisation de l'expérience utilisateur tout en respectant les directives de la marque et les objectifs commerciaux.",    imageSrc: "HomePage.jpg",
     tags: ["Figma", "UI/UX Design"],
-    externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd/A-Sample-Of-My-Work-at-X-Capital?node-id=0-1&t=JHT48svd4058edeZ-1", 
-    flexDirection: ['column', 'column', 'column','column','row'],
-    repoLink: null 
+    externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd",
+    flexDirection: ['column', 'column', 'column','row'],
+    repoLink: null,
   },
   {
-    title: "My-Coach Platform (UI/UX)",
+    title: "Simple Shell",
     description:
-      "Ce projet est une conception UI/UX pour la plateforme My-Coach, axée sur la page des détails des coachs et le processus de réservation. Le design met l'accent sur une navigation conviviale et une grande clarté, permettant aux utilisateurs de consulter facilement les profils des coachs, de lire les avis et de réserver des sessions. L'expérience utilisateur a été soigneusement conçue pour garantir un processus de réservation fluide avec un minimum d'étapes, en maintenant l'engagement des utilisateurs et en simplifiant les interactions avec les coachs potentiels.",
-    imageSrc: "Coach details reviews.jpg", 
-    tags: ["Figma", "UI/UX Design"],
-    externalLink: "https://www.figma.com/design/rCQecy2Kg3UGGzOzATCqBw/My-Coach-Product-Demo?node-id=0-1&t=Rz05EXeqFoEYgdvX-1", 
-    flexDirection: ['column', 'column', 'column','column','row-reverse'],
-    repoLink: null 
+    "Un projet de programmation système en C visant à développer un interpréteur de commandes inspiré des shells UNIX. Ce projet met en évidence la gestion des processus, l'exécution de commandes et la manipulation des entrées/sorties, tout en respectant les principes fondamentaux des systèmes d'exploitation.",    imageSrc: "Ans-dev.png",
+    tags: ["C", "Shell", "UNIX", "Programmation Système"],
+    externalLink: null,
+    flexDirection: ['column', 'column', 'column','row-reverse'],
+    repoLink: "https://github.com/AnasOudadsse/_simple_shell",
   },
 ];
 
 export const Projects = () => {
   const bg = useColorModeValue("white", "#161A1D");
-  const imgBg = useColorModeValue("gray.50", "#38414A");
-  const color = useColorModeValue("black", "white");
-  const cardbg = useColorModeValue("white", "#2C333A");
+  const cardBg = useColorModeValue("white", "#2C333A");
+  const textColor = useColorModeValue("black", "white");
   const tagBg = useColorModeValue("gray.100", "#38414A");
   const tagColor = useColorModeValue("gray.800", "white");
 
-  // Animation for image hover
-  const scaleUp = keyframes`
-    0% { transform: scale(1); }
-    100% { transform: scale(1.05); }
-  `;
+
+  const detailsText = useBreakpointValue({
+    base: "Click for preview",  // Mobile & tablets
+    md: "Hover for preview"      // Medium screens and larger
+  });
 
   return (
-    <Box id="Projects" py={16} px={{ base: 4, md: 8 }} bg={bg}>
-      {/* Heading and Subtitle */}
-      <VStack align="center" mb={12}>
-        <Heading size="lg" mb={4}>
-          Projets
-        </Heading>
-        <Text fontSize="lg" color={color} textAlign="center">
-          Quelques projets remarquables que j'ai réalisés :
+    <Box id="Projects" py={12} px={{ base: 4, md: 8 }} bg={bg}>
+      {/* Title */}
+      <VStack align="center" mb={10}>
+        <Heading size="lg">Projets</Heading>
+        <Text fontSize="lg" color={textColor} textAlign="center" maxW="700px">
+          Découvrez quelques-uns de mes projets les plus remarquables.
         </Text>
       </VStack>
 
       {/* Projects Grid */}
       <Grid
-        gap={10}
-        w={["80%", "80%", "90%", "75%"]}
+        templateColumns={{ base: "1fr"}}
+        gap={6}
+        w={[ "90%","90%","80%","80%","80%", "65%"]}
         mx="auto"
-        justifyContent="center"
       >
         {projectsData.map((project, index) => (
-          <Box
+          <Flex
+  
+            mb={10}
             key={index}
-            display="flex"
-            justifySelf="center"
-            flexDirection={project.flexDirection}
-            bg={cardbg}
+            bg={cardBg}
             borderRadius="lg"
             boxShadow="lg"
             overflow="hidden"
-            w="100%"
-            maxW="1300px"
             transition="transform 0.3s ease-in-out"
             _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
+            direction={project.flexDirection}
+            align="center"
           >
-        <Box
-          px={5}
-          w={{ base: "100%", xl: "50%" }}
-          h={{ base: "250px", md: "100%" }}
-          overflow="hidden"
-          position="relative"
-          borderRadius="xl" // Rounded corners for the frame
-          border="2px solid" // Add a border
-          borderColor={"gray.600"} // Border color based on theme
-          boxShadow="lg" // Add a shadow for depth
-          _hover={{ boxShadow: "xl" }} // Enhance shadow on hover
-        >
- 
+            {/* Media Section */}
+      <Box
+      px={3}
+
+      w={{ base: "100%", lg: "50%" }}
+      h={{ base: "250px", md: "100%" }}
+      overflow="hidden"
+      position="relative"
+      borderRadius="xl"
+      boxShadow="lg"
+      _hover={{ boxShadow: "xl" }}
+    >
+      {project.videoSrc ? (
+        // Video Preview
+        <Flex h={"100%"} alignItems={'center'}>
           <video
             src={project.videoSrc}
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "contain", // Ensure the video covers the container
-              borderRadius: "inherit", // Inherit rounded corners from the parent
+              borderRadius: "inherit",
             }}
             muted
             loop
             playsInline
             onMouseEnter={(e) => {
               if (e.target.readyState >= 2) {
-                // Check if the video is ready to play
                 e.target.play();
               }
             }}
             onMouseLeave={(e) => {
               setTimeout(() => {
                 e.target.pause();
-              }, 200); // 200ms delay before pausing
+              }, 200);
             }}
           />
-        </Box>
+                <Box
+                    position="absolute"
+                    bottom={2}
+                    right={2}
+                    bg="rgba(0, 0, 0, 0.7)"
+                    color="white"
+                    px={2}
+                    py={1}
+                    borderRadius="md"
+                    fontSize="xs"
+                >
+                    {detailsText}
+                </Box>
+        </Flex>
+      ) : (
+        // Image Preview
+        <Flex
+          justify={'center'}
+          align={'center'}
+          w="100%"
+          h="100%"
+        >
+          <Image
+            src={project.imageSrc}
+            alt={project.title}
+            style={{
+              width: "100%",
+              height: "auto",
+              objectFit: "cover",
+              borderRadius: "inherit",
+            }}
+            objectPosition={'top'}
+            maxH={"300px"}
+          />
+   
+        </Flex>
+        
+      )}
+    </Box>
 
             {/* Project Details */}
-            <Box p={8} w={{ base: "100%", xl: "50%" }} h="100%">
-              <VStack align="start" spacing={4}>
-                <Heading fontWeight={600} size={["sm", "sm", "sm", "md"]}>
+            <Box w={{ base: "100%", lg: "50%" }} p={4}>
+              <VStack align="start" spacing={3}>
+                <Heading size="md" color={textColor}>
                   {project.title}
                 </Heading>
-                <Text fontSize={["sm", "sm", "sm", "md"]} color={color}>
+                <Text fontSize="sm" color="gray.600">
                   {project.description}
                 </Text>
 
                 {/* Tags */}
-                <HStack my={2} wrap="wrap" spacing={2}>
+                <HStack wrap="wrap">
                   {project.tags.map((tag, i) => (
                     <Tag
                       key={i}
-                      size={["md", "md", "md", "lg"]}
+                      size="sm"
                       color={tagColor}
                       bg={tagBg}
                       borderRadius="full"
@@ -171,46 +204,28 @@ export const Projects = () => {
                   ))}
                 </HStack>
 
-                {/* External Links */}
-                <Flex>
-                  <Link mr={4} href={project.externalLink} isExternal>
-                    <HStack
-                      align="center"
-                      spacing={1}
-                      _hover={{ color: "teal.500" }}
-                    >
-                      <Icon
-                        boxSize="30px"
-                        borderRadius="md"
-                        p={1}
-                        as={FiExternalLink}
-                        color={color}
-                      />
-                      <Text fontSize="sm">Live Demo</Text>
-                    </HStack>
-                  </Link>
+                {/* Links */}
+                <HStack spacing={4} mt={2}>
+                  {project.externalLink && (
+                    <Link href={project.externalLink} isExternal>
+                      <HStack align="center" spacing={1} _hover={{ color: "teal.500" }}>
+                        <Icon boxSize="20px" as={FiExternalLink} color={textColor} />
+                        <Text fontSize="sm">Live Demo</Text>
+                      </HStack>
+                    </Link>
+                  )}
                   {project.repoLink && (
                     <Link href={project.repoLink} isExternal>
-                      <HStack
-                        align="center"
-                        spacing={1}
-                        _hover={{ color: "teal.500" }}
-                      >
-                        <Icon
-                          boxSize="30px"
-                          borderRadius="md"
-                          p={1}
-                          as={FiGithub}
-                          color={color}
-                        />
+                      <HStack align="center" spacing={1} _hover={{ color: "teal.500" }}>
+                        <Icon boxSize="20px" as={FiGithub} color={textColor} />
                         <Text fontSize="sm">GitHub</Text>
                       </HStack>
                     </Link>
                   )}
-                </Flex>
+                </HStack>
               </VStack>
             </Box>
-          </Box>
+          </Flex>
         ))}
       </Grid>
     </Box>
