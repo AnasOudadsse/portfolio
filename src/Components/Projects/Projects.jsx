@@ -31,21 +31,25 @@ const projectsData = [
     videoSrc: "blood-nation-demo.webm",
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
     flexDirection: ['column', 'column', 'column'],
+    externalLink: null,
+
   },
   {
     title: "Ticketing App",
     description:
-      "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",
+      "Ticketing App est une plateforme de gestion des tickets destinée au support IT en entreprise. Elle permet de centraliser les demandes, d’optimiser le suivi des incidents et d’automatiser leur traitement en fonction des priorités. Grâce à une interface intuitive, les équipes IT peuvent gérer efficacement les requêtes, améliorer la réactivité et assurer un meilleur service aux utilisateurs.",
     videoSrc: "ticketing-app-demo.webm",
     tags: ["React", "Chakra UI", "Node.js", "MongoDB", "Git"],
     repoLink: "https://github.com/AnasOudadsse/myCoach",
     flexDirection: ['column', 'column', 'column'],
+    externalLink: null,
+
   },
   {
     title: "X Capital (UI/UX)",
     description:
       "Un exemple de travail en UI/UX réalisé pour X Capital, axé sur la création de pages d'accueil réactives et visuellement attrayantes. Utilisant Figma, le projet met en évidence une attention particulière aux détails et un accent sur l'optimisation de l'expérience utilisateur tout en respectant les directives de la marque et les objectifs commerciaux.",
-    imageSrc: "HomePage.jpg",
+    imageSrc: "Hero.png",
     tags: ["Figma", "UI/UX Design"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd",
     flexDirection: ['column', 'column', 'column'],
@@ -119,6 +123,16 @@ export const Projects = () => {
 
                 {/* Links */}
                 <HStack spacing={4} mt={2}>
+                  {project.externalLink && (
+                    <Link href={project.externalLink} isExternal>
+                    <HStack align="center" spacing={1} _hover={{ color: "teal.500" }}>
+                      <Icon boxSize="20px" as={FiExternalLink} color={textColor} />
+                      <Text fontSize="sm">Live Demo</Text>
+                    </HStack>
+                  </Link>
+                  )}
+                </HStack>
+                <HStack spacing={4} mt={2}>
                   {project.repoLink && (
                     <Link href={project.repoLink} isExternal>
                       <HStack align="center" spacing={1} _hover={{ color: "teal.500" }}>
@@ -140,6 +154,7 @@ export const Projects = () => {
 /* MediaPreview Component */
 const MediaPreview = ({ project }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <>
@@ -149,23 +164,32 @@ const MediaPreview = ({ project }) => {
             as="button"
             onClick={onOpen}
             w="100%"
-            h="100%"
+            h="auto"
             borderRadius="lg"
             overflow="hidden"
             position="relative"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
           >
             <video
-              src={project.videoSrc}
               style={{
                 width: "100%",
                 height: "100%",
                 borderRadius: "inherit",
-                filter: "brightness(60%)",
+                filter: isMobile ? "brightness(90%)" : "brightness(60%)",
               }}
               muted
               loop
               playsInline
-            />
+              poster={project.thumbnail} // Add a poster image for better loading
+            >
+              <source src={project.videoSrc} type="video/webm" />
+              <source src={project.fallbackVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Play Button (Only on Mobile) */}
             <Icon
               as={FiPlayCircle}
               position="absolute"
@@ -174,38 +198,45 @@ const MediaPreview = ({ project }) => {
               transform="translate(-50%, -50%)"
               fontSize="50px"
               color="whiteAlpha.900"
-              _hover={{ color: "teal.400" }}
+              _hover={{ color: "gray.700" }}
             />
           </Box>
         ) : (
-          <Box w="100%" h={["160px","220px","280px","255px","340px"]} overflow="auto" m={2}  
-            // display="flex"
+          <Box
+            w="100%"
+            h={["160px", "220px", "280px", "255px", "340px"]}
+            overflow="auto"
+            display="flex"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+          >
             <Image
               src={project.imageSrc}
               alt={project.title}
               w="100%"
-              h=""
-              objectPosition={'top'}
-              objectFit="contain" // Keeps aspect ratio while filling width
+              h="auto"
+              objectFit="contain"
               borderRadius="lg"
             />
           </Box>
-
         )}
       </Box>
 
-      {/* Video Modal */}
+      {/* Video Modal (For Large Screens) */}
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
         <ModalContent bg="black">
           <ModalCloseButton color="white" />
           <ModalBody p={0}>
-            <video src={project.videoSrc} controls autoPlay style={{ width: "100%", borderRadius: "lg" }} />
+            <video controls autoPlay style={{ width: "100%", borderRadius: "lg" }}>
+              <source src={project.videoSrc} type="video/webm" />
+              <source src={project.fallbackVideoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </ModalBody>
         </ModalContent>
       </Modal>
     </>
   );
 };
+
