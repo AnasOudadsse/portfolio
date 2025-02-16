@@ -19,7 +19,7 @@ const ExperienceItem = ({ logo, company, role, description, dateRange, width }) 
     justify="space-between"
     align="start"
     mb={8}
-    w={["90%", "80%", "80%", "80%", "70%"]}
+    w={["90%  ", "80%", "80%", "80%", "70%"]}
     maxW="900px" // Ensure max width but allow flexibility on smaller screens
   >
     {/* Logo and Role Section */}
