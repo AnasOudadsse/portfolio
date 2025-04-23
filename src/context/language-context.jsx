@@ -262,14 +262,8 @@ const translations = {
 // Language provider component
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState("fr")
-  const [translations, setTranslations] = useState({})
 
   useEffect(() => {
-    // Load translations
-    import("../context/language-context").then((module) => {
-      setTranslations(module.translations)
-    })
-
     // Check if there's a saved language preference
     const savedLanguage = localStorage.getItem("language")
     if (savedLanguage) {
@@ -306,6 +300,3 @@ export function useLanguage() {
   }
   return context
 }
-
-// Export translations for direct access
-export { translations }

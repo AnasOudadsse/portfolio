@@ -11,6 +11,7 @@ import Footer from './pages/Footer/Footer.jsx';
 import Certifications from './pages/Certifications/Certifications.jsx';
 import { LanguageProvider } from './context/language-context.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from './pages/theme-provider/theme-provider.jsx';
 
 function App() {
 
@@ -25,39 +26,35 @@ function App() {
 
   return (
     <ChakraBaseProvider theme={theme}>
-      <LanguageProvider >
-        <BrowserRouter>
-            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <Box fontFamily={'inter'}>
+      <ThemeProvider>
 
-              <Header/>
-              
-              <Hero/>
-              
-              <About/> 
-              
-              <Gap/>
-              
+        <LanguageProvider >
+          <BrowserRouter>
+              <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+              <Box fontFamily={'inter'}>
 
-              <Expertise/>
+                <Header/>
+                
+                <Hero/>
+                
+                <About/> 
+                  
+                <Expertise/>
 
-              <Skills/>
+                <Skills/>
 
-              <Experiences/>
+                <Experiences/>
 
-              <Projects/>
-              
-              <Certifications/>
+                <Projects/>
+                
+                <Certifications/>
 
-              <Footer/>
+                <Footer/>
 
-    
-
-
-
-            </Box>
-        </BrowserRouter>
-      </LanguageProvider>
+              </Box>
+          </BrowserRouter>
+        </LanguageProvider>
+      </ThemeProvider>
 
     </ChakraBaseProvider>
   );

@@ -1,81 +1,206 @@
-import React from 'react';
-import { Flex, Text, Box , useColorModeValue,  Heading, Link } from '@chakra-ui/react';
-import { GrLocation } from "react-icons/gr";
-import { FaLinkedin } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
-import { SiGmail } from "react-icons/si";
+"use client"
 
+import { useEffect, useState, useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { MapPin, Github, Linkedin, Mail, ExternalLink, ArrowRight } from "lucide-react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Link } from 'react-router-dom';
+import { TypeAnimation } from "react-type-animation"
+import { useLanguage } from "@/context/language-context"
 
+export function Hero() {
+  const { t } = useLanguage()
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
 
-export const Hero = () => {
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
 
-    const bg = useColorModeValue('white', '#161A1D');
-    const color = useColorModeValue('black', 'white');
+  return (
+    <section id="home" ref={ref} className="relative min-h-screen p-20 flex items-center pt-20 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-gray-950 z-0" />
 
-    return (
-        <Flex
-        id='Home'
-        direction={{ base: 'column', lg: 'row' }}
-        align="center"
-        justify="space-around"
-        p={10}
-        bg={bg}
-        pt={{ base: '100px', lg: '150px' }}
-        pb={[50,50,70,150,175]}    >
-        {/* Text Section */}
-        <Box mr={{ base: 0, lg: 10 }} w={{ base: '100%', lg: '50%' }} textAlign={{ base: 'center', lg: 'left' }} mb={{ base: 10, lg: 0 }}>
-            <Heading color={color} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} mb={4}>
-                    Salut, je suis Anas, Développeur Full-Stack & Designer UI/UX          
-            </Heading>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} mb={6}>
-                Développeur Full-Stack et Designer UI/UX expérimenté, compétent en React.js, Laravel, Tailwind CSS et Figma. Passionné par la création de designs fonctionnels et faciles à utiliser, je m'efforce de proposer des solutions qui répondent aux objectifs commerciaux tout en offrant une expérience utilisateur fluide.                
-            </Text>
-            <Box mb={10}>
-            <Flex ml={1} align="center" justify={{ base: 'center', lg: 'flex-start' }} mb={4}>
-                    <GrLocation color={color} transform='scale(1.5)' />
-                    <Text ml={3} fontSize={{ base: 'sm', lg: 'md' }}>
-                            Casablanca, Maroc
-                    </Text>
-                </Flex>
-                <Flex align="center" justify={{ base: 'center', lg: 'flex-start' }}>
-                    <div className="flex h-6 w-6 items-center justify-center">
-                        <span className="relative flex h-3 w-3">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
-                        </span>
-                    </div>
-                    <Text ml={2} fontSize={{ base: 'sm', lg: 'md' }}>
-                        Disponible pour de nouveaux projets
-                    </Text>
-                </Flex>
-                <Flex mt={6}  justify={{ base: 'center', lg: 'flex-start' }}>
-                    <Link href='https://github.com/AnasOudadsse' isExternal mr={4}>
-                        <FiGithub size={30} color={color} />
-                    </Link>
-                    <Link href='https://www.linkedin.com/in/anas-oudadsse/' isExternal mr={4}>
-                        <FaLinkedin size={30} color={color} />
-                    </Link>
-                    <Link href='mailto:anas.oudadsse1@gmail.com' isExternal>
-                        <SiGmail  size={30} color={color} />
-                    </Link>
-                </Flex>
-            </Box>
-        </Box>
-
-        {/* Image Section */}
-        <Box  mt={{ base: '0px', lg: '80px' }} boxSize={[0,0,200,300]}  display={["none","none","none","flex"]} alignItems="flex-end" justifyContent="center">
-            <div className="relative w-full max-w-md">
-                <div className="relative overflow-hidden rounded-[50px] shadow-lg transition-transform duration-500 hover:shadow-2xl transform hover:rotate-3">
-                    <img
-                        src="Mypic2024-cropped.jpg"
-                        className="w-full h-auto rounded-[50px] transition-transform duration-500 ease-in-out hover:scale-110"
-                        alt="My Portfolio Picture"
-                    />
-                </div>
+      {/* Content */}
+      <motion.div style={{ y, opacity }} className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full lg:w-3/5 text-center lg:text-left"
+          >
+            <div className="inline-block mb-3 px-3 py-1 rounded-md bg-primary/10 text-primary text-sm font-medium">
+              {t("hero.subtitle")}
             </div>
-        </Box>
-    </Flex>
 
-);
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              {t("hero.greeting")}{" "}
+              <span className="relative">
+                <span className="relative z-10 bg-gradient-to-r from-primary to-gray-800 bg-clip-text text-transparent">
+                  Anas
+                </span>
+                <motion.span
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
+                  className="absolute bottom-0 left-0 h-3 bg-primary/20 z-0"
+                />
+              </span>
+            </h1>
+
+            <div className="h-12 mb-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+              <TypeAnimation
+                sequence={t("hero.typewriter").flatMap((text, i) => [text, 1000])}
+                wrapper="span"
+                speed={50}
+                repeat={Number.POSITIVE_INFINITY}
+              />
+            </div>
+
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+              {t("hero.description")}
+            </p>
+
+            <div className="mb-8">
+              <div className="flex items-center justify-center lg:justify-start mb-4">
+                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-primary/10 text-primary">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <span className="ml-2 text-gray-700 dark:text-gray-300">{t("hero.location")}</span>
+              </div>
+              <div className="flex items-center justify-center lg:justify-start">
+                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-green-500/10 text-green-500">
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </div>
+                </div>
+                <span className="ml-2 text-gray-700 dark:text-gray-300">{t("hero.available")}</span>
+              </div>
+            </div>
+
+            <div className="flex justify-center lg:justify-start space-x-5 mb-8">
+              {[
+                { href: "https://github.com/AnasOudadsse", icon: <Github className="h-5 w-5" />, label: "GitHub" },
+                {
+                  href: "https://www.linkedin.com/in/anas-oudadsse/",
+                  icon: <Linkedin className="h-5 w-5" />,
+                  label: "LinkedIn",
+                },
+                { href: "mailto:anas.oudadsse1@gmail.com", icon: <Mail className="h-5 w-5" />, label: "Email" },
+              ].map((social, index) => (
+                <motion.div
+                  key={social.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                >
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}>
+                <Button asChild size="lg" className="rounded-md group">
+                  <Link href="#contact">
+                    {t("hero.cta")}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}>
+                <Button asChild variant="outline" size="lg" className="rounded-md">
+                  <Link href="/AnasOudadsseCV.pdf" target="_blank" download>
+                    {t("hero.downloadCV")}
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="hidden lg:block w-full lg:w-2/5"
+          >
+            <div className="relative w-full max-w-md mx-auto">
+              <div className="relative overflow-hidden rounded-lg shadow-xl transition-all duration-500 hover:shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-gray-800/20 z-0" />
+                <img
+                  src="/Mypic2024-cropped.jpg"
+                  alt="Anas Oudadsse"
+                  className="relative z-10 w-full h-auto transition-transform duration-500 ease-in-out hover:scale-105"
+                />
+
+                {/* Floating badges */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="absolute top-5 left-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-md shadow-lg z-20"
+                >
+                  <span className="text-sm font-medium text-primary">React</span>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 }}
+                  className="absolute bottom-5 right-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-md shadow-lg z-20"
+                >
+                  <span className="text-sm font-medium text-gray-800 dark:text-gray-200">Laravel</span>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="flex flex-col items-center">
+          <span className="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll</span>
+          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-md flex justify-center">
+            <motion.div
+              animate={{
+                y: [0, 12, 0],
+              }}
+              transition={{
+                repeat: Number.POSITIVE_INFINITY,
+                duration: 1.5,
+              }}
+              className="w-1.5 h-1.5 bg-primary rounded-full mt-2"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  )
 }
