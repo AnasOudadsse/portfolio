@@ -25,7 +25,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="home" ref={ref} className="relative min-h-screen p-20 flex items-center pt-20 overflow-hidden">
+    <section id="home" ref={ref} className="relative  p-20 flex items-center pt-20 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-gray-950 z-0" />
 
@@ -178,12 +178,12 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center">
           <span className="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll</span>
@@ -200,7 +200,7 @@ export function Hero() {
             />
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   )
 }

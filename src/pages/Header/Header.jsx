@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom';
+// import { ModeToggle } from "@/components/mode-toggle"
 // import { LanguageToggle } from "@/components/language-toggle"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion" 
-import { useLanguage } from "@/context/language-context"
-// import { ModeToggle } from "../mode-toggle/mode-toggle";
-import { ModeToggle } from "@/Components/ui/mode-toggle";
+import { motion, AnimatePresence } from "framer-motion"
+// import { useLanguage } from "@/context/language-context"
+import { ModeToggle } from "../mode-toggle/mode-toggle";
+import { useLanguage } from "@/context/language-context";
 import { LanguageToggle } from "../language-toggle/language-toggle";
 
 export default function Header() {
@@ -23,6 +24,7 @@ export default function Header() {
     { name: t("nav.expertise"), href: "#expertise" },
     { name: t("nav.skills"), href: "#skills" },
     { name: t("nav.experience"), href: "#experiences" },
+    { name: t("nav.volunteering"), href: "#volunteering" }, // Added volunteering nav item
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.certifications"), href: "#certifications" },
     { name: t("nav.contact"), href: "#contact" },

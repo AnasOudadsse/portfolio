@@ -2,103 +2,61 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Calendar, ChevronRight } from "lucide-react"
+import { Award, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 import { useTheme } from "../theme-provider/theme-provider"
 
-export default function Experiences() {
+export function Volunteering() {
   const { language } = useLanguage()
   const { theme } = useTheme()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
-  // Professional experiences data (excluding OFPPT which is in volunteering)
-  const experienceData = [
+  // OFPPT volunteering data
+  const volunteeringData = [
     {
-      logo: "/UM6SS-logo.png",
-      company:
-        language === "fr"
-          ? "Université Mohammed VI des Sciences et de la Santé"
-          : "Mohammed VI University of Health Sciences",
-      role: language === "fr" ? "Technicien en Systèmes d'Information (SI)" : "Information Systems (IS) Technician",
+      logo: "/cad_ista_hayhassani1_logo.png",
+      organization: "OFPPT",
+      role: language === "fr" ? "Président" : "President",
       description:
         language === "fr"
           ? [
-              "Développé une application pour automatiser l'ajout des étudiants sur Canvas et l'envoi des emails en Python",
-              "Réalisé une application de gestion des tickets pour l'équipe SI en React.js & Laravel & MYSQL.",
-              "Implémenté et déployé une application permettant aux étudiants d'accéder à leurs examens Evalbox en cas de panne d'Outlook. En React, Laravel, MySQL",
+              "Organisation d'événements communautaires pour améliorer la participation des membres.",
+              "Renforcement des compétences en leadership et gestion d'équipe pour les membres du comité.",
+              "Gestion des ressources et du budget pour garantir le bon déroulement des événements.",
+              "Amélioration de l'engagement des membres à travers des initiatives innovantes et participatives.",
             ]
           : [
-              "Developed an application to automate student addition to Canvas and email sending in Python",
-              "Created a ticket management application for the IS team using React.js, Laravel & MySQL",
-              "Implemented and deployed an application allowing students to access their Evalbox exams in case of Outlook outage. Using React, Laravel, MySQL",
+              "Organization of community events to improve member participation",
+              "Strengthening leadership and team management skills for committee members",
+              "Management of resources and budget to ensure the smooth running of events",
+              "Improving member engagement through innovative and participatory initiatives",
             ],
-      dateRange: language === "fr" ? "Juillet 2024 - Présent" : "July 2024 - Present",
-      tech: ["Python", "React", "Laravel", "MySQL"],
-      darkLogo: true,
-      width: "250px",
-      height: "auto",
-    },
-    {
-      logo: "/X-capital-logo.png",
-      company: "X Capital",
-      role: language === "fr" ? "Développeur Full-Stack & Designer UI/UX" : "Full-Stack Developer & UI/UX Designer",
-      description:
-        language === "fr"
-          ? [
-              "Conception et développement d'interfaces réactives avec React.js.",
-              "Utilisation des méthodes Agile pour améliorer la productivité de l'équipe.",
-              "Création de prototypes UI/UX avec Figma.",
-            ]
-          : [
-              "Design and development of responsive interfaces with React.js",
-              "Use of Agile methods to improve team productivity",
-              "Creation of UI/UX prototypes with Figma",
-            ],
-      dateRange: language === "fr" ? "Mars 2024 – Juin 2024" : "March 2024 - June 2024",
-      tech: ["React", "Figma", "Agile"],
-      darkLogo: true,
-      width: "80px",
-      height: "auto",
-    },
-    {
-      logo: "/My-Coach-Logo.svg",
-      company: "My Coach",
-      role: language === "fr" ? "Cofondateur & Directeur Technique" : "Co-founder & Technical Director",
-      description:
-        language === "fr"
-          ? [
-              "Recrutement & encadrement des équipes techniques.",
-              "Supervision des décisions techniques et architecture logicielle.",
-            ]
-          : [
-              "Recruitment & management of technical teams",
-              "Supervision of technical decisions and software architecture",
-            ],
-      dateRange: language === "fr" ? "Avril 2024 – Présent" : "April 2024 - Present",
-      tech: ["Leadership", "Architecture"],
+      dateRange: language === "fr" ? "Septembre 2022 – Juin 2024" : "September 2022 - June 2024",
+      skills: language === "fr" ? ["Leadership", "Gestion d'événements"] : ["Leadership", "Event Management"],
       darkLogo: false,
-      width: "120px",
+      width: "80px",
       height: "auto",
     },
   ]
 
   // Translations for section titles
-  const sectionTitle = language === "fr" ? "Parcours professionnel" : "Professional journey"
-  const sectionSubtitle = language === "fr" ? "Expériences" : "Experiences"
+  const sectionTitle = language === "fr" ? "Engagement Communautaire" : "Community Involvement"
+  const sectionSubtitle = language === "fr" ? "Bénévolat" : "Volunteering"
   const sectionDescription =
     language === "fr"
-      ? "Voici un résumé rapide de mes expériences les plus récentes :"
-      : "Here's a quick summary of my most recent experiences:"
+      ? "Mes contributions aux initiatives communautaires et éducatives :"
+      : "My contributions to community and educational initiatives:"
 
   return (
-    <section id="experiences" className="py-20 bg-white dark:bg-gray-950 relative overflow-hidden">
+    <section id="volunteering" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
+            ref={ref}
           >
             <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
               {sectionTitle}
@@ -109,21 +67,20 @@ export default function Experiences() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {experienceData.map((experience, index) => (
+          {volunteeringData.map((item, index) => (
             <motion.div
               key={index}
-              ref={index === 0 ? ref : null}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="mb-12"
             >
               <div className="group relative">
-                {/* Year indicator */}
+                {/* Award indicator */}
                 <div className="absolute -left-4 top-0 h-full hidden md:block">
                   <div className="sticky top-24 flex flex-col items-center">
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                      <Calendar className="h-4 w-4" />
+                      <Award className="h-4 w-4" />
                     </div>
                     <div className="h-full w-0.5 bg-primary/20 mt-2"></div>
                   </div>
@@ -143,22 +100,20 @@ export default function Experiences() {
                           {/* Logo with custom width */}
                           <div className="relative mb-5 flex items-center justify-center">
                             <img
-                              src={experience.logo || "/placeholder.svg"}
-                              alt={experience.company}
+                              src={item.logo || "/placeholder.svg"}
+                              alt={item.organization}
                               className={`object-contain ${
-                                experience.darkLogo && theme === "dark"
-                                  ? "filter invert brightness-[.85] contrast-[1.1]"
-                                  : ""
+                                item.darkLogo && theme === "dark" ? "filter invert brightness-[.85] contrast-[1.1]" : ""
                               }`}
                               style={{
-                                width: experience.width || "100px",
-                                height: experience.height || "auto",
+                                width: item.width || "100px",
+                                height: item.height || "auto",
                               }}
                             />
                           </div>
                           {/* Date badge at the top */}
                           <div className="mb-4 px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-md inline-block">
-                            {experience.dateRange}
+                            {item.dateRange}
                           </div>
                         </div>
 
@@ -168,13 +123,13 @@ export default function Experiences() {
                             {/* Title bar */}
                             <div className="absolute -left-4 top-0 h-full w-1 bg-primary rounded-full"></div>
                             <h3 className="text-xl font-bold pl-4 mb-1 group-hover:translate-x-1 transition-transform duration-300">
-                              {experience.role}
+                              {item.role}
                             </h3>
-                            <p className="text-primary pl-4 font-medium mb-6">{experience.company}</p>
+                            <p className="text-primary pl-4 font-medium mb-6">{item.organization}</p>
                           </div>
 
                           <ul className="space-y-3 mb-6">
-                            {experience.description.map((item, i) => (
+                            {item.description.map((desc, i) => (
                               <motion.li
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
@@ -183,18 +138,18 @@ export default function Experiences() {
                                 className="flex items-start group/item"
                               >
                                 <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                                <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
+                                <span className="text-gray-700 dark:text-gray-300 text-sm">{desc}</span>
                               </motion.li>
                             ))}
                           </ul>
 
                           <div className="flex flex-wrap gap-2 mt-4">
-                            {experience.tech.map((tech, i) => (
+                            {item.skills.map((skill, i) => (
                               <span
                                 key={i}
                                 className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
                               >
-                                {tech}
+                                {skill}
                               </span>
                             ))}
                           </div>

@@ -12,6 +12,7 @@ import Certifications from './pages/Certifications/Certifications.jsx';
 import { LanguageProvider } from './context/language-context.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './pages/theme-provider/theme-provider.jsx';
+import { Volunteering } from './pages/volunteering/volunteering.jsx';
 
 function App() {
 
@@ -44,6 +45,8 @@ function App() {
                 <Skills/>
 
                 <Experiences/>
+
+                <Volunteering/>
 
                 <Projects/>
                 

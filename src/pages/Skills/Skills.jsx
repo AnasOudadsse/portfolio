@@ -62,7 +62,7 @@ export default function Skills() {
                 key={index}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.2, delay: index * 0.05 }}
                 className="flex flex-col items-center group"
                 whileHover={{ y: -5 }}
               >
