@@ -1,89 +1,84 @@
-import { Box, Heading, Text, Grid, Image, VStack, Flex, useColorModeValue } from "@chakra-ui/react";
-import data from "./index.json";
-import React from "react";
+"use client"
 
-function Expertise() {
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { Code, Palette, GitMerge, Users } from "lucide-react"
+import { useLanguage } from "@/context/language-context"
 
-  // const { colorMode, toggleColorMode } = useColorMode();
+const expertiseData = [
+  {
+    icon: <Code className="w-[40px] h-[40px]" />,
+    title: "Développement Full-Stack",
+    description:
+      "Expérience complète en développement Frontend et Backend, avec maîtrise de React.js, HTML5, CSS3, JavaScript, Node.js, Express.js, et Laravel. Capable de créer des applications web complètes et évolutives, tout en utilisant des bases de données telles que MySQL et MongoDB.",
+  },
+  {
+    icon: <Palette className="w-[40px] h-[40px]" />,
+    title: "UI & UX Design",
+    description:
+      "Conception d'interfaces utilisateurs avec Figma en mettant l'accent sur l'expérience utilisateur, l'esthétique et la fonctionnalité. Capacité à créer des prototypes interactifs et des maquettes pour améliorer l'expérience utilisateur.",
+  },
+  {
+    icon: <GitMerge className="w-[40px] h-[40px]" />,
+    title: "Méthodologies Agile",
+    description:
+      "Familiarité avec les méthodes de gestion de projet Agile, notamment la collaboration avec des équipes pour accélérer les livraisons tout en assurant la qualité et la satisfaction client.",
+  },
+  {
+    icon: <Users className="w-[40px] h-[40px]" />,
+    title: "Compétences Relationnelles et Résolution de Problèmes",
+    description:
+      "Excellent communicant et esprit d'équipe, je travaille efficacement avec des équipes interdisciplinaires. Grande capacité à résoudre des problèmes complexes, en assurant la cohésion du projet et l'engagement communautaire.",
+  },
+]
 
-  const bg = useColorModeValue('gray.50', '#22272B');
-  const cardbg = useColorModeValue('white', '#2C333A')
-  const color = useColorModeValue('#696969', 'gray.300');
-  const text = useColorModeValue('#696969', 'blue.300');
-  const borderBottomColor = useColorModeValue('gray.700', 'gray.300');
-
-
-
-
+export default function Expertise() {
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
   return (
-    <Flex  align={'center'} id="Expertise" >
-      <Box  px={10}  pt={20} pb={20}   bg={bg} minHeight="550px">
+    <section id="expertise" className="flex items-center">
+      <div className="w-full px-10 py-20 bg-gray-50 dark:bg-gray-900 min-h-[550px]">
         {/* Title and Heading */}
-        <VStack align="center" spacing={4} mb={12}>
-          <Heading size="lg" textAlign="center">
-            Expertise
-          </Heading>
-          <Text fontSize="lg" color={color} textAlign="center" maxW="600px">
-            Voici un aperçu rapide de mes compétences principales et de mon expertise :
-          </Text>
-        </VStack>
+        <div className="flex flex-col items-center space-y-4 mb-12">
+          <h2 className="text-2xl font-bold text-center">{t ? t("expertise.subtitle") : "Expertise"}</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-[600px]">
+            {t
+              ? t("expertise.description")
+              : "Voici un aperçu rapide de mes compétences principales et de mon expertise :"}
+          </p>
+        </div>
 
         {/* Skills Cards Grid */}
-        <Grid
-          templateColumns={{ base: "1fr", md : "repeat(2, 1fr)",  sm: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" ,xl: "repeat(4, 1fr)" }}
-          gap={8}
-          justifyContent="center"
-          
-        >
-          {data?.skills?.map((item, index) => (
-            <Box
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 justify-center">
+          {expertiseData.map((item, index) => (
+            <motion.div
               key={index}
-              bg={cardbg}
-              borderRadius="md"
-              p={10}
-              boxShadow="md"
-              transition="transform 0.3s ease"
-              _hover={{
-                transform: "translateY(-10px)", // Add a subtle lift on hover
-                borderBottom: "4px solid",
-                borderBottomColor: borderBottomColor,
-              }}
+              ref={index === 0 ? ref : null}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-md p-10 shadow-md transition-transform duration-300 hover:-translate-y-2.5 hover:border-b-4 hover:border-gray-700 dark:hover:border-gray-300"
             >
-              <VStack align="center" spacing={4}>
-                {/* Icon/Image */}
-                <Box
-                  p={3}
-                  bg="gray.100"
-                  borderRadius="full"
-                  boxShadow="sm"
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  w="60px"
-                  h="60px"
-                  mb={3}
-                >
-                  <Image textAlign={'center'} src={item.src} alt={item.title} boxSize="40px" />
-                </Box>
+              <div className="flex flex-col items-center space-y-4">
+                {/* Icon */}
+                <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full shadow-sm flex justify-center items-center w-[60px] h-[60px] mb-3 text-primary">
+                  {item.icon}
+                </div>
 
                 {/* Card Content */}
-                <VStack align="center" textAlign={'center'} spacing={2}>
-                  <Heading mb={5}  size="md" fontWeight="bold">
-                    {item.title}
-                  </Heading>
-                  <Text fontSize="sm" color={color} _hover={{ color: text }}>
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <h3 className="text-lg font-bold mb-5">{item.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-600 dark:hover:text-blue-300">
                     {item.description}
-                  </Text>
-                </VStack>
-              </VStack>
-            </Box>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </Grid>
-      </Box>
-
-    </Flex>
-  );
+        </div>
+      </div>
+    </section>
+  )
 }
-
-export default Expertise;
