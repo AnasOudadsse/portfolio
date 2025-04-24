@@ -40,6 +40,26 @@ export default function Experiences() {
       height: "auto",
     },
     {
+      logo: "/MyCoachNewLogo.png",
+      company: "My Coach",
+      role: language === "fr" ? "Cofondateur & Directeur Technique" : "Co-founder & Technical Director",
+      description:
+        language === "fr"
+          ? [
+              "Recrutement & encadrement des équipes techniques.",
+              "Supervision des décisions techniques et architecture logicielle.",
+            ]
+          : [
+              "Recruitment & management of technical teams",
+              "Supervision of technical decisions and software architecture",
+            ],
+      dateRange: language === "fr" ? "Avril 2024 – Présent" : "April 2024 - Present",
+      tech: ["Leadership", "Architecture"],
+      darkLogo: false,
+      width: "120px",
+      height: "auto",
+    },
+    {
       logo: "/X-capital-logo.png",
       company: "X Capital",
       role: language === "fr" ? "Développeur Full-Stack & Designer UI/UX" : "Full-Stack Developer & UI/UX Designer",
@@ -61,26 +81,7 @@ export default function Experiences() {
       width: "80px",
       height: "auto",
     },
-    {
-      logo: "/My-Coach-Logo.svg",
-      company: "My Coach",
-      role: language === "fr" ? "Cofondateur & Directeur Technique" : "Co-founder & Technical Director",
-      description:
-        language === "fr"
-          ? [
-              "Recrutement & encadrement des équipes techniques.",
-              "Supervision des décisions techniques et architecture logicielle.",
-            ]
-          : [
-              "Recruitment & management of technical teams",
-              "Supervision of technical decisions and software architecture",
-            ],
-      dateRange: language === "fr" ? "Avril 2024 – Présent" : "April 2024 - Present",
-      tech: ["Leadership", "Architecture"],
-      darkLogo: false,
-      width: "120px",
-      height: "auto",
-    },
+
   ]
 
   // Translations for section titles

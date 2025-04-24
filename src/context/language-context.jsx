@@ -15,6 +15,7 @@ const translations = {
       expertise: "Expertise",
       skills: "Skills",
       experience: "Experience",
+      volunteering: "Volunteering",
       projects: "Projects",
       certifications: "Certifications",
       contact: "Contact",
