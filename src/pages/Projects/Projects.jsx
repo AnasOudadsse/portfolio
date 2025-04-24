@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Terminal } from "lucide-react"
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
 const projectsData = [
@@ -111,19 +111,31 @@ export function Projects() {
     setVideoDialogOpen(true)
   }
 
-  const sectionTitle = language === "fr" ? "Portfolio" : "Portfolio"
-  const sectionSubtitle = language === "fr" ? "Projets" : "Projects"
-  const sectionDescription =
-    language === "fr"
-      ? "Découvrez quelques-uns de mes projets les plus remarquables."
-      : "Discover some of my most remarkable projects."
-  const viewProjectText = language === "fr" ? "Voir le projet" : "View project"
-  const githubText = language === "fr" ? "GitHub" : "GitHub"
-  const tagsText = language === "fr" ? "Technologies" : "Technologies"
-  const moreText = language === "fr" ? "autres" : "more"
+  const translations = {
+    en: {
+      title: "Portfolio",
+      subtitle: "Projects",
+      description: "Discover some of my most remarkable projects.",
+      viewProject: "View project",
+      github: "GitHub",
+      technologies: "Technologies",
+      more: "more",
+    },
+    fr: {
+      title: "Portfolio",
+      subtitle: "Projets",
+      description: "Découvrez quelques-uns de mes projets les plus remarquables.",
+      viewProject: "Voir le projet",
+      github: "GitHub",
+      technologies: "Technologies",
+      more: "autres",
+    },
+  }
+
+  const t = translations[language] || translations.en
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-950 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
@@ -137,12 +149,13 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
+            ref={ref}
           >
             <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
-              {sectionTitle}
+              {t.title}
             </div>
-            <h2 className="text-3xl font-bold mb-4">{sectionSubtitle}</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{sectionDescription}</p>
+            <h2 className="text-3xl font-bold mb-4">{t.subtitle}</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t.description}</p>
           </motion.div>
         </div>
 
@@ -154,15 +167,14 @@ export function Projects() {
               <div className="col-span-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
                 <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <h3 className="font-medium text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                    {tagsText}
+                    {t.technologies}
                   </h3>
                 </div>
                 <div className="divide-y divide-gray-100 dark:divide-gray-700">
                   {projectsData.map((project, index) => (
                     <motion.div
                       key={index}
-                      ref={index === 0 ? ref : null}
-                      initial={{ opacity: 1, x: -20 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                       className={`relative cursor-pointer transition-all duration-300 group`}
@@ -233,7 +245,7 @@ export function Projects() {
                                   : "bg-gray-100 dark:bg-gray-600"
                               }`}
                             >
-                              +{project.tags.length - 3} {moreText}
+                              +{project.tags.length - 3} {t.more}
                             </Badge>
                           )}
                         </div>
@@ -325,7 +337,7 @@ export function Projects() {
                                     <Button asChild variant="outline" size="sm" className="rounded-md group">
                                       <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
                                         <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                                        {githubText}
+                                        {t.github}
                                       </Link>
                                     </Button>
                                   )}
@@ -333,7 +345,7 @@ export function Projects() {
                                     <Button asChild variant="outline" size="sm" className="rounded-md group">
                                       <Link href={project.externalLink} target="_blank" rel="noopener noreferrer">
                                         <ExternalLink className="mr-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                                        {viewProjectText}
+                                        {t.viewProject}
                                       </Link>
                                     </Button>
                                   )}
@@ -355,7 +367,6 @@ export function Projects() {
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
-              ref={index === 0 ? ref : null}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -417,7 +428,7 @@ export function Projects() {
                         <Button asChild variant="outline" size="sm" className="rounded-md group">
                           <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
                             <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                            {githubText}
+                            {t.github}
                           </Link>
                         </Button>
                       )}
@@ -425,7 +436,7 @@ export function Projects() {
                         <Button asChild variant="outline" size="sm" className="rounded-md group">
                           <Link href={project.externalLink} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="mr-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                            {viewProjectText}
+                            {t.viewProject}
                           </Link>
                         </Button>
                       )}

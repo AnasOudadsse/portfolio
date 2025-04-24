@@ -1,47 +1,84 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ExternalLink } from "lucide-react"
-import { Link } from 'react-router-dom';
+import { Box, Button, Flex, Heading, Image, Text, Badge, Icon, Tag, VStack, useBreakpointValue } from "@chakra-ui/react"
+import { FiExternalLink } from "react-icons/fi"
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+import { useLanguage } from "@/context/language-context"
+import { useTheme } from "../theme-provider/theme-provider"
 
-const certifData = [
+const MotionBox = motion(Box)
+
+const CertifData = [
   {
-    title: "Programming with JavaScript",
+    title: {
+      en: "Programming with JavaScript",
+      fr: "Programmation avec JavaScript",
+    },
     date: "22 December 2023",
-    issuer: "Meta & Coursera",
-    description: "An online non-credit course authorized by Meta and offered through Coursera.",
+    issuer: {
+      en: "Meta & Coursera",
+      fr: "Meta & Coursera",
+    },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
     credentials: "https://coursera.org/verify/RB3VERHZ5NUN",
     skills: ["JavaScript", "ES6+", "Functions"],
     image: "/js-certif.png",
   },
   {
-    title: "ALX Ventures Founder Academy",
+    title: {
+      en: "ALX Ventures Founder Academy",
+      fr: "ALX Ventures Founder Academy",
+    },
     date: "24th July 2024",
     completionDate: "30th June 2024",
-    issuer: "ALX & Mastercard Foundation",
-    description: "For completing the ALX Ventures Founder Academy course and graduation requirements in 2024.",
+    issuer: {
+      en: "ALX & Mastercard Foundation",
+      fr: "ALX & Fondation Mastercard",
+    },
+    description: {
+      en: "For completing the ALX Ventures Founder Academy course and graduation requirements in 2024.",
+      fr: "Pour avoir complété le cours ALX Ventures Founder Academy et les exigences d'obtention du diplôme en 2024.",
+    },
     credentials: "https://intranet.alxswe.com/certificates/2CyBRCJmep",
     skills: ["Entrepreneurship", "Business Strategy", "Leadership"],
     image: "/alx-certif.png",
   },
   {
-    title: "React Basics",
+    title: {
+      en: "React Basics",
+      fr: "Fondamentaux de React",
+    },
     date: "24 December 2023",
-    issuer: "Meta & Coursera",
-    description: "An online non-credit course authorized by Meta and offered through Coursera.",
+    issuer: {
+      en: "Meta & Coursera",
+      fr: "Meta & Coursera",
+    },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
     credentials: "https://coursera.org/verify/4SYCFES8XCL5",
     skills: ["React", "JSX", "State Management"],
     image: "/React-certif.png",
   },
   {
-    title: "Software Engineering",
+    title: {
+      en: "Software Engineering",
+      fr: "Ingénierie Logicielle",
+    },
     date: "15 November 2024",
-    issuer: "ALX & Holberton School",
-    description:
-      "This certificate is awarded for successfully completing the 12-month ALX Software Engineering Programme with a specialization in Back-end development.",
+    issuer: {
+      en: "ALX & Holberton School",
+      fr: "ALX & École Holberton",
+    },
+    description: {
+      en: "This certificate is awarded for successfully completing the 12-month ALX Software Engineering Programme with a specialization in Back-end development.",
+      fr: "Ce certificat est décerné pour avoir réussi le programme d'ingénierie logicielle ALX de 12 mois avec une spécialisation en développement Back-end.",
+    },
     credentials: "https://intranet.alxswe.com/certificates/T2CRES7nmF",
     skills: [
       "Back-end Development",
@@ -57,10 +94,19 @@ const certifData = [
     image: "/Se-alx.png",
   },
   {
-    title: "Version Control",
+    title: {
+      en: "Version Control",
+      fr: "Contrôle de Version",
+    },
     date: "25 December 2023",
-    issuer: "Meta & Coursera",
-    description: "An online non-credit course authorized by Meta and offered through Coursera.",
+    issuer: {
+      en: "Meta & Coursera",
+      fr: "Meta & Coursera",
+    },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
     credentials: "https://coursera.org/verify/P58AGWZ4DRZ6",
     skills: ["Git", "GitHub", "Version Control"],
     image: "/git-certif.png",
@@ -68,133 +114,233 @@ const certifData = [
 ]
 
 export default function Certifications() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
-  const [flippedCards, setFlippedCards] = useState(Array(certifData.length).fill(false))
-  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const { language } = useLanguage()
+  const { theme } = useTheme() // Get the current theme from your theme provider
 
-  const handleFlip = (index) => {
+  // Set colors based on the theme from your theme provider
+  const bg = theme === "dark" ? "#22272B" : "gray.50"
+  const color = theme === "dark" ? "white" : "black"
+  const cardbg = theme === "dark" ? "#2C333A" : "white"
+  const buttonColor = theme === "dark" ? "black" : "white"
+  const buttonBg = theme === "dark" ? "white" : "black"
+  const buttonHoverBg = theme === "dark" ? "gray.300" : "gray.700"
+  const tagBg = theme === "dark" ? "#1A1E23" : "gray.100"
+  const tagColor = theme === "dark" ? "gray.300" : "gray.700"
+
+  const [flippedCards, setFlippedCards] = useState(Array(CertifData.length).fill(false))
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleMouseEnter = (index) => {
     const newFlippedState = [...flippedCards]
-    newFlippedState[index] = !newFlippedState[index]
+    newFlippedState[index] = true
     setFlippedCards(newFlippedState)
   }
 
+  const handleMouseLeave = (index) => {
+    const newFlippedState = [...flippedCards]
+    newFlippedState[index] = false
+    setFlippedCards(newFlippedState)
+  }
+
+  const handleCardClick = (index) => {
+    if (isMobile) {
+      const newFlippedState = [...flippedCards]
+      newFlippedState[index] = !newFlippedState[index]
+      setFlippedCards(newFlippedState)
+    }
+  }
+
+  const detailsText = useBreakpointValue({
+    base: language === "fr" ? "Cliquez pour les détails" : "Click for details",
+    md: language === "fr" ? "Survolez pour les détails" : "Hover for details",
+  })
+
+  // Responsive values
+  const cardWidth = useBreakpointValue({ base: "300px", sm: "300px", md: "300px", lg: "320px" })
+  const cardHeight = useBreakpointValue({ base: "200px", sm: "200px", md: "200px", lg: "220px" })
+  const headingSize = useBreakpointValue({ base: "md", md: "lg" })
+
+  // Translations
+  const translations = {
+    en: {
+      title: "My Certifications",
+      skills: "Skills",
+      issuer: "Issuer",
+      dateOfIssue: "Date of Issue",
+      viewCertificate: "View Certificate",
+    },
+    fr: {
+      title: "Mes Certifications",
+      skills: "Compétences",
+      issuer: "Émetteur",
+      dateOfIssue: "Date d'émission",
+      viewCertificate: "Voir le certificat",
+    },
+  }
+
+  const t = translations[language] || translations.en
+
   return (
-    <section id="certifications" className="py-20 bg-white dark:bg-gray-950 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+    <Box id="certifications" minH="100vh" bg={bg} py={21}>
+      <VStack align="center" mt={14}>
+        <Heading size={headingSize} mb={4} color={color}>
+          {t.title}
+        </Heading>
+      </VStack>
+
+      <Flex wrap="wrap" justify="space-around" align="center" gap={8} mt={10} px={4}>
+        {CertifData.map((certif, index) => (
+          <Box
+            key={index}
+            width={cardWidth}
+            height={cardHeight}
+            style={{
+              perspective: "1200px",
+            }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+            onClick={() => handleCardClick(index)}
           >
-            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
-              Formations
-            </div>
-            <h2 className="text-3xl font-bold mb-4">Certifications</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Professional certifications and courses I&apos;ve completed to enhance my skills.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {certifData.map((certif, index) => (
-            <motion.div
-              key={index}
-              ref={index === 0 ? ref : null}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="perspective-1000"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+            <MotionBox
+              position="relative"
+              width="full"
+              height="full"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+              animate={{ rotateY: flippedCards[index] ? 180 : 0 }}
+              transition={{ duration: 1 }}
             >
-              <div
-                className={`relative w-full h-[320px] transition-transform duration-700 transform-style-3d cursor-pointer ${
-                  flippedCards[index] ? "rotate-y-180" : ""
-                }`}
-                onClick={() => handleFlip(index)}
+              {/* Front Side - Certificate Image */}
+              <Box
+                position="absolute"
+                width="full"
+                height="full"
+                bg={cardbg}
+                shadow="lg"
+                rounded="xl"
+                border={`2px solid ${theme === "dark" ? "gray.600" : "gray"}`}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                overflow="hidden"
+                p={0.1}
+                style={{ backfaceVisibility: "hidden" }}
               >
-                {/* Front Side */}
-                <div
-                  className={`absolute w-full h-full backface-hidden rounded-md overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 ${
-                    flippedCards[index] ? "invisible" : ""
-                  }`}
+                <Image
+                  src={certif.image || "/placeholder.svg"}
+                  alt={certif.title[language] || certif.title.en}
+                  objectFit="cover"
+                  objectPosition="left"
+                  width="100%"
+                  height="100%"
+                  fallbackSrc="https://via.placeholder.com/400x250"
+                />
+                <Box
+                  position="absolute"
+                  bottom={2}
+                  right={2}
+                  bg="rgba(0, 0, 0, 0.7)"
+                  color="white"
+                  px={2}
+                  py={1}
+                  borderRadius="md"
+                  fontSize="xs"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <img
-                    src={certif.image || "/placeholder.svg"}
-                    alt={certif.title}
-                    className="w-full h-full object-cover object-center"
-                  />
+                  {detailsText}
+                </Box>
+              </Box>
 
-                  {/* Hover effect */}
-                  <AnimatePresence>
-                    {hoveredIndex === index && !flippedCards[index] && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute inset-0 flex items-center justify-center"
+              {/* Back Side - Certification Details */}
+              <Box
+                position="absolute"
+                width="full"
+                height="full"
+                bg={cardbg}
+                shadow="lg"
+                rounded="xl"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                textAlign="center"
+                p={{ base: 2, md: 4 }}
+                overflowY="auto"
+                style={{
+                  backfaceVisibility: "hidden",
+                  transform: "rotateY(180deg)",
+                }}
+              >
+                <Heading as="h3" fontSize={{ base: "sm", md: "lg" }} fontWeight="bold" color={color}>
+                  {certif.title[language] || certif.title.en}
+                </Heading>
+                <Text fontSize={{ base: "xs", md: "sm" }} color={theme === "dark" ? "gray.400" : "gray.500"} mt={1}>
+                  {t.issuer}: {certif.issuer[language] || certif.issuer.en}
+                </Text>
+                <Text fontSize={{ base: "xs", md: "xs" }} color={theme === "dark" ? "gray.500" : "gray.400"} mt={1}>
+                  {t.dateOfIssue}: {certif.date}
+                </Text>
+                <Text fontSize={{ base: "xs", md: "md" }} color={color} mt={2} px={2}>
+                  {certif.description[language] || certif.description.en}
+                </Text>
+
+                <Badge px={2} py={1} rounded="md" fontSize="xs" fontWeight="semibold" colorScheme="blue" mt={2}>
+                  {t.skills}
+                </Badge>
+
+                <Flex wrap="wrap" overflowWrap={2} mt={1} justify="center">
+                  {certif.skills &&
+                    certif.skills.map((skill, skillIndex) => (
+                      <Tag
+                        key={skillIndex}
+                        bg={tagBg}
+                        color={tagColor}
+                        m={0.5}
+                        px={2}
+                        py={1}
+                        rounded="md"
+                        fontSize="xs"
                       >
-                        <div className="bg-black/50 text-white px-4 py-2 rounded-md">Click for details</div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        {skill}
+                      </Tag>
+                    ))}
+                </Flex>
 
-                  {/* Title overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                    <h3 className="text-lg font-bold text-white">{certif.title}</h3>
-                    <p className="text-sm text-gray-300">{certif.issuer}</p>
-                  </div>
-                </div>
-
-                {/* Back Side */}
-                <div
-                  className={`absolute w-full h-full backface-hidden rounded-md overflow-hidden shadow-xl bg-white dark:bg-gray-800 p-6 rotate-y-180 ${
-                    !flippedCards[index] ? "invisible" : ""
-                  }`}
+                <Button
+                  size={"50"}
+                  as="a"
+                  href={certif.credentials}
+                  target="_blank"
+                  mt={5}
+                  px={3}
+                  py={2}
+                  bg={buttonBg}
+                  color={buttonColor}
+                  fontWeight="semibold"
+                  rounded="lg"
+                  shadow="md"
+                  _hover={{ bg: buttonHoverBg }}
+                  _focus={{ outline: "none" }}
+                  transition="all 0.3s ease-in-out"
+                  fontSize="sm"
                 >
-                  <div className="flex flex-col h-full">
-                    <h3 className="text-lg font-bold mb-1 text-primary">{certif.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Issuer: {certif.issuer}</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mb-3">Date of Issue: {certif.date}</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 flex-grow">{certif.description}</p>
-
-                    <div className="mt-auto">
-                      <p className="text-xs font-semibold mb-2">Skills:</p>
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {certif.skills.slice(0, 5).map((skill, i) => (
-                          <Badge
-                            key={i}
-                            variant="outline"
-                            className="text-xs bg-primary/10 text-primary border-primary/20"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                        {certif.skills.length > 5 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{certif.skills.length - 5} more
-                          </Badge>
-                        )}
-                      </div>
-
-                      <Button asChild size="sm" className="w-full rounded-md group">
-                        <Link href={certif.credentials} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="mr-2 h-3 w-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                          View Certificate
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+                  {t.viewCertificate}
+                  <Icon ml={2} as={FiExternalLink} />
+                </Button>
+              </Box>
+            </MotionBox>
+          </Box>
+        ))}
+      </Flex>
+    </Box>
   )
 }

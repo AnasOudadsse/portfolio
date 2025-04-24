@@ -208,45 +208,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="mb-8">
             <div>
               <h3 className="text-lg font-bold mb-4">Anas Oudadsse</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">{t("footer.description")}</p>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold mb-4">{t("footer.quickNav")}</h3>
-              <ul className="space-y-2">
-                {[
-                  { name: t("nav.home"), href: "#home" },
-                  { name: t("nav.about"), href: "#about" },
-                  { name: t("nav.expertise"), href: "#expertise" },
-                  { name: t("nav.skills"), href: "#skills" },
-                  { name: t("nav.experience"), href: "#experiences" },
-                  { name: t("nav.projects"), href: "#projects" },
-                ].map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold mb-4">{t("footer.newsletter")}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{t("footer.newsletterDesc")}</p>
-              <div className="flex">
-                <Input placeholder={t("footer.emailPlaceholder")} className="rounded-l-lg rounded-r-none" />
-                <Button className="rounded-l-none rounded-r-lg">
-                  <Send className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
           </div>
 
           <p className="text-gray-600 dark:text-gray-400 text-sm">
