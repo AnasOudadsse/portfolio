@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useLanguage } from "@/context/language-context";
 
 const skillsData = [
   { name: "HTML5", imgSrc: "/html-5.png" },
@@ -24,14 +25,18 @@ const skillsData = [
   { name: "Linux", imgSrc: "/Linux.svg" },
   { name: "UML", imgSrc: "/UML.svg" },
   { name: "Figma", imgSrc: "/icon-figma.svg" },
-]
+];
 
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.1 });
+  const { t } = useLanguage();
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section
+      id="skills"
+      className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-16">
           <motion.div
@@ -40,11 +45,13 @@ export default function Skills() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
-              Technologies
+              {t("skills.title")}
             </div>
-            <h2 className="text-3xl font-bold mb-4">Compétences</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+              {t("skills.subtitle")}
+            </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Voici un résumé rapide de mes compétences techniques :
+              {t("skills.description")}
             </p>
           </motion.div>
         </div>
@@ -82,5 +89,5 @@ export default function Skills() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
