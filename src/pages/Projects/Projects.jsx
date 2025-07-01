@@ -154,7 +154,7 @@ export function Projects() {
             <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
               {t.title}
             </div>
-            <h2 className="text-3xl font-bold mb-4">{t.subtitle}</h2>
+            <h2 className="text-3xl font-bold mb-4 !text-gray-900 dark:!text-gray-100 " >{t.subtitle}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t.description}</p>
           </motion.div>
         </div>
@@ -207,7 +207,7 @@ export function Projects() {
                               {project.icon}
                             </div>
                             <h3
-                              className={`font-bold text-lg transition-colors duration-300 ${
+                              className={`font-bold text-lg transition-colors !text-gray-900 dark:!text-gray-100 duration-300 ${
                                 activeProject === index ? "text-primary" : ""
                               }`}
                             >
@@ -312,7 +312,7 @@ export function Projects() {
 
                               {/* Content Section */}
                               <div className="flex-grow p-6 overflow-y-auto">
-                                <h3 className="text-2xl font-bold mb-3 flex items-center">
+                                <h3 className="text-2xl font-bold mb-3 flex items-center !text-gray-900 dark:!text-gray-100">
                                   <span className={`mr-2 ${project.iconColor}`}>●</span>
                                   {project.title[language]}
                                 </h3>
@@ -334,9 +334,9 @@ export function Projects() {
 
                                 <div className="flex flex-wrap gap-4">
                                   {project.repoLink && (
-                                    <Button asChild variant="outline" size="sm" className="rounded-md group">
+                                    <Button asChild variant="outline" size="sm" className="rounded-md group !text-gray-900 dark:!text-gray-100">
                                       <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
-                                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300 dar  " />
                                         {t.github}
                                       </Link>
                                     </Button>
