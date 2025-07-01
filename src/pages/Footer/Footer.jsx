@@ -59,15 +59,15 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
             ref={ref}
           >
-            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
+            <div className="inline-block !text-gray-900 dark:!text-gray-100 px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
               {t("contact.title")}
             </div>
-            <h2 className="text-3xl font-bold mb-4">{t("contact.subtitle")}</h2>
+            <h2 className="text-3xl font-bold mb-4 !text-gray-900 dark:!text-gray-100">{t("contact.subtitle")}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t("contact.description")}</p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20 !text-gray-900 dark:!text-gray-100">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -86,7 +86,7 @@ export default function Footer() {
                     id="name"
                     name="name"
                     placeholder={t("contact.namePlaceholder")}
-                    className="rounded-lg"
+                    className="rounded-lg dark:!bg-gray-600 border-gray-300 dark:!border-gray-500"
                     required
                   />
                 </div>
@@ -99,7 +99,7 @@ export default function Footer() {
                     name="email"
                     type="email"
                     placeholder={t("contact.emailPlaceholder")}
-                    className="rounded-lg"
+                    className="rounded-lg dark:!bg-gray-600 border-gray-300 dark:!border-gray-500"
                     required
                   />
                 </div>
@@ -112,7 +112,7 @@ export default function Footer() {
                   id="subject"
                   name="subject"
                   placeholder={t("contact.subjectPlaceholder")}
-                  className="rounded-lg"
+                  className="rounded-lg dark:!bg-gray-600 border-gray-300 dark:!border-gray-500"
                   required
                 />
               </div>
@@ -125,7 +125,7 @@ export default function Footer() {
                   name="message"
                   placeholder={t("contact.messagePlaceholder")}
                   rows={5}
-                  className="rounded-lg resize-none"
+                  className="rounded-lg resize-none dark:!bg-gray-600 border-gray-300 dark:!border-gray-500"
                   required
                 />
               </div>
@@ -210,7 +210,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
           <div className="mb-8">
             <div>
-              <h3 className="text-lg font-bold mb-4">Anas Oudadsse</h3>
+              <h3 className="text-lg font-bold mb-4 !text-gray-900 dark:!text-gray-100">Anas Oudadsse</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm">{t("footer.description")}</p>
             </div>
 
