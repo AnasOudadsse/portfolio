@@ -1,36 +1,50 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { MapPin, Github, Linkedin, Mail, ExternalLink, ArrowRight } from "lucide-react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Link } from 'react-router-dom';
-import { TypeAnimation } from "react-type-animation"
-import { useLanguage } from "@/context/language-context"
+import { useEffect, useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  ArrowRight,
+} from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+import { useLanguage } from "@/context/language-context";
 
 export function Hero() {
-  const { t } = useLanguage()
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
+  const { t } = useLanguage();
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
-    <section id="home" ref={ref} className="relative  p-20 flex items-center pt-20 overflow-hidden">
+    <section
+      id="home"
+      ref={ref}
+      className="relative  p-20 flex items-center pt-20 overflow-hidden"
+    >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-gray-950 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:bg-gray-800 dark:bg-none z-0" />
 
       {/* Content */}
-      <motion.div style={{ y, opacity }} className="container mx-auto px-4 relative z-10">
+      <motion.div
+        style={{ y, opacity }}
+        className="container mx-auto px-4 relative z-10"
+      >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
           <motion.div
@@ -39,28 +53,31 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-3/5 text-center lg:text-left"
           >
-            <div className="inline-block mb-3 px-3 py-1 rounded-md bg-primary/10 text-primary text-sm font-medium">
+            <div className="inline-block mb-3 px-3 py-1 rounded-md bg-primary/10 text-primary !text-gray-900 dark:!text-gray-100 text-sm font-medium">
               {t("hero.subtitle")}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100  font-bold leading-tight mb-6">
               {t("hero.greeting")}{" "}
               <span className="relative">
-                <span className="relative z-10 bg-gradient-to-r from-primary to-gray-800 bg-clip-text text-transparent">
+                <span className="relative z-10 text-gray-900 dark:text-gray-100 bg-clip-text text-transparent">
                   Anas
                 </span>
-                <motion.span
+                {/* <motion.span
                   initial={{ width: "0%" }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
                   className="absolute bottom-0 left-0 h-3 bg-primary/20 z-0"
-                />
+                /> */}
               </span>
             </h1>
 
             <div className="h-12 mb-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300">
               <TypeAnimation
-                sequence={t("hero.typewriter").flatMap((text, i) => [text, 1000])}
+                sequence={t("hero.typewriter").flatMap((text, i) => [
+                  text,
+                  1000,
+                ])}
                 wrapper="span"
                 speed={50}
                 repeat={Number.POSITIVE_INFINITY}
@@ -76,7 +93,9 @@ export function Hero() {
                 <div className="flex items-center justify-center w-8 h-8 rounded-md bg-primary/10 text-primary">
                   <MapPin className="h-4 w-4" />
                 </div>
-                <span className="ml-2 text-gray-700 dark:text-gray-300">{t("hero.location")}</span>
+                <span className="ml-2 text-gray-700 dark:text-gray-300">
+                  {t("hero.location")}
+                </span>
               </div>
               <div className="flex items-center justify-center lg:justify-start">
                 <div className="flex items-center justify-center w-8 h-8 rounded-md bg-green-500/10 text-green-500">
@@ -85,19 +104,29 @@ export function Hero() {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                   </div>
                 </div>
-                <span className="ml-2 text-gray-700 dark:text-gray-300">{t("hero.available")}</span>
+                <span className="ml-2 text-gray-700 dark:text-gray-300">
+                  {t("hero.available")}
+                </span>
               </div>
             </div>
 
             <div className="flex justify-center lg:justify-start space-x-5 mb-8">
               {[
-                { href: "https://github.com/AnasOudadsse", icon: <Github className="h-5 w-5" />, label: "GitHub" },
+                {
+                  href: "https://github.com/AnasOudadsse",
+                  icon: <Github className="h-5 w-5" />,
+                  label: "GitHub",
+                },
                 {
                   href: "https://www.linkedin.com/in/anas-oudadsse/",
                   icon: <Linkedin className="h-5 w-5" />,
                   label: "LinkedIn",
                 },
-                { href: "mailto:anas.oudadsse1@gmail.com", icon: <Mail className="h-5 w-5" />, label: "Email" },
+                {
+                  href: "mailto:anas.oudadsse1@gmail.com",
+                  icon: <Mail className="h-5 w-5" />,
+                  label: "Email",
+                },
               ].map((social, index) => (
                 <motion.div
                   key={social.label}
@@ -119,7 +148,11 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1 }}
+              >
                 <Button asChild size="lg" className="rounded-md group">
                   <Link href="#contact">
                     {t("hero.cta")}
@@ -127,8 +160,17 @@ export function Hero() {
                   </Link>
                 </Button>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}>
-                <Button asChild variant="outline" size="lg" className="rounded-md">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+              >
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="rounded-md text-gray-900 dark:text-gray-100"
+                >
                   <Link href="/AnasOudadsseCV.pdf" target="_blank" download>
                     {t("hero.downloadCV")}
                     <ExternalLink className="ml-2 h-4 w-4" />
@@ -153,32 +195,13 @@ export function Hero() {
                   alt="Anas Oudadsse"
                   className="relative z-10 w-full h-auto transition-transform duration-500 ease-in-out hover:scale-105"
                 />
-
-                {/* Floating badges */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="absolute top-5 left-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-md shadow-lg z-20"
-                >
-                  <span className="text-sm font-medium text-primary">React</span>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 }}
-                  className="absolute bottom-5 right-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-md shadow-lg z-20"
-                >
-                  <span className="text-sm font-medium text-gray-800 dark:text-gray-200">Laravel</span>
-                </motion.div>
               </div>
             </div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Scroll indicator
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -200,7 +223,7 @@ export function Hero() {
             />
           </div>
         </div>
-      </motion.div> */}
+      </motion.div>
     </section>
-  )
+  );
 }
