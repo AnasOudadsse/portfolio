@@ -53,7 +53,15 @@ module.exports = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		}
-  	}
+  	},
+	screens: {
+		sm: "640px",
+		md: "768px", // THIS is the one that matters for your case
+		lg: "1024px",
+		xl: "1280px",
+		"2xl": "1536px",
+	  },
+	
   },
   plugins: [require("tailwindcss-animate")],
 }

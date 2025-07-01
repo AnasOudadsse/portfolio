@@ -16,7 +16,12 @@ export default function Header() {
   const [isLogoHovered, setIsLogoHovered] = useState(false)
   const fullNameRef = useRef(null)
   const [fullNameWidth, setFullNameWidth] = useState(0)
+  const [hasMounted, setHasMounted] = useState(false)
 
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+  
   const navItems = [
     { name: t("nav.home"), href: "#home" },
     { name: t("nav.about"), href: "#about" },
@@ -76,6 +81,20 @@ export default function Header() {
       setActiveSection(targetId)
     }
   }
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuOpen && !event.target.closest(".mobile-menu") && !event.target.closest(".menu-button")) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [mobileMenuOpen])
 
   return (
     <header
@@ -169,22 +188,26 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center md:hidden space-x-4">
-          <div className="flex items-center space-x-2 mr-2">
-            <div className="p-1 bg-gray-100 dark:bg-gray-800 rounded-md">
+        {/* Mobile Controls */}
+        {hasMounted && (
+        <div className="flex items-center md:hidden">
+          {/* Language and Theme Toggles */}
+          <div className="flex items-center mr-4">
+            <div className="p-1.5 bg-gray-100 dark:bg-gray-800 rounded-md mr-2">
               <LanguageToggle />
             </div>
-            <div className="p-1 bg-gray-100 dark:bg-gray-800 rounded-md">
+            <div className="p-1.5 bg-gray-100 dark:bg-gray-800 rounded-md">
               <ModeToggle />
             </div>
           </div>
+
+          {/* Hamburger Menu Button */}
           <Button
             variant="outline"
             size="icon"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
-            className="focus:outline-none bg-gray-100 dark:bg-gray-800"
+            className="menu-button focus:outline-none bg-primary hover:bg-primary/90 text-white"
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -195,7 +218,7 @@ export default function Header() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-5 w-5" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -205,52 +228,98 @@ export default function Header() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-5 w-5" />
                 </motion.div>
               )}
             </AnimatePresence>
           </Button>
         </div>
+        )}
+
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg overflow-hidden"
-          >
-            <nav className="flex flex-col py-4">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="mobile-menu fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-white dark:bg-gray-900 z-50 md:hidden shadow-xl overflow-y-auto"
+            >
+              {/* Menu Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+                <h2 className="text-lg font-bold text-primary">Menu</h2>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
                 >
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={`flex items-center px-6 py-4 text-base font-medium transition-colors group ${
-                      activeSection === item.href.substring(1)
-                        ? "text-primary dark:text-primary bg-gray-100 dark:bg-gray-800"
-                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }`}
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Menu Items */}
+              <nav className="py-2">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    <ChevronRight
-                      className={`mr-2 h-4 w-4 transition-transform ${
-                        activeSection === item.href.substring(1) ? "text-primary" : "opacity-0 group-hover:opacity-100"
+                    <a
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`flex items-center px-6 py-4 text-base font-medium transition-colors border-l-4 ${
+                        activeSection === item.href.substring(1)
+                          ? "border-primary text-primary dark:text-primary bg-gray-50 dark:bg-gray-800"
+                          : "border-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
                       }`}
-                    />
-                    {item.name}
+                    >
+                      <ChevronRight
+                        className={`mr-3 h-4 w-4 ${
+                          activeSection === item.href.substring(1) ? "text-primary" : "text-gray-400 dark:text-gray-600"
+                        }`}
+                      />
+                      {item.name}
+                    </a>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Menu Footer */}
+              <div className="mt-auto p-4 border-t border-gray-200 dark:border-gray-800">
+                <div className="flex justify-center space-x-4">
+                  <a
+                    href="#contact"
+                    onClick={(e) => handleNavClick(e, "#contact")}
+                    className="text-primary hover:underline"
+                  >
+                    Contact
                   </a>
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
+                  <span className="text-gray-300 dark:text-gray-700">|</span>
+                  <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="text-primary hover:underline">
+                    Home
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
