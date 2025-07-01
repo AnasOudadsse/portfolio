@@ -23,7 +23,7 @@ export function About() {
           className="relative z-10"
         >
           {/* Terminal-like container */}
-          <div className="max-w-4xl mx-auto bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
+          <div className="max-w-4xl mx-auto bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
             {/* Terminal header */}
             <div className="bg-gray-200 dark:bg-gray-800 px-4 py-2 flex items-center">
               <div className="flex space-x-2 mr-4">
@@ -85,7 +85,7 @@ export function About() {
                       <span className="text-primary">./contact_options.sh</span>
                     </div>
                     <div className="pl-6 flex flex-col sm:flex-row gap-4">
-                      <Button asChild className="rounded-md group bg-black hover:bg-gray-00">
+                      <Button asChild className="rounded-md group bg-black hover:bg-gray-00 text-gray-100">
                         <Link href="mailto:anas.oudadsse1@gmail.com">
                           {t("about.cta")}
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -94,7 +94,7 @@ export function About() {
                       <Button
                         asChild
                         variant="outline"
-                        className="rounded-md group border-gray-400 dark:border-gray-600"
+                        className="rounded-md group text-gray-900 dark:text-gray-100 border-gray-400 dark:border-gray-600"
                       >
                         <Link href="/AnasOudadsseCV.pdf" download>
                           <Download className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
