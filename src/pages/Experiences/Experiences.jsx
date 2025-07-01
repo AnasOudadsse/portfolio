@@ -101,10 +101,10 @@ export default function Experiences() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
+            <div className="inline-block px-3 py-1 mb-4 !text-gray-900 dark:!text-gray-100 rounded-md bg-primary/10 text-primary text-sm font-medium">
               {sectionTitle}
             </div>
-            <h2 className="text-3xl font-bold mb-4">{sectionSubtitle}</h2>
+            <h2 className="text-3xl font-bold mb-4 !text-gray-900 dark:!text-gray-100">{sectionSubtitle}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{sectionDescription}</p>
           </motion.div>
         </div>
@@ -168,7 +168,7 @@ export default function Experiences() {
                           <div className="relative">
                             {/* Title bar */}
                             <div className="absolute -left-4 top-0 h-full w-1 bg-primary rounded-full"></div>
-                            <h3 className="text-xl font-bold pl-4 mb-1 group-hover:translate-x-1 transition-transform duration-300">
+                            <h3 className="text-xl font-bold !text-gray-900 dark:!text-gray-100 pl-4 mb-1 group-hover:translate-x-1 transition-transform duration-300">
                               {experience.role}
                             </h3>
                             <p className="text-primary pl-4 font-medium mb-6">{experience.company}</p>
