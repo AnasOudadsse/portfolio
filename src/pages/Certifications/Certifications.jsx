@@ -1,13 +1,25 @@
-"use client"
+"use client";
 
-import { Box, Button, Flex, Heading, Image, Text, Badge, Icon, Tag, VStack, useBreakpointValue } from "@chakra-ui/react"
-import { FiExternalLink } from "react-icons/fi"
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-import { useLanguage } from "@/context/language-context"
-import { useTheme } from "../theme-provider/theme-provider"
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  Badge,
+  Icon,
+  Tag,
+  VStack,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { FiExternalLink } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useLanguage } from "@/context/language-context";
+import { useTheme } from "../theme-provider/theme-provider";
 
-const MotionBox = motion(Box)
+const MotionBox = motion(Box);
 
 const CertifData = [
   {
@@ -111,63 +123,75 @@ const CertifData = [
     skills: ["Git", "GitHub", "Version Control"],
     image: "/git-certif.png",
   },
-]
+];
 
 export default function Certifications() {
-  const { language } = useLanguage()
-  const { theme } = useTheme() // Get the current theme from your theme provider
+  const { language } = useLanguage();
+  const { theme } = useTheme(); // Get the current theme from your theme provider
 
   // Set colors based on the theme from your theme provider
-  const bg = theme === "dark" ? "#22272B" : "gray.50"
-  const color = theme === "dark" ? "white" : "black"
-  const cardbg = theme === "dark" ? "#2C333A" : "white"
-  const buttonColor = theme === "dark" ? "black" : "white"
-  const buttonBg = theme === "dark" ? "white" : "black"
-  const buttonHoverBg = theme === "dark" ? "gray.300" : "gray.700"
-  const tagBg = theme === "dark" ? "#1A1E23" : "gray.100"
-  const tagColor = theme === "dark" ? "gray.300" : "gray.700"
+  const bg = theme === "dark" ? "gray.800" : "gray.50";
+  const color = theme === "dark" ? "white" : "black";
+  const cardbg = theme === "dark" ? "#2C333A" : "white";
+  const buttonColor = theme === "dark" ? "black" : "white";
+  const buttonBg = theme === "dark" ? "white" : "black";
+  const buttonHoverBg = theme === "dark" ? "gray.300" : "gray.700";
+  const tagBg = theme === "dark" ? "#1A1E23" : "gray.100";
+  const tagColor = theme === "dark" ? "gray.300" : "gray.700";
 
-  const [flippedCards, setFlippedCards] = useState(Array(CertifData.length).fill(false))
-  const [isMobile, setIsMobile] = useState(false)
+  const [flippedCards, setFlippedCards] = useState(
+    Array(CertifData.length).fill(false)
+  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleMouseEnter = (index) => {
-    const newFlippedState = [...flippedCards]
-    newFlippedState[index] = true
-    setFlippedCards(newFlippedState)
-  }
+    const newFlippedState = [...flippedCards];
+    newFlippedState[index] = true;
+    setFlippedCards(newFlippedState);
+  };
 
   const handleMouseLeave = (index) => {
-    const newFlippedState = [...flippedCards]
-    newFlippedState[index] = false
-    setFlippedCards(newFlippedState)
-  }
+    const newFlippedState = [...flippedCards];
+    newFlippedState[index] = false;
+    setFlippedCards(newFlippedState);
+  };
 
   const handleCardClick = (index) => {
     if (isMobile) {
-      const newFlippedState = [...flippedCards]
-      newFlippedState[index] = !newFlippedState[index]
-      setFlippedCards(newFlippedState)
+      const newFlippedState = [...flippedCards];
+      newFlippedState[index] = !newFlippedState[index];
+      setFlippedCards(newFlippedState);
     }
-  }
+  };
 
   const detailsText = useBreakpointValue({
     base: language === "fr" ? "Cliquez pour les détails" : "Click for details",
     md: language === "fr" ? "Survolez pour les détails" : "Hover for details",
-  })
+  });
 
   // Responsive values
-  const cardWidth = useBreakpointValue({ base: "300px", sm: "300px", md: "300px", lg: "320px" })
-  const cardHeight = useBreakpointValue({ base: "200px", sm: "200px", md: "200px", lg: "220px" })
-  const headingSize = useBreakpointValue({ base: "md", md: "lg" })
+  const cardWidth = useBreakpointValue({
+    base: "300px",
+    sm: "300px",
+    md: "300px",
+    lg: "320px",
+  });
+  const cardHeight = useBreakpointValue({
+    base: "200px",
+    sm: "200px",
+    md: "200px",
+    lg: "220px",
+  });
+  const headingSize = useBreakpointValue({ base: "md", md: "lg" });
 
   // Translations
   const translations = {
@@ -177,6 +201,8 @@ export default function Certifications() {
       issuer: "Issuer",
       dateOfIssue: "Date of Issue",
       viewCertificate: "View Certificate",
+      description:
+        "Professional certifications and courses I've completed to enhance my skills.",
     },
     fr: {
       title: "Mes Certifications",
@@ -184,20 +210,38 @@ export default function Certifications() {
       issuer: "Émetteur",
       dateOfIssue: "Date d'émission",
       viewCertificate: "Voir le certificat",
+      description:
+        "Certifications professionnelles et cours que j'ai complétés pour améliorer mes compétences.",
     },
-  }
+  };
 
-  const t = translations[language] || translations.en
+  const t = translations[language] || translations.en;
 
   return (
-    <Box id="certifications" minH="100vh" bg={bg} py={21}>
-      <VStack align="center" mt={14}>
+    <Box id="certifications"   bg={bg} py={150}>
+      <VStack align="center">
         <Heading size={headingSize} mb={4} color={color}>
           {t.title}
         </Heading>
+        <Text
+          color={theme === "dark" ? "gray.300" : "gray.700"}
+          fontSize={{ base: "sm", md: "md" }}
+          mb={2}
+          textAlign="center"
+          maxW="2xl"
+        >
+          {t.description}
+        </Text>
       </VStack>
 
-      <Flex wrap="wrap" justify="space-around" align="center" gap={8} mt={10} px={4}>
+      <Flex
+        wrap="wrap"
+        justify="space-around"
+        align="center"
+        gap={8}
+        mt={10}
+        px={4}
+      >
         {CertifData.map((certif, index) => (
           <Box
             key={index}
@@ -280,20 +324,46 @@ export default function Certifications() {
                   transform: "rotateY(180deg)",
                 }}
               >
-                <Heading as="h3" fontSize={{ base: "sm", md: "lg" }} fontWeight="bold" color={color}>
+                <Heading
+                  as="h3"
+                  fontSize={{ base: "sm", md: "lg" }}
+                  fontWeight="bold"
+                  color={color}
+                >
                   {certif.title[language] || certif.title.en}
                 </Heading>
-                <Text fontSize={{ base: "xs", md: "sm" }} color={theme === "dark" ? "gray.400" : "gray.500"} mt={1}>
+                <Text
+                  fontSize={{ base: "xs", md: "sm" }}
+                  color={theme === "dark" ? "gray.400" : "gray.500"}
+                  mt={1}
+                >
                   {t.issuer}: {certif.issuer[language] || certif.issuer.en}
                 </Text>
-                <Text fontSize={{ base: "xs", md: "xs" }} color={theme === "dark" ? "gray.500" : "gray.400"} mt={1}>
+                <Text
+                  fontSize={{ base: "xs", md: "xs" }}
+                  color={theme === "dark" ? "gray.500" : "gray.400"}
+                  mt={1}
+                >
                   {t.dateOfIssue}: {certif.date}
                 </Text>
-                <Text fontSize={{ base: "xs", md: "md" }} color={color} mt={2} px={2}>
+                <Text
+                  fontSize={{ base: "xs", md: "md" }}
+                  color={color}
+                  mt={2}
+                  px={2}
+                >
                   {certif.description[language] || certif.description.en}
                 </Text>
 
-                <Badge px={2} py={1} rounded="md" fontSize="xs" fontWeight="semibold" colorScheme="blue" mt={2}>
+                <Badge
+                  px={2}
+                  py={1}
+                  rounded="md"
+                  fontSize="xs"
+                  fontWeight="semibold"
+                  colorScheme="blue"
+                  mt={2}
+                >
                   {t.skills}
                 </Badge>
 
@@ -342,5 +412,5 @@ export default function Certifications() {
         ))}
       </Flex>
     </Box>
-  )
+  );
 }
