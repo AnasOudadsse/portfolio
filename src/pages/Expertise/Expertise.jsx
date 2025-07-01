@@ -42,7 +42,7 @@ export default function Expertise() {
       <div className="w-full px-10 py-20 bg-gray-50 dark:bg-gray-900 min-h-[550px]">
         {/* Title and Heading */}
         <div className="flex flex-col items-center space-y-4 mb-12">
-          <h2 className="text-2xl font-bold text-center">{t ? t("expertise.subtitle") : "Expertise"}</h2>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center">{t ? t("expertise.subtitle") : "Expertise"}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-[600px]">
             {t
               ? t("expertise.description")
@@ -69,7 +69,7 @@ export default function Expertise() {
 
                 {/* Card Content */}
                 <div className="flex flex-col items-center text-center space-y-2">
-                  <h3 className="text-lg font-bold mb-5">{item.title}</h3>
+                  <h3 className="text-lg font-bold mb-5 text-gray-900 dark:text-gray-100">{item.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-600 dark:hover:text-blue-300">
                     {item.description}
                   </p>
