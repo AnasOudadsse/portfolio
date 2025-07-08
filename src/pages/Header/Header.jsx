@@ -121,12 +121,12 @@ export default function Header() {
               >
                 {/* Short version (AO) - hidden when hovered */}
                 <motion.span
-                  className="bg-gradient-to-r from-primary to-gray-800 bg-clip-text text-transparent"
+                  className="!text-gray-900 dark:!text-gray-100"
                   animate={{
                     opacity: isLogoHovered ? 0 : 1,
                     display: isLogoHovered ? "none" : "inline",
                   }}
-                  transition={{ duration: 0.1 }}
+                  transition={{ duration: 0.6 }}
                 >
                   AO
                 </motion.span>
@@ -134,7 +134,7 @@ export default function Header() {
                 {/* Full name version - shown when hovered */}
                 <motion.span
                   ref={fullNameRef}
-                  className="bg-gradient-to-r from-primary to-gray-800 bg-clip-text text-transparent whitespace-nowrap"
+                  className="!text-gray-900 dark:!text-gray-100 whitespace-nowrap"
                   initial={{ opacity: 0, width: 0 }}
                   animate={{
                     opacity: isLogoHovered ? 1 : 0,

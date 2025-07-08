@@ -18,9 +18,9 @@ export function LanguageToggle() {
       <span className="sr-only">Toggle language</span>
       <motion.div
         initial={false}
-        animate={{ x: language === "en" ? 12 : 0 }}
+        // animate={{ x: language === "en" ? 2 :0 }}
         transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-center justify-center dark:!text-white "
       >
         <span className={`text-sm font-medium ${language === "fr" ? "opacity-100" : "opacity-30"}`}>FR</span>
         <span className="mx-1">/</span>
