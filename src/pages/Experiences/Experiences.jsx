@@ -53,14 +53,14 @@ export default function Experiences() {
         language === "fr"
           ? [
               "Recrutement & encadrement des équipes techniques.",
-              "Supervision des décisions techniques et architecture logicielle.",
+              "Supervision des décisions stratégiques, techniques et de l’architecture logicielle",
             ]
           : [
               "Recruitment & management of technical teams",
-              "Supervision of technical decisions and software architecture",
+              "Oversight of strategic and technical decision-making and software architecture",
             ],
       dateRange: language === "fr" ? "Avril 2024 – Présent" : "April 2024 - Present",
-      tech: ["Leadership", "Architecture"],
+      tech: ["Leadership", "Architecture", "Entrepreneurship"],
       darkLogo: false,
       width: "120px",
       height: "auto",
