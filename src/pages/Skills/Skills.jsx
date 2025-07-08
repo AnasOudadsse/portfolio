@@ -11,6 +11,7 @@ const skillsData = [
   { name: "React.js", imgSrc: "/react.png" },
   { name: "Bootstrap", imgSrc: "/bootstrap.png" },
   { name: "Tailwind CSS", imgSrc: "/tailwind-css.svg" },
+  { name: "Flutter", imgSrc: "/flutter-logo.png" },
   { name: "PHP", imgSrc: "/php.png" },
   { name: "Laravel", imgSrc: "/laravel.svg" },
   { name: "Express.js", imgSrc: "/express-js.svg" },
