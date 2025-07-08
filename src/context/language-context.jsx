@@ -39,10 +39,10 @@ const translations = {
     // About
     about: {
       title: "About me",
-      role: "Full-Stack Developer & UI/UX Designer",
+      role: "Full-Stack Developer",
       description:
-        "With a strong mastery of front-end and back-end technologies, I specialize in creating complete web applications. My expertise includes React.js, Laravel, Tailwind CSS, and Figma, ensuring that the design and functionality of your web solutions are aligned with modern trends and business needs. From design to deployment, I focus on delivering high-quality products with a user-centered approach.",
-      cta: "Let's work together",
+        "With a strong command of both front-end and back-end technologies, I architect, develop, and deliver web and mobile applications from concept to production. I’m proficient in React.js, Flutter, Laravel, and Tailwind CSS, and experienced with both relational and non-relational databases, ensuring every solution is scalable, maintainable, and aligned with your business goals.",
+      cta: "Let’s work together",
       downloadCV: "Download CV",
     },
     // Expertise
@@ -167,12 +167,13 @@ const translations = {
     // About
     about: {
       title: "À propos de moi",
-      role: "Développeur Full-Stack & Designer UI/UX",
+      role: "Développeur Full-Stack",
       description:
-        "Avec une solide maîtrise des technologies front-end et back-end, je me spécialise dans la création d'applications web complètes. Mon expertise inclut React.js, Laravel, Tailwind CSS, et Figma, garantissant que le design et la fonctionnalité de vos solutions web sont alignés avec les tendances modernes et les besoins des entreprises. De la conception au déploiement, je me concentre sur la livraison de produits de haute qualité avec une approche centrée sur l'utilisateur.",
+        "Avec une solide maîtrise des technologies front-end et back-end, j'architecte, développe et livre des applications web et mobiles de la conception à la mise en production. Je suis compétent en React.js, Flutter, Laravel et Tailwind CSS, et expérimenté avec les bases de données relationnelles et non relationnelles, garantissant que chaque solution est évolutive, maintenable et alignée sur vos objectifs métier.",
       cta: "Travaillons ensemble",
-      downloadCV: "Télécharger le CV",
+      downloadCV: "Télécharger CV",
     },
+    
     // Expertise
     expertise: {
       title: "Ce que je fais",
