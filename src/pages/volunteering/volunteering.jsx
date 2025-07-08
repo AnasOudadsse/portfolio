@@ -137,7 +137,7 @@ export function Volunteering() {
                                 transition={{ duration: 0.3, delay: index * 0.1 + i * 0.1 }}
                                 className="flex items-start group/item"
                               >
-                                <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                                <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2" />
                                 <span className="text-gray-700 dark:text-gray-300 text-sm">{desc}</span>
                               </motion.li>
                             ))}
