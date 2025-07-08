@@ -49,30 +49,31 @@ const translations = {
     expertise: {
       title: "What I do",
       subtitle: "Expertise",
-      description: "Here's a quick overview of my main skills and expertise:",
+      description: "Here's an overview of my main skills:",
       items: [
         {
           title: "Full-Stack Development",
           description:
-            "Complete experience in Frontend and Backend development, with mastery of React.js, HTML5, CSS3, JavaScript, Node.js, Express.js, and Laravel. Able to create complete and scalable web applications, while using databases such as MySQL and MongoDB.",
+            "Extensive experience in front-end and back-end development, mastering React.js, Flutter, Laravel, and Tailwind CSS. I build scalable web and mobile applications using both relational (MySQL) and non-relational (MongoDB) databases.",
         },
         {
-          title: "UI & UX Design",
+          title: "Solution Architecture",
           description:
-            "Designing user interfaces with Figma focusing on user experience, aesthetics, and functionality. Ability to create interactive prototypes and mockups to improve user experience.",
+            "Designing robust and optimized technical architectures that ensure system performance, scalability, and maintainability.",
         },
         {
           title: "Agile Methodologies",
           description:
-            "Familiarity with Agile project management methods, including collaboration with teams to accelerate deliveries while ensuring quality and customer satisfaction.",
+            "Proficient in Agile frameworks (Scrum, Kanban), collaborating with teams to accelerate delivery while maintaining high quality and customer satisfaction.",
         },
         {
-          title: "Relational Skills and Problem Solving",
+          title: "Interpersonal & Problem-Solving Skills",
           description:
-            "Excellent communicator and team player, I work effectively with interdisciplinary teams. Great ability to solve complex problems, ensuring project cohesion and community engagement.",
+            "Strong communication and teamwork abilities in multidisciplinary settings, with a talent for tackling complex challenges to ensure project cohesion and stakeholder alignment.",
         },
       ],
     },
+    
     // Skills
     skills: {
       title: "Technologies",
@@ -178,30 +179,31 @@ const translations = {
     expertise: {
       title: "Ce que je fais",
       subtitle: "Expertise",
-      description: "Voici un aperçu rapide de mes compétences principales et de mon expertise :",
+      description: "Voici un aperçu de mes compétences principales :",
       items: [
         {
           title: "Développement Full-Stack",
           description:
-            "Expérience complète en développement Frontend et Backend, avec maîtrise de React.js, HTML5, CSS3, JavaScript, Node.js, Express.js, et Laravel. Capable de créer des applications web complètes et évolutives, tout en utilisant des bases de données telles que MySQL et MongoDB.",
+            "Expérience approfondie en développement front-end et back-end, maîtrisant React.js, Flutter, Laravel et Tailwind CSS. Je crée des applications web et mobiles évolutives avec des bases de données relationnelles (MySQL) et non relationnelles (MongoDB).",
         },
         {
-          title: "UI & UX Design",
+          title: "Architecture de solutions",
           description:
-            "Conception d'interfaces utilisateurs avec Figma en mettant l'accent sur l'expérience utilisateur, l'esthétique et la fonctionnalité. Capacité à créer des prototypes interactifs et des maquettes pour améliorer l'expérience utilisateur.",
+            "Conception d’architectures techniques robustes et optimisées garantissant performance, évolutivité et maintenabilité des systèmes.",
         },
         {
           title: "Méthodologies Agile",
           description:
-            "Familiarité avec les méthodes de gestion de projet Agile, notamment la collaboration avec des équipes pour accélérer les livraisons tout en assurant la qualité et la satisfaction client.",
+            "Maîtrise des cadres Agile (Scrum, Kanban), collaboration avec les équipes pour accélérer les livraisons tout en maintenant qualité et satisfaction client.",
         },
         {
-          title: "Compétences Relationnelles et Résolution de Problèmes",
+          title: "Compétences relationnelles et résolution de problèmes",
           description:
-            "Excellent communicant et esprit d'équipe, je travaille efficacement avec des équipes interdisciplinaires. Grande capacité à résoudre des problèmes complexes, en assurant la cohésion du projet et l'engagement communautaire.",
+            "Solides aptitudes en communication et travail en équipe pluridisciplinaire, avec un talent pour relever des défis complexes et assurer la cohésion du projet ainsi que l’alignement des parties prenantes.",
         },
       ],
     },
+    
     // Skills
     skills: {
       title: "Technologies",

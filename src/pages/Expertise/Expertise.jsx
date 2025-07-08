@@ -5,37 +5,18 @@ import { motion, useInView } from "framer-motion"
 import { Code, Palette, GitMerge, Users } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 
-const expertiseData = [
-  {
-    icon: <Code className="w-[40px] h-[40px]" />,
-    title: "Développement Full-Stack",
-    description:
-      "Expérience complète en développement Frontend et Backend, avec maîtrise de React.js, HTML5, CSS3, JavaScript, Node.js, Express.js, et Laravel. Capable de créer des applications web complètes et évolutives, tout en utilisant des bases de données telles que MySQL et MongoDB.",
-  },
-  {
-    icon: <Palette className="w-[40px] h-[40px]" />,
-    title: "UI & UX Design",
-    description:
-      "Conception d'interfaces utilisateurs avec Figma en mettant l'accent sur l'expérience utilisateur, l'esthétique et la fonctionnalité. Capacité à créer des prototypes interactifs et des maquettes pour améliorer l'expérience utilisateur.",
-  },
-  {
-    icon: <GitMerge className="w-[40px] h-[40px]" />,
-    title: "Méthodologies Agile",
-    description:
-      "Familiarité avec les méthodes de gestion de projet Agile, notamment la collaboration avec des équipes pour accélérer les livraisons tout en assurant la qualité et la satisfaction client.",
-  },
-  {
-    icon: <Users className="w-[40px] h-[40px]" />,
-    title: "Compétences Relationnelles et Résolution de Problèmes",
-    description:
-      "Excellent communicant et esprit d'équipe, je travaille efficacement avec des équipes interdisciplinaires. Grande capacité à résoudre des problèmes complexes, en assurant la cohésion du projet et l'engagement communautaire.",
-  },
+const icons = [
+  <Code className="w-[40px] h-[40px]" />,
+  <Palette className="w-[40px] h-[40px]" />,
+  <GitMerge className="w-[40px] h-[40px]" />,
+  <Users className="w-[40px] h-[40px]" />,
 ]
 
 export default function Expertise() {
   const { t } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
+  const items = t && t("expertise.items")
 
   return (
     <section id="expertise" className="flex items-center">
@@ -52,7 +33,7 @@ export default function Expertise() {
 
         {/* Skills Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 justify-center">
-          {expertiseData.map((item, index) => (
+          {Array.isArray(items) && items.map((item, index) => (
             <motion.div
               key={index}
               ref={index === 0 ? ref : null}
@@ -64,7 +45,7 @@ export default function Expertise() {
               <div className="flex flex-col items-center space-y-4">
                 {/* Icon */}
                 <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full shadow-sm flex justify-center items-center w-[60px] h-[60px] mb-3 text-primary">
-                  {item.icon}
+                  {icons[index]}
                 </div>
 
                 {/* Card Content */}
