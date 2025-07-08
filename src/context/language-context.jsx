@@ -24,7 +24,11 @@ const translations = {
     hero: {
       subtitle: "Full-Stack Developer & UI/UX Designer",
       greeting: "Hi, I'm",
-      typewriter: ["I develop web applications", "I create UI/UX designs", "I build complete solutions"],
+      typewriter: [
+        "I develop web applications",
+        "I create UI/UX designs",
+        "I build complete solutions",
+      ],
       description:
         "Experienced Full-Stack Developer and UI/UX Designer skilled in React.js, Laravel, Tailwind CSS, and Figma. Passionate about creating functional and user-friendly designs.",
       location: "Casablanca, Morocco",

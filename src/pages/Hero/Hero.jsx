@@ -16,7 +16,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useLanguage } from "@/context/language-context";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -74,10 +74,8 @@ export function Hero() {
 
             <div className="h-12 mb-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300">
               <TypeAnimation
-                sequence={t("hero.typewriter").flatMap((text, i) => [
-                  text,
-                  1000,
-                ])}
+                key={language}
+                sequence={Array.isArray(t("hero.typewriter")) ? t("hero.typewriter").flatMap((text, i) => [text, 1000]) : []}
                 wrapper="span"
                 speed={50}
                 repeat={Number.POSITIVE_INFINITY}
