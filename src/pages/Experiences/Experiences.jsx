@@ -24,17 +24,23 @@ export default function Experiences() {
       description:
         language === "fr"
           ? [
-              "Développé une application pour automatiser l'ajout des étudiants sur Canvas et l'envoi des emails en Python",
-              "Réalisé une application de gestion des tickets pour l'équipe SI en React.js & Laravel & MYSQL.",
-              "Implémenté et déployé une application permettant aux étudiants d'accéder à leurs examens Evalbox en cas de panne d'Outlook. En React, Laravel, MySQL",
-            ]
-          : [
-              "Developed an application to automate student addition to Canvas and email sending in Python",
-              "Created a ticket management application for the IS team using React.js, Laravel & MySQL",
-              "Implemented and deployed an application allowing students to access their Evalbox exams in case of Outlook outage. Using React, Laravel, MySQL",
-            ],
+            "Développé une application pour automatiser l'ajout des étudiants sur Canvas et l'envoi des emails en Python",
+            "Réalisé une application de gestion des tickets pour l'équipe SI en React.js & Laravel & MySQL",
+            "Implémenté et déployé une application permettant aux étudiants d'accéder à leurs examens Evalbox en cas de panne d'Outlook (React, Laravel, MySQL)",
+            "Conçu et déployé une plateforme digitale de gestion des stages à l'UM6SS, optimisant l’évaluation et le suivi des étudiants",
+            "Création d'une application e-portfolio permettant aux étudiants de gérer leurs portfolios",
+            "Développement d'une application de prise de photos intégrant les informations des étudiants dans BIOSRAT 2 via API",
+          ]
+        : [
+            "Developed an application to automate student addition to Canvas and email sending using Python",
+            "Created a ticket management application for the IS support team using React.js, Laravel & MySQL",
+            "Implemented and deployed an application allowing students to access their Evalbox exams in case of Outlook outage '(React, Laravel, MySQL)'",
+            "Designed and launched a digital internship management platform for UM6SS, optimizing student evaluation and tracking",
+            "Created an e-portfolio application for students to manage their portfolios",
+            "Built a picture-taking app that captures photos and adds student info to BIOSRAT 2 via API",
+          ],
       dateRange: language === "fr" ? "Juillet 2024 - Présent" : "July 2024 - Present",
-      tech: ["Python", "React", "Laravel", "MySQL"],
+      tech: ["Python", "React.js", "Laravel", "MySQL", "REST API", "Node.js", "express.js"],
       darkLogo: true,
       width: "250px",
       height: "auto",
