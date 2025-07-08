@@ -132,7 +132,7 @@ export function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
                 >
-                  <Link
+                  <a
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -140,7 +140,7 @@ export function Hero() {
                     aria-label={social.label}
                   >
                     {social.icon}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </div>
