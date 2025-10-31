@@ -82,18 +82,9 @@ export function Hero() {
               />
             </div>
 
-            <div className="flex items-start justify-center sm:hidden gap-4 mb-6">
-              <div className="relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
-                <img
-                  src="/profesional_Pic_Anas.jpeg"
-                  alt="Anas Oudadsse"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <p className="text-sm text-left text-gray-700 dark:text-gray-300">
-                {t("hero.description")}
-              </p>
-            </div>
+            <p className="sm:hidden text-sm text-gray-700 dark:text-gray-300">
+              {t("hero.description")}
+            </p>
 
             <p className="hidden sm:block text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0">
               {t("hero.description")}
