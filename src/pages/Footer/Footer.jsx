@@ -45,7 +45,7 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="bg-gray-100 dark:bg-gray-900 pt-20 pb-10 relative overflow-hidden">
+    <footer id="contact" className="bg-gray-100 dark:bg-gray-900 pt-16 sm:pt-20 pb-12 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white dark:from-gray-950 to-transparent z-10" />
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
@@ -67,13 +67,13 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20 !text-gray-900 dark:!text-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 max-w-5xl mx-auto mb-16 sm:mb-20 !text-gray-900 dark:!text-gray-100">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white dark:bg-gray-800 p-8 rounded-md shadow-xl"
+            className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl"
           >
             <h3 className="text-xl font-bold mb-6">{t("contact.formTitle")}</h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -141,7 +141,7 @@ export default function Footer() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col justify-between"
+            className="flex flex-col justify-between space-y-10 md:space-y-0"
           >
             <div>
               <h3 className="text-xl font-bold mb-6">{t("contact.contactInfo")}</h3>

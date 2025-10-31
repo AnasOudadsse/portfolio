@@ -49,8 +49,8 @@ export function Volunteering() {
       : "My contributions to community and educational initiatives:"
 
   return (
-    <section id="volunteering" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="volunteering" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,14 +66,14 @@ export function Volunteering() {
           </motion.div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-10">
           {volunteeringData.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="mb-12"
+              className=""
             >
               <div className="group relative">
                 {/* Award indicator */}
@@ -88,15 +88,15 @@ export function Volunteering() {
 
                 {/* Content card */}
                 <div className="ml-0 md:ml-8 relative">
-                  <div className="relative bg-white dark:bg-gray-800 overflow-hidden rounded-lg shadow-lg">
+                  <div className="relative bg-white dark:bg-gray-800 overflow-hidden rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800">
                     {/* Decorative corner */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 -translate-y-1/2 translate-x-1/2 rounded-full"></div>
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 translate-y-1/2 -translate-x-1/2 rounded-full"></div>
 
-                    <div className="relative z-10 p-8">
-                      <div className="flex flex-col md:flex-row gap-8">
+                    <div className="relative z-10 p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
                         {/* Logo and date */}
-                        <div className="md:w-1/3 flex flex-col items-center md:items-start">
+                        <div className="md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
                           {/* Logo with custom width */}
                           <div className="relative mb-5 flex items-center justify-center">
                             <img
@@ -112,30 +112,32 @@ export function Volunteering() {
                             />
                           </div>
                           {/* Date badge at the top */}
-                          <div className="mb-4 px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-md inline-block">
+                          <div className="mb-4 px-4 py-1.5 bg-primary/10 text-primary text-xs sm:text-sm font-medium rounded-md inline-block">
                             {item.dateRange}
                           </div>
                         </div>
 
                         {/* Content */}
-                        <div className="md:w-2/3">
+                        <div className="md:w-2/3 space-y-5">
                           <div className="relative">
                             {/* Title bar */}
-                            <div className="absolute -left-4 top-0 h-full w-1 bg-primary rounded-full"></div>
-                            <h3 className="text-xl !text-gray-900 dark:!text-gray-100 font-bold pl-4 mb-1 group-hover:translate-x-1 transition-transform duration-300">
+                            <div className="absolute -left-4 top-0 h-full w-1 bg-primary rounded-full hidden md:block"></div>
+                            <h3 className="text-lg sm:text-xl !text-gray-900 dark:!text-gray-100 font-bold md:pl-4 mb-1 group-hover:translate-x-1 transition-transform duration-300">
                               {item.role}
                             </h3>
-                            <p className="text-primary pl-4 font-medium mb-6">{item.organization}</p>
+                            <p className="text-primary md:pl-4 font-medium text-sm sm:text-base">
+                              {item.organization}
+                            </p>
                           </div>
 
-                          <ul className="space-y-3 mb-6">
+                          <ul className="space-y-3">
                             {item.description.map((desc, i) => (
                               <motion.li
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                                 transition={{ duration: 0.3, delay: index * 0.1 + i * 0.1 }}
-                                className="flex items-start group/item"
+                                className="flex items-start group/item text-left text-sm sm:text-base"
                               >
                                 <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2" />
                                 <span className="text-gray-700 dark:text-gray-300 text-sm">{desc}</span>
@@ -143,7 +145,7 @@ export function Volunteering() {
                             ))}
                           </ul>
 
-                          <div className="flex flex-wrap gap-2 mt-4">
+                          <div className="flex flex-wrap gap-2">
                             {item.skills.map((skill, i) => (
                               <span
                                 key={i}

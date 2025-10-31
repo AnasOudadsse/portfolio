@@ -13,8 +13,8 @@ export function About() {
   const isInView = useInView(ref, { once: true, threshold: 0.3 })
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-20">
+    <section id="about" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-20">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -23,7 +23,7 @@ export function About() {
           className="relative z-10"
         >
           {/* Terminal-like container */}
-          <div className="max-w-4xl mx-auto bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
+          <div className="max-w-4xl mx-auto bg-gray-100 dark:bg-gray-700 rounded-3xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
             {/* Terminal header */}
             <div className="bg-gray-200 dark:bg-gray-800 px-4 py-2 flex items-center">
               <div className="flex space-x-2 mr-4">
@@ -36,21 +36,21 @@ export function About() {
             </div>
 
             {/* Terminal content */}
-            <div className="p-6 font-mono">
-              <div className="flex items-center mb-6">
+            <div className="p-5 sm:p-6 md:p-8 font-mono">
+              <div className="flex items-center mb-6 text-sm sm:text-base">
                 <span className="text-green-600 dark:text-green-400">$</span>
                 <span className="ml-2 text-primary">./get_profile.sh</span>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-8">
+              <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
                 {/* Profile Image */}
-                <div className="md:w-1/3">
-                  <div className="mb-2 flex items-center">
+                <div className="md:w-1/3 w-full max-w-xs mx-auto md:mx-0">
+                  <div className="mb-4 flex items-center text-sm">
                     <span className="text-gray-400 mr-2">$</span>
                     <span className="text-primary">cat profile_image.jpg</span>
                   </div>
-                  <div className="border-2 border-gray-300 dark:border-gray-700 rounded-md p-1 bg-white dark:bg-gray-800">
-                    <div className="relative overflow-hidden rounded-md">
+                  <div className="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-1.5 bg-white dark:bg-gray-800">
+                    <div className="relative overflow-hidden rounded-2xl">
                       <img src="/Mypic2024-cropped.jpg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">
@@ -60,32 +60,36 @@ export function About() {
                 </div>
 
                 {/* Profile Info */}
-                <div className="md:w-2/3">
-                  <div className="mb-4">
-                    <div className="flex items-center mb-2">
+                <div className="md:w-2/3 space-y-6 text-center md:text-left">
+                  <div>
+                    <div className="flex items-center justify-center md:justify-start mb-2 text-sm">
                       <span className="text-gray-400 mr-2">$</span>
                       <span className="text-primary">echo $ROLE</span>
                     </div>
-                    <div className="pl-6 mb-4">
-                      <span className="text-xl font-bold text-gray-800 dark:text-gray-200">{t("about.role")}</span>
+                    <div className="md:pl-6">
+                      <span className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">
+                        {t("about.role")}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <div className="flex items-center mb-2">
+                  <div>
+                    <div className="flex items-center justify-center md:justify-start mb-2 text-sm">
                       <span className="text-gray-400 mr-2">$</span>
                       <span className="text-primary">cat description.txt</span>
                     </div>
-                    <div className="pl-6 mb-4 text-gray-700 dark:text-gray-300 font-sans">{t("about.description")}</div>
+                    <div className="md:pl-6 text-sm sm:text-base text-gray-700 dark:text-gray-300 font-sans leading-relaxed">
+                      {t("about.description")}
+                    </div>
                   </div>
 
-                  <div className="mb-4">
-                    <div className="flex items-center mb-3">
+                  <div>
+                    <div className="flex items-center justify-center md:justify-start mb-3 text-sm">
                       <span className="text-gray-400 mr-2">$</span>
                       <span className="text-primary">./contact_options.sh</span>
                     </div>
-                    <div className="pl-6 flex flex-col sm:flex-row gap-4">
-                      <Button asChild className="rounded-md group bg-black hover:bg-gray-00 text-gray-100">
+                    <div className="md:pl-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                      <Button asChild className="rounded-md group bg-black hover:bg-gray-900 text-gray-100 w-full sm:w-auto">
                         <Link href="mailto:anas.oudadsse1@gmail.com">
                           {t("about.cta")}
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -94,7 +98,7 @@ export function About() {
                       <Button
                         asChild
                         variant="outline"
-                        className="rounded-md group text-gray-900 dark:text-gray-100 border-gray-400 dark:border-gray-600"
+                        className="rounded-md group text-gray-900 dark:text-gray-100 border-gray-400 dark:border-gray-600 w-full sm:w-auto"
                       >
                         <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
                           <Download className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />

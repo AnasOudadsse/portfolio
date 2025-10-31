@@ -180,16 +180,16 @@ export default function Certifications() {
 
   // Responsive values
   const cardWidth = useBreakpointValue({
-    base: "300px",
-    sm: "300px",
+    base: "260px",
+    sm: "280px",
     md: "300px",
     lg: "320px",
   });
   const cardHeight = useBreakpointValue({
-    base: "200px",
-    sm: "200px",
-    md: "200px",
-    lg: "220px",
+    base: "220px",
+    sm: "220px",
+    md: "220px",
+    lg: "240px",
   });
   const headingSize = useBreakpointValue({ base: "md", md: "lg" });
 
@@ -218,8 +218,8 @@ export default function Certifications() {
   const t = translations[language] || translations.en;
 
   return (
-    <Box id="certifications"   bg={bg} py={150}>
-      <VStack align="center">
+    <Box id="certifications" bg={bg} py={{ base: 16, md: 24, lg: 32 }} px={{ base: 4, md: 8 }}>
+      <VStack align="center" spacing={4} textAlign="center">
         <Heading size={headingSize} mb={4} color={color}>
           {t.title}
         </Heading>
@@ -236,11 +236,13 @@ export default function Certifications() {
 
       <Flex
         wrap="wrap"
-        justify="space-around"
+        justify="center"
         align="center"
-        gap={8}
+        gap={{ base: 6, md: 8 }}
         mt={10}
-        px={4}
+        px={0}
+        maxW="1200px"
+        mx="auto"
       >
         {CertifData.map((certif, index) => (
           <Box

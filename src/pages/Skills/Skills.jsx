@@ -62,9 +62,9 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-md shadow-lg"
+          className="max-w-5xl mx-auto bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-md shadow-lg"
         >
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-8 justify-items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6 sm:gap-8 justify-items-center">
             {skillsData.map((skill, index) => (
               <motion.div
                 key={index}

@@ -135,7 +135,7 @@ export function Projects() {
   const t = translations[language] || translations.en
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-950 relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-20 bg-white dark:bg-gray-950 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>

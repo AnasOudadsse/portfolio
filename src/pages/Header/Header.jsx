@@ -99,10 +99,10 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-4"
+        isScrolled ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm py-2" : "bg-transparent py-3 sm:py-4"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Animated Logo */}
         <a
           href="#home"
@@ -238,88 +238,73 @@ export default function Header() {
 
       </div>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Navigation Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 z-40 md:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="mobile-menu fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-white dark:bg-gray-900 z-50 md:hidden shadow-xl overflow-y-auto"
-            >
-              {/* Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
-                <h2 className="text-lg font-bold text-primary">Menu</h2>
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+          >
+            <div className="px-4 py-4 space-y-2">
+              <div className="flex items-center justify-between">
+                <h2 className="text-base font-semibold text-primary">Menu</h2>
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+                  className="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                  aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
                 </Button>
               </div>
 
-              {/* Menu Items */}
-              <nav className="py-2">
+              <div className="grid gap-2">
                 {navItems.map((item, index) => (
-                  <motion.div
+                  <motion.a
                     key={item.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                      activeSection === item.href.substring(1)
+                        ? "bg-primary/10 text-primary"
+                        : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    }`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.04 }}
                   >
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`flex items-center px-6 py-4 text-base font-medium transition-colors border-l-4 ${
-                        activeSection === item.href.substring(1)
-                          ? "border-primary text-primary dark:text-primary bg-gray-50 dark:bg-gray-800"
-                          : "border-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600"
+                    <span>{item.name}</span>
+                    <ChevronRight
+                      className={`h-4 w-4 ${
+                        activeSection === item.href.substring(1) ? "text-primary" : "text-gray-400 dark:text-gray-500"
                       }`}
-                    >
-                      <ChevronRight
-                        className={`mr-3 h-4 w-4 ${
-                          activeSection === item.href.substring(1) ? "text-primary" : "text-gray-400 dark:text-gray-600"
-                        }`}
-                      />
-                      {item.name}
-                    </a>
-                  </motion.div>
+                    />
+                  </motion.a>
                 ))}
-              </nav>
-
-              {/* Menu Footer */}
-              <div className="mt-auto p-4 border-t border-gray-200 dark:border-gray-800">
-                <div className="flex justify-center space-x-4">
-                  <a
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, "#contact")}
-                    className="text-primary hover:underline"
-                  >
-                    Contact
-                  </a>
-                  <span className="text-gray-300 dark:text-gray-700">|</span>
-                  <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="text-primary hover:underline">
-                    Home
-                  </a>
-                </div>
               </div>
-            </motion.div>
-          </>
+
+              <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="text-sm font-medium text-primary hover:underline"
+                >
+                  Contact
+                </a>
+                <a
+                  href="#home"
+                  onClick={(e) => handleNavClick(e, "#home")}
+                  className="text-sm font-medium text-gray-500 hover:text-primary"
+                >
+                  Back to top
+                </a>
+              </div>
+            </div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>

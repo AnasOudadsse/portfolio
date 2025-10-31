@@ -35,7 +35,7 @@ export function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative  p-20 flex items-center pt-20 overflow-hidden"
+      className="relative flex flex-col justify-center overflow-hidden pt-24 pb-16 sm:pb-24 lg:pt-32 min-h-[70vh]"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:bg-gray-800 dark:bg-none z-0" />
@@ -45,19 +45,19 @@ export function Hero() {
         style={{ y, opacity }}
         className="container mx-auto px-4 relative z-10"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full lg:w-3/5 text-center lg:text-left"
+            className="w-full lg:w-3/5 text-center lg:text-left space-y-6"
           >
-            <div className="inline-block mb-3 px-3 py-1 rounded-md bg-primary/10 text-primary !text-gray-900 dark:!text-gray-100 text-sm font-medium">
+            <div className="inline-block mb-2 sm:mb-3 px-3 py-1 rounded-full bg-primary/10 text-primary !text-gray-900 dark:!text-gray-100 text-xs sm:text-sm font-medium">
               {t("hero.subtitle")}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100  font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 font-extrabold leading-tight tracking-tight">
               {t("hero.greeting")}{" "}
               <span className="relative">
                 <span className="relative z-10 text-gray-900 dark:text-gray-100 bg-clip-text text-transparent">
@@ -72,7 +72,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <div className="h-12 mb-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+            <div className="h-14 sm:h-12 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
               <TypeAnimation
                 key={language}
                 sequence={Array.isArray(t("hero.typewriter")) ? t("hero.typewriter").flatMap((text, i) => [text, 1000]) : []}
@@ -82,11 +82,24 @@ export function Hero() {
               />
             </div>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <div className="flex items-start justify-center sm:hidden gap-4 mb-6">
+              <div className="relative w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                <img
+                  src="/profesional_Pic_Anas.jpeg"
+                  alt="Anas Oudadsse"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-sm text-left text-gray-700 dark:text-gray-300">
+                {t("hero.description")}
+              </p>
+            </div>
+
+            <p className="hidden sm:block text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0">
               {t("hero.description")}
             </p>
 
-            <div className="mb-8">
+            <div>
               <div className="flex items-center justify-center lg:justify-start mb-4">
                 <div className="flex items-center justify-center w-8 h-8 rounded-md bg-primary/10 text-primary">
                   <MapPin className="h-4 w-4" />
@@ -108,7 +121,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="flex justify-center lg:justify-start space-x-5 mb-8">
+            <div className="flex justify-center lg:justify-start space-x-5">
               {[
                 {
                   href: "https://github.com/AnasOudadsse",
@@ -145,13 +158,13 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1 }}
               >
-                <Button asChild size="lg" className="rounded-md group">
+                <Button asChild size="lg" className="rounded-md group w-full sm:w-auto">
                   <Link href="#contact">
                     {t("hero.cta")}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -167,7 +180,7 @@ export function Hero() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="rounded-md text-gray-900 dark:text-gray-100"
+                  className="rounded-md text-gray-900 dark:text-gray-100 w-full sm:w-auto"
                 >
                   <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
                     {t("hero.downloadCV")}

@@ -19,8 +19,8 @@ export default function Expertise() {
   const items = t && t("expertise.items")
 
   return (
-    <section id="expertise" className="flex items-center">
-      <div className="w-full px-10 py-20 bg-gray-50 dark:bg-gray-900 min-h-[550px]">
+    <section id="expertise" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4">
         {/* Title and Heading */}
         <div className="flex flex-col items-center space-y-4 mb-12">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center">{t ? t("expertise.subtitle") : "Expertise"}</h1>
@@ -32,7 +32,7 @@ export default function Expertise() {
         </div>
 
         {/* Skills Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 justify-center">
           {Array.isArray(items) && items.map((item, index) => (
             <motion.div
               key={index}
@@ -40,7 +40,7 @@ export default function Expertise() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-md p-10 shadow-md transition-transform duration-300 hover:-translate-y-2.5 hover:border-b-4 hover:border-gray-700 dark:hover:border-gray-300"
+              className="bg-white dark:bg-gray-800 rounded-md p-6 sm:p-8 shadow-md transition-transform duration-300 hover:-translate-y-2.5 hover:border-b-4 hover:border-gray-700 dark:hover:border-gray-300"
             >
               <div className="flex flex-col items-center space-y-4">
                 {/* Icon */}
