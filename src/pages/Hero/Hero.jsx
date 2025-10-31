@@ -169,10 +169,10 @@ export function Hero() {
                   size="lg"
                   className="rounded-md text-gray-900 dark:text-gray-100"
                 >
-                  <Link href="/AnasOudadsseCV.pdf" target="_blank" download>
+                  <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
                     {t("hero.downloadCV")}
                     <ExternalLink className="ml-2 h-4 w-4" />
-                  </Link>
+                  </a>
                 </Button>
               </motion.div>
             </div>
@@ -189,7 +189,7 @@ export function Hero() {
               <div className="relative overflow-hidden rounded-lg shadow-xl transition-all duration-500 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-gray-800/20 z-0" />
                 <img
-                  src="/Mypic2024-cropped.jpg"
+                  src="/profesional_Pic_Anas.jpeg"
                   alt="Anas Oudadsse"
                   className="relative z-10 w-full h-auto transition-transform duration-500 ease-in-out hover:scale-105"
                 />

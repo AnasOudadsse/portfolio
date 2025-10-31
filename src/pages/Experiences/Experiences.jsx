@@ -20,7 +20,7 @@ export default function Experiences() {
         language === "fr"
           ? "Université Mohammed VI des Sciences et de la Santé"
           : "Mohammed VI University of Health Sciences",
-      role: language === "fr" ? "Technicien en Systèmes d'Information (SI)" : "Information Systems (IS) Technician",
+      role: language === "fr" ? "Chargée d'exploitation" : "Operations Manager",
       description:
         language === "fr"
           ? [

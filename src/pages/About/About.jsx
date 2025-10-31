@@ -51,7 +51,7 @@ export function About() {
                   </div>
                   <div className="border-2 border-gray-300 dark:border-gray-700 rounded-md p-1 bg-white dark:bg-gray-800">
                     <div className="relative overflow-hidden rounded-md">
-                      <img src="/myPic-croped.jpg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
+                      <img src="/Mypic2024-cropped.jpg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">
                       &#47;&#47; profile_image.jpg
@@ -96,10 +96,10 @@ export function About() {
                         variant="outline"
                         className="rounded-md group text-gray-900 dark:text-gray-100 border-gray-400 dark:border-gray-600"
                       >
-                        <Link href="/AnasOudadsseCV.pdf" download>
+                        <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
                           <Download className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                           {t("about.downloadCV")}
-                        </Link>
+                        </a>
                       </Button>
                     </div>
                   </div>
