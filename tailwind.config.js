@@ -5,6 +5,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // Include all React components
   ],
   theme: {
+  	fontFamily: {
+  		sans: ['Inter', 'sans-serif'],
+  	},
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',

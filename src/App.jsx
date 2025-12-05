@@ -34,7 +34,7 @@ function App() {
         <LanguageProvider >
           <BrowserRouter>
               <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-              <Box fontFamily={'inter'}>
+              <Box fontFamily={'Inter, sans-serif'}>
 
                 <Header/>
                 
