@@ -33,11 +33,11 @@ const projectsData = [
       fr: "E-Portfolio",
     },
     description: {
-      en: "Academic documentation platform developed with React.js, Node.js, and MySQL. Helps students centralize their achievements while providing faculty with real-time insights and documentation management.",
-      fr: "Plateforme de documentation académique développée avec React.js, Node.js et MySQL. Permet aux étudiants de centraliser leurs réussites tout en offrant aux encadrants des indicateurs en temps réel et une gestion de la documentation.",
+      en: "Complete web platform for university students to create, manage, and share their electronic professional portfolios. Manages 36+ data entities covering academic journeys, clinical experiences, projects, certifications, and professional achievements. Built with React 19, Node.js, Express.js, MySQL, and Sequelize ORM. Features multi-user support (Students, Supervisors, Admins), modular portfolio sections with customizable content, file management for attachments and media, public portfolio sharing, and interactive dashboards with real-time progress tracking. Modern UI/UX with TailwindCSS and Framer Motion animations.",
+      fr: "Plateforme web complète permettant aux étudiants universitaires de créer, gérer et partager leur portfolio électronique professionnel. Gère 36+ entités de données couvrant les parcours académiques, expériences cliniques, projets, certifications et réalisations professionnelles. Développé avec React 19, Node.js, Express.js, MySQL et Sequelize ORM. Comprend le support multi-utilisateurs (Étudiants, Encadrants, Admins), des sections de portfolio modulaires avec contenu personnalisable, gestion de fichiers pour pièces jointes et médias, partage public de portfolio, et tableaux de bord interactifs avec suivi de progression en temps réel. Interface moderne avec TailwindCSS et animations Framer Motion.",
     },
     imageSrc: "/HomePage.jpg",
-    tags: ["React.js", "Node.js", "MySQL", "Product Management", "UI/UX"],
+    tags: ["React 19", "Node.js", "Express.js", "MySQL", "Sequelize", "Framer Motion", "Product Management", "UI/UX"],
     externalLink: null,
     repoLink: null,
     color: "from-sky-500/20 to-cyan-500/20",
@@ -50,11 +50,11 @@ const projectsData = [
       fr: "Photo-UM6SS",
     },
     description: {
-      en: "Enrollment application integrated with BIOSTAR2 API, automating user creation and photo upload to the system and OneDrive. Deployed across 5 cities and 7 campuses, handling thousands of new student enrollments.",
-      fr: "Application d'inscription intégrée avec l'API BIOSTAR2, automatisant la création d'utilisateurs et l'upload de photos vers le système et OneDrive. Déployée dans 5 villes et 7 campus, gérant des milliers d'inscriptions d'étudiants.",
+      en: "Full-stack photo management system with biometric enrollment integration for UM6SS. Features webcam integration for real-time photo capture, image cropping and editing, and seamless BioStar API integration for face recognition enrollment. Supports multi-campus deployment across 5 cities (Casablanca, Rabat, Marrakech, Dakhla, Agadir) with role-based access control (Admin, Agent, Student). Built with React 19, Laravel 12, JWT authentication, and organized file storage. Handles thousands of student enrollments with automatic user synchronization between local database and BioStar biometric systems.",
+      fr: "Système complet de gestion de photos avec intégration d'enrôlement biométrique pour l'UM6SS. Comprend l'intégration webcam pour la capture de photos en temps réel, le recadrage et l'édition d'images, et l'intégration API BioStar pour l'enrôlement par reconnaissance faciale. Supporte le déploiement multi-campus dans 5 villes (Casablanca, Rabat, Marrakech, Dakhla, Agadir). Développé avec React 19, Laravel 12, authentification JWT et stockage de fichiers organisé. Gère des milliers d'inscriptions d'étudiants avec synchronisation automatique entre la base de données locale et les systèmes biométriques BioStar.",
     },
     imageSrc: "/profesional_Pic_Anas.jpeg",
-    tags: ["React.js", "Laravel", "MySQL", "API Integration", "Automation", "OneDrive"],
+    tags: ["React 19", "Laravel 12", "JWT", "BioStar API", "Webcam", "Multi-Campus", "Biometric", "File Management"],
     externalLink: null,
     repoLink: null,
     color: "from-rose-500/20 to-orange-500/20",
@@ -485,7 +485,7 @@ export function Projects() {
                                   <span className={`mr-2 ${project.iconColor}`}>●</span>
                                   {project.title[language]}
                                 </h3>
-                                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 line-clamp-6">
+                                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6">
                                   {project.description[language]}
                                 </p>
 
