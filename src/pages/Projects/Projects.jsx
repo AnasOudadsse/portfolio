@@ -562,14 +562,6 @@ export function Projects() {
                                       </Link>
                                     </Button>
                                   )}
-                                  {project.externalLink && (
-                                    <Button asChild variant="outline" size="sm" className="rounded-md group">
-                                      <Link href={project.externalLink} target="_blank" rel="noopener noreferrer">
-                                        <ExternalLink className="mr-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                                        {t.viewProject}
-                                      </Link>
-                                    </Button>
-                                  )}
                                 </div>
                               </div>
                             </div>
@@ -656,14 +648,6 @@ export function Projects() {
                           <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
                             <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
                             {t.github}
-                          </Link>
-                        </Button>
-                      )}
-                      {project.externalLink && (
-                        <Button asChild variant="outline" size="sm" className="rounded-md group">
-                          <Link href={project.externalLink} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                            {t.viewProject}
                           </Link>
                         </Button>
                       )}
