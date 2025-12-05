@@ -20,6 +20,8 @@ export function Education() {
         ? "ULCO (France) — ENSIT (Maroc)"
         : "ULCO (France) — ENSIT (Morocco)",
       dateRange: language === "fr" ? "Oct. 2024 - Juillet 2025" : "Oct. 2024 - July 2025",
+      imgSrc: "/ulco-logo.png",
+      width: "100px",
     },
     {
       degree: language === "fr"
@@ -29,6 +31,8 @@ export function Education() {
         ? "Holberton School & ALX Africa"
         : "Holberton School & ALX Africa",
       dateRange: language === "fr" ? "Mai 2023 - Nov. 2024" : "May 2023 - Nov. 2024",
+      imgSrc: "/alx-logo.png",
+      width: "100px",
     },
     {
       degree: language === "fr"
@@ -38,6 +42,8 @@ export function Education() {
         ? "Institut Spécialisé de Technologie Appliquée (ISTA), Casablanca"
         : "Institut Spécialisé de Technologie Appliquée (ISTA), Casablanca",
       dateRange: language === "fr" ? "Sep. 2022 - Juin 2024" : "Sep. 2022 - June 2024",
+      imgSrc: "/logo-offpt.png",
+      width: "100px",
     },
   ]
 
@@ -96,9 +102,22 @@ export function Education() {
 
                     <div className="relative z-10 p-6 sm:p-8">
                       <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
-                        {/* Date badge */}
+                        {/* Logo and Date badge */}
                         <div className="md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
-                          <div className="mb-4 px-4 py-1.5 bg-primary/10 text-primary text-xs sm:text-sm font-medium rounded-md inline-block">
+                          {/* Logo */}
+                          <div className="mb-4 flex items-center justify-center">
+                            <img
+                              src={education.imgSrc || "/placeholder.svg"}
+                              alt={education.institution}
+                              className="object-contain"
+                              style={{
+                                width: education.width || "120px",
+                                height: "auto",
+                              }}
+                            />
+                          </div>
+                          {/* Date badge */}
+                          <div className="px-4 py-1.5 bg-primary/10 text-primary text-xs sm:text-sm font-medium rounded-md inline-block">
                             {education.dateRange}
                           </div>
                         </div>
