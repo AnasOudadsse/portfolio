@@ -1,16 +1,24 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Download, ArrowRight, Terminal } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Download, ArrowRight, Terminal, Languages } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
 export function About() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const [cvDialogOpen, setCvDialogOpen] = useState(false)
 
   return (
     <section id="about" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
@@ -51,7 +59,7 @@ export function About() {
                   </div>
                   <div className="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-1.5 bg-white dark:bg-gray-800">
                     <div className="relative overflow-hidden rounded-2xl">
-                      <img src="/Mypic2024-cropped.jpg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
+                      <img src="/mypic-profile.jpeg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">
                       &#47;&#47; profile_image.jpg
@@ -96,14 +104,12 @@ export function About() {
                         </Link>
                       </Button>
                       <Button
-                        asChild
                         variant="outline"
                         className="rounded-md group text-gray-900 dark:text-gray-100 border-gray-400 dark:border-gray-600 w-full sm:w-auto"
+                        onClick={() => setCvDialogOpen(true)}
                       >
-                        <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
-                          <Download className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
-                          {t("about.downloadCV")}
-                        </a>
+                        <Download className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                        {t("about.downloadCV")}
                       </Button>
                     </div>
                   </div>
@@ -118,6 +124,46 @@ export function About() {
           </div>
         </motion.div>
       </div>
+
+      {/* CV Download Dialog */}
+      <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
+        <DialogContent className="sm:max-w-md bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 !text-gray-900 dark:!text-gray-100">
+              <Languages className="h-5 w-5 text-primary" />
+              {language === "en" ? "Choose CV Language" : "Choisir la langue du CV"}
+            </DialogTitle>
+            <DialogDescription className="!text-gray-600 dark:!text-gray-400">
+              {language === "en" 
+                ? "Select which version of the CV you would like to download."
+                : "Sélectionnez la version du CV que vous souhaitez télécharger."}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-3 mt-4">
+            <Button
+              asChild
+              className="w-full group !text-white dark:!text-gray-900 dark:!bg-white dark:hover:!bg-gray-100"
+              onClick={() => setCvDialogOpen(false)}
+            >
+              <a href="/EnglishResumeAnas.pdf" download="AnasOudadsse_CV_English.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                {language === "en" ? "Download English CV" : "Télécharger le CV en anglais"}
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="w-full group !text-gray-900 dark:!text-gray-100 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={() => setCvDialogOpen(false)}
+            >
+              <a href="/FrenchResumeAnas.pdf" download="AnasOudadsse_CV_Français.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                {language === "en" ? "Download French CV" : "Télécharger le CV en français"}
+              </a>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

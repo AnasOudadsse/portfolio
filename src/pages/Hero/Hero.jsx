@@ -3,12 +3,21 @@
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   MapPin,
   Github,
   Linkedin,
   Mail,
   ExternalLink,
   ArrowRight,
+  Download,
+  Languages,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -18,6 +27,7 @@ import { useLanguage } from "@/context/language-context";
 export function Hero() {
   const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
+  const [cvDialogOpen, setCvDialogOpen] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -168,15 +178,13 @@ export function Hero() {
                 transition={{ delay: 1.2 }}
               >
                 <Button
-                  asChild
                   variant="outline"
                   size="lg"
                   className="rounded-md text-gray-900 dark:text-gray-100 w-full sm:w-auto"
+                  onClick={() => setCvDialogOpen(true)}
                 >
-                  <a href="/AnasOudadsseCV.pdf" download="AnasOudadsseCV.pdf">
-                    {t("hero.downloadCV")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
+                  {t("hero.downloadCV")}
+                  <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>
             </div>
@@ -193,7 +201,7 @@ export function Hero() {
               <div className="relative overflow-hidden rounded-lg shadow-xl transition-all duration-500 hover:shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-gray-800/20 z-0" />
                 <img
-                  src="/profesional_Pic_Anas.jpeg"
+                  src="/Mypic2024-cropped.jpg"
                   alt="Anas Oudadsse"
                   className="relative z-10 w-full h-auto transition-transform duration-500 ease-in-out hover:scale-105"
                 />
@@ -226,6 +234,46 @@ export function Hero() {
           </div>
         </div>
       </motion.div>
+
+      {/* CV Download Dialog */}
+      <Dialog open={cvDialogOpen} onOpenChange={setCvDialogOpen}>
+        <DialogContent className="sm:max-w-md bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 !text-gray-900 dark:!text-gray-100">
+              <Languages className="h-5 w-5 text-primary" />
+              {language === "en" ? "Choose CV Language" : "Choisir la langue du CV"}
+            </DialogTitle>
+            <DialogDescription className="!text-gray-600 dark:!text-gray-400">
+              {language === "en" 
+                ? "Select which version of the CV you would like to download."
+                : "Sélectionnez la version du CV que vous souhaitez télécharger."}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-3 mt-4">
+            <Button
+              asChild
+              className="w-full group !text-white dark:!text-gray-900 dark:!bg-white dark:hover:!bg-gray-100"
+              onClick={() => setCvDialogOpen(false)}
+            >
+              <a href="/EnglishResumeAnas.pdf" download="AnasOudadsse_CV_English.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                {language === "en" ? "Download English CV" : "Télécharger le CV en anglais"}
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="w-full group !text-gray-900 dark:!text-gray-100 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={() => setCvDialogOpen(false)}
+            >
+              <a href="/FrenchResumeAnas.pdf" download="AnasOudadsse_CV_Français.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                {language === "en" ? "Download French CV" : "Télécharger le CV en français"}
+              </a>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
