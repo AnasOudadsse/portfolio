@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/context/language-context";
+import { Users, MessageSquare, Target, Handshake } from "lucide-react";
 
 const skillsData = [
   { name: "HTML5", imgSrc: "/html-5.png" },
@@ -38,7 +39,28 @@ const skillsData = [
 export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
+  const { language } = useLanguage();
   const { t } = useLanguage();
+
+  // Soft skills data
+  const softSkillsData = [
+    {
+      name: language === "fr" ? "Leadership" : "Leadership",
+      icon: <Users className="w-6 h-6" />,
+    },
+    {
+      name: language === "fr" ? "Collaboration" : "Collaboration",
+      icon: <Handshake className="w-6 h-6" />,
+    },
+    {
+      name: language === "fr" ? "Communication" : "Communication",
+      icon: <MessageSquare className="w-6 h-6" />,
+    },
+    {
+      name: language === "fr" ? "Vision Stratégique" : "Strategic Vision",
+      icon: <Target className="w-6 h-6" />,
+    },
+  ];
 
   return (
     <section
@@ -69,30 +91,62 @@ export default function Skills() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-md shadow-lg"
+          className="max-w-5xl mx-auto space-y-12"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6 sm:gap-8 justify-items-center">
-            {skillsData.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                transition={{ duration: 0.2, delay: index * 0.05 }}
-                className="flex flex-col items-center group"
-                whileHover={{ y: -5 }}
-              >
-                <div className="w-16 h-16 flex items-center justify-center mb-3 p-3 rounded-md bg-white dark:bg-gray-700 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:bg-primary/10">
-                  <img
-                    src={skill.imgSrc || "/placeholder.svg"}
-                    alt={skill.name}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
-                  {skill.name}
-                </span>
-              </motion.div>
-            ))}
+          {/* Technical Skills */}
+          <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-md shadow-lg">
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100 text-center">
+              {language === "fr" ? "Compétences Techniques" : "Technical Skills"}
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-6 sm:gap-8 justify-items-center">
+              {skillsData.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  className="flex flex-col items-center group"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center mb-3 p-3 rounded-md bg-white dark:bg-gray-700 shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:bg-primary/10">
+                    <img
+                      src={skill.imgSrc || "/placeholder.svg"}
+                      alt={skill.name}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Soft Skills */}
+          <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-md shadow-lg">
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100 text-center">
+              {language === "fr" ? "Compétences Transversales" : "Soft Skills"}
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 justify-items-center">
+              {softSkillsData.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.2, delay: (skillsData.length * 0.05) + (index * 0.1) }}
+                  className="flex flex-col items-center group"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center mb-3 p-3 rounded-full bg-primary/10 text-primary shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:bg-primary/20">
+                    {skill.icon}
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300 text-center">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
