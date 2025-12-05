@@ -24,13 +24,13 @@ const MotionBox = motion(Box);
 const CertifData = [
   {
     title: {
-      en: "Programming with JavaScript",
+      en: "Programming With JavaScript",
       fr: "Programmation avec JavaScript",
     },
     date: "22 December 2023",
     issuer: {
-      en: "Meta & Coursera",
-      fr: "Meta & Coursera",
+      en: "META",
+      fr: "META",
     },
     description: {
       en: "An online non-credit course authorized by Meta and offered through Coursera.",
@@ -42,32 +42,13 @@ const CertifData = [
   },
   {
     title: {
-      en: "ALX Ventures Founder Academy",
-      fr: "ALX Ventures Founder Academy",
-    },
-    date: "24th July 2024",
-    completionDate: "30th June 2024",
-    issuer: {
-      en: "ALX & Mastercard Foundation",
-      fr: "ALX & Fondation Mastercard",
-    },
-    description: {
-      en: "For completing the ALX Ventures Founder Academy course and graduation requirements in 2024.",
-      fr: "Pour avoir complété le cours ALX Ventures Founder Academy et les exigences d'obtention du diplôme en 2024.",
-    },
-    credentials: "https://intranet.alxswe.com/certificates/2CyBRCJmep",
-    skills: ["Entrepreneurship", "Business Strategy", "Leadership"],
-    image: "/alx-certif.png",
-  },
-  {
-    title: {
       en: "React Basics",
       fr: "Fondamentaux de React",
     },
     date: "24 December 2023",
     issuer: {
-      en: "Meta & Coursera",
-      fr: "Meta & Coursera",
+      en: "META",
+      fr: "META",
     },
     description: {
       en: "An online non-credit course authorized by Meta and offered through Coursera.",
@@ -79,13 +60,31 @@ const CertifData = [
   },
   {
     title: {
+      en: "Version Control",
+      fr: "Contrôle de Version",
+    },
+    date: "25 December 2023",
+    issuer: {
+      en: "META",
+      fr: "META",
+    },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
+    credentials: "https://coursera.org/verify/P58AGWZ4DRZ6",
+    skills: ["Git", "GitHub", "Version Control"],
+    image: "/git-certif.png",
+  },
+  {
+    title: {
       en: "Software Engineering",
       fr: "Ingénierie Logicielle",
     },
     date: "15 November 2024",
     issuer: {
-      en: "ALX & Holberton School",
-      fr: "ALX & École Holberton",
+      en: "ALX AFRICA",
+      fr: "ALX AFRICA",
     },
     description: {
       en: "This certificate is awarded for successfully completing the 12-month ALX Software Engineering Programme with a specialization in Back-end development.",
@@ -104,24 +103,6 @@ const CertifData = [
       "Version Control (Git & GitHub)",
     ],
     image: "/Se-alx.png",
-  },
-  {
-    title: {
-      en: "Version Control",
-      fr: "Contrôle de Version",
-    },
-    date: "25 December 2023",
-    issuer: {
-      en: "Meta & Coursera",
-      fr: "Meta & Coursera",
-    },
-    description: {
-      en: "An online non-credit course authorized by Meta and offered through Coursera.",
-      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
-    },
-    credentials: "https://coursera.org/verify/P58AGWZ4DRZ6",
-    skills: ["Git", "GitHub", "Version Control"],
-    image: "/git-certif.png",
   },
 ];
 

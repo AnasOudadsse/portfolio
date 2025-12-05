@@ -15,14 +15,16 @@ const translations = {
       expertise: "Expertise",
       skills: "Skills",
       experience: "Experience",
+      education: "Education",
       volunteering: "Volunteering",
       projects: "Projects",
       certifications: "Certifications",
+      languages: "Languages",
       contact: "Contact",
     },
     // Hero
     hero: {
-      subtitle: "CTO • Full-Stack Developer • UI/UX Designer",
+      subtitle: "FULL-STACK WEB & MOBILE DEVELOPER",
       greeting: "Hi, I'm",
       typewriter: [
         "I lead digital products from discovery to launch",
@@ -30,7 +32,7 @@ const translations = {
         "I design user-centric experiences that scale",
       ],      
       description:
-        "Co-founder & CTO delivering end-to-end digitalization programs for universities and startups. I own discovery, prioritisation, development, deployment, and adoption across React.js, Laravel, Node.js, and MySQL ecosystems.",
+        "Full-stack developer & CTO with strong expertise in UI/UX, AI automation, and digital transformation. Proven experience in process digitalization, with applications deployed for thousands of users.",
       location: "Casablanca, Morocco",
       available: "Available for new projects",
       cta: "Let's work together",
@@ -41,8 +43,8 @@ const translations = {
       title: "About me",
       role: "Co-founder & CTO · Full-Stack Developer",
       description:
-        "I combine product leadership, UI/UX, and full‑stack engineering to deliver large-scale digital platforms. From needs discovery and prioritisation to coding, deployment, and change management, I partner with stakeholders to launch solutions that support thousands of users across higher education and fast-growing startups.",
-      cta: "Let’s work together",
+        "Full-stack developer & CTO with strong expertise in UI/UX, AI automation, and digital transformation. Proven experience in process digitalization, with applications deployed for thousands of users. I managed the end-to-end project lifecycle, from requirements analysis to deployment and user support, alongside technical coordination.",
+      cta: "Let's work together",
       downloadCV: "Download CV",
     },
     // Expertise
@@ -144,14 +146,16 @@ const translations = {
       expertise: "Expertise",
       skills: "Compétences",
       experience: "Expérience",
+      education: "Éducation",
       volunteering: "Bénévolat",
       projects: "Projets",
       certifications: "Certifications",
+      languages: "Langues",
       contact: "Contact",
     },
     // Hero
     hero: {
-      subtitle: "CTO • Développeur Full-Stack • Designer UI/UX",
+      subtitle: "DÉVELOPPEUR WEB & MOBILE FULL-STACK",
       greeting: "Salut, je suis",
       typewriter: [
         "Je pilote des produits digitaux de la découverte au déploiement",
@@ -159,7 +163,7 @@ const translations = {
         "Je crée des expériences centrées utilisateur et prêtes à l'échelle",
       ],      
       description:
-        "Cofondateur & CTO menant des programmes de digitalisation de bout en bout pour des universités et startups. Je prends en charge la découverte des besoins, la priorisation, le développement, le déploiement et l'adoption sur des écosystèmes React.js, Laravel, Node.js et MySQL.",
+        "Développeur full-stack & CTO avec une solide expertise en UI/UX, automatisation IA et transformation digitale. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs.",
       location: "Casablanca, Maroc",
       available: "Disponible pour de nouveaux projets",
       cta: "Travaillons ensemble",
@@ -170,7 +174,7 @@ const translations = {
       title: "À propos de moi",
       role: "Cofondateur & CTO · Développeur Full-Stack",
       description:
-        "J'allie leadership produit, UI/UX et ingénierie full-stack pour livrer des plateformes digitales à grande échelle. De l'analyse des besoins au déploiement et à l'accompagnement du changement, j'assure avec les parties prenantes le lancement de solutions soutenant des milliers d'utilisateurs dans l'enseignement supérieur et les startups en croissance.",
+        "Développeur full-stack & CTO avec une solide expertise en UI/UX, automatisation IA et transformation digitale. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs. J'ai géré le cycle de vie complet des projets, de l'analyse des besoins au déploiement et au support utilisateurs, ainsi que la coordination technique.",
       cta: "Travaillons ensemble",
       downloadCV: "Télécharger CV",
     },

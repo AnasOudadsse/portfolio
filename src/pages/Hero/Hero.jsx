@@ -45,7 +45,7 @@ export function Hero() {
         style={{ y, opacity }}
         className="container mx-auto px-4 relative z-10"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div className="flex flex-colv mx-20 -mt-10 lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

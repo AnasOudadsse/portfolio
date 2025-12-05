@@ -13,6 +13,8 @@ import { LanguageProvider } from './context/language-context.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './pages/theme-provider/theme-provider.jsx';
 import { Volunteering } from './pages/volunteering/volunteering.jsx';
+import { Education } from './pages/Education/Education.jsx';
+import { Languages } from './pages/Languages/Languages.jsx';
 
 function App() {
 
@@ -46,11 +48,15 @@ function App() {
 
                 <Experiences/>
 
+                <Education/>
+
                 <Volunteering/>
 
                 <Projects/>
                 
                 <Certifications/>
+
+                <Languages/>
 
                 <Footer/>
 

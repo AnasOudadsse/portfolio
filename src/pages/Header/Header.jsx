@@ -28,9 +28,11 @@ export default function Header() {
     { name: t("nav.expertise"), href: "#expertise" },
     { name: t("nav.skills"), href: "#skills" },
     { name: t("nav.experience"), href: "#experiences" },
+    { name: t("nav.education") || "Education", href: "#education" },
     { name: t("nav.volunteering") || "Volunteering", href: "#volunteering" },
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.certifications"), href: "#certifications" },
+    { name: t("nav.languages") || "Languages", href: "#languages" },
     { name: t("nav.contact"), href: "#contact" },
   ]
 

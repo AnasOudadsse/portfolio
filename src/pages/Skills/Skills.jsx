@@ -11,6 +11,8 @@ const skillsData = [
   { name: "React.js", imgSrc: "/react.png" },
   { name: "Bootstrap", imgSrc: "/bootstrap.png" },
   { name: "Tailwind CSS", imgSrc: "/tailwind-css.svg" },
+  { name: "Shadcn/ui", imgSrc: "/placeholder.svg" },
+  { name: "Chakra UI", imgSrc: "/placeholder.svg" },
   { name: "Flutter", imgSrc: "/flutter-logo.png" },
   { name: "PHP", imgSrc: "/php.png" },
   { name: "Laravel", imgSrc: "/laravel.svg" },
@@ -28,6 +30,9 @@ const skillsData = [
   { name: "Merise", imgSrc: "/Merise.svg" },
   { name: "UML", imgSrc: "/UML.svg" },
   { name: "Figma", imgSrc: "/icon-figma.svg" },
+  { name: "n8n", imgSrc: "/placeholder.svg" },
+  { name: "ManyChat", imgSrc: "/placeholder.svg" },
+  { name: "Google APIs", imgSrc: "/placeholder.svg" },
 ];
 
 export default function Skills() {

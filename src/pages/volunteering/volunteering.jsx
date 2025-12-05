@@ -24,16 +24,12 @@ export function Volunteering() {
       description:
         language === "fr"
           ? [
-              "Pilotage du CAD de l'ISTA : coordination des clubs et planification d'événements inter-écoles.",
-              "Gestion du budget, des partenariats et des équipes bénévoles pour assurer la réussite des activités.",
-              "Renforcement de la cohésion communautaire via des initiatives collaboratives et inclusives.",
+              "Organisation d'événements pour divers clubs étudiants, favorisant la collaboration et l'engagement communautaire.",
             ]
           : [
-              "Led the ISTA CAD club, coordinating student groups and large-scale campus events.",
-              "Managed budgets, partnerships, and volunteer teams to deliver successful initiatives.",
-              "Strengthened community cohesion through inclusive, collaborative programmes.",
+              "Organized events for various student clubs, fostering community collaboration and engagement.",
             ],
-      dateRange: language === "fr" ? "Septembre 2022 – Juillet 2024" : "September 2022 - July 2024",
+      dateRange: language === "fr" ? "Septembre 2022 – Juillet 2024" : "Sep 2022 - Jul 2024",
       skills: language === "fr" ? ["Leadership", "Gestion d'événements", "Animation communautaire"] : ["Leadership", "Event Management", "Community Building"],
       darkLogo: false,
       width: "80px",
