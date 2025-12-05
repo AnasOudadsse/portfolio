@@ -3,9 +3,8 @@
 import { useRef, useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown } from "lucide-react"
+import { ExternalLink, Github, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Move, RotateCcw } from "lucide-react"
 import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
@@ -19,7 +18,7 @@ const projectsData = [
       en: "Comprehensive Internship Evaluation Management System for medical school administration. Features a smart bulk import system with intelligent validation, conflict resolution, and fuzzy matching that reduces data entry time by up to 90%. Includes role-based access control, dynamic evaluation forms, analytics dashboards, and real-time progress tracking. Built with React 19, Laravel 12, MySQL, Redux, and Web Workers for non-blocking data processing. Deployed for thousands of students across multiple campuses.",
       fr: "Système complet de gestion et d'évaluation des stages pour l'administration d'une école de médecine. Comprend un système d'import en masse intelligent avec validation, résolution de conflits et correspondance floue qui réduit le temps de saisie de données jusqu'à 90%. Inclut un contrôle d'accès basé sur les rôles, des formulaires d'évaluation dynamiques, des tableaux de bord analytiques et un suivi de progression en temps réel. Développé avec React 19, Laravel 12, MySQL, Redux et Web Workers pour un traitement de données non bloquant. Déployé pour des milliers d'étudiants à travers plusieurs campus.",
     },
-    imageSrc: "/HomePage.jpg",
+    imageSrc: "/stage-um6ss-ma-dashboard.png",
     tags: ["React 19", "Laravel 12", "MySQL", "Redux", "Web Workers", "JWT", "Smart Import", "Product Ownership"],
     externalLink: null,
     repoLink: null,
@@ -118,11 +117,11 @@ const projectsData = [
       fr: "Blood-Nation",
     },
     description: {
-      en: "Blood-Nation is a comprehensive blood bank management system designed to streamline donor registration, hospital requests, and blood inventory tracking. The application sends real-time alerts for critical shortages, ensuring efficient resource management. Built with React, Tailwind CSS, Laravel, and MySQL, the system has been optimized for both user experience and functionality, offering smooth navigation and a robust backend to manage data and automate processes.",
-      fr: "Blood-Nation est un système complet de gestion de banque de sang conçu pour rationaliser l'enregistrement des donneurs, les demandes des hôpitaux et le suivi des stocks de sang. L'application envoie des alertes en temps réel pour les pénuries critiques, garantissant une gestion efficace des ressources. Construit avec React, Tailwind CSS, Laravel et MySQL, le système a été optimisé à la fois pour l'expérience utilisateur et la fonctionnalité, offrant une navigation fluide et un backend robuste pour gérer les données et automatiser les processus.",
+      en: "Comprehensive blood bank management system designed to streamline blood donation management, inventory tracking, and hospital blood request processing. Features multi-role authentication system with five distinct user types (Admin, Donor, Hospital Staff, Blood Camp Staff, Lab Technician), complete donor registration and profile management with donation history tracking, blood donation management with integration to blood camps, hospital blood request system with urgency levels and approval workflow, real-time inventory tracking by blood type with automatic updates, laboratory analysis workflow with quality control, blood camp creation and scheduling, comprehensive admin dashboard with key metrics and analytics, and notification system for urgent requests. Built with React 18, Laravel 10, MySQL, Laravel Sanctum, Material-UI, Chakra UI, Tailwind CSS, and Recharts for data visualization.",
+      fr: "Système complet de gestion de banque de sang conçu pour rationaliser la gestion des dons de sang, le suivi des stocks et le traitement des demandes de sang des hôpitaux. Comprend un système d'authentification multi-rôles avec cinq types d'utilisateurs distincts (Admin, Donneur, Personnel Hospitalier, Personnel de Camp de Sang, Technicien de Laboratoire), enregistrement et gestion complète des profils de donneurs avec suivi de l'historique des dons, gestion des dons de sang avec intégration aux camps de sang, système de demande de sang hospitalier avec niveaux d'urgence et workflow d'approbation, suivi d'inventaire en temps réel par groupe sanguin avec mises à jour automatiques, workflow d'analyse de laboratoire avec contrôle qualité, création et planification de camps de sang, tableau de bord administrateur complet avec métriques clés et analyses, et système de notification pour les demandes urgentes. Développé avec React 18, Laravel 10, MySQL, Laravel Sanctum, Material-UI, Chakra UI, Tailwind CSS et Recharts pour la visualisation de données.",
     },
-    tags: ["React", "Tailwindcss", "Laravel", "MySQL", "Github", "Chakra UI"],
-    videoSrc: "/blood-nation-demo.webm",
+    tags: ["React 18", "Laravel 10", "MySQL", "Laravel Sanctum", "Material-UI", "Chakra UI", "Tailwind CSS", "Recharts"],
+    imageSrc: "/bloodbank-demo-img.png",
     repoLink: "https://github.com/AnasOudadsse/BloodBankManagement",
     externalLink: null,
     color: "from-red-500/20 to-red-600/20",
@@ -138,7 +137,7 @@ const projectsData = [
       en: "Comprehensive IT Support Ticketing Management System that streamlines technical support operations by replacing manual tracking systems with a centralized, automated platform. Features complete ticket lifecycle management with four-stage workflow (Opened → Reserved → Resolved → Closed), role-based access control (Clients, Support Agents, Administrators), smart ticket assignment and reservation system, satisfaction rating after resolution, and file attachment support. Built with React 18, Laravel 9, MySQL, and Laravel Sanctum. Includes advanced dashboard with real-time KPIs and interactive visualizations (line charts, pie charts, bar charts), AI-powered chatbot assistant integrated with Google Gemini API for context-aware responses, administrative features for user management and configuration, inventory management for IT assets, Excel export functionality, and responsive UI with Tailwind CSS and shadcn/ui components.",
       fr: "Système complet de gestion de tickets de support IT qui rationalise les opérations de support technique en remplaçant les systèmes de suivi manuels par une plateforme centralisée et automatisée. Comprend la gestion complète du cycle de vie des tickets avec un workflow en quatre étapes (Ouvert → Réservé → Résolu → Fermé), contrôle d'accès basé sur les rôles (Clients, Agents de Support, Administrateurs), système d'attribution et de réservation intelligent de tickets, notation de satisfaction après résolution, et support de pièces jointes. Développé avec React 18, Laravel 9, MySQL et Laravel Sanctum. Inclut un tableau de bord avancé avec KPI en temps réel et visualisations interactives (graphiques linéaires, camemberts, barres), assistant chatbot alimenté par l'IA intégré avec l'API Google Gemini pour des réponses contextuelles, fonctionnalités administratives pour la gestion des utilisateurs et la configuration, gestion d'inventaire pour les actifs IT, fonctionnalité d'export Excel, et interface responsive avec Tailwind CSS et composants shadcn/ui.",
     },
-    videoSrc: "/ticketing-app-demo.webm",
+    videoSrc: "/ticketing-app-demo.mp4",
     tags: ["React 18", "Laravel 9", "MySQL", "Laravel Sanctum", "Google Gemini API", "shadcn/ui", "Tailwind CSS", "Recharts"],
     repoLink: "https://github.com/AnasOudadsse/myCoach",
     externalLink: null,
@@ -152,11 +151,11 @@ const projectsData = [
       fr: "X Capital (UI/UX)",
     },
     description: {
-      en: "An example of UI/UX work done for X Capital, focused on creating responsive and visually appealing landing pages. Using Figma, the project highlights attention to detail and a focus on optimizing user experience while respecting brand guidelines and business objectives.",
-      fr: "Un exemple de travail en UI/UX réalisé pour X Capital, axé sur la création de pages d'accueil réactives et visuellement attrayantes. Utilisant Figma, le projet met en évidence une attention particulière aux détails et un accent sur l'optimisation de l'expérience utilisateur tout en respectant les directives de la marque et les objectifs commerciaux.",
+      en: "Full-stack project for X Capital combining UI/UX design and frontend development. Designed responsive and visually appealing interfaces using Figma, then implemented them with React.js to create interactive and dynamic user interfaces. Integrated RESTful APIs for seamless data fetching and real-time updates, ensuring smooth user experience. The project demonstrates expertise in both design thinking and technical implementation, with attention to detail in optimizing user experience while respecting brand guidelines and business objectives.",
+      fr: "Projet full-stack pour X Capital combinant design UI/UX et développement frontend. Conception d'interfaces réactives et visuellement attrayantes avec Figma, puis implémentation avec React.js pour créer des interfaces utilisateur interactives et dynamiques. Intégration d'API RESTful pour la récupération de données et les mises à jour en temps réel, garantissant une expérience utilisateur fluide. Le projet démontre une expertise à la fois en design thinking et en implémentation technique, avec une attention particulière aux détails pour optimiser l'expérience utilisateur tout en respectant les directives de la marque et les objectifs commerciaux.",
     },
     imageSrc: "/Hero.png",
-    tags: ["Figma", "UI/UX Design"],
+    tags: ["React.js", "Figma", "UI/UX Design", "API Integration", "RESTful API"],
     externalLink: "https://www.figma.com/design/XIRuymUHVHqSp5IvtBRJpd",
     repoLink: null,
     color: "from-green-500/20 to-emerald-600/20",
@@ -169,11 +168,19 @@ export function Projects() {
   const { language } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
-  const [videoDialogOpen, setVideoDialogOpen] = useState(false)
-  const [currentVideo, setCurrentVideo] = useState("")
   const [activeProject, setActiveProject] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const scrollContainerRef = useRef(null)
+  const [mediaModalOpen, setMediaModalOpen] = useState(false)
+  const [currentMedia, setCurrentMedia] = useState({ src: "", type: "image", title: "" })
+  const [hoveredMediaIndex, setHoveredMediaIndex] = useState(null)
+  const [mediaPosition, setMediaPosition] = useState({ x: 0, y: 0 })
+  const [zoomLevel, setZoomLevel] = useState(1)
+  const [panPosition, setPanPosition] = useState({ x: 0, y: 0 })
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [fullWidthMode, setFullWidthMode] = useState(false)
+  const mediaModalRef = useRef(null)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -237,10 +244,6 @@ export function Projects() {
     }
   }, [isInView, activeProject])
 
-  const openVideoDialog = (videoSrc) => {
-    setCurrentVideo(videoSrc)
-    setVideoDialogOpen(true)
-  }
 
   const translations = {
     en: {
@@ -443,40 +446,89 @@ export function Projects() {
                           >
                             <div className="bg-white dark:bg-gray-800 rounded-lg h-full overflow-hidden flex flex-col">
                               {/* Media Section */}
-                              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+                              <div 
+                                className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 group cursor-pointer"
+                                onMouseEnter={() => setHoveredMediaIndex(index)}
+                                onMouseLeave={() => {
+                                  setHoveredMediaIndex(null)
+                                  setMediaPosition({ x: 0, y: 0 })
+                                }}
+                                onMouseMove={(e) => {
+                                  if (hoveredMediaIndex === index && project.imageSrc && !project.videoSrc) {
+                                    const rect = e.currentTarget.getBoundingClientRect()
+                                    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20
+                                    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20
+                                    setMediaPosition({ x, y })
+                                  }
+                                }}
+                                onClick={() => {
+                                  if (project.videoSrc) {
+                                    setCurrentMedia({ src: project.videoSrc, type: "video", title: project.title[language] })
+                                    setFullWidthMode(false)
+                                  } else {
+                                    setCurrentMedia({ src: project.imageSrc || "/placeholder.svg", type: "image", title: project.title[language] })
+                                    setFullWidthMode(true)
+                                  }
+                                  setZoomLevel(1)
+                                  setPanPosition({ x: 0, y: 0 })
+                                  setMediaModalOpen(true)
+                                }}
+                              >
                                 {project.videoSrc ? (
-                                  <div className="relative w-full h-full">
-                                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                                      <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm transform transition-transform duration-300 hover:scale-110"
-                                        onClick={() => openVideoDialog(project.videoSrc)}
-                                      >
-                                        <Play className="h-8 w-8" />
-                                      </Button>
-                                    </div>
+                                  <>
                                     <video
-                                      className="w-full h-full object-cover opacity-80"
+                                      src={project.videoSrc}
+                                      className="w-full h-full object-cover object-center object-top"
                                       muted
                                       loop
                                       playsInline
                                       autoPlay
-                                    >
-                                      <source src={project.videoSrc} type="video/webm" />
-                                      Your browser does not support the video tag.
-                                    </video>
-                                  </div>
+                                    />
+                                    {/* Play overlay for video */}
+                                    <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                                      hoveredMediaIndex === index ? 'opacity-100 scale-100' : 'opacity-70 scale-95'
+                                    }`}>
+                                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 border-2 border-white/30">
+                                        <ZoomIn className="h-8 w-8 text-white" />
+                                      </div>
+                                    </div>
+                                  </>
                                 ) : (
                                   <img
                                     src={project.imageSrc || "/placeholder.svg"}
                                     alt={project.title[language]}
-                                    className="w-full h-full object-cover"
+                                    className={`w-full h-full object-cover object-center object-top transition-all duration-500 ease-out ${
+                                      hoveredMediaIndex === index 
+                                        ? 'scale-110' 
+                                        : 'scale-100'
+                                    }`}
+                                    style={{
+                                      transform: hoveredMediaIndex === index 
+                                        ? `scale(1.1) translate(${mediaPosition.x}px, ${mediaPosition.y}px)` 
+                                        : 'scale(1)',
+                                    }}
                                   />
                                 )}
 
-                                {/* Overlay gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60" />
+                                {/* Interactive overlay with hint */}
+                                <div className={`absolute inset-0 bg-gradient-to-t from-black/50 to-transparent transition-opacity duration-300 ${
+                                  hoveredMediaIndex === index ? 'opacity-40' : 'opacity-60'
+                                }`} />
+                                
+                                {/* Hover indicator */}
+                                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                                  hoveredMediaIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                                }`}>
+                                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 border-2 border-white/30">
+                                    <ZoomIn className="h-8 w-8 text-white" />
+                                  </div>
+                                </div>
+
+                                {/* Click hint */}
+                                <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <Move className="h-3 w-3" />
+                                  <span>{project.videoSrc ? 'Click to view full video' : 'Hover to explore • Click to view full'}</span>
+                                </div>
                               </div>
 
                               {/* Content Section */}
@@ -546,29 +598,35 @@ export function Projects() {
               >
                 <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
                   {/* Media Section */}
-                  <div className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+                  <div 
+                    className="relative h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 cursor-pointer"
+                                onClick={() => {
+                                  if (project.videoSrc) {
+                                    setCurrentMedia({ src: project.videoSrc, type: "video", title: project.title[language] })
+                                    setFullWidthMode(false)
+                                  } else {
+                                    setCurrentMedia({ src: project.imageSrc || "/placeholder.svg", type: "image", title: project.title[language] })
+                                    setFullWidthMode(true)
+                                  }
+                                  setZoomLevel(1)
+                                  setPanPosition({ x: 0, y: 0 })
+                                  setMediaModalOpen(true)
+                                }}
+                  >
                     {project.videoSrc ? (
-                      <div className="relative w-full h-full">
-                        <div className="absolute inset-0 flex items-center justify-center z-10">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="w-16 h-16 rounded-full bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm transform transition-transform duration-300 hover:scale-110"
-                            onClick={() => openVideoDialog(project.videoSrc)}
-                          >
-                            <Play className="h-8 w-8" />
-                          </Button>
-                        </div>
-                        <video className="w-full h-full object-cover opacity-80" muted loop playsInline autoPlay>
-                          <source src={project.videoSrc} type="video/webm" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
+                      <video
+                        src={project.videoSrc}
+                        className="w-full h-full object-cover object-center object-top"
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                      />
                     ) : (
                       <img
                         src={project.imageSrc || "/placeholder.svg"}
                         alt={project.title[language]}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center object-top"
                       />
                     )}
 
@@ -618,23 +676,169 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Video Dialog */}
-      <Dialog open={videoDialogOpen} onOpenChange={setVideoDialogOpen}>
-        <DialogContent className="max-w-4xl p-0 bg-black border-0">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-2 top-2 z-10 rounded-full bg-black/50 text-white hover:bg-black/70"
-            onClick={() => setVideoDialogOpen(false)}
+      {/* Media Modal/Lightbox */}
+      <AnimatePresence>
+        {mediaModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => {
+              setMediaModalOpen(false)
+              setZoomLevel(1)
+              setPanPosition({ x: 0, y: 0 })
+              setFullWidthMode(false)
+            }}
+            onWheel={(e) => {
+              if (currentMedia.type === "image") {
+                e.preventDefault()
+                const delta = e.deltaY > 0 ? -0.1 : 0.1
+                setZoomLevel(prev => Math.max(0.5, Math.min(5, prev + delta)))
+              }
+            }}
           >
-            <X className="h-4 w-4" />
-          </Button>
-          <video controls autoPlay className="w-full h-auto">
-            <source src={currentVideo} type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
-        </DialogContent>
-      </Dialog>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-7xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+              ref={mediaModalRef}
+            >
+              {/* Close Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-4 top-4 z-20 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+                onClick={() => {
+                  setMediaModalOpen(false)
+                  setZoomLevel(1)
+                  setPanPosition({ x: 0, y: 0 })
+                  setFullWidthMode(false)
+                }}
+              >
+                <X className="h-5 w-5" />
+              </Button>
+
+              {/* Zoom Controls */}
+              {currentMedia.type === "image" && (
+                <div className="absolute right-4 top-16 z-20 flex flex-col gap-2">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setZoomLevel(prev => Math.min(5, prev + 0.5))
+                    }}
+                    title="Zoom In"
+                  >
+                    <ZoomIn className="h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setZoomLevel(prev => Math.max(0.5, prev - 0.5))
+                    }}
+                    title="Zoom Out"
+                  >
+                    <ZoomOut className="h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setZoomLevel(1)
+                      setPanPosition({ x: 0, y: 0 })
+                    }}
+                    title="Reset"
+                  >
+                    <RotateCcw className="h-5 w-5" />
+                  </Button>
+                </div>
+              )}
+              
+              <div className="bg-white/5 rounded-lg p-2 backdrop-blur-sm">
+                <h3 className="text-white text-lg font-semibold mb-2 px-2">{currentMedia.title}</h3>
+                <div 
+                  className={`relative rounded-lg bg-black/20 ${
+                    fullWidthMode ? "overflow-y-auto" : "overflow-hidden"
+                  }`}
+                  style={{
+                    maxHeight: "85vh",
+                    cursor: !fullWidthMode && zoomLevel > 1 ? (isDragging ? "grabbing" : "grab") : "default"
+                  }}
+                  onMouseDown={(e) => {
+                    if (!fullWidthMode && zoomLevel > 1 && currentMedia.type === "image") {
+                      e.preventDefault()
+                      setIsDragging(true)
+                      setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y })
+                    }
+                  }}
+                  onMouseMove={(e) => {
+                    if (!fullWidthMode && isDragging && zoomLevel > 1) {
+                      e.preventDefault()
+                      setPanPosition({
+                        x: e.clientX - dragStart.x,
+                        y: e.clientY - dragStart.y
+                      })
+                    }
+                  }}
+                  onMouseUp={() => setIsDragging(false)}
+                  onMouseLeave={() => setIsDragging(false)}
+                >
+                  {currentMedia.type === "video" ? (
+                    <video
+                      src={currentMedia.src}
+                      controls
+                      autoPlay
+                      className="w-full h-auto max-h-[85vh]"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={currentMedia.src}
+                      alt={currentMedia.title}
+                      className={`transition-transform duration-200 ${
+                        fullWidthMode 
+                          ? "w-full h-auto" 
+                          : "w-full h-auto max-h-[85vh] object-contain"
+                      }`}
+                      style={fullWidthMode ? {} : {
+                        transform: `scale(${zoomLevel}) translate(${panPosition.x / zoomLevel}px, ${panPosition.y / zoomLevel}px)`,
+                        transformOrigin: "center center",
+                      }}
+                      draggable={false}
+                    />
+                  )}
+                </div>
+                
+                {/* Zoom Level Indicator */}
+                {currentMedia.type === "image" && !fullWidthMode && zoomLevel !== 1 && (
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-sm px-3 py-1.5 rounded-full">
+                    {Math.round(zoomLevel * 100)}%
+                  </div>
+                )}
+                
+                {/* Full Width Indicator */}
+                {currentMedia.type === "image" && fullWidthMode && (
+                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-sm px-3 py-1.5 rounded-full flex items-center gap-2">
+                    <Move className="h-3 w-3" />
+                    <span>Scroll vertically to view full image</span>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
