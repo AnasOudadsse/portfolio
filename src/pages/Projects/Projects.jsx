@@ -199,9 +199,19 @@ export function Projects() {
     }
   }, [activeProject])
 
-  // Scroll to active project - ensure it's always visible
+  // Scroll to active project - ensure it's always visible (only within container, not page scroll)
   useEffect(() => {
     if (scrollContainerRef.current && activeProject !== null) {
+      // Only scroll if user is already viewing the projects section (not on page load)
+      const projectsSection = document.getElementById('projects')
+      const isProjectsSectionVisible = projectsSection && 
+        window.scrollY + window.innerHeight > projectsSection.offsetTop &&
+        window.scrollY < projectsSection.offsetTop + projectsSection.offsetHeight
+
+      if (!isProjectsSectionVisible) {
+        return // Don't scroll if projects section is not in view
+      }
+
       // Find the project element within the scrollable container
       const container = scrollContainerRef.current
       const projectElements = container.querySelectorAll('[data-project-index]')
@@ -210,20 +220,31 @@ export function Projects() {
       )
       
       if (targetElement) {
-        // Use requestAnimationFrame for better timing
+        // Scroll within the container only, not the page
+        const containerRect = container.getBoundingClientRect()
+        const elementRect = targetElement.getBoundingClientRect()
+        const relativeTop = elementRect.top - containerRect.top + container.scrollTop
+        const centerPosition = relativeTop - (containerRect.height / 2) + (elementRect.height / 2)
+        
         requestAnimationFrame(() => {
-          targetElement.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
+          container.scrollTo({
+            top: centerPosition,
+            behavior: 'smooth'
           })
         })
       }
     }
   }, [activeProject])
 
-  // Initial scroll on mount to show first project as selected
+  // Initial scroll on mount to show first project as selected (only if user is already in projects section)
   useEffect(() => {
+    // Check if page was just loaded (at top) - if so, don't auto-scroll
+    const isPageAtTop = window.scrollY < 100
+    
+    if (isPageAtTop) {
+      return // Don't scroll on initial page load
+    }
+
     if (scrollContainerRef.current && activeProject === 0 && isInView) {
       // Wait for animations to complete
       const timer = setTimeout(() => {
@@ -232,10 +253,15 @@ export function Projects() {
           const projectElements = container.querySelectorAll('[data-project-index]')
           const firstElement = projectElements[0]
           if (firstElement) {
-            firstElement.scrollIntoView({ 
-              behavior: 'auto', 
-              block: 'center',
-              inline: 'nearest'
+            // Scroll within container only
+            const containerRect = container.getBoundingClientRect()
+            const elementRect = firstElement.getBoundingClientRect()
+            const relativeTop = elementRect.top - containerRect.top + container.scrollTop
+            const centerPosition = relativeTop - (containerRect.height / 2) + (elementRect.height / 2)
+            
+            container.scrollTo({
+              top: centerPosition,
+              behavior: 'auto'
             })
           }
         }
