@@ -5,11 +5,113 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Terminal } from "lucide-react"
+import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck } from "lucide-react"
 import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
 const projectsData = [
+  {
+    title: {
+      en: "Stages-UM6SS",
+      fr: "Stages-UM6SS",
+    },
+    description: {
+      en: "Complete digitalization of the internship management process. Full-stack development with React.js, Laravel, and MySQL, automating evaluations and reporting for thousands of students across multiple campuses.",
+      fr: "Digitalisation complète du processus de gestion des stages. Développement full-stack avec React.js, Laravel et MySQL, automatisant l'évaluation et le suivi de milliers d'étudiants à travers plusieurs campus.",
+    },
+    imageSrc: "/HomePage.jpg",
+    tags: ["React.js", "Laravel", "MySQL", "Product Ownership", "Deployment"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-indigo-500/20 to-blue-600/20",
+    iconColor: "text-indigo-500",
+    icon: <Layers className="h-5 w-5" />,
+  },
+  {
+    title: {
+      en: "E-Portfolio",
+      fr: "E-Portfolio",
+    },
+    description: {
+      en: "Academic documentation platform developed with React.js, Node.js, and MySQL. Helps students centralize their achievements while providing faculty with real-time insights and documentation management.",
+      fr: "Plateforme de documentation académique développée avec React.js, Node.js et MySQL. Permet aux étudiants de centraliser leurs réussites tout en offrant aux encadrants des indicateurs en temps réel et une gestion de la documentation.",
+    },
+    imageSrc: "/HomePage.jpg",
+    tags: ["React.js", "Node.js", "MySQL", "Product Management", "UI/UX"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-sky-500/20 to-cyan-500/20",
+    iconColor: "text-sky-500",
+    icon: <PenTool className="h-5 w-5" />,
+  },
+  {
+    title: {
+      en: "Photo-UM6SS",
+      fr: "Photo-UM6SS",
+    },
+    description: {
+      en: "Enrollment application integrated with BIOSTAR2 API, automating user creation and photo upload to the system and OneDrive. Deployed across 5 cities and 7 campuses, handling thousands of new student enrollments.",
+      fr: "Application d'inscription intégrée avec l'API BIOSTAR2, automatisant la création d'utilisateurs et l'upload de photos vers le système et OneDrive. Déployée dans 5 villes et 7 campus, gérant des milliers d'inscriptions d'étudiants.",
+    },
+    imageSrc: "/profesional_Pic_Anas.jpeg",
+    tags: ["React.js", "Laravel", "MySQL", "API Integration", "Automation", "OneDrive"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-rose-500/20 to-orange-500/20",
+    iconColor: "text-rose-500",
+    icon: <Camera className="h-5 w-5" />,
+  },
+  {
+    title: {
+      en: "Absences",
+      fr: "Absences",
+    },
+    description: {
+      en: "Tracking system for absences (classes/exams), interfaced with Biostar2. Built with Laravel and Biostar2 API integration, providing real-time absence monitoring and reporting capabilities.",
+      fr: "Système de suivi des absences (cours/examens), interfacé avec Biostar2. Développé avec Laravel et intégration API Biostar2, offrant un suivi en temps réel des absences et des capacités de reporting.",
+    },
+    imageSrc: "/HomePage.jpg",
+    tags: ["Laravel", "API Biostar2", "Tracking", "Reporting"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-teal-500/20 to-emerald-500/20",
+    iconColor: "text-teal-500",
+    icon: <LifeBuoy className="h-5 w-5" />,
+  },
+  {
+    title: {
+      en: "Evalbox-Logins",
+      fr: "Evalbox-Logins",
+    },
+    description: {
+      en: "A solution for students to access their Evalbox exams via QR code during Outlook failures. Built with React.js, Laravel, and MySQL, ensuring continuous access to exams even when primary authentication systems are down.",
+      fr: "Solution permettant aux étudiants d'accéder à leurs examens Evalbox via QR code lors des pannes Outlook. Développée avec React.js, Laravel et MySQL, garantissant un accès continu aux examens même lorsque les systèmes d'authentification principaux sont en panne.",
+    },
+    imageSrc: "/HomePage.jpg",
+    tags: ["React.js", "Laravel", "MySQL", "QR Code", "Availability"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-purple-500/20 to-fuchsia-500/20",
+    iconColor: "text-purple-500",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
+  {
+    title: {
+      en: "Évaluations-Classes",
+      fr: "Évaluations-Classes",
+    },
+    description: {
+      en: "Automated generation of Google Forms and QR codes for classes evaluations. Built with Python and Tkinter, integrated with Google APIs to streamline the evaluation process and reduce manual work for faculty.",
+      fr: "Génération automatisée de Google Forms et QR codes pour les évaluations des classes. Développée avec Python et Tkinter, intégrée avec les API Google pour rationaliser le processus d'évaluation et réduire le travail manuel pour les encadrants.",
+    },
+    imageSrc: "/HomePage.jpg",
+    tags: ["Python", "Tkinter", "Google APIs", "Automation", "QR Code"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-yellow-500/20 to-amber-500/20",
+    iconColor: "text-yellow-500",
+    icon: <Code className="h-5 w-5" />,
+  },
   {
     title: {
       en: "Blood-Nation",
@@ -60,23 +162,6 @@ const projectsData = [
     color: "from-green-500/20 to-emerald-600/20",
     iconColor: "text-green-500",
     icon: <PenTool className="h-5 w-5" />,
-  },
-  {
-    title: {
-      en: "Simple Shell",
-      fr: "Simple Shell",
-    },
-    description: {
-      en: "A system programming project in C aimed at developing a command interpreter inspired by UNIX shells. This project highlights process management, command execution, and input/output manipulation, while respecting the fundamental principles of operating systems.",
-      fr: "Un projet de programmation système en C visant à développer un interpréteur de commandes inspiré des shells UNIX. Ce projet met en évidence la gestion des processus, l'exécution de commandes et la manipulation des entrées/sorties, tout en respectant les principes fondamentaux des systèmes d'exploitation.",
-    },
-    imageSrc: "/Ans-dev.png",
-    tags: ["C", "Shell", "UNIX", "Programmation Système"],
-    externalLink: null,
-    repoLink: "https://github.com/AnasOudadsse/_simple_shell",
-    color: "from-amber-500/20 to-orange-600/20",
-    iconColor: "text-amber-500",
-    icon: <Terminal className="h-5 w-5" />,
   },
 ]
 

@@ -16,24 +16,25 @@ export function Volunteering() {
   const volunteeringData = [
     {
       logo: "/cad_ista_hayhassani1_logo.png",
-      organization: "OFPPT",
+      organization:
+        language === "fr"
+          ? "Club d'Animation et de Développement (CAD) – ISTA"
+          : "Animation & Development Club (CAD) – ISTA",
       role: language === "fr" ? "Président" : "President",
       description:
         language === "fr"
           ? [
-              "Organisation d'événements communautaires pour améliorer la participation des membres.",
-              "Renforcement des compétences en leadership et gestion d'équipe pour les membres du comité.",
-              "Gestion des ressources et du budget pour garantir le bon déroulement des événements.",
-              "Amélioration de l'engagement des membres à travers des initiatives innovantes et participatives.",
+              "Pilotage du CAD de l'ISTA : coordination des clubs et planification d'événements inter-écoles.",
+              "Gestion du budget, des partenariats et des équipes bénévoles pour assurer la réussite des activités.",
+              "Renforcement de la cohésion communautaire via des initiatives collaboratives et inclusives.",
             ]
           : [
-              "Organization of community events to improve member participation",
-              "Strengthening leadership and team management skills for committee members",
-              "Management of resources and budget to ensure the smooth running of events",
-              "Improving member engagement through innovative and participatory initiatives",
+              "Led the ISTA CAD club, coordinating student groups and large-scale campus events.",
+              "Managed budgets, partnerships, and volunteer teams to deliver successful initiatives.",
+              "Strengthened community cohesion through inclusive, collaborative programmes.",
             ],
-      dateRange: language === "fr" ? "Septembre 2022 – Juin 2024" : "September 2022 - June 2024",
-      skills: language === "fr" ? ["Leadership", "Gestion d'événements"] : ["Leadership", "Event Management"],
+      dateRange: language === "fr" ? "Septembre 2022 – Juillet 2024" : "September 2022 - July 2024",
+      skills: language === "fr" ? ["Leadership", "Gestion d'événements", "Animation communautaire"] : ["Leadership", "Event Management", "Community Building"],
       darkLogo: false,
       width: "80px",
       height: "auto",

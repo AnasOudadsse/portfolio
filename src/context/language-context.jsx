@@ -22,15 +22,15 @@ const translations = {
     },
     // Hero
     hero: {
-      subtitle: "Full-Stack Developer & UI/UX Designer",
+      subtitle: "CTO • Full-Stack Developer • UI/UX Designer",
       greeting: "Hi, I'm",
       typewriter: [
-        "I develop web and mobile applications",
-        "I architect end-to-end digital solutions",
-        "I build scalable, production-ready systems",
-      ],
+        "I lead digital products from discovery to launch",
+        "I build React & Laravel platforms used by thousands",
+        "I design user-centric experiences that scale",
+      ],      
       description:
-        "Experienced Full-Stack Developer skilled in React.js, Flutter, Laravel & Tailwind CSS. I turn concepts into scalable, production-ready web and mobile applications.",
+        "Co-founder & CTO delivering end-to-end digitalization programs for universities and startups. I own discovery, prioritisation, development, deployment, and adoption across React.js, Laravel, Node.js, and MySQL ecosystems.",
       location: "Casablanca, Morocco",
       available: "Available for new projects",
       cta: "Let's work together",
@@ -39,9 +39,9 @@ const translations = {
     // About
     about: {
       title: "About me",
-      role: "Full-Stack Developer",
+      role: "Co-founder & CTO · Full-Stack Developer",
       description:
-        "With a strong command of both front-end and back-end technologies, I architect, develop, and deliver web and mobile applications from concept to production. I’m proficient in React.js, Flutter, Laravel, and Tailwind CSS, and experienced with both relational and non-relational databases, ensuring every solution is scalable, maintainable, and aligned with your business goals.",
+        "I combine product leadership, UI/UX, and full‑stack engineering to deliver large-scale digital platforms. From needs discovery and prioritisation to coding, deployment, and change management, I partner with stakeholders to launch solutions that support thousands of users across higher education and fast-growing startups.",
       cta: "Let’s work together",
       downloadCV: "Download CV",
     },
@@ -151,15 +151,15 @@ const translations = {
     },
     // Hero
     hero: {
-      subtitle: "Développeur Full-Stack & Designer UI/UX",
+      subtitle: "CTO • Développeur Full-Stack • Designer UI/UX",
       greeting: "Salut, je suis",
       typewriter: [
-        "Je développe des applications web et mobiles",
-        "J'architecte des solutions digitales de A à Z",
-        "Je construis des systèmes évolutifs et prêts pour la production",
+        "Je pilote des produits digitaux de la découverte au déploiement",
+        "Je conçois des plateformes React & Laravel utilisées par des milliers d'utilisateurs",
+        "Je crée des expériences centrées utilisateur et prêtes à l'échelle",
       ],      
       description:
-        "Développeur Full-Stack expérimenté, maîtrisant React.js, Flutter, Laravel et Tailwind CSS. Je transforme des concepts en applications web et mobiles scalables et prêtes pour la production.",
+        "Cofondateur & CTO menant des programmes de digitalisation de bout en bout pour des universités et startups. Je prends en charge la découverte des besoins, la priorisation, le développement, le déploiement et l'adoption sur des écosystèmes React.js, Laravel, Node.js et MySQL.",
       location: "Casablanca, Maroc",
       available: "Disponible pour de nouveaux projets",
       cta: "Travaillons ensemble",
@@ -168,9 +168,9 @@ const translations = {
     // About
     about: {
       title: "À propos de moi",
-      role: "Développeur Full-Stack",
+      role: "Cofondateur & CTO · Développeur Full-Stack",
       description:
-        "Avec une solide maîtrise des technologies front-end et back-end, j'architecte, développe et livre des applications web et mobiles de la conception à la mise en production. Je suis compétent en React.js, Flutter, Laravel et Tailwind CSS, et expérimenté avec les bases de données relationnelles et non relationnelles, garantissant que chaque solution est évolutive, maintenable et alignée sur vos objectifs métier.",
+        "J'allie leadership produit, UI/UX et ingénierie full-stack pour livrer des plateformes digitales à grande échelle. De l'analyse des besoins au déploiement et à l'accompagnement du changement, j'assure avec les parties prenantes le lancement de solutions soutenant des milliers d'utilisateurs dans l'enseignement supérieur et les startups en croissance.",
       cta: "Travaillons ensemble",
       downloadCV: "Télécharger CV",
     },

@@ -20,27 +20,29 @@ export default function Experiences() {
         language === "fr"
           ? "Université Mohammed VI des Sciences et de la Santé"
           : "Mohammed VI University of Health Sciences",
-      role: language === "fr" ? "Chargée d'exploitation" : "Operations Manager",
+      role: language === "fr" ? "Technicien en Systèmes d'Information" : "Information Systems Technician",
       description:
         language === "fr"
           ? [
-            "Développé une application pour automatiser l'ajout des étudiants sur Canvas et l'envoi des emails en Python",
-            "Réalisé une application de gestion des tickets pour l'équipe SI en React.js & Laravel & MySQL",
-            "Implémenté et déployé une application permettant aux étudiants d'accéder à leurs examens Evalbox en cas de panne d'Outlook (React, Laravel, MySQL)",
-            "Conçu et déployé une plateforme digitale de gestion des stages à l'UM6SS, optimisant l’évaluation et le suivi des étudiants",
-            "Création d'une application e-portfolio permettant aux étudiants de gérer leurs portfolios",
-            "Développement d'une application de prise de photos intégrant les informations des étudiants dans BIOSRAT 2 via API",
-          ]
-        : [
-            "Developed an application to automate student addition to Canvas and email sending using Python",
-            "Created a ticket management application for the IS support team using React.js, Laravel & MySQL",
-            "Implemented and deployed an application allowing students to access their Evalbox exams in case of Outlook outage '(React, Laravel, MySQL)'",
-            "Designed and launched a digital internship management platform for UM6SS, optimizing student evaluation and tracking",
-            "Created an e-portfolio application for students to manage their portfolios",
-            "Built a picture-taking app that captures photos and adds student info to BIOSRAT 2 via API",
-          ],
-      dateRange: language === "fr" ? "Juillet 2024 - Présent" : "July 2024 - Present",
-      tech: ["Python", "React.js", "Laravel", "MySQL", "REST API", "Node.js", "express.js"],
+              "Analyse des besoins et livraison full-stack de 6 projets de digitalisation (développement, déploiement, amélioration des processus, maintenance et support utilisateurs) à travers 5 villes et 7 campus.",
+              "Stages-UM6SS : Digitalisation complète du processus de gestion des stages. (React.js, Laravel, MySQL)",
+              "E-Portfolio : Plateforme de documentation académique. (React.js, Node.js, MySQL)",
+              "Photo-UM6SS : Application d'inscription intégrée avec l'API BIOSTAR2, automatisant la création d'utilisateurs et l'upload de photos vers le système et OneDrive. (React.js, Laravel, MySQL)",
+              "Absences : Suivi des absences (cours/examens), interfacé avec Biostar2. (Laravel, API Biostar2)",
+              "Evalbox-Logins : Solution permettant aux étudiants d'accéder à leurs examens Evalbox via QR code lors des pannes Outlook. (React.js, Laravel, MySQL)",
+              "Évaluations-Classes : Génération automatisée de Google Forms et QR codes pour les évaluations des classes. (Python, Tkinter, Google APIs)",
+            ]
+          : [
+              "Requirement analysis and full-stack delivery of 6 digitalization projects (development, deployment, process improvement, maintenance, and user support) across 5 cities and 7 campuses.",
+              "Stages-UM6SS - Complete digitalization of the internship management process. (React.js, Laravel, MySQL)",
+              "E-Portfolio - Academic documentation platform. (React.js, Node.js, MySQL)",
+              "Photo-UM6SS - Enrollment application integrated with BIOSTAR2 API, automating user creation and photo upload to the system and OneDrive. (React.js, Laravel, MySQL)",
+              "Absences - Tracking of absences (classes/exams), interfaced with Biostar2. (Laravel, API Biostar2)",
+              "Evalbox-Logins - A solution for students to access their Evalbox exams via QR code during Outlook failures. (React.js, Laravel, MySQL)",
+              "Évaluations-Classes - Automated generation of Google Forms and QR codes for classes evaluations. (Python, Tkinter, Google APIs)",
+            ],
+      dateRange: language === "fr" ? "Juillet 2024 - Présent" : "Since July 2024",
+      tech: ["React.js", "Laravel", "MySQL", "Node.js", "Python", "REST API", "Google APIs"],
       darkLogo: true,
       width: "250px",
       height: "auto",
@@ -48,19 +50,19 @@ export default function Experiences() {
     {
       logo: "/MyCoachNewLogo.png",
       company: "My Coach",
-      role: language === "fr" ? "Cofondateur & Directeur Technique" : "Co-founder & Technical Director",
+      role: language === "fr" ? "Cofondateur & Directeur Technique" : "Co-Founder & CTO",
       description:
         language === "fr"
           ? [
-              "Recrutement & encadrement des équipes techniques.",
-              "Supervision des décisions stratégiques, techniques et de l’architecture logicielle",
+              "Plateforme SaaS connectant les coachs sportifs et leurs clients.",
+              "J'ai supervisé la conception, le développement et le lancement (go-to-market) de la plateforme, tout en gérant les décisions stratégiques et la supervision d'équipe.",
             ]
           : [
-              "Recruitment & management of technical teams",
-              "Oversight of strategic and technical decision-making and software architecture",
+              "SaaS platform connecting sports coaches and clients.",
+              "I oversaw the design, development, and launch (go-to-market) of the platform, while managing strategic decisions and team supervision.",
             ],
-      dateRange: language === "fr" ? "Avril 2024 – Présent" : "April 2024 - Present",
-      tech: ["Leadership", "Architecture", "Entrepreneurship"],
+      dateRange: language === "fr" ? "Avril 2024 – Présent" : "Since April 2024",
+      tech: ["Leadership", "Architecture", "Entrepreneurship", "SaaS"],
       darkLogo: false,
       width: "120px",
       height: "auto",
@@ -72,17 +74,15 @@ export default function Experiences() {
       description:
         language === "fr"
           ? [
-              "Conception et développement d'interfaces réactives avec React.js.",
-              "Utilisation des méthodes Agile pour améliorer la productivité de l'équipe.",
-              "Création de prototypes UI/UX avec Figma.",
+              "Conception complète du système UI/UX. (Figma)",
+              "Développement d'interfaces réactives et intégration d'API. (React.js)",
             ]
           : [
-              "Design and development of responsive interfaces with React.js",
-              "Use of Agile methods to improve team productivity",
-              "Creation of UI/UX prototypes with Figma",
+              "Designed complete UI/UX system. (Figma)",
+              "Built responsive interfaces & API integration. (React.js)",
             ],
       dateRange: language === "fr" ? "Mars 2024 – Juin 2024" : "March 2024 - June 2024",
-      tech: ["React", "Figma", "Agile"],
+      tech: ["React", "Figma", "UI/UX Design"],
       darkLogo: true,
       width: "80px",
       height: "auto",

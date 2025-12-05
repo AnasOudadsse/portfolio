@@ -24,6 +24,8 @@ const skillsData = [
   { name: "Git", imgSrc: "/git.png" },
   { name: "Github", imgSrc: "/github.png" },
   { name: "Linux", imgSrc: "/Linux.svg" },
+  { name: "Windows", imgSrc: "/Windows%2011.svg" },
+  { name: "Merise", imgSrc: "/Merise.svg" },
   { name: "UML", imgSrc: "/UML.svg" },
   { name: "Figma", imgSrc: "/icon-figma.svg" },
 ];
