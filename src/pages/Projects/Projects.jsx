@@ -311,10 +311,10 @@ export function Projects() {
             transition={{ duration: 0.5 }}
             ref={ref}
           >
-            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary text-sm font-medium">
+            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary dark:text-white text-sm font-medium">
               {t.title}
             </div>
-            <h2 className="text-3xl font-bold mb-4 !text-gray-900 dark:!text-gray-100 " >{t.subtitle}</h2>
+            <h2 className="text-3xl font-bold mb-4 !text-gray-900 dark:!text-white">{t.subtitle}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t.description}</p>
           </motion.div>
         </div>
@@ -370,8 +370,8 @@ export function Projects() {
                         const opacity = isNear ? 1 : Math.max(0.4, 1 - distance * 0.15)
                         
                         return (
-                          <motion.div
-                            key={index}
+                    <motion.div
+                      key={index}
                             data-project-index={index}
                             className="cursor-pointer"
                             style={{
@@ -380,72 +380,72 @@ export function Projects() {
                               transformStyle: 'preserve-3d',
                               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                             }}
-                            onClick={() => setActiveProject(index)}
+                      onClick={() => setActiveProject(index)}
                             whileHover={{ scale: isActive ? 1.05 : 0.95 }}
-                          >
-                            <div
+                    >
+                      <div
                               className={`p-6 rounded-lg transition-all duration-300 ${
                                 isActive
                                   ? "bg-gray-50 dark:bg-gray-700 shadow-xl border-2 border-primary"
                                   : "bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 hover:border-primary/50"
-                              }`}
-                            >
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-3">
-                                  <div
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-3">
+                            <div
                                     className={`flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 ${
                                       isActive
-                                        ? `${project.color} ${project.iconColor}`
-                                        : "bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
+                                  ? `${project.color} ${project.iconColor}`
+                                  : "bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
                                     }`}
-                                  >
-                                    {project.icon}
-                                  </div>
-                                  <h3
-                                    className={`font-bold text-lg transition-colors !text-gray-900 dark:!text-gray-100 duration-300 ${
+                            >
+                              {project.icon}
+                            </div>
+                            <h3
+                              className={`font-bold text-lg transition-colors !text-gray-900 dark:!text-gray-100 duration-300 ${
                                       isActive ? "text-primary" : ""
-                                    }`}
-                                  >
-                                    {project.title[language]}
-                                  </h3>
-                                </div>
-                                <ChevronRight
+                              }`}
+                            >
+                              {project.title[language]}
+                            </h3>
+                          </div>
+                          <ChevronRight
                                   className={`h-5 w-5 transition-all duration-300 ${
                                     isActive
                                       ? "opacity-100 text-primary"
                                       : "opacity-0"
-                                  }`}
-                                />
-                              </div>
-                              <div className="flex flex-wrap gap-1 mt-3 ml-12">
-                                {project.tags.slice(0, 3).map((tag, i) => (
-                                  <Badge
-                                    key={i}
-                                    variant="outline"
-                                    className={`text-xs ${
+                            }`}
+                          />
+                        </div>
+                        <div className="flex flex-wrap gap-1 mt-3 ml-12">
+                          {project.tags.slice(0, 3).map((tag, i) => (
+                            <Badge
+                              key={i}
+                              variant="outline"
+                              className={`text-xs ${
                                       isActive
-                                        ? "bg-gray-100 dark:bg-gray-700 " + project.iconColor
-                                        : "bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
-                                    }`}
-                                  >
-                                    {tag}
-                                  </Badge>
-                                ))}
-                                {project.tags.length > 3 && (
-                                  <Badge
-                                    variant="outline"
-                                    className={`text-xs ${
+                                  ? "bg-gray-100 dark:bg-gray-700 " + project.iconColor
+                                  : "bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                              }`}
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                          {project.tags.length > 3 && (
+                            <Badge
+                              variant="outline"
+                              className={`text-xs ${
                                       isActive
-                                        ? "bg-gray-100 dark:bg-gray-700"
-                                        : "bg-gray-100 dark:bg-gray-600"
-                                    }`}
-                                  >
-                                    +{project.tags.length - 3} {t.more}
-                                  </Badge>
-                                )}
-                              </div>
-                            </div>
-                          </motion.div>
+                                  ? "bg-gray-100 dark:bg-gray-700"
+                                  : "bg-gray-100 dark:bg-gray-600"
+                              }`}
+                            >
+                              +{project.tags.length - 3} {t.more}
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
                         )
                       })}
                     </div>
@@ -517,7 +517,7 @@ export function Projects() {
                                       <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 border-2 border-white/30">
                                         <ZoomIn className="h-8 w-8 text-white" />
                                       </div>
-                                    </div>
+                                  </div>
                                   </>
                                 ) : (
                                   <img
@@ -559,7 +559,7 @@ export function Projects() {
 
                               {/* Content Section */}
                               <div className="flex-grow p-6 overflow-y-auto">
-                                <h3 className="text-2xl font-bold mb-3 flex items-center !text-gray-900 dark:!text-gray-100">
+                                <h3 className="text-2xl font-bold mb-3 flex items-center !text-gray-900 dark:!text-white">
                                   <span className={`mr-2 ${project.iconColor}`}>●</span>
                                   {project.title[language]}
                                 </h3>
@@ -654,7 +654,7 @@ export function Projects() {
 
                   {/* Content Section */}
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold mb-3 flex items-center">
+                    <h3 className="text-2xl font-bold mb-3 flex items-center !text-gray-900 dark:!text-white">
                       <span className={`mr-2 ${project.iconColor}`}>●</span>
                       {project.title[language]}
                     </h3>
@@ -758,9 +758,9 @@ export function Projects() {
                   >
                     <ZoomOut className="h-5 w-5" />
                   </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
+          <Button
+            variant="ghost"
+            size="icon"
                     className="rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
                     onClick={(e) => {
                       e.stopPropagation()
@@ -770,7 +770,7 @@ export function Projects() {
                     title="Reset"
                   >
                     <RotateCcw className="h-5 w-5" />
-                  </Button>
+          </Button>
                 </div>
               )}
               
@@ -810,8 +810,8 @@ export function Projects() {
                       autoPlay
                       className="w-full h-auto max-h-[85vh]"
                     >
-                      Your browser does not support the video tag.
-                    </video>
+            Your browser does not support the video tag.
+          </video>
                   ) : (
                     <img
                       src={currentMedia.src}

@@ -45,7 +45,7 @@ export function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative flex flex-col justify-center overflow-hidden pt-24 pb-16 sm:pb-24 lg:pt-32 min-h-[70vh]"
+      className="relative flex flex-col justify-center overflow-hidden pt-32 pb-16 sm:pb-24 sm:pt-28 lg:pt-32 min-h-[70vh]"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:bg-gray-800 dark:bg-none z-0" />
@@ -82,17 +82,18 @@ export function Hero() {
               </span>
             </h1>
 
-            <div className="h-14 sm:h-12 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+            <div className="min-h-[4.5rem] sm:min-h-[3rem] mb-6 sm:mb-4 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 flex items-center justify-center lg:justify-start">
               <TypeAnimation
                 key={language}
                 sequence={Array.isArray(t("hero.typewriter")) ? t("hero.typewriter").flatMap((text, i) => [text, 1000]) : []}
                 wrapper="span"
                 speed={50}
                 repeat={Number.POSITIVE_INFINITY}
+                className="text-center lg:text-left"
               />
             </div>
 
-            <p className="sm:hidden text-sm text-gray-700 dark:text-gray-300">
+            <p className="sm:hidden text-sm text-gray-700 dark:text-gray-300 mt-4">
               {t("hero.description")}
             </p>
 
