@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck } from "lucide-react"
+import { ExternalLink, Github, Play, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown } from "lucide-react"
 import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
@@ -173,6 +173,7 @@ export function Projects() {
   const [currentVideo, setCurrentVideo] = useState("")
   const [activeProject, setActiveProject] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const scrollContainerRef = useRef(null)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -190,6 +191,51 @@ export function Projects() {
       setActiveProject(0)
     }
   }, [activeProject])
+
+  // Scroll to active project - ensure it's always visible
+  useEffect(() => {
+    if (scrollContainerRef.current && activeProject !== null) {
+      // Find the project element within the scrollable container
+      const container = scrollContainerRef.current
+      const projectElements = container.querySelectorAll('[data-project-index]')
+      const targetElement = Array.from(projectElements).find(
+        el => parseInt(el.getAttribute('data-project-index')) === activeProject
+      )
+      
+      if (targetElement) {
+        // Use requestAnimationFrame for better timing
+        requestAnimationFrame(() => {
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          })
+        })
+      }
+    }
+  }, [activeProject])
+
+  // Initial scroll on mount to show first project as selected
+  useEffect(() => {
+    if (scrollContainerRef.current && activeProject === 0 && isInView) {
+      // Wait for animations to complete
+      const timer = setTimeout(() => {
+        const container = scrollContainerRef.current
+        if (container) {
+          const projectElements = container.querySelectorAll('[data-project-index]')
+          const firstElement = projectElements[0]
+          if (firstElement) {
+            firstElement.scrollIntoView({ 
+              behavior: 'auto', 
+              block: 'center',
+              inline: 'nearest'
+            })
+          }
+        }
+      }, 500)
+      return () => clearTimeout(timer)
+    }
+  }, [isInView, activeProject])
 
   const openVideoDialog = (videoSrc) => {
     setCurrentVideo(videoSrc)
@@ -248,95 +294,133 @@ export function Projects() {
         {!isMobile && (
           <div className="hidden lg:block max-w-6xl mx-auto">
             <div className="grid grid-cols-12 gap-6 min-h-[600px]">
-              {/* Project Navigation */}
-              <div className="col-span-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+              {/* Project Navigation - Clean Scrollable List */}
+              <div className="col-span-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative">
                 <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                   <h3 className="font-medium text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400">
                     {t.technologies}
                   </h3>
                 </div>
-                <div className="divide-y divide-gray-100 dark:divide-gray-700">
-                  {projectsData.map((project, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className={`relative cursor-pointer transition-all duration-300 group`}
-                      onClick={() => setActiveProject(index)}
-                    >
-                      <div
-                        className={`absolute left-0 top-0 bottom-0 w-1 ${
-                          activeProject === index
-                            ? "bg-gradient-to-b from-primary to-primary/70 h-full"
-                            : "bg-transparent group-hover:bg-primary/30 h-0 group-hover:h-full"
-                        } transition-all duration-300`}
-                      ></div>
+                
+                {/* Scrollable container with 3D perspective effect */}
+                <div 
+                  className="relative h-[520px] overflow-hidden"
+                  style={{ perspective: '1000px' }}
+                >
+                  {/* Top gradient fade */}
+                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white dark:from-gray-800 to-transparent z-10 pointer-events-none flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-1 mt-2">
+                      <ChevronUp className="h-4 w-4 text-primary animate-bounce" />
+                      <div className="text-xs text-primary/70 font-medium">Scroll for more</div>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom gradient fade */}
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-800 to-transparent z-10 pointer-events-none flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-1 mb-2">
+                      <div className="text-xs text-primary/70 font-medium">More projects</div>
+                      <ChevronDown className="h-4 w-4 text-primary animate-bounce" />
+                    </div>
+                  </div>
 
-                      <div
-                        className={`p-6 ${
-                          activeProject === index
-                            ? "bg-gray-50 dark:bg-gray-700"
-                            : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
+                  {/* Scrollable list with 3D depth effect */}
+                  <div
+                    ref={scrollContainerRef}
+                    className="h-full overflow-y-auto custom-scrollbar py-20"
+                    style={{ scrollBehavior: 'smooth' }}
+                  >
+                    <div className="space-y-4 px-2">
+                      {projectsData.map((project, index) => {
+                        const distance = Math.abs(index - activeProject)
+                        const isActive = activeProject === index
+                        const isNear = distance <= 2
+                        
+                        // 3D transform based on distance from active
+                        const translateZ = isActive ? 20 : Math.max(-50, -20 * distance)
+                        const scale = isActive ? 1.05 : Math.max(0.85, 1 - distance * 0.05)
+                        const opacity = isNear ? 1 : Math.max(0.4, 1 - distance * 0.15)
+                        
+                        return (
+                          <motion.div
+                            key={index}
+                            data-project-index={index}
+                            className="cursor-pointer"
+                            style={{
+                              transform: `translateZ(${translateZ}px) scale(${scale})`,
+                              opacity: opacity,
+                              transformStyle: 'preserve-3d',
+                              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                            }}
+                            onClick={() => setActiveProject(index)}
+                            whileHover={{ scale: isActive ? 1.05 : 0.95 }}
+                          >
                             <div
-                              className={`flex items-center justify-center w-10 h-10 rounded-lg ${
-                                activeProject === index
-                                  ? `${project.color} ${project.iconColor}`
-                                  : "bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
-                              } transition-colors duration-300`}
+                              className={`p-6 rounded-lg transition-all duration-300 ${
+                                isActive
+                                  ? "bg-gray-50 dark:bg-gray-700 shadow-xl border-2 border-primary"
+                                  : "bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 hover:border-primary/50"
+                              }`}
                             >
-                              {project.icon}
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-3">
+                                  <div
+                                    className={`flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-300 ${
+                                      isActive
+                                        ? `${project.color} ${project.iconColor}`
+                                        : "bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
+                                    }`}
+                                  >
+                                    {project.icon}
+                                  </div>
+                                  <h3
+                                    className={`font-bold text-lg transition-colors !text-gray-900 dark:!text-gray-100 duration-300 ${
+                                      isActive ? "text-primary" : ""
+                                    }`}
+                                  >
+                                    {project.title[language]}
+                                  </h3>
+                                </div>
+                                <ChevronRight
+                                  className={`h-5 w-5 transition-all duration-300 ${
+                                    isActive
+                                      ? "opacity-100 text-primary"
+                                      : "opacity-0"
+                                  }`}
+                                />
+                              </div>
+                              <div className="flex flex-wrap gap-1 mt-3 ml-12">
+                                {project.tags.slice(0, 3).map((tag, i) => (
+                                  <Badge
+                                    key={i}
+                                    variant="outline"
+                                    className={`text-xs ${
+                                      isActive
+                                        ? "bg-gray-100 dark:bg-gray-700 " + project.iconColor
+                                        : "bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
+                                    }`}
+                                  >
+                                    {tag}
+                                  </Badge>
+                                ))}
+                                {project.tags.length > 3 && (
+                                  <Badge
+                                    variant="outline"
+                                    className={`text-xs ${
+                                      isActive
+                                        ? "bg-gray-100 dark:bg-gray-700"
+                                        : "bg-gray-100 dark:bg-gray-600"
+                                    }`}
+                                  >
+                                    +{project.tags.length - 3} {t.more}
+                                  </Badge>
+                                )}
+                              </div>
                             </div>
-                            <h3
-                              className={`font-bold text-lg transition-colors !text-gray-900 dark:!text-gray-100 duration-300 ${
-                                activeProject === index ? "text-primary" : ""
-                              }`}
-                            >
-                              {project.title[language]}
-                            </h3>
-                          </div>
-                          <ChevronRight
-                            className={`h-5 w-5 transition-all duration-300 transform ${
-                              activeProject === index
-                                ? "opacity-100 text-primary translate-x-0"
-                                : "opacity-0 -translate-x-2 group-hover:opacity-50 group-hover:translate-x-0"
-                            }`}
-                          />
-                        </div>
-                        <div className="flex flex-wrap gap-1 mt-3 ml-12">
-                          {project.tags.slice(0, 3).map((tag, i) => (
-                            <Badge
-                              key={i}
-                              variant="outline"
-                              className={`text-xs ${
-                                activeProject === index
-                                  ? "bg-gray-100 dark:bg-gray-700 " + project.iconColor
-                                  : "bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300"
-                              }`}
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
-                          {project.tags.length > 3 && (
-                            <Badge
-                              variant="outline"
-                              className={`text-xs ${
-                                activeProject === index
-                                  ? "bg-gray-100 dark:bg-gray-700"
-                                  : "bg-gray-100 dark:bg-gray-600"
-                              }`}
-                            >
-                              +{project.tags.length - 3} {t.more}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                          </motion.div>
+                        )
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
 

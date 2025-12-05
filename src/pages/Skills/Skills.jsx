@@ -31,9 +31,9 @@ const skillsData = [
   { name: "Merise", imgSrc: "/Merise.svg" },
   { name: "UML", imgSrc: "/UML.svg" },
   { name: "Figma", imgSrc: "/icon-figma.svg" },
-  { name: "n8n", imgSrc: "/placeholder.svg" },
-  { name: "ManyChat", imgSrc: "/placeholder.svg" },
-  { name: "Google APIs", imgSrc: "/placeholder.svg" },
+  { name: "n8n", imgSrc: "/n8n-logo.png" },
+  { name: "ManyChat", imgSrc: "/manychat-logo.png" },
+  { name: "Google APIs", imgSrc: "/google-api-logo.png" },
 ];
 
 export default function Skills() {

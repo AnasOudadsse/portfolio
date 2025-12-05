@@ -56,22 +56,22 @@ const translations = {
         {
           title: "Full-Stack Development",
           description:
-            "Extensive experience in front-end and back-end development, mastering React.js, Flutter, Laravel, and Tailwind CSS. I build scalable web and mobile applications using both relational (MySQL) and non-relational (MongoDB) databases.",
+            "Extensive experience in front-end and back-end development, mastering React.js, Flutter, Laravel, Node.js, and Tailwind CSS. I build scalable web and mobile applications using both relational (MySQL) and non-relational (MongoDB) databases, deployed for thousands of users.",
         },
         {
-          title: "Solution Architecture",
+          title: "UI/UX Design",
           description:
-            "Designing robust and optimized technical architectures that ensure system performance, scalability, and maintainability.",
+            "Strong expertise in UI/UX design with Figma, creating complete design systems and responsive interfaces. I design user-centric experiences that scale, from wireframes to production-ready interfaces.",
         },
         {
-          title: "Agile Methodologies",
+          title: "Digital Transformation & Process Digitalization",
           description:
-            "Proficient in Agile frameworks (Scrum, Kanban), collaborating with teams to accelerate delivery while maintaining high quality and customer satisfaction.",
+            "Transforming manual processes into automated digital solutions. I design and implement digitalization initiatives that streamline workflows, reduce manual work, and improve operational efficiency across organizations.",
         },
         {
-          title: "Interpersonal & Problem-Solving Skills",
+          title: "End-to-End Project Delivery",
           description:
-            "Strong communication and teamwork abilities in multidisciplinary settings, with a talent for tackling complex challenges to ensure project cohesion and stakeholder alignment.",
+            "Managing complete project lifecycles from requirements analysis to deployment and user support. I coordinate technical implementation, ensure alignment with business goals, and support successful adoption across multiple locations.",
         },
       ],
     },
@@ -188,22 +188,22 @@ const translations = {
         {
           title: "Développement Full-Stack",
           description:
-            "Expérience approfondie en développement front-end et back-end, maîtrisant React.js, Flutter, Laravel et Tailwind CSS. Je crée des applications web et mobiles évolutives avec des bases de données relationnelles (MySQL) et non relationnelles (MongoDB).",
+            "Expérience approfondie en développement front-end et back-end, maîtrisant React.js, Flutter, Laravel, Node.js et Tailwind CSS. Je crée des applications web et mobiles évolutives avec des bases de données relationnelles (MySQL) et non relationnelles (MongoDB), déployées pour des milliers d'utilisateurs.",
         },
         {
-          title: "Architecture de solutions",
+          title: "Design UI/UX",
           description:
-            "Conception d’architectures techniques robustes et optimisées garantissant performance, évolutivité et maintenabilité des systèmes.",
+            "Solide expertise en design UI/UX avec Figma, créant des systèmes de design complets et des interfaces réactives. Je conçois des expériences centrées utilisateur et prêtes à l'échelle, des wireframes aux interfaces prêtes pour la production.",
         },
         {
-          title: "Méthodologies Agile",
+          title: "Transformation Digitale & Digitalisation de Processus",
           description:
-            "Maîtrise des cadres Agile (Scrum, Kanban), collaboration avec les équipes pour accélérer les livraisons tout en maintenant qualité et satisfaction client.",
+            "Transformation de processus manuels en solutions digitales automatisées. Je conçois et implémente des initiatives de digitalisation qui rationalisent les workflows, réduisent le travail manuel et améliorent l'efficacité opérationnelle à travers les organisations.",
         },
         {
-          title: "Compétences relationnelles et résolution de problèmes",
+          title: "Livraison de Projets de Bout en Bout",
           description:
-            "Solides aptitudes en communication et travail en équipe pluridisciplinaire, avec un talent pour relever des défis complexes et assurer la cohésion du projet ainsi que l’alignement des parties prenantes.",
+            "Gestion de cycles de vie complets de projets, de l'analyse des besoins au déploiement et au support utilisateurs. Je coordonne l'implémentation technique, assure l'alignement avec les objectifs métier et soutiens l'adoption réussie à travers plusieurs localisations.",
         },
       ],
     },

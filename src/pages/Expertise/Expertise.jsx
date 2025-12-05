@@ -2,14 +2,14 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Code, Palette, GitMerge, Users } from "lucide-react"
+import { Code, Palette, Zap, Briefcase } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 
 const icons = [
   <Code className="w-[40px] h-[40px]" />,
   <Palette className="w-[40px] h-[40px]" />,
-  <GitMerge className="w-[40px] h-[40px]" />,
-  <Users className="w-[40px] h-[40px]" />,
+  <Zap className="w-[40px] h-[40px]" />,
+  <Briefcase className="w-[40px] h-[40px]" />,
 ]
 
 export default function Expertise() {
