@@ -17,10 +17,21 @@ export function Education() {
         ? "Licence en Développement Internet et Mobile (Double Diplôme)"
         : "Bachelor's in Internet and Mobile Development (Double Degree)",
       institution: language === "fr"
-        ? "ULCO (France) — ENSIT (Maroc)"
-        : "ULCO (France) — ENSIT (Morocco)",
+        ? "ULCO (France)"
+        : "ULCO (France)",
       dateRange: language === "fr" ? "Oct. 2024 - Juillet 2025" : "Oct. 2024 - July 2025",
       imgSrc: "/ulco-logo.png",
+      width: "100px",
+    },
+    {
+      degree: language === "fr" 
+        ? "Licence en Ingénierie de Conception et de Développement d'Applications Informatique (Double Diplôme)"
+        : "Bachelor's Degree in Software Application Design and Development Engineering (Double Degree)",
+      institution: language === "fr"
+        ? "ENSIT (Maroc)"
+        : "ENSIT (Morocco)",
+      dateRange: language === "fr" ? "Oct. 2024 - Juillet 2025" : "Oct. 2024 - July 2025",
+      imgSrc: "/ensit-logo.png",
       width: "100px",
     },
     {
