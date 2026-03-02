@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Send } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -169,7 +168,7 @@ export default function Footer() {
 
               <h3 className="text-xl font-bold mb-4">{t("contact.followMe")}</h3>
               <div className="flex space-x-4">
-                <Link
+                <a
                   href="https://github.com/AnasOudadsse"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -177,8 +176,8 @@ export default function Footer() {
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
-                </Link>
-                <Link
+                </a>
+                <a
                   href="https://www.linkedin.com/in/anas-oudadsse/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -186,14 +185,14 @@ export default function Footer() {
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
-                </Link>
-                <Link
+                </a>
+                <a
                   href="mailto:anas.oudadsse1@gmail.com"
                   className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors"
                 >
                   <Mail className="h-5 w-5" />
                   <span className="sr-only">Email</span>
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -201,7 +200,7 @@ export default function Footer() {
               <h4 className="font-bold mb-2">{t("contact.available")}</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{t("contact.availableDesc")}</p>
               <Button asChild variant="default" size="sm" className="rounded-lg">
-                <Link href="mailto:anas.oudadsse1@gmail.com">{t("contact.contactMe")}</Link>
+                <a href="mailto:anas.oudadsse1@gmail.com">{t("contact.contactMe")}</a>
               </Button>
             </div>
           </motion.div>

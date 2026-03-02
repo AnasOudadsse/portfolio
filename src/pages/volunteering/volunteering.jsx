@@ -136,7 +136,7 @@ export function Volunteering() {
                                 transition={{ duration: 0.3, delay: index * 0.1 + i * 0.1 }}
                                 className="flex items-start group/item text-left text-sm sm:text-base"
                               >
-                                <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2" />
+                                <ChevronRight className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0" />
                                 <span className="text-gray-700 dark:text-gray-300 text-sm">{desc}</span>
                               </motion.li>
                             ))}

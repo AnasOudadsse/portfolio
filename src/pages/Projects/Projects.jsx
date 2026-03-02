@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Move, RotateCcw } from "lucide-react"
-import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
 const projectsData = [
@@ -582,10 +581,10 @@ export function Projects() {
                                 <div className="flex flex-wrap gap-4">
                                   {project.repoLink && (
                                     <Button asChild variant="outline" size="sm" className="rounded-md group !text-gray-900 dark:!text-gray-100">
-                                      <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
-                                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300 dar  " />
+                                      <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                                        <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
                                         {t.github}
-                                      </Link>
+                                      </a>
                                     </Button>
                                   )}
                                 </div>
@@ -671,10 +670,10 @@ export function Projects() {
                     <div className="flex flex-wrap gap-4">
                       {project.repoLink && (
                         <Button asChild variant="outline" size="sm" className="rounded-md group">
-                          <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                          <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
                             {t.github}
-                          </Link>
+                          </a>
                         </Button>
                       )}
                     </div>

@@ -20,7 +20,6 @@ import {
   Languages,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { useLanguage } from "@/context/language-context";
 
@@ -55,7 +54,7 @@ export function Hero() {
         style={{ y, opacity }}
         className="container mx-auto px-4 relative z-10"
       >
-        <div className="flex flex-colv mx-20 -mt-10 lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col mx-20 -mt-10 lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -174,10 +173,10 @@ export function Hero() {
                 transition={{ delay: 1.1 }}
               >
                 <Button asChild size="lg" className="rounded-md group w-full sm:w-auto">
-                  <Link href="#contact">
+                  <a href="#contact">
                     {t("hero.cta")}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
+                  </a>
                 </Button>
               </motion.div>
               <motion.div

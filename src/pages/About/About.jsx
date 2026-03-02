@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog"
 import { Download, ArrowRight, Terminal, Languages } from "lucide-react"
 import { motion, useInView } from "framer-motion"
-import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/language-context"
 
 export function About() {
@@ -98,10 +97,10 @@ export function About() {
                     </div>
                     <div className="md:pl-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <Button asChild className="rounded-md group bg-black hover:bg-gray-900 text-gray-100 w-full sm:w-auto">
-                        <Link href="mailto:anas.oudadsse1@gmail.com">
+                        <a href="mailto:anas.oudadsse1@gmail.com">
                           {t("about.cta")}
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                        </Link>
+                        </a>
                       </Button>
                       <Button
                         variant="outline"
