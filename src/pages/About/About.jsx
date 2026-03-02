@@ -8,7 +8,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/Components/ui/dialog"
 import { Download, ArrowRight, Terminal, Languages } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { useLanguage } from "@/context/language-context"
