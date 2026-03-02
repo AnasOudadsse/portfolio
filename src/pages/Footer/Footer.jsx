@@ -3,9 +3,9 @@
 import { useRef, useState } from "react"
 import { Github, Linkedin, Mail, Send } from "lucide-react"
 import { motion, useInView } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/Components/ui/button"
+import { Input } from "@/Components/ui/input"
+import { Textarea } from "@/Components/ui/textarea"
 import { useLanguage } from "@/context/language-context"
 import { useToast } from "@chakra-ui/react";
 import { sendEmail } from "@/actions/sendEmail";

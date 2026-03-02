@@ -1,7 +1,7 @@
 "use client"
 
 import { Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 import { motion } from "framer-motion"
 import { useTheme } from "../theme-provider/theme-provider.jsx"
 

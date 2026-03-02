@@ -1,7 +1,7 @@
 "use client"
 
 import { useLanguage } from "@/context/language-context"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 import { motion } from "framer-motion"
 
 export function LanguageToggle() {

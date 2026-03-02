@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/Components/ui/badge"
+import { Button } from "@/Components/ui/button"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Move, RotateCcw, BarChart3 } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
