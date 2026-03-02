@@ -99,7 +99,7 @@ export function Recommendations() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary dark:text-white text-sm font-medium">
+            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-[#0077B5]/10 text-[#0077B5] dark:text-[#0077B5] text-sm font-medium">
               {t.label}
             </div>
             <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
@@ -124,7 +124,7 @@ export function Recommendations() {
             >
               <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-0 rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
                 {/* Left panel — person info */}
-                <div className="bg-[#0A66C2] p-6 sm:p-8 flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
+                <div className="bg-[#0077B5] p-6 sm:p-8 flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
                   {/* Decorative circles */}
                   <div className="absolute -top-10 -left-10 w-32 h-32 rounded-full bg-white/5" />
                   <div className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-white/5" />
@@ -162,7 +162,7 @@ export function Recommendations() {
                 {/* Right panel — quote */}
                 <div className="bg-white dark:bg-gray-800 p-6 sm:p-10 flex flex-col justify-between relative">
                   <div>
-                    <Quote className="h-8 w-8 text-[#0A66C2]/15 mb-4 rotate-180" />
+                    <Quote className="h-8 w-8 text-[#0077B5]/15 mb-4 rotate-180" />
                     <blockquote className="text-gray-700 dark:text-gray-300 text-base sm:text-[17px] leading-relaxed">
                       {rec.text[language] || rec.text.en}
                     </blockquote>
@@ -181,7 +181,7 @@ export function Recommendations() {
                             }}
                             className={`h-2 rounded-full transition-all duration-300 ${
                               i === active
-                                ? "w-8 bg-[#0A66C2]"
+                                ? "w-8 bg-[#0077B5]"
                                 : "w-2 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500"
                             }`}
                             aria-label={`Recommendation ${i + 1}`}
@@ -223,14 +223,14 @@ export function Recommendations() {
             <Button
               asChild
               variant="outline"
-              className="rounded-lg group text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/5"
+              className="rounded-lg group text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-[#0077B5]/50 hover:bg-[#0077B5]/5"
             >
               <a
                 href="https://www.linkedin.com/in/anas-oudadsse/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="mr-2 h-4 w-4 text-[#0A66C2]" />
+                <Linkedin className="mr-2 h-4 w-4 text-[#0077B5]" />
                 {t.viewOnLinkedin}
               </a>
             </Button>
