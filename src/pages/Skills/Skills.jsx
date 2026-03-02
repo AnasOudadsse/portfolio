@@ -32,7 +32,9 @@ const skillsData = [
   { name: "UML", imgSrc: "/UML.svg" },
   { name: "Figma", imgSrc: "/icon-figma.svg" },
   { name: "n8n", imgSrc: "/n8n-logo.png" },
+  { name: "Zapier", imgSrc: "/zapier-logo.png" },
   { name: "ManyChat", imgSrc: "/manychat-logo.png" },
+  { name: "Airtable", imgSrc: "/airtable.png" },
   { name: "Google APIs", imgSrc: "/google-api-logo.png" },
 ];
 

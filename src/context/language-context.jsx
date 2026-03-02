@@ -25,16 +25,17 @@ const translations = {
     },
     // Hero
     hero: {
-      subtitle: "FULL-STACK WEB & MOBILE DEVELOPER",
+      subtitle: "FULL-STACK DEVELOPER & AI AUTOMATION BUILDER",
       greeting: "Hi, I'm",
       typewriter: [
         "I turn complex problems into seamless digital solutions",
+        "I build AI automations and workflows with n8n, Zapier, ManyChat",
         "I transform ideas into production-ready applications",
         "I streamline workflows and automate what slows you down",
         "I build apps from idea to deployment, end-to-end",
       ],      
       description:
-        "I build and engineer full-stack applications and workflows. Proven experience in process digitalization, with applications deployed for thousands of users.",
+        "I build full-stack applications, AI automations, and RevOps dashboards. Proven experience in process digitalization and workflow automation, with applications deployed for thousands of users.",
       location: "Casablanca, Morocco",
       available: "Available for new projects",
       cta: "Let's work together",
@@ -45,7 +46,7 @@ const translations = {
       title: "About me",
       role: "Co-founder & CTO · Full-Stack Developer",
       description:
-        "Full-stack developer & CTO with strong expertise in UI/UX, AI automation, and digital transformation. Proven experience in process digitalization, with applications deployed for thousands of users. I managed the end-to-end project lifecycle, from requirements analysis to deployment and user support, alongside technical coordination.",
+        "Full-stack developer & CTO with strong expertise in UI/UX, AI automation (n8n, Zapier, ManyChat), and digital transformation. I build RevOps dashboards, workflow automations, and production applications. Proven experience in process digitalization, with applications deployed for thousands of users. I manage the end-to-end project lifecycle, from requirements analysis to deployment and user support.",
       cta: "Let's work together",
       downloadCV: "Download CV",
     },
@@ -74,6 +75,11 @@ const translations = {
           title: "End-to-End Project Delivery",
           description:
             "Managing complete project lifecycles from requirements analysis to deployment and user support. I coordinate technical implementation, ensure alignment with business goals, and support successful adoption across multiple locations.",
+        },
+        {
+          title: "AI Automation & Workflows",
+          description:
+            "Building AI-powered automations and workflows with n8n, Zapier, and ManyChat. I design and implement integrations that connect systems, automate repetitive tasks, and leverage AI to boost productivity. From RevOps dashboards with headless backends to chatbot integrations and data pipelines.",
         },
       ],
     },
@@ -158,16 +164,17 @@ const translations = {
     },
     // Hero
     hero: {
-      subtitle: "DÉVELOPPEUR WEB & MOBILE FULL-STACK",
+      subtitle: "DÉVELOPPEUR FULL-STACK & BUILDER EN AUTOMATISATION IA",
       greeting: "Salut, je suis",
       typewriter: [
         "Je transforme les problèmes complexes en solutions digitales fluides",
+        "Je construis des automatisations IA et workflows avec n8n, Zapier, ManyChat",
         "Je transforme les idées en applications prêtes pour la production",
         "J'optimise les workflows et automatise ce qui vous ralentit",
         "Je conçois des applications de l'idée au déploiement, de bout en bout",
       ],      
       description:
-        "Je conçois et développe des applications full-stack et des workflows. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs.",
+        "Je conçois des applications full-stack, des automatisations IA et des tableaux de bord RevOps. Expérience avérée en digitalisation de processus et automatisation de workflows, avec des applications déployées pour des milliers d'utilisateurs.",
       location: "Casablanca, Maroc",
       available: "Disponible pour de nouveaux projets",
       cta: "Travaillons ensemble",
@@ -178,7 +185,7 @@ const translations = {
       title: "À propos de moi",
       role: "Cofondateur & CTO · Développeur Full-Stack",
       description:
-        "Développeur full-stack & CTO avec une solide expertise en UI/UX, automatisation IA et transformation digitale. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs. J'ai géré le cycle de vie complet des projets, de l'analyse des besoins au déploiement et au support utilisateurs, ainsi que la coordination technique.",
+        "Développeur full-stack & CTO avec une solide expertise en UI/UX, automatisation IA (n8n, Zapier, ManyChat) et transformation digitale. Je construis des tableaux de bord RevOps, des automatisations de workflows et des applications en production. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs.",
       cta: "Travaillons ensemble",
       downloadCV: "Télécharger CV",
     },
@@ -208,6 +215,11 @@ const translations = {
           title: "Livraison de Projets de Bout en Bout",
           description:
             "Gestion de cycles de vie complets de projets, de l'analyse des besoins au déploiement et au support utilisateurs. Je coordonne l'implémentation technique, assure l'alignement avec les objectifs métier et soutiens l'adoption réussie à travers plusieurs localisations.",
+        },
+        {
+          title: "Automatisation IA & Workflows",
+          description:
+            "Conception d'automatisations et workflows alimentés par l'IA avec n8n, Zapier et ManyChat. J'intègre des systèmes, automatise les tâches répétitives et exploite l'IA pour booster la productivité. Des tableaux de bord RevOps aux intégrations chatbot et pipelines de données.",
         },
       ],
     },

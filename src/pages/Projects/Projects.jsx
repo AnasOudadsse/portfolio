@@ -4,10 +4,27 @@ import { useRef, useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Move, RotateCcw } from "lucide-react"
+import { ExternalLink, Github, X, ChevronRight, Code, Layers, PenTool, Camera, LifeBuoy, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Move, RotateCcw, BarChart3 } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
 
 const projectsData = [
+  {
+    title: {
+      en: "Enterprise RevOps Dashboard",
+      fr: "Tableau de bord RevOps Entreprise",
+    },
+    description: {
+      en: "Executive dashboard for a Commercial Real Estate Education company CEO, tracking pipeline, sales, and marketing funnel for a high-ticket 3-Day Challenge event. Used Airtable as a headless backend—connected to 9 tables (Contacts, Sales, Zoom Attendance, Surveys, Action Logs) via custom Next.js API Route Handlers to securely hide the Airtable token. Implemented ISR caching (5-min refresh) to respect Airtable's 5 req/s rate limit. Solved webhook deduplication using Zoom event_ts, merged UTM params with Zoom watch-time and sales deposits to compute real-time $11,305 Outstanding Pipeline and Lead Quality Scores. Built with Recharts: Sales Velocity area charts, Pipeline Quality donuts, Funnel Drop-off bars.",
+      fr: "Tableau de bord exécutif pour le CEO d'une entreprise d'éducation en immobilier commercial, suivant le pipeline, les ventes et l'entonnoir marketing d'un événement 3-Day Challenge à haute valeur. Airtable utilisé comme backend headless—connecté à 9 tables (Contacts, Ventes, Présence Zoom, Sondages, Journaux d'actions) via des API Route Handlers Next.js personnalisés pour sécuriser le token. Mise en cache ISR (rafraîchissement 5 min) pour respecter la limite de 5 req/s d'Airtable. Déduplication des webhooks via event_ts Zoom, fusion des paramètres UTM avec le temps de visionnage Zoom et les dépôts de vente pour calculer en temps réel le pipeline restant et les scores de qualité des leads. Recharts : graphiques de vélocité des ventes, donuts de qualité du pipeline, barres de décrochage d'entonnoir.",
+    },
+    imageSrc: "/stage-um6ss-ma-dashboard.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "shadcn/ui", "Recharts", "Airtable API", "Vercel", "ISR", "RevOps"],
+    externalLink: null,
+    repoLink: null,
+    color: "from-violet-500/20 to-fuchsia-500/20",
+    iconColor: "text-violet-500",
+    icon: <BarChart3 className="h-5 w-5" />,
+  },
   {
     title: {
       en: "Stages-UM6SS",
