@@ -20,6 +20,7 @@ const translations = {
       projects: "Projects",
       certifications: "Certifications",
       languages: "Languages",
+      recommendations: "Recommendations",
       contact: "Contact",
     },
     // Hero
@@ -27,12 +28,13 @@ const translations = {
       subtitle: "FULL-STACK WEB & MOBILE DEVELOPER",
       greeting: "Hi, I'm",
       typewriter: [
-        "I lead digital products from discovery to launch",
-        "I build React & Laravel platforms used by thousands",
-        "I design user-centric experiences that scale",
+        "I turn complex problems into seamless digital solutions",
+        "I transform ideas into production-ready applications",
+        "I streamline workflows and automate what slows you down",
+        "I build apps from idea to deployment, end-to-end",
       ],      
       description:
-        "Full-stack developer & CTO with strong expertise in UI/UX, AI automation, and digital transformation. Proven experience in process digitalization, with applications deployed for thousands of users.",
+        "I build and engineer full-stack applications and workflows. Proven experience in process digitalization, with applications deployed for thousands of users.",
       location: "Casablanca, Morocco",
       available: "Available for new projects",
       cta: "Let's work together",
@@ -151,6 +153,7 @@ const translations = {
       projects: "Projets",
       certifications: "Certifications",
       languages: "Langues",
+      recommendations: "Recommandations",
       contact: "Contact",
     },
     // Hero
@@ -158,12 +161,13 @@ const translations = {
       subtitle: "DÉVELOPPEUR WEB & MOBILE FULL-STACK",
       greeting: "Salut, je suis",
       typewriter: [
-        "Je pilote des produits digitaux de la découverte au déploiement",
-        "Je conçois des plateformes React & Laravel utilisées par des milliers d'utilisateurs",
-        "Je crée des expériences centrées utilisateur et prêtes à l'échelle",
+        "Je transforme les problèmes complexes en solutions digitales fluides",
+        "Je transforme les idées en applications prêtes pour la production",
+        "J'optimise les workflows et automatise ce qui vous ralentit",
+        "Je conçois des applications de l'idée au déploiement, de bout en bout",
       ],      
       description:
-        "Développeur full-stack & CTO avec une solide expertise en UI/UX, automatisation IA et transformation digitale. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs.",
+        "Je conçois et développe des applications full-stack et des workflows. Expérience avérée en digitalisation de processus, avec des applications déployées pour des milliers d'utilisateurs.",
       location: "Casablanca, Maroc",
       available: "Disponible pour de nouveaux projets",
       cta: "Travaillons ensemble",

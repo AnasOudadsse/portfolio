@@ -82,15 +82,22 @@ export function Hero() {
               </span>
             </h1>
 
-            <div className="min-h-[4.5rem] sm:min-h-[3rem] mb-6 sm:mb-4 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 flex items-center justify-center lg:justify-start">
-              <TypeAnimation
-                key={language}
-                sequence={Array.isArray(t("hero.typewriter")) ? t("hero.typewriter").flatMap((text, i) => [text, 1000]) : []}
-                wrapper="span"
-                speed={50}
-                repeat={Number.POSITIVE_INFINITY}
-                className="text-center lg:text-left"
-              />
+            <div className="relative mb-6 sm:mb-4 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+              <div className="grid" aria-hidden="true">
+                {Array.isArray(t("hero.typewriter")) && t("hero.typewriter").map((text, i) => (
+                  <div key={i} className="invisible col-start-1 row-start-1 text-center lg:text-left">{text}</div>
+                ))}
+              </div>
+              <div className="absolute inset-0">
+                <TypeAnimation
+                  key={language}
+                  sequence={Array.isArray(t("hero.typewriter")) ? t("hero.typewriter").flatMap((text, i) => [text, 1000]) : []}
+                  wrapper="div"
+                  speed={50}
+                  repeat={Number.POSITIVE_INFINITY}
+                  className="block w-full text-center lg:text-left"
+                />
+              </div>
             </div>
 
             <p className="sm:hidden text-sm text-gray-700 dark:text-gray-300 mt-4">

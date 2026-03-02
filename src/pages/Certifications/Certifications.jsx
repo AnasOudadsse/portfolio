@@ -1,91 +1,42 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { motion, useInView } from "framer-motion";
 import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Text,
-  Badge,
-  Icon,
-  Tag,
-  VStack,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { FiExternalLink } from "react-icons/fi";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+  ExternalLink,
+  Award,
+  Calendar,
+  Building2,
+} from "lucide-react";
 import { useLanguage } from "@/context/language-context";
-import { useTheme } from "../theme-provider/theme-provider";
-
-const MotionBox = motion(Box);
 
 const CertifData = [
   {
-    title: {
-      en: "Programming With JavaScript",
-      fr: "Programmation avec JavaScript",
-    },
-    date: "22 December 2023",
-    issuer: {
-      en: "META",
-      fr: "META",
-    },
+    title: { en: "AI Fundamentals", fr: "Fondamentaux de l'IA" },
+    date: "26 February 2026",
+    issuer: { en: "GOOGLE", fr: "GOOGLE" },
     description: {
-      en: "An online non-credit course authorized by Meta and offered through Coursera.",
-      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+      en: "An online non-credit course authorized by Google and offered through Coursera, covering fundamental generative AI concepts, prompt engineering, and responsible AI use.",
+      fr: "Un cours en ligne sans crédit autorisé par Google et proposé via Coursera, couvrant les concepts fondamentaux de l'IA générative, l'ingénierie de prompts et l'utilisation responsable de l'IA.",
     },
-    credentials: "https://coursera.org/verify/RB3VERHZ5NUN",
-    skills: ["JavaScript", "ES6+", "Functions"],
-    image: "/js-certif.png",
+    credentials: "https://coursera.org/verify/R56QXAEH7O1V",
+    skills: [
+      "Artificial Intelligence",
+      "Generative AI",
+      "Prompt Engineering",
+      "Machine Learning",
+      "Responsible AI",
+      "Gemini",
+    ],
+    image: "/Coursera-Ai-Essentilas.jpg",
+    accent: "from-blue-500 to-green-500",
   },
   {
-    title: {
-      en: "React Basics",
-      fr: "Fondamentaux de React",
-    },
-    date: "24 December 2023",
-    issuer: {
-      en: "META",
-      fr: "META",
-    },
-    description: {
-      en: "An online non-credit course authorized by Meta and offered through Coursera.",
-      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
-    },
-    credentials: "https://coursera.org/verify/4SYCFES8XCL5",
-    skills: ["React", "JSX", "State Management"],
-    image: "/React-certif.png",
-  },
-  {
-    title: {
-      en: "Version Control",
-      fr: "Contrôle de Version",
-    },
-    date: "25 December 2023",
-    issuer: {
-      en: "META",
-      fr: "META",
-    },
-    description: {
-      en: "An online non-credit course authorized by Meta and offered through Coursera.",
-      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
-    },
-    credentials: "https://coursera.org/verify/P58AGWZ4DRZ6",
-    skills: ["Git", "GitHub", "Version Control"],
-    image: "/git-certif.png",
-  },
-  {
-    title: {
-      en: "Software Engineering",
-      fr: "Ingénierie Logicielle",
-    },
+    title: { en: "Software Engineering", fr: "Ingénierie Logicielle" },
     date: "15 November 2024",
-    issuer: {
-      en: "ALX AFRICA",
-      fr: "ALX AFRICA",
-    },
+    issuer: { en: "ALX AFRICA", fr: "ALX AFRICA" },
     description: {
       en: "This certificate is awarded for successfully completing the 12-month ALX Software Engineering Programme with a specialization in Back-end development.",
       fr: "Ce certificat est décerné pour avoir réussi le programme d'ingénierie logicielle ALX de 12 mois avec une spécialisation en développement Back-end.",
@@ -94,7 +45,6 @@ const CertifData = [
     skills: [
       "Back-end Development",
       "Software Engineering",
-      "Programming",
       "Data Structures & Algorithms",
       "Database Management",
       "API Development",
@@ -103,22 +53,82 @@ const CertifData = [
       "Version Control (Git & GitHub)",
     ],
     image: "/Se-alx.png",
+    accent: "from-amber-500 to-orange-500",
+  },
+  {
+    title: { en: "Programming With JavaScript", fr: "Programmation avec JavaScript" },
+    date: "22 December 2023",
+    issuer: { en: "META", fr: "META" },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
+    credentials: "https://coursera.org/verify/RB3VERHZ5NUN",
+    skills: ["JavaScript", "ES6+", "Functions"],
+    image: "/js-certif.png",
+    accent: "from-yellow-500 to-yellow-600",
+  },
+  {
+    title: { en: "React Basics", fr: "Fondamentaux de React" },
+    date: "24 December 2023",
+    issuer: { en: "META", fr: "META" },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
+    credentials: "https://coursera.org/verify/4SYCFES8XCL5",
+    skills: ["React", "JSX", "State Management"],
+    image: "/React-certif.png",
+    accent: "from-cyan-500 to-blue-500",
+  },
+  {
+    title: { en: "Version Control", fr: "Contrôle de Version" },
+    date: "25 December 2023",
+    issuer: { en: "META", fr: "META" },
+    description: {
+      en: "An online non-credit course authorized by Meta and offered through Coursera.",
+      fr: "Un cours en ligne sans crédit autorisé par Meta et proposé via Coursera.",
+    },
+    credentials: "https://coursera.org/verify/P58AGWZ4DRZ6",
+    skills: ["Git", "GitHub", "Version Control"],
+    image: "/git-certif.png",
+    accent: "from-orange-500 to-red-500",
   },
 ];
 
+const translations = {
+  en: {
+    label: "Credentials",
+    title: "My Certifications",
+    description:
+      "Professional certifications and courses I've completed to sharpen my skills.",
+    skills: "Skills",
+    issuer: "Issuer",
+    dateOfIssue: "Date of Issue",
+    viewCertificate: "Verify Certificate",
+    hoverHint: "Hover for details",
+    tapHint: "Tap for details",
+  },
+  fr: {
+    label: "Accréditations",
+    title: "Mes Certifications",
+    description:
+      "Certifications professionnelles et cours que j'ai complétés pour améliorer mes compétences.",
+    skills: "Compétences",
+    issuer: "Émetteur",
+    dateOfIssue: "Date d'émission",
+    viewCertificate: "Vérifier le certificat",
+    hoverHint: "Survolez pour les détails",
+    tapHint: "Cliquez pour les détails",
+  },
+};
+
 export default function Certifications() {
   const { language } = useLanguage();
-  const { theme } = useTheme(); // Get the current theme from your theme provider
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.1 });
 
-  // Set colors based on the theme from your theme provider
-  const bg = theme === "dark" ? "gray.800" : "gray.50";
-  const color = theme === "dark" ? "white" : "black";
-  const cardbg = theme === "dark" ? "#2C333A" : "white";
-  const buttonColor = theme === "dark" ? "black" : "white";
-  const buttonBg = theme === "dark" ? "white" : "black";
-  const buttonHoverBg = theme === "dark" ? "gray.300" : "gray.700";
-  const tagBg = theme === "dark" ? "#1A1E23" : "gray.100";
-  const tagColor = theme === "dark" ? "gray.300" : "gray.700";
+  const t = translations[language] || translations.en;
 
   const [flippedCards, setFlippedCards] = useState(
     Array(CertifData.length).fill(false)
@@ -126,274 +136,172 @@ export default function Certifications() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  const handleMouseEnter = (index) => {
-    const newFlippedState = [...flippedCards];
-    newFlippedState[index] = true;
-    setFlippedCards(newFlippedState);
+  const flipCard = (index, state) => {
+    setFlippedCards((prev) => {
+      const next = [...prev];
+      next[index] = state;
+      return next;
+    });
   };
-
-  const handleMouseLeave = (index) => {
-    const newFlippedState = [...flippedCards];
-    newFlippedState[index] = false;
-    setFlippedCards(newFlippedState);
-  };
-
-  const handleCardClick = (index) => {
-    if (isMobile) {
-      const newFlippedState = [...flippedCards];
-      newFlippedState[index] = !newFlippedState[index];
-      setFlippedCards(newFlippedState);
-    }
-  };
-
-  const detailsText = useBreakpointValue({
-    base: language === "fr" ? "Cliquez pour les détails" : "Click for details",
-    md: language === "fr" ? "Survolez pour les détails" : "Hover for details",
-  });
-
-  // Responsive values
-  const cardWidth = useBreakpointValue({
-    base: "260px",
-    sm: "280px",
-    md: "300px",
-    lg: "320px",
-  });
-  const cardHeight = useBreakpointValue({
-    base: "220px",
-    sm: "220px",
-    md: "220px",
-    lg: "240px",
-  });
-  const headingSize = useBreakpointValue({ base: "md", md: "lg" });
-
-  // Translations
-  const translations = {
-    en: {
-      title: "My Certifications",
-      skills: "Skills",
-      issuer: "Issuer",
-      dateOfIssue: "Date of Issue",
-      viewCertificate: "View Certificate",
-      description:
-        "Professional certifications and courses I've completed to enhance my skills.",
-    },
-    fr: {
-      title: "Mes Certifications",
-      skills: "Compétences",
-      issuer: "Émetteur",
-      dateOfIssue: "Date d'émission",
-      viewCertificate: "Voir le certificat",
-      description:
-        "Certifications professionnelles et cours que j'ai complétés pour améliorer mes compétences.",
-    },
-  };
-
-  const t = translations[language] || translations.en;
 
   return (
-    <Box id="certifications" bg={bg} py={{ base: 16, md: 24, lg: 32 }} px={{ base: 4, md: 8 }}>
-      <VStack align="center" spacing={4} textAlign="center">
-        <Heading size={headingSize} mb={4} color={color}>
-          {t.title}
-        </Heading>
-        <Text
-          color={theme === "dark" ? "gray.300" : "gray.700"}
-          fontSize={{ base: "sm", md: "md" }}
-          mb={2}
-          textAlign="center"
-          maxW="2xl"
-        >
-          {t.description}
-        </Text>
-      </VStack>
+    <section
+      id="certifications"
+      className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
+    >
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
+      </div>
 
-      <Flex
-        wrap="wrap"
-        justify="center"
-        align="center"
-        gap={{ base: 6, md: 8 }}
-        mt={10}
-        px={0}
-        maxW="1200px"
-        mx="auto"
-      >
-        {CertifData.map((certif, index) => (
-          <Box
-            key={index}
-            width={cardWidth}
-            height={cardHeight}
-            style={{
-              perspective: "1200px",
-            }}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
-            onClick={() => handleCardClick(index)}
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="text-center mb-14">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
           >
-            <MotionBox
-              position="relative"
-              width="full"
-              height="full"
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-              animate={{ rotateY: flippedCards[index] ? 180 : 0 }}
-              transition={{ duration: 1 }}
-            >
-              {/* Front Side - Certificate Image */}
-              <Box
-                position="absolute"
-                width="full"
-                height="full"
-                bg={cardbg}
-                shadow="lg"
-                rounded="xl"
-                border={`2px solid ${theme === "dark" ? "gray.600" : "gray"}`}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                overflow="hidden"
-                p={0.1}
-                style={{ backfaceVisibility: "hidden" }}
+            <div className="inline-block px-3 py-1 mb-4 rounded-md bg-primary/10 text-primary dark:text-white text-sm font-medium">
+              {t.label}
+            </div>
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+              {t.title}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              {t.description}
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {CertifData.map((certif, index) => {
+            const isFlipped = flippedCards[index];
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.12 }}
+                className="[perspective:1200px]"
+                onMouseEnter={() => !isMobile && flipCard(index, true)}
+                onMouseLeave={() => !isMobile && flipCard(index, false)}
+                onClick={() => isMobile && flipCard(index, !isFlipped)}
               >
-                <Image
-                  src={certif.image || "/placeholder.svg"}
-                  alt={certif.title[language] || certif.title.en}
-                  objectFit="cover"
-                  objectPosition="left"
-                  width="100%"
-                  height="100%"
-                  fallbackSrc="https://via.placeholder.com/400x250"
-                />
-                <Box
-                  position="absolute"
-                  bottom={2}
-                  right={2}
-                  bg="rgba(0, 0, 0, 0.7)"
-                  color="white"
-                  px={2}
-                  py={1}
-                  borderRadius="md"
-                  fontSize="xs"
+                <div
+                  className="relative w-full h-[320px] sm:h-[340px] transition-transform duration-700 [transform-style:preserve-3d]"
+                  style={{
+                    transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                  }}
                 >
-                  {detailsText}
-                </Box>
-              </Box>
+                  {/* ---- FRONT ---- */}
+                  <div className="absolute inset-0 [backface-visibility:hidden] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 group">
+                    <img
+                      src={certif.image}
+                      alt={certif.title[language] || certif.title.en}
+                      className="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-              {/* Back Side - Certification Details */}
-              <Box
-                position="absolute"
-                width="full"
-                height="full"
-                bg={cardbg}
-                shadow="lg"
-                rounded="xl"
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="flex-start"
-                textAlign="center"
-                p={{ base: 2, md: 4 }}
-                overflowY="auto"
-                style={{
-                  backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)",
-                }}
-              >
-                <Heading
-                  as="h3"
-                  fontSize={{ base: "sm", md: "lg" }}
-                  fontWeight="bold"
-                  color={color}
-                >
-                  {certif.title[language] || certif.title.en}
-                </Heading>
-                <Text
-                  fontSize={{ base: "xs", md: "sm" }}
-                  color={theme === "dark" ? "gray.400" : "gray.500"}
-                  mt={1}
-                >
-                  {t.issuer}: {certif.issuer[language] || certif.issuer.en}
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", md: "xs" }}
-                  color={theme === "dark" ? "gray.500" : "gray.400"}
-                  mt={1}
-                >
-                  {t.dateOfIssue}: {certif.date}
-                </Text>
-                <Text
-                  fontSize={{ base: "xs", md: "md" }}
-                  color={color}
-                  mt={2}
-                  px={2}
-                >
-                  {certif.description[language] || certif.description.en}
-                </Text>
+                    {/* Issuer pill */}
+                    <div className="absolute top-3 right-3">
+                      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-semibold text-gray-700 dark:text-gray-200 shadow-sm">
+                        <Building2 className="h-3 w-3" />
+                        {certif.issuer[language] || certif.issuer.en}
+                      </div>
+                    </div>
 
-                <Badge
-                  px={2}
-                  py={1}
-                  rounded="md"
-                  fontSize="xs"
-                  fontWeight="semibold"
-                  colorScheme="blue"
-                  mt={2}
-                >
-                  {t.skills}
-                </Badge>
+                    {/* Bottom info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-white font-bold text-lg sm:text-xl mb-1 drop-shadow-md">
+                        {certif.title[language] || certif.title.en}
+                      </h3>
+                      <div className="flex items-center gap-1.5 text-white/80 text-xs">
+                        <Calendar className="h-3.5 w-3.5" />
+                        {certif.date}
+                      </div>
+                    </div>
 
-                <Flex wrap="wrap" overflowWrap={2} mt={1} justify="center">
-                  {certif.skills &&
-                    certif.skills.map((skill, skillIndex) => (
-                      <Tag
-                        key={skillIndex}
-                        bg={tagBg}
-                        color={tagColor}
-                        m={0.5}
-                        px={2}
-                        py={1}
-                        rounded="md"
-                        fontSize="xs"
-                      >
-                        {skill}
-                      </Tag>
-                    ))}
-                </Flex>
+                    {/* Hint badge */}
+                    <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded-full">
+                      {isMobile ? t.tapHint : t.hoverHint}
+                    </div>
+                  </div>
 
-                <Button
-                  size={"50"}
-                  as="a"
-                  href={certif.credentials}
-                  target="_blank"
-                  mt={5}
-                  px={3}
-                  py={2}
-                  bg={buttonBg}
-                  color={buttonColor}
-                  fontWeight="semibold"
-                  rounded="lg"
-                  shadow="md"
-                  _hover={{ bg: buttonHoverBg }}
-                  _focus={{ outline: "none" }}
-                  transition="all 0.3s ease-in-out"
-                  fontSize="sm"
-                >
-                  {t.viewCertificate}
-                  <Icon ml={2} as={FiExternalLink} />
-                </Button>
-              </Box>
-            </MotionBox>
-          </Box>
-        ))}
-      </Flex>
-    </Box>
+                  {/* ---- BACK ---- */}
+                  <div
+                    className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col"
+                  >
+                    {/* Accent strip */}
+                    <div
+                      className={`h-1.5 w-full bg-gradient-to-r ${certif.accent}`}
+                    />
+
+                    <div className="flex flex-col flex-grow p-5 sm:p-6 overflow-y-auto">
+                      <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 mb-1">
+                        {certif.title[language] || certif.title.en}
+                      </h3>
+
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                        <span className="flex items-center gap-1">
+                          <Building2 className="h-3 w-3" />
+                          {certif.issuer[language] || certif.issuer.en}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Calendar className="h-3 w-3" />
+                          {certif.date}
+                        </span>
+                      </div>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        {certif.description[language] || certif.description.en}
+                      </p>
+
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {certif.skills.map((skill, i) => (
+                          <Badge
+                            key={i}
+                            variant="secondary"
+                            className="text-[11px] px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-0"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+
+                      <div className="mt-auto">
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="w-full rounded-lg group/btn text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600 hover:border-primary/50 hover:bg-primary/5"
+                        >
+                          <a
+                            href={certif.credentials}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Award className="mr-2 h-4 w-4 transition-transform duration-300 group-hover/btn:rotate-12" />
+                            {t.viewCertificate}
+                            <ExternalLink className="ml-auto h-3.5 w-3.5 opacity-40 group-hover/btn:opacity-100 transition-opacity" />
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "@/context/language-context"
 import { ModeToggle } from "../mode-toggle/mode-toggle"
 import { LanguageToggle } from "../language-toggle/language-toggle"
 
 export default function Header() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
@@ -17,26 +17,48 @@ export default function Header() {
   const fullNameRef = useRef(null)
   const [fullNameWidth, setFullNameWidth] = useState(0)
   const [hasMounted, setHasMounted] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)
+  const [expandedMobileGroup, setExpandedMobileGroup] = useState(null)
+  const dropdownTimeoutRef = useRef(null)
 
   useEffect(() => {
     setHasMounted(true)
   }, [])
-  
+
   const navItems = [
     { name: t("nav.home"), href: "#home" },
     { name: t("nav.about"), href: "#about" },
-    { name: t("nav.expertise"), href: "#expertise" },
-    { name: t("nav.skills"), href: "#skills" },
-    { name: t("nav.experience"), href: "#experiences" },
-    { name: t("nav.education") || "Education", href: "#education" },
-    { name: t("nav.volunteering") || "Volunteering", href: "#volunteering" },
+    {
+      name: language === "fr" ? "Compétences" : "Skills",
+      children: [
+        { name: t("nav.expertise"), href: "#expertise" },
+        { name: t("nav.skills"), href: "#skills" },
+      ],
+    },
+    {
+      name: language === "fr" ? "Parcours" : "Background",
+      children: [
+        { name: t("nav.experience"), href: "#experiences" },
+        { name: t("nav.education") || "Education", href: "#education" },
+        { name: t("nav.volunteering") || "Volunteering", href: "#volunteering" },
+      ],
+    },
     { name: t("nav.projects"), href: "#projects" },
-    { name: t("nav.certifications"), href: "#certifications" },
-    { name: t("nav.languages") || "Languages", href: "#languages" },
+    {
+      name: language === "fr" ? "Plus" : "More",
+      children: [
+        { name: t("nav.certifications"), href: "#certifications" },
+        { name: t("nav.languages") || "Languages", href: "#languages" },
+        { name: t("nav.recommendations") || "Recommendations", href: "#recommendations" },
+      ],
+    },
     { name: t("nav.contact"), href: "#contact" },
   ]
 
-  // Measure the full name width after render
+  const allSections = navItems.flatMap((item) =>
+    item.children ? item.children.map((c) => c.href.substring(1)) : [item.href.substring(1)]
+  )
+
   useEffect(() => {
     if (fullNameRef.current) {
       setFullNameWidth(fullNameRef.current.offsetWidth)
@@ -47,14 +69,11 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
 
-      // Determine active section based on scroll position
-      const sections = navItems.map((item) => item.href.substring(1))
       const scrollPosition = window.scrollY + 100
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i])
+      for (let i = allSections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(allSections[i])
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i])
+          setActiveSection(allSections[i])
           break
         }
       }
@@ -70,33 +89,43 @@ export default function Header() {
     const element = document.getElementById(targetId)
 
     if (element) {
-      // Close mobile menu if open
       setMobileMenuOpen(false)
-
-      // Smooth scroll to the element
+      setOpenDropdown(null)
       window.scrollTo({
-        top: element.offsetTop - 80, // Adjust for header height
+        top: element.offsetTop - 80,
         behavior: "smooth",
       })
-
-      // Update active section
       setActiveSection(targetId)
     }
   }
 
-  // Close mobile menu when clicking outside
+  const isGroupActive = (item) => {
+    if (!item.children) return activeSection === item.href.substring(1)
+    return item.children.some((c) => activeSection === c.href.substring(1))
+  }
+
+  const handleDropdownEnter = (name) => {
+    clearTimeout(dropdownTimeoutRef.current)
+    setOpenDropdown(name)
+  }
+
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (mobileMenuOpen && !event.target.closest(".mobile-menu") && !event.target.closest(".menu-button")) {
         setMobileMenuOpen(false)
       }
+      if (openDropdown && !event.target.closest(".nav-dropdown")) {
+        setOpenDropdown(null)
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [mobileMenuOpen])
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [mobileMenuOpen, openDropdown])
 
   return (
     <header
@@ -121,7 +150,6 @@ export default function Header() {
                 className="relative overflow-visible inline-flex"
                 style={{ minWidth: isLogoHovered ? fullNameWidth : "auto" }}
               >
-                {/* Short version (AO) - hidden when hovered */}
                 <motion.span
                   className="!text-gray-900 dark:!text-gray-100"
                   animate={{
@@ -133,7 +161,6 @@ export default function Header() {
                   AO
                 </motion.span>
 
-                {/* Full name version - shown when hovered */}
                 <motion.span
                   ref={fullNameRef}
                   className="!text-gray-900 dark:!text-gray-100 whitespace-nowrap"
@@ -152,7 +179,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Underline animation */}
           <motion.div
             className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-gray-800"
             initial={{ width: 0 }}
@@ -163,27 +189,85 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                activeSection === item.href.substring(1)
-                  ? "text-primary dark:text-primary"
-                  : "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
-              }`}
-            >
-              {item.name}
-              {activeSection === item.href.substring(1) && (
-                <motion.span
-                  layoutId="activeSection"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.children ? (
+              <div
+                key={item.name}
+                className="relative nav-dropdown"
+                onMouseEnter={() => handleDropdownEnter(item.name)}
+                onMouseLeave={handleDropdownLeave}
+              >
+                <button
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors inline-flex items-center gap-1 ${
+                    isGroupActive(item)
+                      ? "text-primary dark:text-primary"
+                      : "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                  <ChevronDown
+                    className={`h-3 w-3 transition-transform duration-200 ${
+                      openDropdown === item.name ? "rotate-180" : ""
+                    }`}
+                  />
+                  {isGroupActive(item) && (
+                    <motion.span
+                      layoutId="activeSection"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </button>
+
+                <AnimatePresence>
+                  {openDropdown === item.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-1 min-w-[180px] py-1.5 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50"
+                    >
+                      {item.children.map((child) => (
+                        <a
+                          key={child.name}
+                          href={child.href}
+                          onClick={(e) => handleNavClick(e, child.href)}
+                          className={`block px-4 py-2.5 text-sm transition-colors ${
+                            activeSection === child.href.substring(1)
+                              ? "text-primary bg-primary/5 font-medium"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:text-primary"
+                          }`}
+                        >
+                          {child.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                  activeSection === item.href.substring(1)
+                    ? "text-primary dark:text-primary"
+                    : "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
+                }`}
+              >
+                {item.name}
+                {activeSection === item.href.substring(1) && (
+                  <motion.span
+                    layoutId="activeSection"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            )
+          )}
           <div className="flex items-center space-x-1 ml-2">
             <LanguageToggle />
             <ModeToggle />
@@ -193,7 +277,6 @@ export default function Header() {
         {/* Mobile Controls */}
         {hasMounted && (
         <div className="flex items-center md:hidden">
-          {/* Language and Theme Toggles */}
           <div className="flex items-center mr-4">
             <div className="p-1.5 bg-gray-100 dark:bg-gray-800 rounded-md mr-2">
               <LanguageToggle />
@@ -203,7 +286,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Hamburger Menu Button */}
           <Button
             variant="outline"
             size="icon"
@@ -248,7 +330,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 overflow-hidden mobile-menu"
           >
             <div className="px-4 py-4 space-y-2">
               <div className="flex items-center justify-between">
@@ -264,29 +346,92 @@ export default function Header() {
                 </Button>
               </div>
 
-              <div className="grid gap-2">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                      activeSection === item.href.substring(1)
-                        ? "bg-primary/10 text-primary"
-                        : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }`}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.04 }}
-                  >
-                    <span>{item.name}</span>
-                    <ChevronRight
-                      className={`h-4 w-4 ${
-                        activeSection === item.href.substring(1) ? "text-primary" : "text-gray-400 dark:text-gray-500"
+              <div className="grid gap-1">
+                {navItems.map((item, index) =>
+                  item.children ? (
+                    <div key={item.name}>
+                      <motion.button
+                        onClick={() =>
+                          setExpandedMobileGroup(
+                            expandedMobileGroup === item.name ? null : item.name
+                          )
+                        }
+                        className={`flex items-center justify-between w-full rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                          isGroupActive(item)
+                            ? "bg-primary/10 text-primary"
+                            : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        }`}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.04 }}
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform duration-200 ${
+                            expandedMobileGroup === item.name ? "rotate-180" : ""
+                          } ${
+                            isGroupActive(item) ? "text-primary" : "text-gray-400 dark:text-gray-500"
+                          }`}
+                        />
+                      </motion.button>
+
+                      <AnimatePresence>
+                        {expandedMobileGroup === item.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 py-1 space-y-1">
+                              {item.children.map((child) => (
+                                <a
+                                  key={child.name}
+                                  href={child.href}
+                                  onClick={(e) => handleNavClick(e, child.href)}
+                                  className={`flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                                    activeSection === child.href.substring(1)
+                                      ? "bg-primary/10 text-primary"
+                                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                  }`}
+                                >
+                                  <span>{child.name}</span>
+                                  <ChevronRight
+                                    className={`h-3.5 w-3.5 ${
+                                      activeSection === child.href.substring(1) ? "text-primary" : "text-gray-400"
+                                    }`}
+                                  />
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                        activeSection === item.href.substring(1)
+                          ? "bg-primary/10 text-primary"
+                          : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                       }`}
-                    />
-                  </motion.a>
-                ))}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.04 }}
+                    >
+                      <span>{item.name}</span>
+                      <ChevronRight
+                        className={`h-4 w-4 ${
+                          activeSection === item.href.substring(1) ? "text-primary" : "text-gray-400 dark:text-gray-500"
+                        }`}
+                      />
+                    </motion.a>
+                  )
+                )}
               </div>
 
               <div className="pt-3 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">

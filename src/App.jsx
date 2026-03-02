@@ -15,6 +15,7 @@ import { ThemeProvider } from './pages/theme-provider/theme-provider.jsx';
 import { Volunteering } from './pages/volunteering/volunteering.jsx';
 import { Education } from './pages/Education/Education.jsx';
 import { Languages } from './pages/Languages/Languages.jsx';
+import { Recommendations } from './pages/Recommendations/Recommendations.jsx';
 
 function App() {
 
@@ -57,6 +58,8 @@ function App() {
                 <Certifications/>
 
                 <Languages/>
+
+                <Recommendations/>
 
                 <Footer/>
 

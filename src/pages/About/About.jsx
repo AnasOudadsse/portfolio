@@ -59,7 +59,7 @@ export function About() {
                   </div>
                   <div className="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-1.5 bg-white dark:bg-gray-800">
                     <div className="relative overflow-hidden rounded-2xl">
-                      <img src="/mypic-profile.jpeg" alt="Anas Oudadsse" className="w-full h-auto object-cover" />
+                      <img src="/mypic-profile.jpeg " alt="Anas Oudadsse" className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">
                       &#47;&#47; profile_image.jpg
