@@ -62,11 +62,6 @@ const translations = {
             "Extensive experience in front-end and back-end development, mastering React.js, Flutter, Laravel, Node.js, and Tailwind CSS. I build scalable web and mobile applications using both relational (MySQL) and non-relational (MongoDB) databases, deployed for thousands of users.",
         },
         {
-          title: "UI/UX Design",
-          description:
-            "Strong expertise in UI/UX design with Figma, creating complete design systems and responsive interfaces. I design user-centric experiences that scale, from wireframes to production-ready interfaces.",
-        },
-        {
           title: "Digital Transformation & Process Digitalization",
           description:
             "Transforming manual processes into automated digital solutions. I design and implement digitalization initiatives that streamline workflows, reduce manual work, and improve operational efficiency across organizations.",
@@ -200,11 +195,6 @@ const translations = {
           title: "Développement Full-Stack",
           description:
             "Expérience approfondie en développement front-end et back-end, maîtrisant React.js, Flutter, Laravel, Node.js et Tailwind CSS. Je crée des applications web et mobiles évolutives avec des bases de données relationnelles (MySQL) et non relationnelles (MongoDB), déployées pour des milliers d'utilisateurs.",
-        },
-        {
-          title: "Design UI/UX",
-          description:
-            "Solide expertise en design UI/UX avec Figma, créant des systèmes de design complets et des interfaces réactives. Je conçois des expériences centrées utilisateur et prêtes à l'échelle, des wireframes aux interfaces prêtes pour la production.",
         },
         {
           title: "Transformation Digitale & Digitalisation de Processus",

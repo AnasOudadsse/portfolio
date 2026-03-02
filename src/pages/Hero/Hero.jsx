@@ -54,7 +54,7 @@ export function Hero() {
         style={{ y, opacity }}
         className="container mx-auto px-4 relative z-10"
       >
-        <div className="flex flex-col mx-20 -mt-10 lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col -mt-6 mx-0 sm:mx-4 lg:mx-20 lg:-mt-10 lg:flex-row items-center justify-between gap-12 lg:gap-16 pb-24 sm:pb-28 lg:pb-0">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ export function Hero() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 font-extrabold leading-tight tracking-tight">
               {t("hero.greeting")}{" "}
               <span className="relative">
-                <span className="relative z-10 text-gray-900 dark:text-gray-100 bg-clip-text text-transparent">
+                <span className="relative z-10 text-gray-900 dark:text-gray-100">
                   Anas
                 </span>
                 {/* <motion.span
@@ -80,6 +80,23 @@ export function Hero() {
                 /> */}
               </span>
             </h1>
+
+            {/* Mobile image under heading */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="block lg:hidden mt-5"
+            >
+              <div className="relative w-36 h-36 mx-auto sm:w-44 sm:h-44">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-gray-800/20 rounded-2xl" />
+                <img
+                  src="/Mypic2024-cropped.jpg"
+                  alt="Anas Oudadsse"
+                  className="relative z-10 w-full h-full object-cover rounded-2xl shadow-xl"
+                />
+              </div>
+            </motion.div>
 
             <div className="relative mb-6 sm:mb-4 text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
               <div className="grid" aria-hidden="true">
@@ -197,7 +214,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image (desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
@@ -222,8 +239,8 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
+        transition={{ delay: 1.9 }}
+        className="hidden md:block absolute bottom-5 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center">
           <span className="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll</span>
