@@ -15,6 +15,7 @@ import { Volunteering } from './pages/volunteering/volunteering.jsx';
 import { Education } from './pages/Education/Education.jsx';
 import { Languages } from './pages/Languages/Languages.jsx';
 import { Recommendations } from './pages/Recommendations/Recommendations.jsx';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
 
                 <Footer/>
 
+                <Analytics />
               </Box>
           </BrowserRouter>
         </LanguageProvider>

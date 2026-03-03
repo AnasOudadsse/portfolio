@@ -22,8 +22,26 @@ const recommendationsData = [
       en: "I highly endorse Anas for his exceptional intelligence and unwavering dedication to his work. Having closely collaborated with him on several occasions during various events, I have consistently witnessed his impressive capabilities and relentless commitment to excellence. Anas consistently surpasses expectations and exhibits outstanding qualities that make him a valuable asset in any endeavor.",
       fr: "Je recommande vivement Anas pour son intelligence exceptionnelle et son engagement indéfectible dans son travail. Ayant étroitement collaboré avec lui à plusieurs reprises lors de différents événements, j'ai constamment constaté ses capacités impressionnantes et son engagement inlassable envers l'excellence. Anas dépasse systématiquement les attentes et démontre des qualités remarquables qui font de lui un atout précieux dans tout projet.",
     },
-    image: null,
+    image: "/fouzia.png",
     linkedinUrl: "https://www.linkedin.com/in/anas-oudadsse/",
+  },
+  {
+    name: "Hakim Mezrioui",
+    role: {
+      en: "Full Stack & IoT Developer",
+      fr: "Développeur Full Stack & IoT",
+    },
+    relationship: {
+      en: "Worked with Anas on the same team",
+      fr: "A travaillé avec Anas dans la même équipe",
+    },
+    date: "March 2026",
+    text: {
+      en: "Anas is much more than a colleague to me; he is a partner whom I now consider a brother. Working alongside him is a unique experience. Anas has overflowing creativity and a rare capacity for initiative, especially when it comes to making critical decisions in decisive moments. What truly sets him apart is his unshakable calm: even in the most intense crisis periods, his presence and professionalism make everything feel under control and smooth. He has a gift for turning high-pressure environments into calm and efficient workplaces. He is a talented developer, a natural leader, and a deeply caring person. I recommend him without hesitation to any organization looking for technical excellence combined with outstanding human qualities.",
+      fr: "Anas est bien plus qu’un collègue pour moi ; c’est un partenaire que je considère aujourd’hui comme un frère. Travailler à ses côtés est une expérience unique. Anas possède une créativité débordante et une capacité d'initiative rare, notamment lorsqu'il s'agit de prendre des décisions critiques dans des moments décisifs. Ce qui le distingue vraiment, c’est son calme olympien : même dans les périodes de crise les plus intenses, sa présence et son professionnalisme font que tout semble sous contrôle et fluide. Il a ce don de transformer un environnement sous pression en un cadre de travail serein et efficace. C’est un développeur talentueux, un leader naturel et une personne d'une grande bienveillance. Je le recommande les yeux fermés à toute organisation qui recherche l’excellence technique alliée à des qualités humaines exceptionnelles.",
+    },
+    image: "/hakim.png",
+    linkedinUrl: null,
   },
 ];
 
