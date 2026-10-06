@@ -76,11 +76,11 @@ const projectsData = [
       fr: "Photo-UM6SS",
     },
     description: {
-      en: "Full-stack photo management system with biometric enrollment integration for UM6SS. Features webcam integration for real-time photo capture, image cropping and editing, and seamless BioStar API integration for face recognition enrollment. Supports multi-campus deployment across 5 cities (Casablanca, Rabat, Marrakech, Dakhla, Agadir) with role-based access control (Admin, Agent, Student). Built with React 19, Laravel 12, JWT authentication, and organized file storage. Handles thousands of student enrollments with automatic user synchronization between local database and BioStar biometric systems.",
-      fr: "Système complet de gestion de photos avec intégration d'enrôlement biométrique pour l'UM6SS. Comprend l'intégration webcam pour la capture de photos en temps réel, le recadrage et l'édition d'images, et l'intégration API BioStar pour l'enrôlement par reconnaissance faciale. Supporte le déploiement multi-campus dans 5 villes (Casablanca, Rabat, Marrakech, Dakhla, Agadir). Développé avec React 19, Laravel 12, authentification JWT et stockage de fichiers organisé. Gère des milliers d'inscriptions d'étudiants avec synchronisation automatique entre la base de données locale et les systèmes biométriques BioStar.",
+      en: "Biometric photo and student-badge management system, deployed across UM6SS's 5 campuses (~40 schools, 17,000+ students). The app covers the full cycle: capturing the ID photo, enrolling the face on the biometric readers, printing the badge, and staying continuously in sync with the university's ERP.\n\nCore features:\n• Photo capture & processing — webcam or DSLR capture, standards-compliant cropping, automatic OneDrive archiving.\n• Biometric enrollment — creates the student on their campus's BioStar 2 server through the REST API: image normalization, Visual Face template extraction, assignment to their school's access group.\n• Student badges — card template editor, generation with QR code, print-ready CMYK export.\n• Konosys ERP sync — a headless Playwright agent continuously imports new enrollments and withdrawals, and pushes the approved photo straight into the student's ERP record.\n• Cross-campus transfers — automatic detection of school changes, migrating the biometric account and photo to the new campus.\n• Audit & reconciliation — compares the app database against the BioStar servers and bulk-repairs failed enrollments.\n• Administration — roles and permissions (admin / per-campus agent / student), activity log, trash bin, enrollment certificates.\n\nRunning in production on a Windows Server intranet (Apache + MySQL), with one-click deployment via a self-hosted GitHub Actions runner.",
+      fr: "Système de gestion biométrique des photos et badges étudiants, déployé sur les 5 campus de l'UM6SS (≈40 établissements, 17 000+ étudiants). L'application couvre tout le cycle : capture de la photo d'identité, enrôlement du visage sur les lecteurs biométriques, impression du badge, et synchronisation permanente avec l'ERP de l'université.\n\nFonctionnalités principales :\n• Capture & traitement photo — prise de vue webcam ou reflex (DSLR), recadrage aux normes, archivage automatique sur OneDrive.\n• Enrôlement biométrique — création de l'étudiant sur le serveur BioStar 2 de son campus via l'API REST : normalisation de l'image, extraction du template Visual Face, affectation au groupe d'accès de son établissement.\n• Badges étudiants — éditeur de modèles de carte, génération avec QR code et export CMYK prêt à l'impression.\n• Synchronisation ERP Konosys — agent headless Playwright qui importe en continu les nouveaux inscrits et les désistements, et pousse la photo validée directement dans la fiche étudiant.\n• Transferts inter-campus — détection automatique des changements d'établissement, avec migration du compte biométrique et de la photo vers le nouveau campus.\n• Suivi & réconciliation — audit entre la base applicative et les serveurs BioStar, avec réparation en masse des enrôlements en erreur.\n• Administration — rôles et permissions (admin / agent par campus / étudiant), journal d'activité, corbeille, attestations d'inscription.\n\nEn production sur un intranet Windows Server (Apache + MySQL), avec déploiement en un clic via un runner GitHub Actions auto-hébergé.",
     },
     imageSrc: "/Photo-um6ss.png",
-    tags: ["React 19", "Laravel 12", "JWT", "BioStar API", "Webcam", "Multi-Campus", "Biometric", "File Management"],
+    tags: ["React 19", "Laravel 12", "MySQL", "Tailwind CSS", "shadcn/ui", "API BioStar 2", "Playwright", "JWT", "RBAC", "GitHub Actions"],
     externalLink: null,
     repoLink: null,
     color: "from-rose-500/20 to-orange-500/20",
@@ -590,7 +590,7 @@ export function Projects() {
                                   <span className={`mr-2 ${project.iconColor}`}>●</span>
                                   {project.title[language]}
                                 </h3>
-                                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6">
+                                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 whitespace-pre-line">
                                   {project.description[language]}
                                 </p>
 
@@ -685,7 +685,7 @@ export function Projects() {
                       <span className={`mr-2 ${project.iconColor}`}>●</span>
                       {project.title[language]}
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-6">{project.description[language]}</p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 whitespace-pre-line">{project.description[language]}</p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, i) => (
