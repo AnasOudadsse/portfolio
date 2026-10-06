@@ -14,6 +14,25 @@ import { useLanguage } from "@/context/language-context";
 
 const CertifData = [
   {
+    title: { en: "Claude Code in Action", fr: "Claude Code en Action" },
+    date: "7 March 2026",
+    issuer: { en: "ANTHROPIC", fr: "ANTHROPIC" },
+    description: {
+      en: "A course by Anthropic on using Claude Code, its agentic AI coding assistant, to explore codebases, implement features, and automate development workflows with tools, hooks, and MCP servers.",
+      fr: "Un cours d'Anthropic sur l'utilisation de Claude Code, son assistant de programmation IA agentique, pour explorer des bases de code, implémenter des fonctionnalités et automatiser les workflows de développement avec des outils, des hooks et des serveurs MCP.",
+    },
+    credentials: "https://verify.skilljar.com/c/qbhq8oz6q5ii",
+    skills: [
+      "Claude Code",
+      "AI-Assisted Development",
+      "Agentic Workflows",
+      "MCP",
+      "Prompt Engineering",
+    ],
+    image: "/claude-code-certif.png",
+    accent: "from-orange-400 to-amber-600",
+  },
+  {
     title: { en: "AI Fundamentals", fr: "Fondamentaux de l'IA" },
     date: "26 February 2026",
     issuer: { en: "GOOGLE", fr: "GOOGLE" },
